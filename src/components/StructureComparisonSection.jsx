@@ -97,7 +97,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
       style={{
         width: '100%',
         backgroundColor: '#FFFFFF',
-        padding: '44px 20px',
+        padding: '15px 20px',
         position: 'relative',
         userSelect: 'none',
         overflow: 'hidden',

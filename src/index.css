@@ -480,5 +480,35 @@ p, li, blockquote,
   font-family: 'Caveat', cursive;
 }
 
+/* ==========================================================================
+   GLOBAL SECTION SPACING OVERRIDE (15px Height Padding Between Sections)
+   ========================================================================== */
+
+/* Standard content sections across the entire website */
+section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]) {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+/* Hero sections: Preserve top clearance for navbar, set bottom padding to 15px */
+section[class*="min-h-"],
+section[class*="min-h-[8"],
+section[class*="min-h-[9"],
+section[class*="min-h-screen"] {
+  padding-bottom: 15px !important;
+}
+
+/* Component-specific section classes */
+.why-partners-section,
+.transparency-section,
+.our-values-section,
+.three-i-section,
+.management-team-section,
+.data-security-section,
+.interview-process-section {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
 
 

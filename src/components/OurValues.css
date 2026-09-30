@@ -4,8 +4,8 @@
   position: relative;
   width: 100%;
   background-color: #FAF7F2;
-  padding-top: 4.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
   overflow: hidden;
   user-select: none;
   font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -13,8 +13,8 @@
 
 @media (min-width: 768px) {
   .our-values-section {
-    padding-top: 5rem;
-    padding-bottom: 6rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 

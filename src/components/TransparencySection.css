@@ -6,14 +6,14 @@
   position: relative;
   width: 100%;
   background-color: #FAF7F2;
-  padding: 60px 0 90px;
+  padding: 15px 0;
   overflow: hidden;
   user-select: none;
 }
 
 @media (min-width: 1024px) {
   .transparency-section {
-    padding: 70px 0 100px;
+    padding: 15px 0;
   }
 }
 
