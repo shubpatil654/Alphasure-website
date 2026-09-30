@@ -26,12 +26,12 @@ export default function EverythingElsePage({ onOpenModal }) {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
-            <div className="lg:col-span-9 xl:col-span-8 flex flex-col items-start text-left text-white space-y-5 sm:space-y-6">
+            <div className="lg:col-span-10 xl:col-span-9 flex flex-col items-start text-left text-white space-y-5 sm:space-y-6">
               
               {/* Main Headline Title */}
-              <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                Your business shouldn't need<br />
-                a different service provider<br />
+              <h1 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-2xl max-w-3xl leading-[1.18]">
+                Your business shouldn't need<br className="hidden sm:inline" />{' '}
+                a separate service provider<br className="hidden sm:inline" />{' '}
                 for every new requirement.
               </h1>
 
