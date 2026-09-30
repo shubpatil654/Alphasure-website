@@ -49,8 +49,8 @@ export default function GstTdsCompliancePage({ onOpenModal }) {
 
               {/* Main Headline Title */}
               <div className="space-y-1 sm:space-y-2">
-                <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                  Deadlines Don't Wait. Neither Do We. <br />
+                <h1 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-2xl max-w-4xl leading-[1.2]">
+                  Deadlines Don't Wait. Neither Do We. <br className="hidden sm:inline" />{' '}
                   <span className="text-white/90">File on Time. <span className="whitespace-nowrap">Stay Compliant.</span> <span className="whitespace-nowrap">Avoid Penalties.</span></span>
                 </h1>
               </div>
