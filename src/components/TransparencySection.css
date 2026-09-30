@@ -1,0 +1,118 @@
+/* =========================================================
+   TRANSPARENCY MATTERS TO US SECTION STYLES (MATCHING IMAGE 2)
+   ========================================================= */
+
+.transparency-section {
+  position: relative;
+  width: 100%;
+  background-color: #FAF7F2;
+  padding: 60px 0 90px;
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .transparency-section {
+    padding: 70px 0 100px;
+  }
+}
+
+.transparency-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================= DESKTOP STAGE (Screens >= 1024px) ================= */
+.transparency-desktop-stage {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.transparency-artwork-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 22px 55px rgba(15, 26, 45, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.transparency-artwork-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 65px rgba(15, 26, 45, 0.11);
+}
+
+/* ================= MOBILE / TABLET STAGE (Screens < 1024px) ================= */
+.transparency-mobile-stage {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.transparency-mobile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.transparency-eyebrow-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.transparency-eyebrow-text {
+  font-size: var(--font-eyebrow);
+  line-height: var(--lh-eyebrow);
+  font-weight: 600;
+  color: #7D6B56;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.transparency-eyebrow-line {
+  display: inline-block;
+  width: 44px;
+  height: 1.5px;
+  background-color: #C5A059;
+  border-radius: 1px;
+}
+
+/* Main Title (H2) */
+.transparency-main-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.transparency-title-bar {
+  width: 44px;
+  height: 2.5px;
+  background-color: #C5A059;
+  margin: 16px 0 22px;
+  border-radius: 2px;
+}
+
+.transparency-copy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: #4A5568;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.transparency-copy-block p {
+  margin: 0;
+}

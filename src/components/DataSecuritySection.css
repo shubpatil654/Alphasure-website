@@ -1,0 +1,217 @@
+/* DataSecuritySection.css - Pixel-Perfect ISO 27001 Data Security Showcase */
+
+.data-security-section {
+  position: relative;
+  width: 100%;
+  background-color: #FAF7F2;
+  padding-top: 5rem;
+  padding-bottom: 5.5rem;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .data-security-section {
+    padding-top: 6rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+.data-security-container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* 2-Column Grid */
+.data-security-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .data-security-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left Column */
+.data-security-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Eyebrow Tag */
+.data-security-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.data-security-tag-line {
+  height: 1.5px;
+  width: 3.25rem;
+  background-color: rgba(197, 160, 89, 0.75);
+}
+
+.data-security-tag-text {
+  font-size: var(--font-eyebrow);
+  line-height: var(--lh-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A67C52;
+}
+
+/* Main Title (H2) */
+.data-security-main-title {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: var(--font-h2);
+  line-height: var(--lh-h2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.title-dark {
+  color: #0B192C;
+}
+
+.title-gold {
+  color: #A67C52;
+}
+
+/* Short Title Bar */
+.data-security-title-bar {
+  width: 3.5rem;
+  height: 2.5px;
+  background-color: #C5A059;
+  margin-top: 0.9rem;
+  margin-bottom: 1.75rem;
+  border-radius: 9999px;
+}
+
+/* Text Stack */
+.data-security-text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
+
+.data-security-p {
+  font-size: var(--font-body);
+  line-height: var(--lh-body);
+  color: #4B5563;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* 4 Security Pillars Row */
+.security-pillars-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 580px;
+  padding-top: 0.75rem;
+  border-top: 1px solid #EADBCA;
+}
+
+@media (min-width: 640px) {
+  .security-pillars-row {
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+  }
+}
+
+.security-pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 80px;
+}
+
+.security-pillar-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background-color: #F8F3EA;
+  border: 1px solid #E8DCCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.security-pillar-item:hover .security-pillar-icon-badge {
+  transform: translateY(-2px);
+  background-color: #F2E8D8;
+}
+
+.security-pillar-label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #0B192C;
+  line-height: 1.25;
+}
+
+.security-pillar-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #E2D4C0;
+  flex-shrink: 0;
+}
+
+/* Right Column: 3D Shield Graphic */
+.data-security-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.shield-graphic-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shield-graphic-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.06));
+  transition: transform 0.4s ease;
+}
+
+.shield-graphic-wrapper:hover .shield-graphic-img {
+  transform: scale(1.02);
+}

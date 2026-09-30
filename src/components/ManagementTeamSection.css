@@ -1,0 +1,249 @@
+/* ManagementTeamSection.css - Pixel-Perfect 1:1 Executive Leadership Showcase */
+
+.management-team-section {
+  position: relative;
+  width: 100%;
+  background-color: #FAF7F2;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .management-team-section {
+    padding-top: 5.5rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.management-team-container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header Section */
+.management-team-header {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.management-team-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.management-team-tag-line {
+  height: 1.5px;
+  width: 3.5rem;
+  background-color: rgba(197, 160, 89, 0.75);
+}
+
+@media (min-width: 640px) {
+  .management-team-tag-line {
+    width: 4.5rem;
+  }
+}
+
+.management-team-tag-text {
+  font-size: var(--font-eyebrow);
+  line-height: var(--lh-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A67C52;
+}
+
+/* Main Title (H2) */
+.management-team-main-title {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: var(--font-h2);
+  line-height: var(--lh-h2);
+  font-weight: 700;
+  color: #0B192C;
+  letter-spacing: -0.02em;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.management-team-subtitle {
+  font-size: var(--font-large-body);
+  line-height: var(--lh-large-body);
+  font-weight: 400;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* 3 Cards Grid */
+.management-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .management-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .management-team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* Individual Leader Card */
+.leader-card {
+  background-color: #FFFFFF;
+  border-radius: 26px;
+  border: 1px solid #EFE5D8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* Portrait & Arch Area */
+.leader-portrait-wrapper {
+  position: relative;
+  width: 100%;
+  height: 245px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(180deg, #FAF7F2 0%, #FFFFFF 100%);
+  padding-bottom: 0.5rem;
+}
+
+/* Decorative Warm Beige Backdrop Shape */
+.leader-portrait-backdrop {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 215px;
+  height: 215px;
+  border-radius: 9999px 9999px 24px 24px;
+  background: linear-gradient(135deg, #F3E8DA 0%, #E8D9C5 100%);
+  opacity: 0.85;
+}
+
+/* Architectural Arch Frame */
+.leader-arch-frame {
+  position: relative;
+  width: 175px;
+  height: 220px;
+  border-radius: 9999px 9999px 12px 12px;
+  overflow: hidden;
+  border: 2.5px solid #DFC8A5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  background-color: #EDE4D8;
+  z-index: 2;
+  margin-left: 28px;
+}
+
+.leader-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.leader-card:hover .leader-photo {
+  transform: scale(1.04);
+}
+
+/* Number Badge on Left */
+.leader-number-badge {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.leader-number-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #A67C52;
+  line-height: 1;
+}
+
+.leader-number-bar {
+  width: 1.75rem;
+  height: 2px;
+  background-color: #C5A059;
+  margin-top: 0.35rem;
+  border-radius: 9999px;
+}
+
+/* Card Body */
+.leader-card-body {
+  padding: 1.15rem 1.6rem 2.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+.leader-name {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: var(--font-h3);
+  font-weight: 600;
+  color: #0B192C;
+  letter-spacing: -0.015em;
+  line-height: var(--lh-h3);
+  margin: 0 0 0.25rem 0;
+}
+
+.leader-role {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #A67C52;
+  margin-bottom: 1.15rem;
+  letter-spacing: 0.01em;
+}
+
+.leader-bio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.leader-bio-p {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #4B5563;
+  font-weight: 400;
+  margin: 0;
+}

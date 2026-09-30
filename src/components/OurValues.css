@@ -1,0 +1,181 @@
+/* OurValues.css - Pixel-Perfect 2x2 Jigsaw Puzzle Composition */
+
+.our-values-section {
+  position: relative;
+  width: 100%;
+  background-color: #FAF7F2;
+  padding-top: 4.5rem;
+  padding-bottom: 5.5rem;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .our-values-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Header Section */
+.our-values-header {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.our-values-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.our-values-tag-line {
+  height: 1.5px;
+  width: 3.5rem;
+  background-color: rgba(197, 160, 89, 0.75);
+}
+
+@media (min-width: 640px) {
+  .our-values-tag-line {
+    width: 4.5rem;
+  }
+}
+
+.our-values-tag-text {
+  font-size: var(--font-eyebrow);
+  line-height: var(--lh-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A67C52;
+}
+
+/* Main Title (H2) */
+.our-values-main-title {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: var(--font-h2);
+  line-height: var(--lh-h2);
+  font-weight: 700;
+  color: #0B192C;
+  letter-spacing: -0.02em;
+  margin-top: 0.25rem;
+}
+
+.our-values-title-bar {
+  width: 3.5rem;
+  height: 2.5px;
+  background-color: #C5A059;
+  margin-top: 0.6rem;
+  border-radius: 9999px;
+}
+
+/* Stage Canvas */
+.our-values-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Puzzle Piece Hover Effects */
+.puzzle-interactive-piece {
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s ease;
+  transform-origin: 600px 430px;
+}
+
+.puzzle-interactive-piece:hover {
+  transform: scale(1.025);
+  filter: drop-shadow(0 24px 34px rgba(8, 20, 38, 0.35));
+}
+
+/* SVG Integrated Description Blocks */
+.svg-desc-fo {
+  overflow: visible;
+  pointer-events: auto;
+  transition: transform 0.25s ease;
+}
+
+.svg-desc-active {
+  transform: translateY(-2px);
+}
+
+.svg-desc-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.svg-desc-title {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0B192C;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.svg-desc-line {
+  width: 2.25rem;
+  height: 2px;
+  margin-top: 0.45rem;
+  margin-bottom: 0.65rem;
+  border-radius: 9999px;
+}
+
+.svg-desc-body {
+  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4B5563;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Layout (Stacked fallback for screens < 1024px) */
+.mobile-values-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.mobile-puzzle-box {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.mobile-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.mobile-card-item {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #E8DCCB;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
