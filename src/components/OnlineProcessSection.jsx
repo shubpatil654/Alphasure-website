@@ -120,7 +120,7 @@ export default function OnlineProcessSection() {
       style={{
         width: '100%',
         backgroundColor: '#0B132A',
-        padding: '15px 24px',
+        padding: '80px 24px',
         position: 'relative',
         userSelect: 'none',
         overflow: 'hidden',

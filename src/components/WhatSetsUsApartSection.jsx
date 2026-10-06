@@ -37,7 +37,7 @@ export default function WhatSetsUsApartSection() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-10 sm:py-14 md:py-16 bg-white overflow-hidden select-none"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-white overflow-hidden select-none"
     >
       <div className="w-full max-w-full mx-auto px-2 sm:px-4 lg:px-6">
         

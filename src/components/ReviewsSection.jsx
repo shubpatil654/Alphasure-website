@@ -87,7 +87,7 @@ export default function ReviewsSection() {
   const marqueeItems = [...reviewsList, ...reviewsList];
 
   return (
-    <section className="relative w-full py-6 sm:py-8 bg-[#FAF7F2] border-t border-b border-[#E8E2D5] overflow-hidden select-none">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FAF7F2] border-t border-b border-[#E8E2D5] overflow-hidden select-none">
       
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -95,7 +95,7 @@ export default function ReviewsSection() {
       <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center mb-4 sm:mb-5 max-w-3xl mx-auto flex flex-col items-center">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14 max-w-3xl mx-auto flex flex-col items-center">
           
           {/* Google Review Badge Header */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F0EBE1] border border-[#E3DCCF] text-amber-500 text-xs sm:text-sm font-bold shadow-xs mb-3 sm:mb-4">

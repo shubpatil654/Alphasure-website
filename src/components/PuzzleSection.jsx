@@ -149,7 +149,7 @@ const RightPushingGirl = () => (
 
 export default function PuzzleSection() {
   return (
-    <section className="relative w-full py-12 sm:py-16 bg-white overflow-hidden select-none">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white overflow-hidden select-none">
       
       {/* SVG Abstract Side Lines Background Accents - Positioned strictly on outer sides */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">

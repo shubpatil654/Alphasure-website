@@ -7,112 +7,139 @@
    ========================================================================== */
 
 :root {
-  /* Mobile Defaults (< 768px) - Increased for high readability */
-  --font-h1: 42px;
-  --lh-h1: 1.12;
+  /* Mobile Defaults (< 768px) - Crisp, legible, perfectly proportioned */
+  --font-h1: 36px;
+  --lh-h1: 1.15;
   --fw-h1: 700;
+  --ls-h1: -0.025em;
 
-  --font-h2: 36px;
-  --lh-h2: 1.15;
+  --font-h2: 28px;
+  --lh-h2: 1.2;
   --fw-h2: 700;
+  --ls-h2: -0.02em;
 
-  --font-h3: 30px;
-  --lh-h3: 1.2;
+  --font-h3: 21px;
+  --lh-h3: 1.25;
   --fw-h3: 600;
+  --ls-h3: -0.015em;
 
-  --font-h4: 25px;
-  --lh-h4: 1.25;
+  --font-h4: 18px;
+  --lh-h4: 1.3;
   --fw-h4: 600;
+  --ls-h4: -0.01em;
 
-  --font-h5: 21px;
-  --lh-h5: 1.3;
+  --font-h5: 16px;
+  --lh-h5: 1.35;
   --fw-h5: 600;
 
-  --font-h6: 18px;
-  --lh-h6: 1.3;
+  --font-h6: 14px;
+  --lh-h6: 1.4;
   --fw-h6: 600;
 
-  --font-body: 18px;
-  --lh-body: 1.65;
+  --font-body: 15px;
+  --lh-body: 1.6;
   --fw-body: 400;
 
-  --font-large-body: 20px;
+  --font-large-body: 17px;
   --lh-large-body: 1.55;
 
-  --font-small: 15px;
+  --font-small: 13px;
   --lh-small: 1.5;
 
-  --font-eyebrow: 13px;
+  --font-eyebrow: 12px;
   --lh-eyebrow: 1.3;
   --fw-eyebrow: 600;
-  --ls-eyebrow: 0.1em;
+  --ls-eyebrow: 0.08em;
 
-  --font-btn: 16px;
+  --font-btn: 15px;
   --lh-btn: 1.2;
   --fw-btn: 600;
-  --btn-min-height: 48px;
+  --btn-min-height: 46px;
 
-  --font-nav: 16px;
+  --font-nav: 14.5px;
   --fw-nav: 500;
 
-  --font-input: 16px;
-  --input-min-height: 48px;
+  --font-input: 15px;
+  --input-min-height: 46px;
 }
 
-/* Tablet: 768px - 1023px (md) - Increased scale */
+/* Tablet: 768px - 1023px (md) - Scaled with elegant proportion */
 @media (min-width: 768px) {
   :root {
-    --font-h1: 56px;
-    --font-h2: 46px;
-    --font-h3: 35px;
-    --font-h4: 28px;
-    --font-h5: 23px;
-    --font-h6: 20px;
-    --font-body: 19px;
-    --font-large-body: 22px;
-    --font-small: 16px;
-    --font-eyebrow: 13px;
-    --font-btn: 16px;
+    --font-h1: 44px;
+    --lh-h1: 1.12;
+    --font-h2: 34px;
+    --lh-h2: 1.18;
+    --font-h3: 24px;
+    --lh-h3: 1.25;
+    --font-h4: 19px;
+    --lh-h4: 1.3;
+    --font-h5: 17px;
+    --lh-h5: 1.35;
+    --font-h6: 15px;
+    --lh-body: 1.6;
+    --font-body: 15.5px;
+    --font-large-body: 18px;
+    --lh-large-body: 1.55;
+    --font-small: 13.5px;
+    --font-eyebrow: 12.5px;
+    --font-btn: 15px;
     --font-nav: 15px;
-    --font-input: 16px;
+    --font-input: 15px;
   }
 }
 
-/* Desktop: 1024px - 1439px (lg / xl) - Generous, prominent & readable scale */
+/* Desktop: 1024px - 1439px (lg / xl) - Sleek, authoritative & clean */
 @media (min-width: 1024px) {
   :root {
-    --font-h1: 72px;
-    --font-h2: 54px;
-    --font-h3: 40px;
-    --font-h4: 32px;
-    --font-h5: 26px;
-    --font-h6: 21px;
-    --font-body: 20px;
-    --font-large-body: 24px;
-    --font-small: 17px;
-    --font-eyebrow: 14px;
-    --font-btn: 16px;
-    --font-nav: 16px;
-    --font-input: 16px;
+    --font-h1: 52px;
+    --lh-h1: 1.1;
+    --font-h2: 38px;
+    --lh-h2: 1.18;
+    --font-h3: 26px;
+    --lh-h3: 1.25;
+    --font-h4: 20px;
+    --lh-h4: 1.32;
+    --font-h5: 17px;
+    --lh-h5: 1.35;
+    --font-h6: 15px;
+    --font-body: 16px;
+    --lh-body: 1.62;
+    --font-large-body: 19px;
+    --lh-large-body: 1.55;
+    --font-small: 14px;
+    --font-eyebrow: 13px;
+    --ls-eyebrow: 0.1em;
+    --font-btn: 15px;
+    --btn-min-height: 48px;
+    --font-nav: 15px;
+    --font-input: 15px;
+    --input-min-height: 48px;
   }
 }
 
 /* Extra Large Screens: >= 1440px (2xl) */
 @media (min-width: 1440px) {
   :root {
-    --font-h1: 78px;
-    --font-h2: 58px;
-    --font-h3: 42px;
-    --font-h4: 34px;
-    --font-h5: 27px;
-    --font-h6: 22px;
-    --font-body: 21px;
-    --font-large-body: 25px;
-    --font-small: 17px;
-    --font-eyebrow: 14px;
-    --font-btn: 16px;
-    --font-nav: 16px;
-    --font-input: 16px;
+    --font-h1: 56px;
+    --lh-h1: 1.08;
+    --font-h2: 42px;
+    --lh-h2: 1.16;
+    --font-h3: 28px;
+    --lh-h3: 1.24;
+    --font-h4: 21px;
+    --lh-h4: 1.3;
+    --font-h5: 18px;
+    --font-h6: 15px;
+    --font-body: 16px;
+    --lh-body: 1.62;
+    --font-large-body: 20px;
+    --lh-large-body: 1.55;
+    --font-small: 14px;
+    --font-eyebrow: 13px;
+    --font-btn: 15px;
+    --font-nav: 15px;
+    --font-input: 15px;
   }
 }
 
@@ -210,6 +237,7 @@
   font-size: var(--font-h1) !important;
   line-height: var(--lh-h1) !important;
   font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
   text-wrap: balance !important;
 }
 
@@ -217,6 +245,7 @@
   font-size: var(--font-h2) !important;
   line-height: var(--lh-h2) !important;
   font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
   text-wrap: balance !important;
 }
 
@@ -224,6 +253,7 @@
   font-size: var(--font-h3) !important;
   line-height: var(--lh-h3) !important;
   font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
   text-wrap: balance !important;
 }
 
@@ -231,6 +261,7 @@
   font-size: var(--font-h4) !important;
   line-height: var(--lh-h4) !important;
   font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
   text-wrap: balance !important;
 }
 
@@ -238,6 +269,7 @@
   font-size: var(--font-h5) !important;
   line-height: var(--lh-h5) !important;
   font-weight: 600 !important;
+  letter-spacing: -0.005em !important;
   text-wrap: balance !important;
 }
 
@@ -252,12 +284,14 @@
   font-size: var(--font-body) !important;
   line-height: var(--lh-body) !important;
   font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
   text-wrap: pretty !important;
 }
 
 .alpha-large-body, .large-body, .lead-text {
   font-size: var(--font-large-body) !important;
   line-height: var(--lh-large-body) !important;
+  letter-spacing: -0.01em !important;
   text-wrap: pretty !important;
 }
 
@@ -481,33 +515,23 @@ p, li, blockquote,
 }
 
 /* ==========================================================================
-   GLOBAL SECTION SPACING OVERRIDE (15px Height Padding Between Sections)
+   ALPHASURE PROFESSIONAL SECTION SPACING & RHYTHM SYSTEM
+   Sleek vertical cadence with generous breathing room (inspired by Sleek & Stripe)
    ========================================================================== */
 
-/* Standard content sections across the entire website */
-section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]) {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+.section-standard {
+  padding-top: clamp(52px, 6vw, 96px);
+  padding-bottom: clamp(52px, 6vw, 96px);
 }
 
-/* Hero sections: Preserve top clearance for navbar, set bottom padding to 15px */
-section[class*="min-h-"],
-section[class*="min-h-[8"],
-section[class*="min-h-[9"],
-section[class*="min-h-screen"] {
-  padding-bottom: 15px !important;
+.section-compact {
+  padding-top: clamp(32px, 3.5vw, 48px);
+  padding-bottom: clamp(32px, 3.5vw, 48px);
 }
 
-/* Component-specific section classes */
-.why-partners-section,
-.transparency-section,
-.our-values-section,
-.three-i-section,
-.management-team-section,
-.data-security-section,
-.interview-process-section {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+.section-spacious {
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
 }
 
 

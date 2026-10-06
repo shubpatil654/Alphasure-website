@@ -80,7 +80,7 @@ export default function AccountingCompliancePricingSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] py-8 sm:py-10 md:py-12 select-none overflow-hidden border-t border-[#E8DCCB]/80"
+      className="relative w-full bg-[#FAF7F2] py-16 sm:py-20 lg:py-24 select-none overflow-hidden border-t border-[#E8DCCB]/80"
       id="accounting-compliance-pricing"
     >
       {/* Background Soft Accent Lines */}

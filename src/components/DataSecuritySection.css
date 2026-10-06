@@ -4,8 +4,8 @@
   position: relative;
   width: 100%;
   background-color: #FAF7F2;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5rem;
+  padding-bottom: 5.5rem;
   overflow: hidden;
   user-select: none;
   font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -13,8 +13,8 @@
 
 @media (min-width: 768px) {
   .data-security-section {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 6rem;
+    padding-bottom: 6.5rem;
   }
 }
 

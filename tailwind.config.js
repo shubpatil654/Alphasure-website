@@ -29,9 +29,9 @@ export default {
         'alpha-large-body': ['var(--font-large-body)', { lineHeight: 'var(--lh-large-body)' }],
         'alpha-small': ['var(--font-small)', { lineHeight: 'var(--lh-small)' }],
         'alpha-eyebrow': ['var(--font-eyebrow)', { lineHeight: 'var(--lh-eyebrow)', letterSpacing: '0.1em' }],
-        'alpha-btn': ['16px', { lineHeight: '1.2', fontWeight: '600' }],
+        'alpha-btn': ['var(--font-btn)', { lineHeight: 'var(--lh-btn)', fontWeight: '600' }],
         'alpha-nav': ['var(--font-nav)', { fontWeight: '500' }],
-        'alpha-input': ['16px', { minHeight: '48px' }],
+        'alpha-input': ['var(--font-input)', { minHeight: 'var(--input-min-height)' }],
       },
       backdropBlur: {
         xs: '2px',

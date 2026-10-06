@@ -16,10 +16,10 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-6 sm:py-8 bg-white border-t border-b border-slate-100 overflow-hidden">
+    <section className="relative w-full py-10 sm:py-12 lg:py-14 bg-white border-t border-b border-slate-100 overflow-hidden">
       
       {/* Section Header */}
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-5 sm:mb-6 flex flex-col items-center">
+      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-6 sm:mb-8 flex flex-col items-center">
         <h2 className="alpha-h2 font-bold text-[#1B2538] tracking-tight">
           Trusted by <span className="font-bold text-black whitespace-nowrap">businesses worldwide</span>
         </h2>

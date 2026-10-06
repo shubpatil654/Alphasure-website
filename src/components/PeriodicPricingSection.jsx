@@ -6,7 +6,7 @@ export default function PeriodicPricingSection({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FAF8FD] via-[#F5EEFB] to-[#FAF8FD] py-8 sm:py-10 md:py-14 select-none"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FAF8FD] via-[#F5EEFB] to-[#FAF8FD] py-16 sm:py-20 lg:py-24 select-none"
       id="periodic-pricing"
     >
       {/* Background Soft Purple / Lavender Ambient Glows */}

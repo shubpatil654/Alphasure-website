@@ -74,7 +74,7 @@ export default function GettingStartedSection({ onOpenModal }) {
   ];
 
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 bg-white text-slate-900 overflow-hidden select-none">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white text-slate-900 overflow-hidden select-none">
       
       {/* ================= Geometric Red Mesh Background (Left & Right Edge Wireframes on White) ================= */}
       {/* Left Low-Poly Geometric Red Wireframe */}

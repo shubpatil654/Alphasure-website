@@ -206,27 +206,27 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             {/* Register a Business Menu Card */}
             <div 
               style={{
-                width: '1240px',
+                width: '740px',
                 maxWidth: '95vw',
-                left: '-260px',
+                left: '-160px',
               }}
-              className={`absolute top-full pt-4 z-50 transition-all duration-200 ease-out ${
+              className={`absolute top-full pt-3 z-50 transition-all duration-200 ease-out ${
                 isRegisterOpen 
                   ? 'opacity-100 translate-y-0 pointer-events-auto' 
                   : 'opacity-0 -translate-y-2 pointer-events-none'
               }`}
             >
               <div 
-                style={{ height: '20px', top: '-20px', left: 0, right: 0 }}
+                style={{ height: '14px', top: '-14px', left: 0, right: 0 }}
                 className="absolute" 
               />
 
               <div 
                 style={{
-                  borderRadius: '36px',
-                  boxShadow: '0 40px 100px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.9), 0 20px 45px -5px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '24px',
+                  boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.95)',
                   backgroundColor: '#ffffff',
-                  padding: '44px 52px',
+                  padding: '24px 28px',
                 }}
                 className="select-none"
               >
@@ -236,23 +236,23 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    paddingBottom: '24px',
-                    marginBottom: '28px',
-                    borderBottom: '1.5px solid #f1f5f9',
+                    paddingBottom: '14px',
+                    marginBottom: '16px',
+                    borderBottom: '1px solid #f1f5f9',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div className="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 flex items-center justify-center shrink-0 shadow-xs">
-                      <Sparkles className="w-7 h-7 text-[#FA5A16]" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200/80 flex items-center justify-center shrink-0 shadow-xs">
+                      <Sparkles className="w-4.5 h-4.5 text-[#FA5A16]" />
                     </div>
                     <div>
-                      <span style={{ fontSize: '20px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#1E293B' }}>
+                      <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#1E293B' }}>
                         Corporate Registration & Compliance
                       </span>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-orange-50/90 border border-orange-200 text-[#EA580C] text-[16px] font-bold tracking-wide shadow-xs">
-                    <span className="w-3 h-3 rounded-full bg-[#FA5A16] animate-pulse" />
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#EA580C] text-xs font-semibold tracking-wide shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-[#FA5A16] animate-pulse" />
                     Fast-Track MCA Filing
                   </span>
                 </div>
@@ -262,7 +262,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                    gap: '24px 44px',
+                    gap: '10px 18px',
                   }}
                 >
                   {registerSubmenu.map((item) => {
@@ -274,24 +274,24 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setIsRegisterOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="group/item flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-all duration-200 text-left cursor-pointer w-full"
+                        className="group/item flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50/90 transition-all duration-150 text-left cursor-pointer w-full"
                       >
-                        <div className="mt-1 text-[#FA5A16] shrink-0 group-hover/item:scale-110 transition-transform duration-200">
-                          <IconComp className="w-10 h-10" />
+                        <div className="mt-0.5 text-[#FA5A16] shrink-0 p-2 rounded-lg bg-orange-50/80 group-hover/item:scale-105 transition-transform duration-150">
+                          <IconComp className="w-5 h-5" />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <span 
-                            style={{ fontSize: '25px', fontWeight: 800, color: '#0f172a', lineHeight: 1.25 }} 
+                            style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', lineHeight: 1.3 }} 
                             className="group-hover/item:text-[#FA5A16] transition-colors"
                           >
                             {item.name}
                           </span>
                           <span 
-                            style={{ fontSize: '18px', color: '#64748b', fontWeight: 600, marginTop: '6px' }}
-                            className="inline-flex items-center gap-2.5 group-hover/item:text-slate-800 transition-colors"
+                            style={{ fontSize: '13px', color: '#64748b', fontWeight: 500, marginTop: '3px' }}
+                            className="inline-flex items-center gap-1.5 group-hover/item:text-slate-800 transition-colors"
                           >
                             <span>{item.subheading}</span>
-                            <ArrowRight className="w-5 h-5 text-[#FA5A16] transform transition-transform duration-200 group-hover/item:translate-x-2" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#FA5A16] transform transition-transform duration-150 group-hover/item:translate-x-1" />
                           </span>
                         </div>
                       </button>
@@ -302,15 +302,15 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 {/* Bottom Guidance Footer Strip */}
                 <div 
                   style={{
-                    marginTop: '28px',
-                    paddingTop: '24px',
-                    borderTop: '1.5px solid #f1f5f9',
+                    marginTop: '16px',
+                    paddingTop: '14px',
+                    borderTop: '1px solid #f1f5f9',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span style={{ fontSize: '18px', color: '#475569', fontWeight: 600 }}>
+                  <span style={{ fontSize: '13px', color: '#475569', fontWeight: 500 }}>
                     Not sure which business structure fits you best?
                   </span>
                   <button
@@ -318,10 +318,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                       setIsRegisterOpen(false);
                       if (onOpenModal) onOpenModal();
                     }}
-                    className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-orange-50 hover:bg-orange-100 border border-orange-200/80 text-[#FA5A16] font-extrabold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-50 hover:bg-orange-100 border border-orange-200/80 text-[#FA5A16] font-bold text-xs sm:text-sm transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
                   >
                     <span>Talk to an Expert Advisor</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -352,27 +352,27 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             {/* Accounting and Compliance Menu Card */}
             <div 
               style={{
-                width: '1240px',
+                width: '740px',
                 maxWidth: '95vw',
-                left: '-460px',
+                left: '-260px',
               }}
-              className={`absolute top-full pt-4 z-50 transition-all duration-200 ease-out ${
+              className={`absolute top-full pt-3 z-50 transition-all duration-200 ease-out ${
                 isAccountingOpen 
                   ? 'opacity-100 translate-y-0 pointer-events-auto' 
                   : 'opacity-0 -translate-y-2 pointer-events-none'
               }`}
             >
               <div 
-                style={{ height: '20px', top: '-20px', left: 0, right: 0 }}
+                style={{ height: '14px', top: '-14px', left: 0, right: 0 }}
                 className="absolute" 
               />
 
               <div 
                 style={{
-                  borderRadius: '36px',
-                  boxShadow: '0 40px 100px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.9), 0 20px 45px -5px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '24px',
+                  boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.95)',
                   backgroundColor: '#ffffff',
-                  padding: '44px 52px',
+                  padding: '24px 28px',
                 }}
                 className="select-none"
               >
@@ -382,23 +382,23 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    paddingBottom: '24px',
-                    marginBottom: '28px',
-                    borderBottom: '1.5px solid #f1f5f9',
+                    paddingBottom: '14px',
+                    marginBottom: '16px',
+                    borderBottom: '1px solid #f1f5f9',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-xs">
-                      <Calculator className="w-7 h-7 text-[#2563EB]" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-xs">
+                      <Calculator className="w-4.5 h-4.5 text-[#2563EB]" />
                     </div>
                     <div>
-                      <span style={{ fontSize: '20px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#1E293B' }}>
+                      <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#1E293B' }}>
                         Accounting, Bookkeeping & Tax Compliance
                       </span>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-50/90 border border-blue-200 text-[#2563EB] text-[16px] font-bold tracking-wide shadow-xs">
-                    <span className="w-3 h-3 rounded-full bg-[#2563EB] animate-pulse" />
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#2563EB] text-xs font-semibold tracking-wide shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
                     Dedicated CA & CPA Advisory
                   </span>
                 </div>
@@ -408,7 +408,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                    gap: '24px 44px',
+                    gap: '10px 18px',
                   }}
                 >
                   {accountingSubmenu.map((item) => {
@@ -420,24 +420,24 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setIsAccountingOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="group/item flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-all duration-200 text-left cursor-pointer w-full"
+                        className="group/item flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50/90 transition-all duration-150 text-left cursor-pointer w-full"
                       >
-                        <div className="mt-1 text-[#2563EB] shrink-0 group-hover/item:scale-110 transition-transform duration-200">
-                          <IconComp className="w-10 h-10" />
+                        <div className="mt-0.5 text-[#2563EB] shrink-0 p-2 rounded-lg bg-blue-50/80 group-hover/item:scale-105 transition-transform duration-150">
+                          <IconComp className="w-5 h-5" />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <span 
-                            style={{ fontSize: '25px', fontWeight: 800, color: '#0f172a', lineHeight: 1.25 }} 
+                            style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', lineHeight: 1.3 }} 
                             className="group-hover/item:text-[#2563EB] transition-colors"
                           >
                             {item.name}
                           </span>
                           <span 
-                            style={{ fontSize: '18px', color: '#64748b', fontWeight: 600, marginTop: '6px' }}
-                            className="inline-flex items-center gap-2.5 group-hover/item:text-slate-800 transition-colors"
+                            style={{ fontSize: '13px', color: '#64748b', fontWeight: 500, marginTop: '3px' }}
+                            className="inline-flex items-center gap-1.5 group-hover/item:text-slate-800 transition-colors"
                           >
                             <span>{item.subheading}</span>
-                            <ArrowRight className="w-5 h-5 text-[#2563EB] transform transition-transform duration-200 group-hover/item:translate-x-2" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#2563EB] transform transition-transform duration-150 group-hover/item:translate-x-1" />
                           </span>
                         </div>
                       </button>
@@ -448,26 +448,26 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 {/* Bottom Guidance Footer Strip */}
                 <div 
                   style={{
-                    marginTop: '28px',
-                    paddingTop: '24px',
-                    borderTop: '1.5px solid #f1f5f9',
+                    marginTop: '16px',
+                    paddingTop: '14px',
+                    borderTop: '1px solid #f1f5f9',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span style={{ fontSize: '18px', color: '#475569', fontWeight: 600 }}>
-                    Need a custom bookkeeping & accounting setup for your business?
+                  <span style={{ fontSize: '13px', color: '#475569', fontWeight: 500 }}>
+                    Need a custom bookkeeping & accounting setup?
                   </span>
                   <button
                     onClick={() => {
                       setIsAccountingOpen(false);
                       if (onOpenModal) onOpenModal();
                     }}
-                    className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-blue-50 hover:bg-blue-100 border border-blue-200/80 text-[#2563EB] font-extrabold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/80 text-[#2563EB] font-bold text-xs sm:text-sm transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
                   >
-                    <span>Schedule Free Accounting Consultation</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <span>Schedule Free Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -517,27 +517,27 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             {/* About Dropdown Menu Card */}
             <div 
               style={{
-                width: '680px',
+                width: '540px',
                 maxWidth: '92vw',
-                left: '-260px',
+                left: '-180px',
               }}
-              className={`absolute top-full pt-4 z-50 transition-all duration-200 ease-out ${
+              className={`absolute top-full pt-3 z-50 transition-all duration-200 ease-out ${
                 isAboutOpen 
                   ? 'opacity-100 translate-y-0 pointer-events-auto' 
                   : 'opacity-0 -translate-y-2 pointer-events-none'
               }`}
             >
               <div 
-                style={{ height: '20px', top: '-20px', left: 0, right: 0 }}
+                style={{ height: '14px', top: '-14px', left: 0, right: 0 }}
                 className="absolute" 
               />
 
               <div 
                 style={{
-                  borderRadius: '32px',
-                  boxShadow: '0 40px 100px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.9), 0 20px 45px -5px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '24px',
+                  boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.95)',
                   backgroundColor: '#ffffff',
-                  padding: '30px 36px',
+                  padding: '22px 24px',
                 }}
                 className="select-none"
               >
@@ -546,7 +546,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                    gap: '20px',
+                    gap: '12px',
                   }}
                 >
                   {aboutSubmenu.map((item) => {
@@ -558,24 +558,24 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setIsAboutOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="group/item flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all duration-200 text-left cursor-pointer w-full border border-slate-100 hover:border-slate-200"
+                        className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all duration-150 text-left cursor-pointer w-full border border-slate-100 hover:border-slate-200"
                       >
-                        <div className="mt-1 text-[#D97706] shrink-0 group-hover/item:scale-110 transition-transform duration-200">
-                          <IconComp className="w-8 h-8" />
+                        <div className="mt-0.5 text-[#D97706] shrink-0 p-2 rounded-lg bg-amber-50 group-hover/item:scale-105 transition-transform duration-150">
+                          <IconComp className="w-5 h-5" />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <span 
-                            style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', lineHeight: 1.25 }} 
+                            style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', lineHeight: 1.3 }} 
                             className="group-hover/item:text-[#D97706] transition-colors"
                           >
                             {item.name}
                           </span>
                           <span 
-                            style={{ fontSize: '15px', color: '#64748b', fontWeight: 600, marginTop: '6px' }}
-                            className="inline-flex items-center gap-2 group-hover/item:text-slate-800 transition-colors"
+                            style={{ fontSize: '12.5px', color: '#64748b', fontWeight: 500, marginTop: '2px' }}
+                            className="inline-flex items-center gap-1 group-hover/item:text-slate-800 transition-colors"
                           >
                             <span>{item.subheading}</span>
-                            <ArrowRight className="w-4 h-4 text-[#D97706] transform transition-transform duration-200 group-hover/item:translate-x-1.5" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#D97706] transform transition-transform duration-150 group-hover/item:translate-x-1" />
                           </span>
                         </div>
                       </button>
@@ -586,26 +586,26 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 {/* Bottom Guidance Strip */}
                 <div 
                   style={{
-                    marginTop: '24px',
-                    paddingTop: '20px',
-                    borderTop: '1.5px solid #f1f5f9',
+                    marginTop: '16px',
+                    paddingTop: '14px',
+                    borderTop: '1px solid #f1f5f9',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span style={{ fontSize: '15px', color: '#475569', fontWeight: 600 }}>
-                    Want to learn more about our journey & people?
+                  <span style={{ fontSize: '13px', color: '#475569', fontWeight: 500 }}>
+                    Want to learn more about our team?
                   </span>
                   <button
                     onClick={() => {
                       setIsAboutOpen(false);
                       if (onNavigate) onNavigate('about');
                     }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200/80 text-[#D97706] font-extrabold text-[14px] transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200/80 text-[#D97706] font-bold text-xs transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
                   >
-                    <span>Explore Our Story</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>Our Story</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>

@@ -143,7 +143,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="relative w-full py-10 sm:py-14 bg-[#0B132A] border-t border-b border-slate-800/80 overflow-hidden select-none">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#0B132A] border-t border-b border-slate-800/80 overflow-hidden select-none">
       
       {/* Dark Grid Background Photo Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -159,7 +159,7 @@ export default function ServicesSection() {
       <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center mb-7 sm:mb-9 flex flex-col items-center">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-white tracking-tight text-shadow-hero whitespace-nowrap">
             Our{' '}
             <span className="relative inline-block font-bold text-[#FFC43A]">

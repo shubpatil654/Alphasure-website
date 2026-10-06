@@ -111,7 +111,7 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-8 sm:py-10 md:py-12 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-14 sm:py-18 lg:py-20 select-none overflow-hidden"
       id="others-pricing-section"
     >
       {/* Background Soft Accent Lines */}

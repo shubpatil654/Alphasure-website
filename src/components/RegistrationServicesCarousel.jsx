@@ -34,7 +34,7 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full overflow-hidden select-none bg-white py-10 sm:py-12 md:py-16"
+      className="relative w-full overflow-hidden select-none bg-white py-16 sm:py-20 lg:py-24"
       id="services-quadrants"
     >
       {/* SVG Abstract Running Lines Background - Flows seamlessly into surrounding sections */}
