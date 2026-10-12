@@ -461,7 +461,7 @@ export default function FaqSection({
       <div
         key={item.id}
         onClick={() => toggleFaq(item.id)}
-        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 hover:border-[#FF1E43]/40 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out cursor-pointer transform-gpu ${item.tiltClass || ''} hover:rotate-0 hover:scale-[1.03] hover:-translate-y-1.5 hover:z-30`}
+        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 hover:border-[#FA5A16]/40 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out cursor-pointer transform-gpu ${item.tiltClass || ''} hover:rotate-0 hover:scale-[1.03] hover:-translate-y-1.5 hover:z-30`}
       >
         <div className="flex items-start gap-3 sm:gap-3.5">
           
@@ -473,13 +473,13 @@ export default function FaqSection({
           {/* Question Content */}
           <div className="flex-1 min-w-0 pt-0.5">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm sm:text-base font-bold text-[#1B2A4A] tracking-tight group-hover:text-[#FF1E43] transition-colors leading-snug">
+              <h3 className="text-sm sm:text-base font-bold text-[#1B2A4A] tracking-tight group-hover:text-[#FA5A16] transition-colors leading-snug">
                 {item.question}
               </h3>
 
               {/* Plus / Minus Expand Circle Button */}
               <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                isOpen ? 'bg-[#FF1E43] text-white shadow-md' : 'bg-slate-100 text-slate-600 group-hover:bg-[#FF1E43] group-hover:text-white border border-slate-200'
+                isOpen ? 'bg-[#FA5A16] text-white shadow-md' : 'bg-slate-100 text-slate-600 group-hover:bg-[#FA5A16] group-hover:text-white border border-slate-200'
               }`}>
                 {isOpen ? <Minus size={15} strokeWidth={2.5} /> : <Plus size={15} strokeWidth={2.5} />}
               </div>
@@ -492,7 +492,7 @@ export default function FaqSection({
                   item.answerParts.map((part, idx) => (
                     <span
                       key={idx}
-                      className={part.highlight ? "text-[#FF1E43] font-extrabold" : ""}
+                      className={part.highlight ? "text-[#FA5A16] font-extrabold" : ""}
                     >
                       {part.text}
                     </span>
@@ -527,15 +527,15 @@ export default function FaqSection({
 
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-14 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#FF1E43] alpha-eyebrow mb-3 shadow-xs">
-            <HelpCircle size={14} className="text-[#FF1E43]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FA5A16] alpha-eyebrow mb-3 sm:mb-4 shadow-xs">
+            <HelpCircle size={14} className="text-[#FA5A16]" />
             <span>Got Questions?</span>
           </div>
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             Frequently{' '}
             <span className="whitespace-nowrap">
               <span className="text-[#1B2A4A]">Asked</span>{' '}
-              <span className="relative inline-block text-[#FF1E43]">
+              <span className="relative inline-block text-[#FA5A16]">
                 Questions
                 <svg 
                   className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
@@ -545,7 +545,7 @@ export default function FaqSection({
                 >
                   <path 
                     d="M 4 16 Q 100 3, 196 16" 
-                    stroke="#FF1E43" 
+                    stroke="#FA5A16" 
                     strokeWidth="4" 
                     strokeLinecap="round" 
                     className="animate-draw-curved-underline"
@@ -554,7 +554,7 @@ export default function FaqSection({
               </span>
             </span>
           </h2>
-          <p className="alpha-body text-slate-600 font-normal mt-2 sm:mt-3">
+          <p className="alpha-body text-slate-600 font-normal mt-3 sm:mt-4">
             {subtitle}
           </p>
         </div>
@@ -586,7 +586,7 @@ export default function FaqSection({
         <div className="mt-6 sm:mt-8 max-w-3xl mx-auto">
           <div className="w-full rounded-2xl p-4 sm:p-5 bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg hover:shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 transition-all duration-300">
             <div className="flex items-center gap-3.5 text-center sm:text-left">
-              <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-[#FF1E43] shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#FA5A16] shrink-0">
                 <HelpCircle size={22} />
               </div>
               <div>
@@ -596,7 +596,7 @@ export default function FaqSection({
             </div>
             <button
               onClick={onOpenModal}
-              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#FF1E43] hover:bg-[#E00028] text-white font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 shadow-md hover:shadow-lg transition-all transform hover:scale-105 shrink-0 cursor-pointer"
+              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#FA5A16] hover:bg-[#EA4B07] text-white font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 shadow-md hover:shadow-lg transition-all transform hover:scale-105 shrink-0 cursor-pointer"
             >
               <span>TALK TO OUR EXPERTS</span>
               <ArrowRight size={16} />

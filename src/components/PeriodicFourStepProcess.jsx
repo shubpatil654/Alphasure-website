@@ -57,7 +57,7 @@ export default function PeriodicFourStepProcess({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#131b26] text-white py-8 sm:py-10 md:py-14 select-none"
+      className="relative w-full overflow-hidden bg-[#131b26] text-white py-16 sm:py-20 lg:py-24 select-none"
       id="four-step-process"
     >
       {/* Background Radial Ambient Lighting */}
@@ -70,7 +70,7 @@ export default function PeriodicFourStepProcess({ onOpenModal }) {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= Header Area (Exact Reference Style) ================= */}
-        <div className="text-left mb-5 sm:mb-6 md:mb-8 max-w-xl">
+        <div className="text-left mb-10 sm:mb-12 lg:mb-14 max-w-xl">
           {/* Eyebrow with connected accent horizontal line */}
           <div className="flex items-center gap-3 mb-2">
             <span className="text-[#38BDF8] font-semibold text-sm sm:text-base md:text-lg tracking-wide">

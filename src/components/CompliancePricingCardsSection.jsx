@@ -91,7 +91,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-14 sm:py-18 lg:py-20 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
       id="compliance-pricing-cards"
     >
       {/* Background Soft Accent Lines */}
@@ -105,24 +105,24 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= SECTION HEADER: "— Compliance —" ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 flex flex-col items-center">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
           
           {/* Main Title with Left and Right Lines */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 w-full">
             <span className="w-12 sm:w-20 md:w-24 h-[1.5px] bg-[#C5A059]/70" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-[#0B192C] tracking-tight">
+            <h2 className="alpha-h2 font-sans font-black text-[#0B192C] tracking-tight">
               Compliance
             </h2>
             <span className="w-12 sm:w-20 md:w-24 h-[1.5px] bg-[#C5A059]/70" />
           </div>
 
           {/* Subtitle */}
-          <p className="mt-3 text-slate-700 font-medium text-base sm:text-lg md:text-[19px] max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-slate-700 font-medium text-base sm:text-lg md:text-[19px] max-w-2xl leading-relaxed">
             Simplifying compliance, so you can focus on growing your business.
           </p>
 
           {/* Bottom Gold Accent Bar */}
-          <div className="w-12 sm:w-16 h-[2px] bg-[#C5A059] mt-3 rounded-full" />
+          <div className="w-12 sm:w-16 h-[2px] bg-[#C5A059] mt-3 sm:mt-4 rounded-full" />
         </div>
 
         {/* ================= ROW 1: 4 TOP CARDS GRID ================= */}

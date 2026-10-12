@@ -139,14 +139,14 @@ export default function OnlineProcessSection() {
           className="w-full h-full object-cover opacity-60 filter brightness-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B132A]/80 via-[#0B132A]/40 to-[#0B132A]/85 pointer-events-none" />
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#FFC43A]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#FA5A16]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-[#1D70F5]/10 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Glowing ambient organic wave lines matching dark theme */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-25">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
-          <path d="M-100 200 C 300 150, 400 450, 700 350 C 1000 250, 1150 550, 1550 400" stroke="#FFC43A" strokeWidth="1.5" />
+          <path d="M-100 200 C 300 150, 400 450, 700 350 C 1000 250, 1150 550, 1550 400" stroke="#FA5A16" strokeWidth="1.5" />
           <path d="M-100 600 C 400 650, 700 450, 1100 600 C 1300 670, 1400 550, 1550 520" stroke="#60A5FA" strokeWidth="1.2" strokeDasharray="6 6" />
         </svg>
       </div>
@@ -220,9 +220,9 @@ export default function OnlineProcessSection() {
                     width: '38px',
                     height: '38px',
                     borderRadius: '50%',
-                    backgroundColor: isActive ? '#FFC43A' : 'rgba(30, 41, 59, 0.85)',
-                    color: isActive ? '#0B132A' : '#94A3B8',
-                    border: `2px solid ${isActive ? '#FFC43A' : 'rgba(148, 163, 184, 0.3)'}`,
+                    backgroundColor: isActive ? '#FA5A16' : 'rgba(30, 41, 59, 0.85)',
+                    color: isActive ? '#FFFFFF' : '#94A3B8',
+                    border: `2px solid ${isActive ? '#FA5A16' : 'rgba(148, 163, 184, 0.3)'}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -230,7 +230,7 @@ export default function OnlineProcessSection() {
                     fontSize: '13px',
                     cursor: 'pointer',
                     transition: 'all 350ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-                    boxShadow: isActive ? '0 0 20px rgba(255, 196, 58, 0.45)' : 'none',
+                    boxShadow: isActive ? '0 0 20px rgba(250, 90, 22, 0.45)' : 'none',
                     transform: isActive ? 'scale(1.12)' : 'scale(1)',
                   }}
                   title={doc.title}
@@ -270,7 +270,7 @@ export default function OnlineProcessSection() {
               }}
             >
               Important documents prepared{' '}
-              <span style={{ color: '#FFC43A', display: 'inline' }}>
+              <span style={{ color: '#FA5A16', display: 'inline' }}>
                 by Alphasure experts:
               </span>
             </h2>
@@ -281,7 +281,7 @@ export default function OnlineProcessSection() {
                 width: '100%',
                 maxWidth: '240px',
                 height: '1.5px',
-                backgroundColor: '#FFC43A',
+                backgroundColor: '#FA5A16',
                 opacity: 0.5,
                 marginBottom: '28px',
               }}
@@ -358,30 +358,30 @@ export default function OnlineProcessSection() {
                   </svg>
                 </button>
 
-                {/* Right Arrow Button (Gold Accent) */}
+                {/* Right Arrow Button (Orange Accent) */}
                 <button
                   onClick={() => handleManualNav('next')}
                   style={{
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    backgroundColor: '#FFC43A',
-                    border: '1px solid #FFC43A',
-                    color: '#0B132A',
+                    backgroundColor: '#FA5A16',
+                    border: '1px solid #FA5A16',
+                    color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
                     transition: 'all 200ms ease',
-                    boxShadow: '0 4px 14px rgba(255, 196, 58, 0.35)',
+                    boxShadow: '0 4px 14px rgba(250, 90, 22, 0.35)',
                   }}
                   aria-label="Next Document"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#E5A93C';
+                    e.currentTarget.style.backgroundColor = '#EA4B07';
                     e.currentTarget.style.transform = 'scale(1.06)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFC43A';
+                    e.currentTarget.style.backgroundColor = '#FA5A16';
                     e.currentTarget.style.transform = 'scale(1)';
                   }}
                 >
@@ -587,8 +587,8 @@ export default function OnlineProcessSection() {
                     height: '4px',
                     width: isActive ? '36px' : '18px',
                     borderRadius: '4px',
-                    backgroundColor: isActive ? '#FFC43A' : 'rgba(148, 163, 184, 0.35)',
-                    boxShadow: isActive ? '0 0 10px rgba(255, 196, 58, 0.5)' : 'none',
+                    backgroundColor: isActive ? '#FA5A16' : 'rgba(148, 163, 184, 0.35)',
+                    boxShadow: isActive ? '0 0 10px rgba(250, 90, 22, 0.5)' : 'none',
                     border: 'none',
                     padding: 0,
                     cursor: 'pointer',

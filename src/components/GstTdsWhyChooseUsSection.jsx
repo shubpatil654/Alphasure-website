@@ -36,7 +36,7 @@ export default function GstTdsWhyChooseUsSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] py-10 sm:py-12 md:py-16 select-none overflow-hidden"
+      className="relative w-full bg-[#FAF7F2] py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
       id="gst-tds-why-choose-us"
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

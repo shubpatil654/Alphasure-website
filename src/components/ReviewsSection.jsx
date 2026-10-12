@@ -113,21 +113,28 @@ export default function ReviewsSection() {
             </span>
           </div>
 
-          {/* Editorial Title matching reference image */}
-          <h2 className="flex flex-col items-center text-center font-serif text-[#062C1E] alpha-h2 font-normal tracking-tight">
-            <span>
-              Don’t just take
-            </span>
-            <span className="mt-1 sm:mt-2">
-              <span className="italic relative inline-block mr-2 font-serif">
-                our
-                {/* Yellow Curved Underline SVG */}
-                <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
-                  <path d="M2 9 C30 3, 70 3, 98 8" stroke="#FFC000" strokeWidth="4.5" strokeLinecap="round" />
-                </svg>
-              </span>
-              word for it...
-            </span>
+          {/* Section Heading matching global typography and styling */}
+          <h2 className="text-center font-sans font-bold text-[#1B2A4A] alpha-h2 tracking-tight whitespace-normal sm:whitespace-nowrap">
+            Don’t just take{' '}
+            <span className="relative inline-block font-bold text-[#FA5A16]">
+              our
+              {/* Signature Animated Curved Underline SVG */}
+              <svg 
+                className="absolute left-0 -bottom-2 sm:-bottom-3 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                viewBox="0 0 100 14" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M 3 11 Q 50 2, 97 11" 
+                  stroke="#FA5A16" 
+                  strokeWidth="3.5" 
+                  strokeLinecap="round" 
+                  className="animate-draw-curved-underline"
+                />
+              </svg>
+            </span>{' '}
+            word for it...
           </h2>
 
         </div>

@@ -60,7 +60,7 @@ export default function SecretarialScopeSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden select-none"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden select-none"
       id="secretarial-scope"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >
@@ -75,7 +75,7 @@ export default function SecretarialScopeSection({ onOpenModal }) {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200/80 text-[#FA5A16] text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 shadow-xs">
             ANNUAL SECRETARIAL DELIVERABLES
           </div>

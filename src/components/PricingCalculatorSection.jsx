@@ -80,7 +80,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-14 sm:py-18 lg:py-20 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
       id="periodic-accounting-pricing"
     >
       {/* Background Soft Accent Lines */}
@@ -94,15 +94,15 @@ export default function PricingCalculatorSection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= SECTION HEADING: "Periodic accounting" ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] alpha-eyebrow mb-2.5">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] alpha-eyebrow mb-3 sm:mb-4">
             <Calculator className="w-4 h-4 text-[#A67C52]" />
             <span>PRICING CALCULATOR</span>
           </div>
           <h2 className="alpha-h2 font-bold text-slate-950 tracking-tight capitalize">
             Periodic accounting
           </h2>
-          <p className="mt-2 alpha-large-body text-slate-700 font-normal max-w-3xl mx-auto">
+          <p className="mt-3 sm:mt-4 alpha-large-body text-slate-700 font-normal max-w-3xl mx-auto">
             Select your city tier, transaction volume, and billing frequency to calculate your personalized plan.
           </p>
         </div>

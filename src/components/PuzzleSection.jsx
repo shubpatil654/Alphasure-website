@@ -173,17 +173,17 @@ export default function PuzzleSection() {
       <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
         
         {/* 2-Column Split: Vertically Centered Layout (Left Heading & Subtext | Right Puzzle Graphic) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
           
           {/* LEFT COLUMN: Section Heading & Content */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
-            <h3 className="alpha-h3 font-semibold text-[#FA5A16] tracking-tight">
+          <div className="lg:col-span-6 flex flex-col justify-center text-center lg:text-left">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[52px] font-extrabold text-[#FA5A16] tracking-tight leading-[1.15]">
               An accounting solution.
             </h3>
-            <h2 className="alpha-h2 font-bold text-[#062C1E] tracking-tight mt-2 sm:mt-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] font-bold text-[#062C1E] tracking-tight leading-[1.2] mt-2.5 sm:mt-3.5">
               Not just <span className="whitespace-nowrap">another software</span>
             </h2>
-            <p className="mt-5 sm:mt-7 alpha-large-body text-[#3A4A40] font-normal leading-relaxed">
+            <p className="mt-5 sm:mt-7 text-base sm:text-lg lg:text-[20px] text-[#3A4A40] font-normal leading-relaxed">
               We bring the{' '}
               <span className="uppercase font-bold text-[#FA5A16] tracking-wide">
                 PEOPLE, EXPERTISE, AND TECHNOLOGY
@@ -193,7 +193,7 @@ export default function PuzzleSection() {
           </div>
 
           {/* RIGHT COLUMN: Puzzle Graphic Container */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end items-center relative">
+          <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative">
             {/* Solid White Mask to guarantee zero line overlap behind transparent puzzle cutouts */}
             <div className="absolute inset-4 bg-white rounded-3xl z-0 pointer-events-none"></div>
 
@@ -201,7 +201,7 @@ export default function PuzzleSection() {
               <img
                 src="/images/puzzle-3d-fit.png"
                 alt="Small Businesses, Growing Businesses - We just Fit"
-                className="w-full h-auto max-w-[650px] lg:max-w-[720px] object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
+                className="w-full h-auto max-w-[620px] lg:max-w-[680px] object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
               />
             </div>
           </div>

@@ -111,7 +111,7 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-14 sm:py-18 lg:py-20 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
       id="others-pricing-section"
     >
       {/* Background Soft Accent Lines */}
@@ -125,12 +125,12 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
         
         {/* ================= SECTION HEADER: "Others" ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 flex flex-col items-center">
-          <h2 className="alpha-h2 font-bold font-serif text-[#0B192C] tracking-tight">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
+          <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
             Others
           </h2>
           {/* Centered Gold Accent Line */}
-          <div className="w-12 sm:w-16 h-[2.5px] bg-[#C5A059] mt-3 rounded-full" />
+          <div className="w-12 sm:w-16 h-[2.5px] bg-[#C5A059] mt-3 sm:mt-4 rounded-full" />
         </div>
 
         {/* ================= 6 CARDS (3x2 GRID) ================= */}
@@ -170,7 +170,7 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
         <div className="mt-8 sm:mt-10 text-center">
           <button
             onClick={onOpenModal}
-            className="px-10 py-3.5 sm:px-12 sm:py-4 rounded-full bg-gradient-to-r from-[#9C6B2E] via-[#B8863B] to-[#C99745] hover:from-[#A87433] hover:to-[#D4A352] text-white font-serif font-bold text-lg sm:text-xl tracking-wide shadow-xl hover:shadow-[#B8863B]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-3 mx-auto"
+            className="px-10 py-3.5 sm:px-12 sm:py-4 rounded-full bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white font-bold text-base sm:text-lg tracking-wide shadow-xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-3 mx-auto"
           >
             <span>Ask for Quote</span>
             <ArrowRight className="w-5 h-5 stroke-[2.5]" />

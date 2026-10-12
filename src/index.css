@@ -7,32 +7,34 @@
    ========================================================================== */
 
 :root {
-  /* Mobile Defaults (< 768px) - Crisp, legible, perfectly proportioned */
-  --font-h1: 36px;
+  /* Mobile Defaults (< 768px) - Crisp, legible, bold */
+  --font-display: 46px;
+  --lh-display: 1.12;
+  --font-h1: 40px;
   --lh-h1: 1.15;
   --fw-h1: 700;
   --ls-h1: -0.025em;
 
-  --font-h2: 28px;
+  --font-h2: 32px;
   --lh-h2: 1.2;
   --fw-h2: 700;
   --ls-h2: -0.02em;
 
-  --font-h3: 21px;
+  --font-h3: 24px;
   --lh-h3: 1.25;
   --fw-h3: 600;
   --ls-h3: -0.015em;
 
-  --font-h4: 18px;
+  --font-h4: 20px;
   --lh-h4: 1.3;
   --fw-h4: 600;
   --ls-h4: -0.01em;
 
-  --font-h5: 16px;
+  --font-h5: 17px;
   --lh-h5: 1.35;
   --fw-h5: 600;
 
-  --font-h6: 14px;
+  --font-h6: 15px;
   --lh-h6: 1.4;
   --fw-h6: 600;
 
@@ -40,7 +42,7 @@
   --lh-body: 1.6;
   --fw-body: 400;
 
-  --font-large-body: 17px;
+  --font-large-body: 17.5px;
   --lh-large-body: 1.55;
 
   --font-small: 13px;
@@ -66,20 +68,21 @@
 /* Tablet: 768px - 1023px (md) - Scaled with elegant proportion */
 @media (min-width: 768px) {
   :root {
-    --font-h1: 44px;
+    --font-display: 60px;
+    --lh-display: 1.08;
+    --font-h1: 48px;
     --lh-h1: 1.12;
-    --font-h2: 34px;
+    --font-h2: 38px;
     --lh-h2: 1.18;
-    --font-h3: 24px;
+    --font-h3: 28px;
     --lh-h3: 1.25;
-    --font-h4: 19px;
+    --font-h4: 22px;
     --lh-h4: 1.3;
-    --font-h5: 17px;
+    --font-h5: 19px;
     --lh-h5: 1.35;
-    --font-h6: 15px;
-    --lh-body: 1.6;
+    --font-h6: 16px;
     --font-body: 15.5px;
-    --font-large-body: 18px;
+    --font-large-body: 18.5px;
     --lh-large-body: 1.55;
     --font-small: 13.5px;
     --font-eyebrow: 12.5px;
@@ -89,23 +92,25 @@
   }
 }
 
-/* Desktop: 1024px - 1439px (lg / xl) - Sleek, authoritative & clean */
+/* Desktop: 1024px - 1439px (lg / xl) - Sleek, authoritative & prominent */
 @media (min-width: 1024px) {
   :root {
-    --font-h1: 52px;
+    --font-display: 72px;
+    --lh-display: 1.05;
+    --font-h1: 58px;
     --lh-h1: 1.1;
-    --font-h2: 38px;
+    --font-h2: 44px;
     --lh-h2: 1.18;
-    --font-h3: 26px;
+    --font-h3: 31px;
     --lh-h3: 1.25;
-    --font-h4: 20px;
+    --font-h4: 24px;
     --lh-h4: 1.32;
-    --font-h5: 17px;
+    --font-h5: 20px;
     --lh-h5: 1.35;
-    --font-h6: 15px;
+    --font-h6: 16px;
     --font-body: 16px;
     --lh-body: 1.62;
-    --font-large-body: 19px;
+    --font-large-body: 19.5px;
     --lh-large-body: 1.55;
     --font-small: 14px;
     --font-eyebrow: 13px;
@@ -121,19 +126,21 @@
 /* Extra Large Screens: >= 1440px (2xl) */
 @media (min-width: 1440px) {
   :root {
-    --font-h1: 56px;
+    --font-display: 82px;
+    --lh-display: 1.04;
+    --font-h1: 64px;
     --lh-h1: 1.08;
-    --font-h2: 42px;
+    --font-h2: 48px;
     --lh-h2: 1.16;
-    --font-h3: 28px;
+    --font-h3: 34px;
     --lh-h3: 1.24;
-    --font-h4: 21px;
+    --font-h4: 25px;
     --lh-h4: 1.3;
-    --font-h5: 18px;
-    --font-h6: 15px;
+    --font-h5: 21px;
+    --font-h6: 16px;
     --font-body: 16px;
     --lh-body: 1.62;
-    --font-large-body: 20px;
+    --font-large-body: 20.5px;
     --lh-large-body: 1.55;
     --font-small: 14px;
     --font-eyebrow: 13px;
@@ -233,6 +240,14 @@
 /* ==========================================================================
    ALPHASURE UTILITY CLASSES (guarantees typography & anti-orphan line wrapping)
    ========================================================================== */
+.alpha-display, .display {
+  font-size: var(--font-display) !important;
+  line-height: var(--lh-display) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  text-wrap: balance !important;
+}
+
 .alpha-h1, .h1 {
   font-size: var(--font-h1) !important;
   line-height: var(--lh-h1) !important;
@@ -303,7 +318,7 @@
 
 .text-balance,
 h1, h2, h3, h4, h5, h6,
-.alpha-h1, .alpha-h2, .alpha-h3, .alpha-h4, .alpha-h5, .alpha-h6 {
+.alpha-display, .alpha-h1, .alpha-h2, .alpha-h3, .alpha-h4, .alpha-h5, .alpha-h6 {
   text-wrap: balance !important;
   word-break: normal;
   overflow-wrap: break-word;
@@ -390,7 +405,7 @@ p, li, blockquote,
 .animate-marquee-ltr {
   display: flex;
   width: max-content;
-  animation: marquee-ltr 32s linear infinite;
+  animation: marquee-ltr 65s linear infinite;
   will-change: transform;
 }
 
@@ -515,23 +530,37 @@ p, li, blockquote,
 }
 
 /* ==========================================================================
-   ALPHASURE PROFESSIONAL SECTION SPACING & RHYTHM SYSTEM
-   Sleek vertical cadence with generous breathing room (inspired by Sleek & Stripe)
+   ALPHASURE UNIFIED SECTION PADDING & VERTICAL TEXT RHYTHM SYSTEM
+   Ensures 100% equal vertical padding and text rhythm throughout the whole website
    ========================================================================== */
 
-.section-standard {
-  padding-top: clamp(52px, 6vw, 96px);
-  padding-bottom: clamp(52px, 6vw, 96px);
+/* Universal Section Vertical Padding (64px mobile -> 80px tablet -> 96px desktop) */
+.section-standard,
+.section-padding,
+.data-security-section,
+.three-i-section,
+.transparency-section,
+.management-team-section,
+.our-values-section,
+.interview-process-section,
+.why-partners-section {
+  padding-top: clamp(64px, 7vw, 96px) !important;
+  padding-bottom: clamp(64px, 7vw, 96px) !important;
 }
 
-.section-compact {
-  padding-top: clamp(32px, 3.5vw, 48px);
-  padding-bottom: clamp(32px, 3.5vw, 48px);
+/* Universal Section Header Block Spacing to Content Below */
+.section-header-spacing {
+  margin-bottom: clamp(40px, 4.5vw, 56px) !important;
 }
 
-.section-spacious {
-  padding-top: clamp(64px, 8vw, 112px);
-  padding-bottom: clamp(64px, 8vw, 112px);
+/* Universal Eyebrow / Pill Badge Spacing to Headline */
+.section-eyebrow-spacing {
+  margin-bottom: clamp(12px, 1.5vw, 16px) !important;
+}
+
+/* Universal Heading to Subtitle / Description Spacing */
+.section-subtitle-spacing {
+  margin-top: clamp(12px, 1.5vw, 16px) !important;
 }
 
 

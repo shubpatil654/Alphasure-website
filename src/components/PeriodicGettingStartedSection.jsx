@@ -170,7 +170,7 @@ export default function PeriodicGettingStartedSection({ onOpenModal }) {
             Getting Started{' '}
             <span className="whitespace-nowrap">
               <span className="text-[#1E293B]">is</span>{' '}
-              <span className="relative inline-block text-[#FA2448] font-black">
+              <span className="relative inline-block text-[#FA5A16] font-black">
                 Easy
                 <svg
                   className="absolute left-0 -bottom-2 w-full h-3 overflow-visible pointer-events-none"
@@ -180,7 +180,7 @@ export default function PeriodicGettingStartedSection({ onOpenModal }) {
                 >
                   <path
                     d="M 2 12 Q 50 3, 98 12"
-                    stroke="#FA2448"
+                    stroke="#FA5A16"
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
@@ -190,13 +190,13 @@ export default function PeriodicGettingStartedSection({ onOpenModal }) {
           </h2>
         </div>
 
-        {/* ================= 3-Step Timeline with Pink Connecting Line ================= */}
+        {/* ================= 3-Step Timeline with Orange Connecting Line ================= */}
         <div className="relative w-full max-w-5xl mx-auto mb-6 sm:mb-8">
-          {/* Continuous Red/Pink Connecting Line through Centers (Desktop / Tablet) */}
+          {/* Continuous Orange Connecting Line through Centers (Desktop / Tablet) */}
           <div
             className="hidden md:block absolute top-[52px] left-[14%] right-[14%] h-[2px] pointer-events-none z-0"
             style={{
-              background: 'linear-gradient(90deg, #FA2448 0%, #FA2448 100%)',
+              background: 'linear-gradient(90deg, #FA5A16 0%, #FA5A16 100%)',
               opacity: 0.65,
             }}
           />
@@ -211,18 +211,18 @@ export default function PeriodicGettingStartedSection({ onOpenModal }) {
                 {/* Step Circle Container */}
                 <div className="relative mb-6">
                   {/* White Circular Card with Soft Shadow */}
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-[0_12px_35px_rgba(250,36,72,0.15)] group-hover:border-[#FA2448]/30">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-[0_12px_35px_rgba(250,90,22,0.15)] group-hover:border-[#FA5A16]/30">
                     {step.icon}
                   </div>
 
-                  {/* Red Circular Step Badge on Top Right */}
-                  <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FA2448] text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-md shadow-[#FA2448]/40 transition-transform duration-300 group-hover:scale-110">
+                  {/* Orange Circular Step Badge on Top Right */}
+                  <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FA5A16] text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-md shadow-[#FA5A16]/40 transition-transform duration-300 group-hover:scale-110">
                     {step.stepNumber}
                   </div>
                 </div>
 
                 {/* Step Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#FA2448] transition-colors duration-200">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#FA5A16] transition-colors duration-200">
                   {step.title}
                 </h3>
 
@@ -235,13 +235,13 @@ export default function PeriodicGettingStartedSection({ onOpenModal }) {
           </div>
         </div>
 
-        {/* ================= Red Gradient CTA Button ================= */}
+        {/* ================= Orange Gradient CTA Button ================= */}
         <div className="pt-2">
           <button
             onClick={onOpenModal}
-            className="group relative inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-extrabold text-white text-sm sm:text-base tracking-wider uppercase transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[0_8px_25px_rgba(250,36,72,0.4)] hover:shadow-[0_12px_32px_rgba(250,36,72,0.55)] cursor-pointer"
+            className="group relative inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-extrabold text-white text-sm sm:text-base tracking-wider uppercase transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[0_8px_25px_rgba(250,90,22,0.4)] hover:shadow-[0_12px_32px_rgba(250,90,22,0.55)] cursor-pointer"
             style={{
-              background: 'linear-gradient(90deg, #FA2448 0%, #E61638 100%)',
+              background: 'linear-gradient(90deg, #FA5A16 0%, #EA4B07 100%)',
             }}
           >
             <span>START YOUR JOURNEY</span>

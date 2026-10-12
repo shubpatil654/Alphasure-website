@@ -464,7 +464,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                       setIsAccountingOpen(false);
                       if (onOpenModal) onOpenModal();
                     }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/80 text-[#2563EB] font-bold text-xs sm:text-sm transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-50 hover:bg-orange-100 border border-orange-200/80 text-[#FA5A16] font-bold text-xs sm:text-sm transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
                   >
                     <span>Schedule Free Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -602,7 +602,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                       setIsAboutOpen(false);
                       if (onNavigate) onNavigate('about');
                     }}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200/80 text-[#D97706] font-bold text-xs transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-orange-50 hover:bg-orange-100 border border-orange-200/80 text-[#FA5A16] font-bold text-xs transition-all hover:scale-102 active:scale-98 shadow-xs cursor-pointer"
                   >
                     <span>Our Story</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -636,7 +636,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
         <div className="hidden lg:block flex-shrink-0">
           <button
             onClick={onOpenModal}
-            className="bg-white text-[#2a2a2a] text-xs uppercase font-extrabold tracking-wider px-4 py-2.5 xl:px-6 xl:py-3 rounded-xl shadow-lg shadow-black/10 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap"
+            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-xs uppercase font-extrabold tracking-wider px-4 py-2.5 xl:px-6 xl:py-3 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap cursor-pointer"
           >
             TALK TO OUR TEAM
           </button>
@@ -646,7 +646,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={onOpenModal}
-            className="bg-white text-[#2a2a2a] text-[10px] sm:text-xs uppercase font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl shadow-md active:scale-95 transition-all"
+            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-[10px] sm:text-xs uppercase font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl shadow-md shadow-orange-500/25 active:scale-95 transition-all cursor-pointer"
           >
             TALK TO TEAM
           </button>
@@ -852,7 +852,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   setMobileMenuOpen(false);
                   onOpenModal();
                 }}
-                className="w-full bg-white text-[#22272e] text-xs uppercase font-bold tracking-wider py-3 rounded-xl shadow-md text-center flex items-center justify-center gap-2"
+                className="w-full bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-xs uppercase font-bold tracking-wider py-3 rounded-xl shadow-md shadow-orange-500/25 text-center flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <PhoneCall size={14} />
                 TALK TO OUR TEAM

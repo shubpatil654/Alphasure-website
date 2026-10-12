@@ -142,7 +142,7 @@ export default function Footer({ onOpenModal }) {
 
           {/* Column 4: Compliance & Global Presence (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wider uppercase border-l-2 border-[#00C853] pl-3">
+            <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wider uppercase border-l-2 border-[#FA5A16] pl-3">
               Global Presence
             </h4>
             <div className="space-y-2 text-xs font-semibold text-slate-400">

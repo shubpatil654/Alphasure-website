@@ -27,7 +27,7 @@ export default function RealTimeOutsourceServicesSection({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full min-h-[620px] sm:min-h-[680px] md:min-h-[720px] flex items-center overflow-hidden bg-[#0A0F17] text-white py-16 sm:py-20 md:py-24 select-none"
+      className="relative w-full min-h-[620px] sm:min-h-[680px] md:min-h-[720px] flex items-center overflow-hidden bg-[#0A0F17] text-white py-16 sm:py-20 lg:py-24 select-none"
       id="outsource-services"
     >
       {/* ================= Background Image (Origami Hands Artwork) ================= */}

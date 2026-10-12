@@ -178,7 +178,7 @@ export default function LeaderSection() {
       <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         
         {/* Section Main Title with Vertically Flipped Animated Curved Underline (2s Loop) */}
-        <div ref={headerRef} className="text-center mb-8 sm:mb-12">
+        <div ref={headerRef} className="text-center mb-10 sm:mb-12 lg:mb-14">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             Hear from{' '}
             <span className="relative inline-block text-[#FA5A16]">

@@ -146,13 +146,13 @@ export default function BenefitsSection({
   onOpenModal,
   titlePrefix = "Benefits of",
   titleHighlight = ["Pvt Ltd", "Company."],
-  highlightColor = "text-[#3B82F6]",
+  highlightColor = "text-[#FA5A16]",
   benefits = pvtLtdBenefits,
   sectionId = "benefits-section"
 }) {
   return (
     <section 
-      className="relative w-full py-10 sm:py-12 md:py-14 bg-[#090C12] overflow-hidden select-none"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#090C12] overflow-hidden select-none"
       id={sectionId}
     >
       {/* Ambient Lighting & Glows matching Reference Design */}

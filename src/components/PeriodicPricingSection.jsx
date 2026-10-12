@@ -19,14 +19,14 @@ export default function PeriodicPricingSection({ onOpenModal }) {
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
         
         {/* ================= Header Area ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] font-black text-slate-900 tracking-tight leading-tight mb-3 whitespace-normal sm:whitespace-nowrap">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] font-black text-slate-900 tracking-tight leading-tight whitespace-normal sm:whitespace-nowrap">
             Small Business,{' '}
             <span className="bg-gradient-to-r from-[#7C3AED] via-[#9333EA] to-[#C026D3] bg-clip-text text-transparent">
               Smart Pricing
             </span>
           </h2>
-          <p className="text-slate-600 font-semibold text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 font-semibold text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mt-3 sm:mt-4">
             Everything Your Business Needs. Nothing You Don’t
           </p>
 
@@ -36,7 +36,7 @@ export default function PeriodicPricingSection({ onOpenModal }) {
               onClick={() => setBillingCycle('monthly')}
               className={`px-6 sm:px-8 py-2.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 cursor-pointer ${
                 billingCycle === 'monthly'
-                  ? 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-md shadow-purple-500/30 scale-100'
+                  ? 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] text-white shadow-md shadow-orange-500/30 scale-100'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -46,7 +46,7 @@ export default function PeriodicPricingSection({ onOpenModal }) {
               onClick={() => setBillingCycle('yearly')}
               className={`px-6 sm:px-8 py-2.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 cursor-pointer ${
                 billingCycle === 'yearly'
-                  ? 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-md shadow-purple-500/30 scale-100'
+                  ? 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] text-white shadow-md shadow-orange-500/30 scale-100'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -190,8 +190,8 @@ export default function PeriodicPricingSection({ onOpenModal }) {
               }}
               className={`w-full py-3.5 sm:py-4 rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-[1.02] active:scale-98 shadow-md cursor-pointer ${
                 billingCycle === 'monthly'
-                  ? 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/40 shadow-purple-900/30'
-                  : 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] text-white shadow-purple-500/25'
+                  ? 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/40 shadow-orange-900/30'
+                  : 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white shadow-orange-500/25'
               }`}
             >
               <span>Get Started</span>
@@ -331,8 +331,8 @@ export default function PeriodicPricingSection({ onOpenModal }) {
               }}
               className={`w-full py-3.5 sm:py-4 rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-[1.02] active:scale-98 shadow-md cursor-pointer ${
                 billingCycle === 'yearly'
-                  ? 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/40 shadow-purple-900/30'
-                  : 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] text-white shadow-purple-500/25'
+                  ? 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/40 shadow-orange-900/30'
+                  : 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white shadow-orange-500/25'
               }`}
             >
               <span>Get Started</span>

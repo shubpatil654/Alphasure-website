@@ -6,29 +6,21 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
       id: 'incorporate-remotely',
       title: 'Incorporate Remotely',
       description: 'Complete the entire process online',
-      image: '/images/service-incorporate-remotely-faded.png',
-      alt: 'Remote digital entrepreneur workspace with laptop and coffee',
     },
     {
       id: 'beyond-incorporation',
       title: 'Beyond Incorporation',
       description: 'We guide you through all post incorporation filing',
-      image: '/images/service-beyond-incorporation-faded.png',
-      alt: 'Founders and team discussing startup strategy and documents',
     },
     {
       id: 'stay-compliant',
       title: 'Stay Compliant',
       description: 'Annual ROC compliances managed for you',
-      image: '/images/service-stay-compliant-faded.png',
-      alt: 'Corporate compliance documents and official records on executive desk',
     },
     {
       id: 'business-changes',
       title: 'Business Changes',
       description: 'Support for director changes, capital changes and other event-based filing.',
-      image: '/images/service-business-changes-faded.png',
-      alt: 'Executives shaking hands on corporate changes and agreements',
     },
   ];
 
@@ -59,8 +51,8 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
         
         {/* Section Heading Area */}
-        <div className="text-center max-w-5xl mx-auto mb-6 sm:mb-8 px-2">
-          <h2 className="alpha-h2 font-bold text-slate-900 tracking-tight mb-3">
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-12 lg:mb-14 px-2">
+          <h2 className="alpha-h2 font-bold text-slate-900 tracking-tight">
             Everything you need{' '}
             <span className="whitespace-nowrap">
               <span className="text-slate-900">for your</span>{' '}
@@ -83,12 +75,12 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
               </span>
             </span>
           </h2>
-          <p className="alpha-large-body text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed">
+          <p className="alpha-large-body text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed mt-3 sm:mt-4">
             From initial registration to seamless compliance and post-incorporation filings, we have you covered at every milestone.
           </p>
         </div>
 
-        {/* ================= 4-Quadrant Container with Faded Background Images & Faded-End Crosshairs ================= */}
+        {/* ================= 4-Quadrant Container with Minimalist Clean Aesthetic & Faded-End Crosshairs ================= */}
         <div className="relative w-full max-w-[1180px] mx-auto min-h-[340px] sm:min-h-[400px] md:min-h-[460px] flex items-center justify-center px-2 sm:px-6">
           
           {/* Central Crosshair Lines with Faded Ends */}
@@ -118,38 +110,22 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
                   relative flex flex-col items-center justify-center text-center 
                   px-4 sm:px-8 md:px-12 py-8 sm:py-10 md:py-14
                   cursor-pointer group select-none transition-all duration-300
-                  overflow-hidden
+                  hover:bg-slate-50/70 rounded-2xl
                   ${idx === 0 ? 'pb-8 sm:pb-12 md:pb-14 pr-4 sm:pr-8 md:pr-10' : ''}
                   ${idx === 1 ? 'pb-8 sm:pb-12 md:pb-14 pl-4 sm:pl-8 md:pl-10' : ''}
                   ${idx === 2 ? 'pt-8 sm:pt-12 md:pt-14 pr-4 sm:pr-8 md:pr-10' : ''}
                   ${idx === 3 ? 'pt-8 sm:pt-12 md:pt-14 pl-4 sm:pl-8 md:pl-10' : ''}
                 `}
               >
-                {/* Background Contextual Image Faded Out Through Its Edges */}
-                <div 
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
-                  style={{
-                    maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 82%)',
-                    WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 82%)',
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    className="w-full h-full object-cover object-center opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 ease-out filter contrast-[1.05]"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Content Container (Layered above background image) */}
+                {/* Content Container */}
                 <div className="relative z-10 flex flex-col items-center justify-center">
                   {/* Quadrant Title */}
-                  <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-black tracking-tight leading-tight mb-2.5 sm:mb-4 group-hover:text-[#FA5A16] group-hover:scale-[1.015] transition-all duration-200 drop-shadow-sm">
+                  <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-slate-900 tracking-tight leading-tight mb-2.5 sm:mb-4 group-hover:text-[#FA5A16] group-hover:scale-[1.015] transition-all duration-200">
                     {item.title}
                   </h3>
 
                   {/* Quadrant Description */}
-                  <p className="text-xs sm:text-base md:text-lg lg:text-[19px] text-[#1E293B] font-medium leading-relaxed max-w-[260px] sm:max-w-[360px] md:max-w-[420px] group-hover:text-black transition-colors duration-200 drop-shadow-sm">
+                  <p className="text-xs sm:text-base md:text-lg lg:text-[19px] text-[#475569] font-medium leading-relaxed max-w-[260px] sm:max-w-[360px] md:max-w-[420px] group-hover:text-slate-900 transition-colors duration-200">
                     {item.description}
                   </p>
                 </div>

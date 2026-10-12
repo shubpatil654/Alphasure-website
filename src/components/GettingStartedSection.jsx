@@ -23,10 +23,10 @@ const DocumentGearIcon = () => (
     <path d="M38 10 V22 H50" />
     {/* Lines inside doc */}
     <line x1="22" y1="20" x2="32" y2="20" />
-    <line x1="22" y1="28" x2="42" y2="28" stroke="#FF1E43" strokeWidth="2.5" />
+    <line x1="22" y1="28" x2="42" y2="28" stroke="#FA5A16" strokeWidth="2.5" />
     <line x1="22" y1="36" x2="34" y2="36" />
     {/* Gear Overlay */}
-    <g transform="translate(32, 34)" stroke="#FF1E43" strokeWidth="2">
+    <g transform="translate(32, 34)" stroke="#FA5A16" strokeWidth="2">
       <circle cx="11" cy="11" r="4.5" fill="none" />
       <path d="M11 2 V4 M11 18 V20 M2 11 H4 M18 11 H20 M4.6 4.6 L6 6 M16 16 L17.4 17.4 M4.6 17.4 L6 16 M16 6 L17.4 4.6" />
     </g>
@@ -45,9 +45,9 @@ const DedicatedTeamIcon = () => (
     <circle cx="46" cy="27" r="4" />
     <path d="M46 37 C51 37 54 40 54 46" />
     {/* Rays above leader */}
-    <line x1="32" y1="9" x2="32" y2="13" stroke="#FF1E43" />
-    <line x1="23" y1="12" x2="26" y2="15" stroke="#FF1E43" />
-    <line x1="41" y1="12" x2="38" y2="15" stroke="#FF1E43" />
+    <line x1="32" y1="9" x2="32" y2="13" stroke="#FA5A16" />
+    <line x1="23" y1="12" x2="26" y2="15" stroke="#FA5A16" />
+    <line x1="41" y1="12" x2="38" y2="15" stroke="#FA5A16" />
   </svg>
 );
 
@@ -77,55 +77,55 @@ export default function GettingStartedSection({ onOpenModal }) {
     <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white text-slate-900 overflow-hidden select-none">
       
       {/* ================= Geometric Red Mesh Background (Left & Right Edge Wireframes on White) ================= */}
-      {/* Left Low-Poly Geometric Red Wireframe */}
+      {/* Left Low-Poly Geometric Orange Wireframe */}
       <svg className="absolute left-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-45 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
-        <polygon points="0,0 120,80 40,240 0,180" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowLeft1)" />
-        <polygon points="120,80 280,160 180,360 40,240" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowLeft2)" />
-        <polygon points="40,240 180,360 80,520 0,420" stroke="#FF1E43" strokeWidth="1.2" fill="none" />
-        <polygon points="180,360 300,480 140,600 80,520" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowLeft1)" />
+        <polygon points="0,0 120,80 40,240 0,180" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowLeft1)" />
+        <polygon points="120,80 280,160 180,360 40,240" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowLeft2)" />
+        <polygon points="40,240 180,360 80,520 0,420" stroke="#FA5A16" strokeWidth="1.2" fill="none" />
+        <polygon points="180,360 300,480 140,600 80,520" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowLeft1)" />
         <defs>
-          <radialGradient id="redGlowLeft1" cx="0%" cy="50%" r="100%">
-            <stop offset="0%" stopColor="#FF1E43" stopOpacity="0.14" />
+          <radialGradient id="orangeGlowLeft1" cx="0%" cy="50%" r="100%">
+            <stop offset="0%" stopColor="#FA5A16" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="redGlowLeft2" cx="30%" cy="30%" r="80%">
-            <stop offset="0%" stopColor="#FF0033" stopOpacity="0.1" />
+          <radialGradient id="orangeGlowLeft2" cx="30%" cy="30%" r="80%">
+            <stop offset="0%" stopColor="#EA4B07" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
         </defs>
       </svg>
 
-      {/* Right Low-Poly Geometric Red Wireframe */}
+      {/* Right Low-Poly Geometric Orange Wireframe */}
       <svg className="absolute right-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-45 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
-        <polygon points="300,0 180,100 260,260 300,200" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowRight1)" />
-        <polygon points="180,100 20,180 120,380 260,260" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowRight2)" />
-        <polygon points="260,260 120,380 220,540 300,440" stroke="#FF1E43" strokeWidth="1.2" fill="none" />
-        <polygon points="120,380 0,500 160,600 220,540" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowRight1)" />
+        <polygon points="300,0 180,100 260,260 300,200" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowRight1)" />
+        <polygon points="180,100 20,180 120,380 260,260" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowRight2)" />
+        <polygon points="260,260 120,380 220,540 300,440" stroke="#FA5A16" strokeWidth="1.2" fill="none" />
+        <polygon points="120,380 0,500 160,600 220,540" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowRight1)" />
         <defs>
-          <radialGradient id="redGlowRight1" cx="100%" cy="50%" r="100%">
-            <stop offset="0%" stopColor="#FF1E43" stopOpacity="0.14" />
+          <radialGradient id="orangeGlowRight1" cx="100%" cy="50%" r="100%">
+            <stop offset="0%" stopColor="#FA5A16" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="redGlowRight2" cx="70%" cy="30%" r="80%">
-            <stop offset="0%" stopColor="#FF0033" stopOpacity="0.1" />
+          <radialGradient id="orangeGlowRight2" cx="70%" cy="30%" r="80%">
+            <stop offset="0%" stopColor="#EA4B07" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
         </defs>
       </svg>
 
-      {/* Soft Ambient Red Radial Glows */}
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#FF1E43]/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-[#FF1E43]/5 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Soft Ambient Orange Radial Glows */}
+      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#FA5A16]/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-[#FA5A16]/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ================= Section Header Title ================= */}
-        <div className="text-center mb-12 sm:mb-16 flex flex-col items-center">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             Getting Started{' '}
             <span className="whitespace-nowrap">
               <span className="text-[#1B2A4A]">is</span>{' '}
-              <span className="relative inline-block text-[#FF1E43]">
+              <span className="relative inline-block text-[#FA5A16]">
                 Easy
                 <svg 
                   className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
@@ -135,7 +135,7 @@ export default function GettingStartedSection({ onOpenModal }) {
                 >
                   <path 
                     d="M 4 16 Q 100 3, 196 16" 
-                    stroke="#FF1E43" 
+                    stroke="#FA5A16" 
                     strokeWidth="4" 
                     strokeLinecap="round" 
                     className="animate-draw-curved-underline"
@@ -149,22 +149,22 @@ export default function GettingStartedSection({ onOpenModal }) {
         {/* ================= 3 Steps Horizontal Process Container ================= */}
         <div className="relative max-w-5xl mx-auto">
           
-          {/* Red Connecting Horizontal Glow Line (Desktop md+) */}
-          <div className="hidden md:block absolute top-[56px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#FF1E43]/30 via-[#FF1E43] to-[#FF1E43]/30 z-0"></div>
+          {/* Orange Connecting Horizontal Glow Line (Desktop md+) */}
+          <div className="hidden md:block absolute top-[56px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#FA5A16]/30 via-[#FA5A16] to-[#FA5A16]/30 z-0"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 relative z-10">
             {steps.map((step) => (
               <div key={step.id} className="flex flex-col items-center text-center group">
                 
-                {/* Circle Icon Wrapper with Overlapping Red Number Badge */}
+                {/* Circle Icon Wrapper with Overlapping Orange Number Badge */}
                 <div className="relative mb-6">
                   {/* Main Light Circle Icon Container */}
-                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-slate-50 border-2 border-slate-200 shadow-md flex items-center justify-center group-hover:border-[#FF1E43] group-hover:bg-white group-hover:shadow-xl transition-all duration-300">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-slate-50 border-2 border-slate-200 shadow-md flex items-center justify-center group-hover:border-[#FA5A16] group-hover:bg-white group-hover:shadow-xl transition-all duration-300">
                     {step.icon}
                   </div>
 
-                  {/* Overlapping Red Number Badge (01, 02, 03) */}
-                  <div className="absolute top-0 right-0 translate-x-1 -translate-y-1 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FF2E4D] to-[#E00028] text-white font-black text-base sm:text-lg flex items-center justify-center shadow-md border-2 border-white">
+                  {/* Overlapping Orange Number Badge (01, 02, 03) */}
+                  <div className="absolute top-0 right-0 translate-x-1 -translate-y-1 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FA5A16] to-[#EA4B07] text-white font-black text-base sm:text-lg flex items-center justify-center shadow-md border-2 border-white">
                     {step.id}
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function GettingStartedSection({ onOpenModal }) {
         <div className="mt-12 sm:mt-16 flex justify-center">
           <button
             onClick={onOpenModal}
-            className="alpha-btn group relative px-8 py-3.5 sm:px-10 rounded-xl bg-gradient-to-r from-[#FF1E43] to-[#E00028] hover:from-[#E00028] hover:to-[#C00020] text-white tracking-wider uppercase flex items-center justify-center gap-2.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer min-h-[48px]"
+            className="alpha-btn group relative px-8 py-3.5 sm:px-10 rounded-xl bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white tracking-wider uppercase flex items-center justify-center gap-2.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer min-h-[48px]"
           >
             <span>START YOUR JOURNEY</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />

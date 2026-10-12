@@ -42,8 +42,8 @@ const GoldPushpin = () => (
 );
 
 // High precision line-art icons matching the image
-const RegisterBusinessIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#C8750D]">
+const RegisterBusinessIcon = ({ className = "text-[#FA5A16]" }) => (
+  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     {/* Document sheet */}
     <rect x="10" y="8" width="24" height="32" rx="3" stroke="currentColor" strokeWidth="2.5" fill="none" />
     {/* Form lines & avatar box */}
@@ -59,8 +59,8 @@ const RegisterBusinessIcon = () => (
   </svg>
 );
 
-const AccountingIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#C8750D]">
+const AccountingIcon = ({ className = "text-white" }) => (
+  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     {/* Open ledger book */}
     <path d="M10 26C10 26 16 23 24 23C32 23 38 26 38 26V37C38 37 32 34 24 34C16 34 10 37 10 37V26Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
     <line x1="24" y1="23" x2="24" y2="34" stroke="currentColor" strokeWidth="2.5" />
@@ -73,8 +73,8 @@ const AccountingIcon = () => (
   </svg>
 );
 
-const ComplianceIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#C8750D]">
+const ComplianceIcon = ({ className = "text-[#FA5A16]" }) => (
+  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     {/* Shield */}
     <path d="M24 12C24 12 30 14 34 16V25C34 32 24 37 24 37C24 37 14 32 14 25V16C18 14 24 12 24 12Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
     {/* Checkmark inside */}
@@ -87,8 +87,8 @@ const ComplianceIcon = () => (
   </svg>
 );
 
-const LegalIcon = () => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#C8750D]">
+const LegalIcon = ({ className = "text-white" }) => (
+  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     {/* Infinity loop symbol */}
     <path d="M15 24C15 20.6863 17.6863 18 21 18C23.5 18 25.5 19.5 27 21.5L31.5 27.5C33 29.5 35 30 37 30C40.3137 30 43 27.3137 43 24C43 20.6863 40.3137 18 37 18C34.5 18 32.5 19.5 31 21.5L26.5 27.5C25 29.5 23 30 21 30C17.6863 30 15 27.3137 15 24Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
   </svg>
@@ -105,17 +105,19 @@ export default function ServicesSection() {
       rotation: '-rotate-2 sm:-rotate-3',
       swingClass: 'pin-swing-left',
       Icon: RegisterBusinessIcon,
+      iconColor: 'text-[#FA5A16]',
       textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
     },
     {
       id: 2,
       title: 'Accounting &\nReporting',
-      bgColor: 'bg-[#FFC43A]',
-      textColor: 'text-[#1A1A1A]',
-      borderStyle: 'border border-[#E5B232]',
+      bgColor: 'bg-[#FA5A16]',
+      textColor: 'text-white',
+      borderStyle: 'border border-[#E04806]',
       rotation: 'rotate-2 sm:rotate-3',
       swingClass: 'pin-swing-right',
       Icon: AccountingIcon,
+      iconColor: 'text-white',
       textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
     },
     {
@@ -127,17 +129,19 @@ export default function ServicesSection() {
       rotation: '-rotate-1 sm:-rotate-2',
       swingClass: 'pin-swing-left',
       Icon: ComplianceIcon,
+      iconColor: 'text-[#FA5A16]',
       textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
     },
     {
       id: 4,
       title: 'Payroll\nAdvisory\nCorporate Legal\nFractional CFO',
-      bgColor: 'bg-[#FFC43A]',
-      textColor: 'text-[#1A1A1A]',
-      borderStyle: 'border border-[#E5B232]',
+      bgColor: 'bg-[#FA5A16]',
+      textColor: 'text-white',
+      borderStyle: 'border border-[#E04806]',
       rotation: 'rotate-2 sm:rotate-3',
       swingClass: 'pin-swing-right',
       Icon: LegalIcon,
+      iconColor: 'text-white',
       textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
     },
   ];
@@ -162,7 +166,7 @@ export default function ServicesSection() {
         <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-white tracking-tight text-shadow-hero whitespace-nowrap">
             Our{' '}
-            <span className="relative inline-block font-bold text-[#FFC43A]">
+            <span className="relative inline-block font-bold text-[#FA5A16]">
               Services
               <svg 
                 className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
@@ -172,7 +176,7 @@ export default function ServicesSection() {
               >
                 <path 
                   d="M 4 16 Q 100 3, 196 16" 
-                  stroke="#FFC43A" 
+                  stroke="#FA5A16" 
                   strokeWidth="4" 
                   strokeLinecap="round" 
                   className="animate-draw-curved-underline"
@@ -198,7 +202,7 @@ export default function ServicesSection() {
               >
                 {/* Service Icon */}
                 <div className="mt-1 mb-1.5 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 shrink-0">
-                  <service.Icon />
+                  <service.Icon className={service.iconColor} />
                 </div>
 
                 {/* Service Title */}

@@ -54,7 +54,7 @@ export default function LlpAnnualComplianceScopeSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full py-8 sm:py-10 md:py-12 bg-[#FAFBFD] overflow-hidden select-none border-t border-slate-200/60"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] overflow-hidden select-none border-t border-slate-200/60"
       id="llp-annual-scope"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >
@@ -157,7 +157,7 @@ export default function LlpAnnualComplianceScopeSection({ onOpenModal }) {
         <div className="mt-10 sm:mt-12 text-center">
           <button
             onClick={onOpenModal}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#4F46E5] via-[#4338CA] to-[#3730A3] hover:from-[#6366F1] hover:to-[#4338CA] text-white font-extrabold text-base sm:text-lg tracking-wide shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white font-extrabold text-base sm:text-lg tracking-wide shadow-xl hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Consult an LLP Compliance Expert</span>
             <ArrowRight className="w-5 h-5" />

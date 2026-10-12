@@ -94,15 +94,15 @@ export default function AccountingCompliancePricingSection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= SECTION HEADING: "accounting and compliance" ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] text-xs sm:text-sm font-bold uppercase tracking-wider mb-2.5">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] text-xs sm:text-sm font-bold uppercase tracking-wider mb-3 sm:mb-4">
             <Calculator className="w-4 h-4 text-[#A67C52]" />
             CUSTOM PRICING & PACKAGES
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-tight capitalize">
             Accounting and compliance
           </h2>
-          <p className="mt-2 text-slate-700 font-medium text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-slate-700 font-medium text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
             {cityTier === 'other-cities' ? (
               <span>Monthly or Annual Accounting: <strong className="text-slate-950 font-bold">Any other City</strong></span>
             ) : (

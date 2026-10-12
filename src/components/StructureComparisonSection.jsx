@@ -94,15 +94,8 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
   return (
     <section 
-      style={{
-        width: '100%',
-        backgroundColor: '#FFFFFF',
-        padding: '64px 20px',
-        position: 'relative',
-        userSelect: 'none',
-        overflow: 'hidden',
-        fontFamily: "'Roboto', sans-serif",
-      }}
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-white overflow-hidden select-none"
+      id="structure-comparison"
     >
       {/* Background Soft Curved Lines for Site Continuity */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
@@ -112,10 +105,10 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
         </svg>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading Area */}
-        <div style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto 24px auto' }}>
+        <div className="text-center max-w-[1200px] mx-auto mb-10 sm:mb-12 lg:mb-14">
           {/* Eyebrow */}
           <div 
             style={{
@@ -138,7 +131,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
             }}
           >
             Find the Right Structure for{' '}
-            <span className="relative inline-block text-[#2563EB]">
+            <span className="relative inline-block text-[#FA5A16]">
               Your Business
               <svg 
                 className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
@@ -148,7 +141,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
               >
                 <path 
                   d="M 4 16 Q 100 3, 196 16" 
-                  stroke="#2563EB" 
+                  stroke="#FA5A16" 
                   strokeWidth="4" 
                   strokeLinecap="round" 
                   className="animate-draw-curved-underline"

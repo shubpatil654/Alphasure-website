@@ -164,7 +164,7 @@ export default function SoftwareNetworkSection() {
           {/* ================= LEFT COLUMN: Heading & Description ================= */}
           <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
             <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
-              You choose the software, <span className="text-[#3B82F6] whitespace-nowrap">We bring the expertise</span>
+              You choose the software, <span className="text-[#FA5A16] whitespace-nowrap">We bring the expertise</span>
             </h2>
             <p className="alpha-large-body text-slate-600 font-normal mt-4 sm:mt-6 leading-relaxed">
               Because your accounting solution should adapt to you, not the <span className="whitespace-nowrap">other way around.</span>
@@ -173,7 +173,7 @@ export default function SoftwareNetworkSection() {
             {/* Feature Highlights */}
             <div className="mt-6 sm:mt-8 space-y-3.5 text-left">
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-full bg-blue-50 text-[#3B82F6] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-full bg-orange-50 text-[#FA5A16] flex items-center justify-center shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
@@ -182,7 +182,7 @@ export default function SoftwareNetworkSection() {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-full bg-blue-50 text-[#3B82F6] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-full bg-orange-50 text-[#FA5A16] flex items-center justify-center shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
@@ -191,7 +191,7 @@ export default function SoftwareNetworkSection() {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-full bg-blue-50 text-[#3B82F6] flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-full bg-orange-50 text-[#FA5A16] flex items-center justify-center shrink-0">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>

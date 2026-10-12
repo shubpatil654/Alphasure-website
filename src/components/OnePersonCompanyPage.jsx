@@ -138,7 +138,7 @@ export default function OnePersonCompanyPage({ onOpenModal }) {
         onOpenModal={onOpenModal} 
         titlePrefix="Benefits of"
         titleHighlight={["One Person", "Company."]}
-        highlightColor="text-[#10B981]"
+        highlightColor="text-[#FA5A16]"
         benefits={opcBenefits}
         sectionId="benefits-opc"
       />

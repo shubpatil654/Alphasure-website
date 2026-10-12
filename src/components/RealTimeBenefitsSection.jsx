@@ -26,7 +26,7 @@ export default function RealTimeBenefitsSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full overflow-hidden select-none bg-white py-8 sm:py-10 md:py-14"
+      className="relative w-full overflow-hidden select-none bg-white py-16 sm:py-20 lg:py-24"
       id="realtime-benefits"
     >
       {/* SVG Abstract Running Lines Background */}
@@ -51,7 +51,7 @@ export default function RealTimeBenefitsSection({ onOpenModal }) {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
         
         {/* Section Heading Area */}
-        <div className="text-center max-w-5xl mx-auto mb-6 sm:mb-8 md:mb-10 px-2">
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-12 lg:mb-14 px-2">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-black text-slate-900 tracking-tight leading-tight mb-4">
             Benefits of{' '}
             <span className="relative inline-block text-[#FA5A16]">

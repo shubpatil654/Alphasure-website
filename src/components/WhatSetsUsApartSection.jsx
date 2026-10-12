@@ -42,12 +42,12 @@ export default function WhatSetsUsApartSection() {
       <div className="w-full max-w-full mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             What Sets{' '}
             <span className="whitespace-nowrap">
               <span className="text-[#1B2A4A]">Us</span>{' '}
-              <span className="relative inline-block text-[#00C853]">
+              <span className="relative inline-block text-[#FA5A16]">
                 Apart
                 <svg 
                   className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
@@ -57,7 +57,7 @@ export default function WhatSetsUsApartSection() {
                 >
                   <path 
                     d="M 4 16 Q 100 3, 196 16" 
-                    stroke="#00C853" 
+                    stroke="#FA5A16" 
                     strokeWidth="4" 
                     strokeLinecap="round" 
                     className="animate-draw-curved-underline"

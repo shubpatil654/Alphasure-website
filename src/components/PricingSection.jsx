@@ -725,7 +725,7 @@ export default function PricingSection({ onOpenModal, structureType = 'pvt-ltd',
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-8 sm:py-10 md:py-12 bg-[#FCFBF9] overflow-hidden select-none"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FCFBF9] overflow-hidden select-none"
       id="package-pricing"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >
@@ -740,7 +740,7 @@ export default function PricingSection({ onOpenModal, structureType = 'pvt-ltd',
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading Header (Clean without extra subtitle text) */}
-        <div className="text-center max-w-4xl mx-auto mb-3 sm:mb-4">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAB308]/15 text-[#A16207] text-xs sm:text-sm font-bold uppercase tracking-wider mb-3 border border-[#EAB308]/30">
             ALL-INCLUSIVE PRICING
           </div>
@@ -749,7 +749,7 @@ export default function PricingSection({ onOpenModal, structureType = 'pvt-ltd',
             Transparent Pricing.{' '}
             <span className="whitespace-nowrap">
               <span className="text-[#0F172A]">No</span>{' '}
-              <span className="relative inline-block text-[#EAB308]">
+              <span className="relative inline-block text-[#FA5A16]">
                 Surprises
                 <svg 
                   className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
@@ -759,7 +759,7 @@ export default function PricingSection({ onOpenModal, structureType = 'pvt-ltd',
                 >
                   <path 
                     d="M 4 16 Q 100 3, 196 16" 
-                    stroke="#EAB308" 
+                    stroke="#FA5A16" 
                     strokeWidth="4" 
                     strokeLinecap="round" 
                     className="animate-draw-curved-underline"

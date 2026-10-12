@@ -39,21 +39,22 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Exact Reference Match) ================= */}
       <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden select-none">
         
-        {/* Background Video (Three Juvenile Painted Storks Flying in the Sky) */}
+        {/* Background Video (Jean-François Cornuet - Bird Flight) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/llp-cranes-hero.jpg"
+            poster="/images/llp-hero-poster.jpg"
             className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.04]"
           >
-            <source src="/videos/llp-storks-hero.mp4" type="video/mp4" />
+            <source src="/videos/llp-hero-video.mp4" type="video/mp4" />
+            <source src="https://v1.pinimg.com/videos/mc/720p/03/cc/ee/03ccee58b1482704368eda39eac7aa54.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
-              src="/images/llp-cranes-hero.jpg"
-              alt="Three Painted Storks Flying in the Sky - Fly Together. We'll Take Care of What's Below"
+              src="/images/llp-hero-poster.jpg"
+              alt="Birds soaring in flight - Fly Together. We'll Take Care of What's Below"
               className="w-full h-full object-cover object-center"
             />
           </video>
@@ -138,7 +139,7 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
         onOpenModal={onOpenModal} 
         titlePrefix="Benefits of"
         titleHighlight={["Limited Liability", "Partnership."]}
-        highlightColor="text-[#6366F1]"
+        highlightColor="text-[#FA5A16]"
         benefits={llpBenefits}
         sectionId="benefits-llp"
       />

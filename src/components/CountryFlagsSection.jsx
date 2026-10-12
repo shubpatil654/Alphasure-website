@@ -16,21 +16,30 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-10 sm:py-12 lg:py-14 bg-white border-t border-b border-slate-100 overflow-hidden">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white border-t border-b border-slate-100 overflow-hidden">
       
       {/* Section Header */}
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-6 sm:mb-8 flex flex-col items-center">
+      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
         <h2 className="alpha-h2 font-bold text-[#1B2538] tracking-tight">
-          Trusted by <span className="font-bold text-black whitespace-nowrap">businesses worldwide</span>
+          Trusted by businesses{' '}
+          <span className="relative inline-block text-[#FA5A16]">
+            worldwide
+            <svg 
+              className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
+              viewBox="0 0 200 20" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M 4 16 Q 100 3, 196 16" 
+                stroke="#FA5A16" 
+                strokeWidth="4" 
+                strokeLinecap="round" 
+                className="animate-draw-curved-underline"
+              />
+            </svg>
+          </span>
         </h2>
-
-        {/* Decorative Blue Line Accent with 3 Dots from UI design */}
-        <div className="mt-4 flex items-center justify-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#1D70F5]"></span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#1D70F5]"></span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#1D70F5]"></span>
-          <span className="w-20 sm:w-28 h-[3.5px] rounded-full bg-[#1D70F5] ml-1"></span>
-        </div>
       </div>
 
       {/* Ticker Container with Gradient Fade Masks */}

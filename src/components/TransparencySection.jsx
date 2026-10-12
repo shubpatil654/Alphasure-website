@@ -129,7 +129,7 @@ export default function TransparencySection() {
 
             <h2 className="transparency-main-title">
               <span className="text-[#0A0D14] block font-extrabold">Transparency</span>
-              <span className="text-[#9B7038] block font-extrabold">matters to us.</span>
+              <span className="text-[#FA5A16] block font-extrabold">matters to us.</span>
             </h2>
 
             <div className="transparency-title-bar" />
@@ -148,12 +148,12 @@ export default function TransparencySection() {
               <a
                 href="#why-partners"
                 onClick={handleScrollToApproach}
-                className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/90 border border-[#E8DCCB] shadow-xs hover:shadow-md hover:bg-white transition-all duration-300 group"
+                className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/90 border border-orange-200/80 shadow-xs hover:shadow-md hover:bg-white transition-all duration-300 group"
               >
-                <div className="w-8 h-8 rounded-full bg-[#8C6239] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
+                <div className="w-8 h-8 rounded-full bg-[#FA5A16] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
                   <ArrowRight className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-[0.14em] text-[#0A0D14] uppercase">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.14em] text-[#FA5A16] uppercase">
                   Our Approach
                 </span>
               </a>

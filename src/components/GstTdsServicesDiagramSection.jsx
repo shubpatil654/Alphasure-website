@@ -62,7 +62,7 @@ export default function GstTdsServicesDiagramSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] py-12 sm:py-16 md:py-20 select-none overflow-hidden"
+      className="relative w-full bg-[#FAF7F2] py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
       id="gst-tds-services-scope"
       style={{ fontFamily: "'Roboto', 'Inter', sans-serif" }}
     >
@@ -77,7 +77,7 @@ export default function GstTdsServicesDiagramSection({ onOpenModal }) {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= SECTION HEADER ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-3 shadow-2xs">
             COMPLIANCE SERVICES SCOPE
           </div>
