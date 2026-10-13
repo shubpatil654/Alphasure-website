@@ -8,13 +8,24 @@ export default function CareersPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Our people are our STRENGTH) ================= */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden select-none bg-[#0e1726]">
         
-        {/* Background Image (Weaver Ants Bridge - Teamwork & Strength) */}
+        {/* Background Video / Media (Standing at snowy summit overlooking golden sunset cloud inversion - Pinterest 1109785533257642991) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src="/images/careers-hero-ants.jpg"
-            alt="Be part of something bigger than Yourself - Alphasure Careers"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/careers-hero-poster.jpg"
             className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
-          />
+          >
+            <source src="/videos/careers-hero-video.mp4" type="video/mp4" />
+            {/* Fallback image */}
+            <img
+              src="/images/careers-hero-poster.jpg"
+              alt="Be part of something bigger than Yourself - Alphasure Careers"
+              className="w-full h-full object-cover object-center"
+            />
+          </video>
 
           {/* Smooth Dark Gradient Overlays for Optimal Text Contrast & Legibility */}
           <div className="absolute inset-0 bg-black/40 pointer-events-none" />
