@@ -84,7 +84,7 @@ export default function ControllerGettingStartedSection({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#fafafa] py-16 sm:py-20 lg:py-24 select-none"
+      className="relative w-full overflow-hidden bg-[#fafafa] pt-4 sm:pt-5 lg:pt-6 pb-16 sm:pb-20 lg:pb-24 select-none"
       id="controller-getting-started"
     >
       {/* ================= Left & Right Pink Faceted Geometric Wireframe Background ================= */}

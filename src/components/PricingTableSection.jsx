@@ -34,7 +34,7 @@ export default function PricingTableSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
+      className="relative w-full bg-transparent pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 select-none overflow-hidden"
       id="pricing-breakdown"
     >
       {/* Background Soft Accent Lines */}

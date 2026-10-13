@@ -94,7 +94,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
   return (
     <section 
-      className="relative w-full py-16 sm:py-20 lg:py-24 bg-white overflow-hidden select-none"
+      className="relative w-full pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 bg-white overflow-hidden select-none"
       id="structure-comparison"
     >
       {/* Background Soft Curved Lines for Site Continuity */}

@@ -54,7 +54,7 @@ export default function LlpAnnualComplianceScopeSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] overflow-hidden select-none border-t border-slate-200/60"
+      className="relative w-full py-4 sm:py-5 lg:py-6 bg-[#FAFBFD] overflow-hidden select-none border-t border-slate-200/60"
       id="llp-annual-scope"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >

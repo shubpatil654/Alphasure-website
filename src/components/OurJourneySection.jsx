@@ -49,7 +49,7 @@ export default function OurJourneySection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
+      className="relative w-full bg-[#FAF7F2] pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 select-none overflow-hidden"
       id="our-journey"
     >
       {/* Background Soft Accent Lines */}

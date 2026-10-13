@@ -41,7 +41,7 @@ export default function ControllerProvidesSection({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full overflow-hidden select-none bg-white py-16 sm:py-20 lg:py-24"
+      className="relative w-full overflow-hidden select-none bg-white pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6"
       id="controller-provides"
     >
       {/* SVG Abstract Running Lines Background - Matching Periodic & Pvt Ltd Section Flow */}

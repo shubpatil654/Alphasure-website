@@ -60,7 +60,7 @@ export default function SecretarialScopeSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden select-none"
+      className="relative w-full pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden select-none"
       id="secretarial-scope"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >

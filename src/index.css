@@ -536,15 +536,55 @@ p, li, blockquote,
 
 /* Universal Section Vertical Padding (64px mobile -> 80px tablet -> 96px desktop) */
 .section-standard,
-.section-padding,
-.data-security-section,
-.three-i-section,
-.transparency-section,
-.management-team-section,
-.our-values-section,
-.interview-process-section,
+.section-padding {
+  padding-top: clamp(64px, 7vw, 96px);
+  padding-bottom: clamp(64px, 7vw, 96px);
+}
+
+/* Consecutive Light/White Sections Boundary Modifiers */
+.consecutive-section-top {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
+}
+
+.consecutive-section-bottom {
+  padding-bottom: clamp(16px, 2.5vw, 24px) !important;
+}
+
+/* About Page Consecutive #FAF7F2 Sections */
+.our-values-section {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
+  padding-bottom: clamp(16px, 2.5vw, 24px) !important;
+}
+
+.data-security-section {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
+  padding-bottom: clamp(16px, 2.5vw, 24px) !important;
+}
+
+.management-team-section {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
+  padding-bottom: clamp(64px, 7vw, 96px) !important;
+}
+
+/* Careers Page Consecutive #FAF7F2 Sections */
+.three-i-section {
+  padding-top: clamp(64px, 7vw, 96px) !important;
+  padding-bottom: clamp(16px, 2.5vw, 24px) !important;
+}
+
+.interview-process-section {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
+  padding-bottom: clamp(64px, 7vw, 96px) !important;
+}
+
+/* Everything Else Page Consecutive #FAF7F2 Sections */
 .why-partners-section {
   padding-top: clamp(64px, 7vw, 96px) !important;
+  padding-bottom: clamp(16px, 2.5vw, 24px) !important;
+}
+
+.transparency-section {
+  padding-top: clamp(16px, 2.5vw, 24px) !important;
   padding-bottom: clamp(64px, 7vw, 96px) !important;
 }
 

@@ -91,7 +91,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-16 sm:py-20 lg:py-24 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-4 sm:py-5 lg:py-6 select-none overflow-hidden"
       id="compliance-pricing-cards"
     >
       {/* Background Soft Accent Lines */}
