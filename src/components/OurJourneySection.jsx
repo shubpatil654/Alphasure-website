@@ -1,58 +1,54 @@
 import React, { useState } from 'react';
-import { Building, Globe, MapPin, Sparkles, Cpu, Award, ChevronRight } from 'lucide-react';
+import { Building, Globe, MapPin, Handshake, Laptop, ChevronRight } from 'lucide-react';
 
 export default function OurJourneySection({ onOpenModal }) {
-  const [activeMilestone, setActiveMilestone] = useState(4); // Default to latest (2026)
+  const [activeMilestone, setActiveMilestone] = useState(4); // Default to current milestone (2026)
 
   const milestones = [
     {
       year: '2015',
-      title: 'The Beginning',
-      description: 'Alphasure Accountants is founded.',
+      title: 'THE BEGINNING',
+      description: 'Alphasure Accountants was founded, with a vision to bring clarity and reliability to businesses.',
       location: 'India HQ',
-      icon: Building,
-      details: 'Started with a clear vision to provide live accounting services to empower business owners with financial clarity.'
+      icon: Building
     },
     {
       year: '2021',
-      title: 'Going Global',
-      description: 'USA expansion.',
+      title: 'GOING GLOBAL',
+      description: 'Expanded our presence to the USA, supporting a growing base of international clients.',
       location: 'USA',
-      icon: Globe,
-      details: 'Expanded our cross-border tax and accounting operations to support growing businesses in North America.'
+      icon: Globe
     },
     {
       year: '2022',
-      title: 'Expanding Horizons',
-      description: 'Middle East expansion.',
+      title: 'EXPANDING HORIZONS',
+      description: 'Strengthened our operations in the Middle East (UAE) to serve a wider market.',
       location: 'Middle East (UAE)',
-      icon: MapPin,
-      details: 'Extended our comprehensive financial compliance and corporate advisory presence into dynamic Gulf markets.'
+      icon: MapPin
     },
     {
       year: '2025',
-      title: 'Building a Global Network',
-      description: 'Singapore & Australia expansion.',
+      title: 'BUILDING A GLOBAL NETWORK',
+      description: 'Further expanded into Singapore & Australia, partnering with more businesses worldwide.',
       location: 'Singapore & Australia',
-      icon: Globe,
-      details: 'Broadened our Asia-Pacific presence with dedicated compliance hubs in Singapore and Australia.'
+      icon: Handshake
     },
     {
       year: '2026',
-      title: 'Expertise + Technology',
-      description: 'Alphasure Solutions is launched to deliver technology-enabled services.',
+      badge: 'CURRENT',
+      title: 'EXPERTISE + TECHNOLOGY',
+      description: 'Launched Alphasure Solutions to deliver technology-enabled financial services with greater efficiency, reach and impact.',
       location: 'Global Solutions',
-      icon: Cpu,
-      details: 'Launched next-generation automated finance workflows and high-touch controller intelligence.'
+      icon: Laptop
     }
   ];
 
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 select-none overflow-hidden"
+      className="relative w-full bg-[#FAF7F2] py-12 sm:py-16 lg:py-20 select-none overflow-hidden"
       id="our-journey"
     >
-      {/* Background Soft Accent Lines */}
+      {/* Background Soft Elegant Accent Lines */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-30">
         <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
           <path d="M-100 200 C 350 120, 700 400, 1100 220 C 1300 130, 1400 350, 1550 280" stroke="#E2D8C8" strokeWidth="1.5" />
@@ -62,33 +58,49 @@ export default function OurJourneySection({ onOpenModal }) {
 
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* ================= DESKTOP & TABLET INFOGRAPHIC SHOWCASE (SEAMLESSLY FEATHERED EDGES) ================= */}
-        <div className="relative w-full max-w-[1280px] mx-auto">
+        {/* ================= SECTION HEADER ================= */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
+            <span className="w-10 sm:w-14 h-[1.5px] bg-[#C5A059]/75" />
+            <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.2em] text-[#A67C52]">
+              OUR JOURNEY
+            </span>
+            <span className="w-10 sm:w-14 h-[1.5px] bg-[#C5A059]/75" />
+          </div>
           
-          {/* Journey Graphic Artwork with 4-Way Feathered Fading Overlays */}
-          <div className="relative w-full overflow-hidden [mask-image:radial-gradient(ellipse_94%_88%_at_50%_50%,black_70%,transparent_100%)]">
-            
-            {/* Top Fade */}
-            <div className="absolute top-0 left-0 right-0 h-10 sm:h-16 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
-            
-            {/* Bottom Fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-14 sm:h-24 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
-            
-            {/* Left Fade */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none z-10" />
-            
-            {/* Right Fade */}
-            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+          <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
+            Our Journey
+          </h2>
+          
+          {/* Centered Gold Accent Line */}
+          <div className="w-12 sm:w-16 h-[2.5px] bg-[#C5A059] mt-3 sm:mt-4 rounded-full" />
+          
+          <p className="alpha-body text-slate-600 font-medium text-center mt-3 max-w-xl mx-auto">
+            One milestone at a time. One vision throughout.
+          </p>
+        </div>
 
+        {/* ================= CENTERPIECE: 3D ISOMETRIC ROADMAP SHOWCASE ================= */}
+        <div className="relative w-full max-w-[820px] mx-auto mb-10 sm:mb-14">
+          
+          {/* Subtle Ambient Radial Lighting Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-blue-500/5 rounded-[40px] blur-3xl pointer-events-none" />
+
+          {/* Framed Artwork Card */}
+          <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden bg-white/85 p-2.5 sm:p-4 shadow-[0_22px_65px_rgba(11,25,44,0.08)] border border-[#E8DCCB]/75 backdrop-blur-xs transition-all duration-300 hover:shadow-[0_28px_75px_rgba(11,25,44,0.12)]">
             <img 
-              src="/images/our-journey-timeline.jpg" 
-              alt="Alphasure Journey - One milestone at a time. One vision throughout."
-              className="w-full h-auto object-cover object-center mix-blend-multiply"
+              src="/images/alphasure-journey-roadmap.jpg" 
+              srcSet="/images/alphasure-journey-roadmap.jpg 1x, /images/alphasure-journey-roadmap-2x.jpg 2x"
+              alt="Alphasure Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
+              className="w-full h-auto rounded-[20px] sm:rounded-[28px] object-cover shadow-2xs"
+              loading="eager"
             />
           </div>
+        </div>
 
-          {/* Interactive Milestone Cards Strip Below Image */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+        {/* ================= INTERACTIVE MILESTONE CARDS (MATCHING THE ROADMAP DESIGN) ================= */}
+        <div className="max-w-[1240px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
             {milestones.map((item, idx) => {
               const IconComp = item.icon;
               const isSelected = activeMilestone === idx;
@@ -96,41 +108,57 @@ export default function OurJourneySection({ onOpenModal }) {
                 <div
                   key={item.year}
                   onClick={() => setActiveMilestone(idx)}
-                  className={`p-5 rounded-[22px] border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                  className={`p-5 sm:p-6 rounded-[22px] border transition-all duration-300 cursor-pointer flex flex-col justify-between group ${
                     isSelected 
-                      ? 'bg-white border-[#C5A059] shadow-[0_12px_35px_rgba(197,160,89,0.12)] -translate-y-1' 
-                      : 'bg-white/60 hover:bg-white border-[#E8DCCB] hover:border-[#C5A059]/70 hover:shadow-md'
+                      ? 'bg-white border-[#C5A059] shadow-[0_14px_38px_rgba(197,160,89,0.14)] -translate-y-1' 
+                      : 'bg-white/70 hover:bg-white border-[#E8DCCB] hover:border-[#C5A059]/70 hover:shadow-md hover:-translate-y-0.5'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-serif font-black text-2xl text-[#8C6239] tracking-tight">
-                      {item.year}
-                    </span>
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${
-                      isSelected ? 'bg-[#8C6239] text-white shadow-xs' : 'bg-[#FAF5EE] text-[#8C6239] border border-[#E8DCCB]'
-                    }`}>
-                      <IconComp className="w-4.5 h-4.5" />
-                    </div>
-                  </div>
-
+                  {/* Card Header: Year, optional badge, and Circular Icon */}
                   <div>
-                    <h4 className="font-serif font-black text-[16px] text-[#0B192C] leading-snug mb-1.5">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="font-serif font-black text-2xl text-[#0B192C] tracking-tight">
+                          {item.year}
+                        </span>
+                        {item.badge && (
+                          <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-[#B88746] text-white">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                        isSelected 
+                          ? 'bg-[#1E3A8A] text-white shadow-xs' 
+                          : 'bg-[#F4F6F9] text-[#1E3A8A] border border-[#E2E8F0]'
+                      }`}>
+                        <IconComp className="w-4.5 h-4.5" />
+                      </div>
+                    </div>
+
+                    {/* Short Gold Underline */}
+                    <div className="w-7 h-[2px] bg-[#C5A059] rounded-full mb-3" />
+
+                    {/* Milestone Uppercase Title */}
+                    <h4 className="font-bold text-[13px] text-[#0B192C] tracking-wide mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
+
+                    {/* Exact Narrative Description */}
+                    <p className="text-[12.5px] text-slate-600 font-normal leading-relaxed">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#E8DCCB]/80 flex items-center justify-between text-xs font-bold text-[#A67C52]">
+                  {/* Card Footer: Location Tag */}
+                  <div className="mt-4 pt-3 border-t border-[#E8DCCB]/60 flex items-center justify-between text-[11px] font-bold text-[#A67C52]">
                     <span>{item.location}</span>
-                    <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'translate-x-1' : ''}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'translate-x-1 text-[#C5A059]' : 'text-slate-400'}`} />
                   </div>
                 </div>
               );
             })}
           </div>
-
         </div>
 
       </div>
