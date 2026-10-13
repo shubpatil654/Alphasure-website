@@ -6,11 +6,11 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'real-time-acc',
       title: 'Real Time Accounting',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-amber-500/60',
-      iconBg: 'bg-amber-500/15 text-amber-400 border border-amber-500/30',
-      bottomShapeBg: 'bg-amber-500/10',
-      accentLine: 'bg-[#C5A059]',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-[#C5A059]',
+      iconBg: 'bg-[#F5ECE0] text-[#8C6239] border border-[#E8DCCB]',
+      bottomShapeBg: 'bg-[#F2E4D2]',
+      accentLine: 'bg-[#B89255]',
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="18" y1="20" x2="18" y2="10" />
@@ -22,18 +22,18 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'controller',
       title: 'Controller',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-blue-500/60',
-      iconBg: 'bg-blue-500/15 text-blue-400 border border-blue-500/30',
-      bottomShapeBg: 'bg-blue-500/10',
-      accentLine: 'bg-blue-400',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-blue-400',
+      iconBg: 'bg-[#E5F0FC] text-[#2C5282] border border-[#D3E4F6]',
+      bottomShapeBg: 'bg-[#D8E8F8]',
+      accentLine: 'bg-[#2C5282]',
       icon: (
         <div className="relative flex items-center justify-center">
           <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
-          <svg className="w-3.5 h-3.5 absolute -bottom-1 -right-1 text-blue-300 bg-[#131E3A] rounded-full p-0.5 shadow-2xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-3.5 h-3.5 absolute -bottom-1 -right-1 text-[#2C5282] bg-white rounded-full p-0.5 shadow-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="3" />
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
           </svg>
@@ -43,11 +43,11 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'fractional-cfo',
       title: 'Fractional CFO',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-amber-500/60',
-      iconBg: 'bg-amber-500/15 text-amber-400 border border-amber-500/30',
-      bottomShapeBg: 'bg-amber-500/10',
-      accentLine: 'bg-[#C5A059]',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-[#C5A059]',
+      iconBg: 'bg-[#F5ECE0] text-[#8C6239] border border-[#E8DCCB]',
+      bottomShapeBg: 'bg-[#F2E4D2]',
+      accentLine: 'bg-[#B89255]',
       icon: (
         <div className="relative flex items-center justify-center">
           <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,9 +55,9 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
             <circle cx="9" cy="7" r="4" />
           </svg>
           <div className="flex items-end gap-0.5 ml-1">
-            <span className="w-1 h-2 bg-amber-400 rounded-xs" />
-            <span className="w-1 h-3.5 bg-amber-400 rounded-xs" />
-            <span className="w-1 h-5 bg-amber-400 rounded-xs" />
+            <span className="w-1 h-2 bg-[#8C6239] rounded-xs" />
+            <span className="w-1 h-3.5 bg-[#8C6239] rounded-xs" />
+            <span className="w-1 h-5 bg-[#8C6239] rounded-xs" />
           </div>
         </div>
       )
@@ -65,11 +65,11 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'payroll',
       title: 'Payroll',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-rose-500/60',
-      iconBg: 'bg-rose-500/15 text-rose-400 border border-rose-500/30',
-      bottomShapeBg: 'bg-rose-500/10',
-      accentLine: 'bg-rose-400',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-rose-400',
+      iconBg: 'bg-[#FCEAEB] text-[#B85D65] border border-[#FAD2D6]',
+      bottomShapeBg: 'bg-[#FADDE0]',
+      accentLine: 'bg-[#B85D65]',
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -84,11 +84,11 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'advisory',
       title: 'Advisory',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-blue-500/60',
-      iconBg: 'bg-blue-500/15 text-blue-400 border border-blue-500/30',
-      bottomShapeBg: 'bg-blue-500/10',
-      accentLine: 'bg-blue-400',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-blue-400',
+      iconBg: 'bg-[#E5F0FC] text-[#2C5282] border border-[#D3E4F6]',
+      bottomShapeBg: 'bg-[#D8E8F8]',
+      accentLine: 'bg-[#2C5282]',
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 18h6" />
@@ -100,11 +100,11 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     {
       id: 'transfer-pricing',
       title: 'Transfer pricing',
-      cardBg: 'bg-[#131E3A]/90 hover:bg-[#162344]',
-      borderColor: 'border-slate-700/80 hover:border-emerald-500/60',
-      iconBg: 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30',
-      bottomShapeBg: 'bg-emerald-500/10',
-      accentLine: 'bg-emerald-400',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-[#C5A059]',
+      iconBg: 'bg-[#F5ECE0] text-[#8C6239] border border-[#E8DCCB]',
+      bottomShapeBg: 'bg-[#F2E4D2]',
+      accentLine: 'bg-[#B89255]',
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />
@@ -149,27 +149,27 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
             <div
               key={service.id}
               onClick={onOpenModal}
-              className={`relative w-full ${service.cardBg} rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 shadow-[0_12px_40px_rgba(0,0,0,0.35)] border ${service.borderColor} hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group select-none min-h-[170px] sm:min-h-[185px]`}
+              className={`relative w-full ${service.cardBg} rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.3)] border ${service.borderColor} hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group select-none min-h-[170px] sm:min-h-[185px]`}
             >
               {/* Bottom Right Curved Accent Graphic */}
               <div 
-                className={`absolute bottom-0 right-0 w-28 h-28 sm:w-32 sm:h-32 rounded-tl-[100px] sm:rounded-tl-[120px] ${service.bottomShapeBg} opacity-80 pointer-events-none transition-transform duration-300 group-hover:scale-105`} 
+                className={`absolute bottom-0 right-0 w-28 h-28 sm:w-32 sm:h-32 rounded-tl-[100px] sm:rounded-tl-[120px] ${service.bottomShapeBg} opacity-85 pointer-events-none transition-transform duration-300 group-hover:scale-105`} 
               />
 
               {/* Top Row: Icon Badge */}
               <div className="flex items-center justify-start w-full mb-4 relative z-10">
-                <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl ${service.iconBg} flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl ${service.iconBg} flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform duration-300`}>
                   {service.icon}
                 </div>
               </div>
 
               {/* Card Title & Divider Line */}
               <div className="relative z-10 mt-auto">
-                <h3 className="font-serif font-black text-2xl sm:text-[26px] md:text-[27px] text-white leading-tight tracking-tight mb-2.5 group-hover:text-amber-200 transition-colors">
+                <h3 className="font-serif font-black text-2xl sm:text-[26px] md:text-[27px] text-[#0B192C] leading-tight tracking-tight mb-2.5 group-hover:text-[#B89255] transition-colors">
                   {service.title}
                 </h3>
                 {/* Short Accent Line */}
-                <div className={`w-10 h-[2px] ${service.accentLine || 'bg-[#C5A059]'} rounded-full`} />
+                <div className={`w-10 h-[2.5px] ${service.accentLine || 'bg-[#B89255]'} rounded-full`} />
               </div>
 
             </div>
