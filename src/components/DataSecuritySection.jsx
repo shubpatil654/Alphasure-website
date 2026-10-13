@@ -34,10 +34,10 @@ export default function DataSecuritySection() {
     <section className="data-security-section" id="data-security">
       
       {/* Background Subtle Elegant Ambient Curves */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-45">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
-          <circle cx="80" cy="400" r="300" stroke="#CBD5E1" strokeWidth="1.2" strokeDasharray="6 6" fill="none" opacity="0.6" />
-          <path d="M-80 200 Q 300 350 650 200 T 1450 300" stroke="#D1D5DB" strokeWidth="1" fill="none" opacity="0.5" />
+          <circle cx="80" cy="400" r="300" stroke="#94A3B8" strokeWidth="1.2" strokeDasharray="6 6" fill="none" opacity="0.6" />
+          <path d="M-80 200 Q 300 350 650 200 T 1450 300" stroke="#A0AEC0" strokeWidth="1" fill="none" opacity="0.5" />
         </svg>
       </div>
 
