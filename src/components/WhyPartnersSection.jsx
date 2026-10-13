@@ -58,12 +58,13 @@ export default function WhyPartnersSection() {
         
         {/* ================= DESKTOP STAGE (Screens >= 1024px) ================= */}
         <div className="hidden lg:block why-partners-desktop-stage">
-          {/* Main Visual Display matching Image 2 */}
-          <div className="why-partners-artwork-frame relative rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(15,36,25,0.09)] border border-[#EADBCA]/80 bg-[#FAF7F2]">
+          {/* Main Visual Display seamlessly integrated with background */}
+          <div className="why-partners-visual-wrapper relative select-none">
             <img
-              src="/images/why-partners-aerial-hero-retina.jpg"
+              src="/images/why-partners-blended.jpg"
+              srcSet="/images/why-partners-blended-retina.jpg 2x"
               alt="Why We Work with Partners - Collaboration with Specialists"
-              className="w-full h-auto block select-none"
+              className="w-full h-auto block select-none pointer-events-none"
               loading="eager"
             />
 

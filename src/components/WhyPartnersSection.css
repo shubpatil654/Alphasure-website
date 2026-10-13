@@ -41,18 +41,9 @@
   margin: 0 auto;
 }
 
-.why-partners-artwork-frame {
+.why-partners-visual-wrapper {
   position: relative;
   width: 100%;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 22px 55px rgba(15, 36, 25, 0.09);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.why-partners-artwork-frame:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 28px 65px rgba(15, 36, 25, 0.12);
 }
 
 /* ================= MOBILE / TABLET STAGE (Screens < 1024px) ================= */
