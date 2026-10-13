@@ -446,7 +446,8 @@ export default function FaqSection({
   faqs = faqList, 
   subtitle = "Everything you need to know about partnering with Alphasure." 
 }) {
-  const [openItems, setOpenItems] = useState(() => faqs.map(item => item.id));
+  // Start with all cards minimized by default so user clicks to reveal
+  const [openItems, setOpenItems] = useState([]);
 
   const toggleFaq = (id) => {
     setOpenItems(prev => 
@@ -461,47 +462,64 @@ export default function FaqSection({
       <div
         key={item.id}
         onClick={() => toggleFaq(item.id)}
-        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 hover:border-[#FA5A16]/40 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out cursor-pointer transform-gpu ${item.tiltClass || ''} hover:rotate-0 hover:scale-[1.03] hover:-translate-y-1.5 hover:z-30`}
+        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer transform-gpu ${item.tiltClass || ''} hover:rotate-0 hover:scale-[1.02] hover:-translate-y-1 hover:z-30 ${
+          isOpen 
+            ? 'border-[#FA5A16]/50 shadow-[0_16px_36px_rgba(250,90,22,0.12)] bg-white' 
+            : 'border-slate-200/90 shadow-md hover:shadow-lg hover:border-slate-300'
+        }`}
       >
         <div className="flex items-start gap-3 sm:gap-3.5">
           
           {/* Green Speech Bubble Badge */}
-          <div className="transition-transform duration-300 group-hover:scale-110">
+          <div className="transition-transform duration-300 group-hover:scale-105 shrink-0">
             <GreenChatIcon />
           </div>
 
-          {/* Question Content */}
-          <div className="flex-1 min-w-0 pt-0.5">
+          {/* Question & Expandable Answer Content */}
+          <div className="flex-1 min-w-0 pt-0.5 sm:pt-1">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm sm:text-base font-bold text-[#1B2A4A] tracking-tight group-hover:text-[#FA5A16] transition-colors leading-snug">
+              <h3 className={`text-sm sm:text-base font-bold tracking-tight transition-colors leading-snug ${
+                isOpen ? 'text-[#FA5A16]' : 'text-[#1B2A4A] group-hover:text-[#FA5A16]'
+              }`}>
                 {item.question}
               </h3>
 
               {/* Plus / Minus Expand Circle Button */}
-              <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                isOpen ? 'bg-[#FA5A16] text-white shadow-md' : 'bg-slate-100 text-slate-600 group-hover:bg-[#FA5A16] group-hover:text-white border border-slate-200'
-              }`}>
+              <div 
+                aria-label={isOpen ? "Collapse answer" : "Expand answer"}
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  isOpen 
+                    ? 'bg-[#FA5A16] text-white shadow-md rotate-180' 
+                    : 'bg-slate-100 text-slate-600 group-hover:bg-[#FA5A16] group-hover:text-white border border-slate-200 rotate-0'
+                }`}
+              >
                 {isOpen ? <Minus size={15} strokeWidth={2.5} /> : <Plus size={15} strokeWidth={2.5} />}
               </div>
             </div>
 
-            {/* Expandable Answer Content */}
-            {isOpen && (
-              <p className="text-slate-600 font-medium text-xs sm:text-sm leading-relaxed mt-2.5 pt-2.5 border-t border-slate-200/80 animate-fadeIn">
-                {item.answerParts ? (
-                  item.answerParts.map((part, idx) => (
-                    <span
-                      key={idx}
-                      className={part.highlight ? "text-[#FA5A16] font-extrabold" : ""}
-                    >
-                      {part.text}
-                    </span>
-                  ))
-                ) : (
-                  <span>{item.answer}</span>
-                )}
-              </p>
-            )}
+            {/* Expandable Answer Content with Smooth Height & Opacity Transition */}
+            <div 
+              className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
+                isOpen ? 'grid-rows-[1fr] opacity-100 mt-2.5 pt-2.5 border-t border-slate-200/80' : 'grid-rows-[0fr] opacity-0 mt-0 pt-0 border-t-0'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="text-slate-600 font-medium text-xs sm:text-sm leading-relaxed">
+                  {item.answerParts ? (
+                    item.answerParts.map((part, idx) => (
+                      <span
+                        key={idx}
+                        className={part.highlight ? "text-[#FA5A16] font-extrabold" : ""}
+                      >
+                        {part.text}
+                      </span>
+                    ))
+                  ) : (
+                    <span>{item.answer}</span>
+                  )}
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
