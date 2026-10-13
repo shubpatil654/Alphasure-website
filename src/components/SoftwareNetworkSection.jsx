@@ -162,9 +162,10 @@ export default function SoftwareNetworkSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
           
           {/* ================= LEFT COLUMN: Heading & Description ================= */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-center lg:text-left">
+          <div className="lg:col-span-6 flex flex-col justify-center text-center lg:text-left">
             <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
-              You choose the software, <span className="text-[#FA5A16] whitespace-nowrap">We bring the expertise</span>
+              <span className="block sm:inline lg:block whitespace-nowrap">You choose the software,</span>{' '}
+              <span className="text-[#FA5A16] block sm:inline lg:block whitespace-nowrap">We bring the expertise</span>
             </h2>
             <p className="alpha-large-body text-slate-600 font-normal mt-4 sm:mt-6 leading-relaxed">
               Because your accounting solution should adapt to you, not the <span className="whitespace-nowrap">other way around.</span>
@@ -203,10 +204,10 @@ export default function SoftwareNetworkSection() {
           </div>
 
           {/* ================= RIGHT COLUMN: Circular Software Integration Network Diagram ================= */}
-          <div className="lg:col-span-7 flex justify-center items-center w-full">
+          <div className="lg:col-span-6 flex justify-center items-center w-full">
             
             {/* Desktop & Tablet Circular Network Diagram (800x800 scaling viewBox) */}
-            <div className="relative w-full max-w-[650px] lg:max-w-[700px] aspect-square mx-auto hidden sm:block">
+            <div className="relative w-full max-w-[480px] lg:max-w-[530px] aspect-square mx-auto hidden sm:block">
               
               {/* SVG Vector Connections Layer */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 800 800">
