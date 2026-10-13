@@ -38,29 +38,29 @@ export default function OurJourneySection({ onOpenModal }) {
           </p>
         </div>
 
-        {/* ================= WIDESCREEN DYNAMIC UNDULATING 3D ROADMAP ================= */}
+        {/* ================= WIDESCREEN DYNAMIC UNDULATING 3D ROADMAP (Image 2) ================= */}
         <div className="relative w-full max-w-[1320px] mx-auto">
           
           {/* Seamless Feathered Blend Mask - No borders, no card box, pure integrated graphic */}
-          <div className="relative w-full overflow-hidden [mask-image:radial-gradient(ellipse_96%_92%_at_50%_50%,black_75%,transparent_100%)]">
+          <div className="relative w-full overflow-hidden [mask-image:radial-gradient(ellipse_96%_92%_at_50%_50%,black_80%,transparent_100%)]">
             
             {/* Top Seamless Edge Vignette */}
-            <div className="absolute top-0 left-0 right-0 h-10 sm:h-16 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 right-0 h-8 sm:h-12 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
             
             {/* Bottom Seamless Edge Vignette */}
-            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-20 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-14 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
             
             {/* Left Seamless Edge Vignette */}
-            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none z-10" />
             
             {/* Right Seamless Edge Vignette */}
-            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
 
             <img 
-              src="/images/alphasure-journey-horizontal-blended.jpg" 
-              srcSet="/images/alphasure-journey-horizontal-blended.jpg 1x, /images/alphasure-journey-horizontal-blended-2x.jpg 2x"
-              alt="Alphasure Horizontal Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
-              className="w-full h-auto object-contain mix-blend-multiply select-none"
+              src="/images/our-journey-image2-blended.jpg" 
+              srcSet="/images/our-journey-image2-blended.jpg 1x, /images/our-journey-image2.png 2x"
+              alt="Alphasure Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
+              className="w-full h-auto object-contain select-none"
               loading="eager"
             />
           </div>
