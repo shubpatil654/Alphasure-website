@@ -80,19 +80,29 @@ export default function OurJourneySection({ onOpenModal }) {
           </p>
         </div>
 
-        {/* ================= WIDESCREEN HORIZONTAL 3D ROADMAP SHOWCASE ================= */}
-        <div className="relative w-full max-w-[1280px] mx-auto mb-10 sm:mb-14">
+        {/* ================= WIDESCREEN HORIZONTAL 3D ROADMAP (SEAMLESSLY BLENDED INTO SECTION) ================= */}
+        <div className="relative w-full max-w-[1320px] mx-auto mb-10 sm:mb-14">
           
-          {/* Subtle Ambient Radial Lighting Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[95%] bg-blue-500/5 rounded-[40px] blur-3xl pointer-events-none" />
+          {/* Seamless Feathered Blend Mask - No borders, no card box, pure integrated graphic */}
+          <div className="relative w-full overflow-hidden [mask-image:radial-gradient(ellipse_96%_92%_at_50%_50%,black_75%,transparent_100%)]">
+            
+            {/* Top Seamless Edge Vignette */}
+            <div className="absolute top-0 left-0 right-0 h-10 sm:h-16 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            
+            {/* Bottom Seamless Edge Vignette */}
+            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-20 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            
+            {/* Left Seamless Edge Vignette */}
+            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            
+            {/* Right Seamless Edge Vignette */}
+            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
 
-          {/* Framed Horizontal Artwork Card */}
-          <div className="relative rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] overflow-hidden bg-white/85 p-2 sm:p-3.5 md:p-5 shadow-[0_20px_60px_rgba(11,25,44,0.08)] border border-[#E8DCCB]/75 backdrop-blur-xs transition-all duration-300 hover:shadow-[0_28px_75px_rgba(11,25,44,0.12)]">
             <img 
-              src="/images/alphasure-journey-horizontal.jpg" 
-              srcSet="/images/alphasure-journey-horizontal.jpg 1x, /images/alphasure-journey-horizontal-2x.jpg 2x"
+              src="/images/alphasure-journey-horizontal-blended.jpg" 
+              srcSet="/images/alphasure-journey-horizontal-blended.jpg 1x, /images/alphasure-journey-horizontal-blended-2x.jpg 2x"
               alt="Alphasure Horizontal Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
-              className="w-full h-auto rounded-[16px] sm:rounded-[24px] lg:rounded-[30px] object-cover shadow-2xs"
+              className="w-full h-auto object-contain mix-blend-multiply select-none"
               loading="eager"
             />
           </div>
