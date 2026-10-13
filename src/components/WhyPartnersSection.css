@@ -6,14 +6,14 @@
   position: relative;
   width: 100%;
   background-color: #FAF7F2;
-  padding: 60px 0 80px;
+  padding: 24px 0 32px;
   overflow: hidden;
   user-select: none;
 }
 
 @media (min-width: 1024px) {
   .why-partners-section {
-    padding: 70px 0 95px;
+    padding: 12px 0 20px;
   }
 }
 
@@ -29,15 +29,21 @@
 .why-partners-container {
   position: relative;
   z-index: 10;
-  max-width: 1340px;
+  max-width: 1680px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  .why-partners-container {
+    padding: 0 24px;
+  }
 }
 
 /* ================= DESKTOP STAGE (Screens >= 1024px) ================= */
 .why-partners-desktop-stage {
   width: 100%;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
