@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Building, Globe, MapPin, Handshake, Laptop, ChevronRight } from 'lucide-react';
 
 export default function OurJourneySection({ onOpenModal }) {
-  const [activeMilestone, setActiveMilestone] = useState(4); // Default to current milestone (2026)
+  const [activeMilestone, setActiveMilestone] = useState(4); // Default to latest (2026)
 
   const milestones = [
     {
@@ -80,26 +80,26 @@ export default function OurJourneySection({ onOpenModal }) {
           </p>
         </div>
 
-        {/* ================= CENTERPIECE: 3D ISOMETRIC ROADMAP SHOWCASE ================= */}
-        <div className="relative w-full max-w-[820px] mx-auto mb-10 sm:mb-14">
+        {/* ================= WIDESCREEN HORIZONTAL 3D ROADMAP SHOWCASE ================= */}
+        <div className="relative w-full max-w-[1280px] mx-auto mb-10 sm:mb-14">
           
           {/* Subtle Ambient Radial Lighting Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-blue-500/5 rounded-[40px] blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[95%] bg-blue-500/5 rounded-[40px] blur-3xl pointer-events-none" />
 
-          {/* Framed Artwork Card */}
-          <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden bg-white/85 p-2.5 sm:p-4 shadow-[0_22px_65px_rgba(11,25,44,0.08)] border border-[#E8DCCB]/75 backdrop-blur-xs transition-all duration-300 hover:shadow-[0_28px_75px_rgba(11,25,44,0.12)]">
+          {/* Framed Horizontal Artwork Card */}
+          <div className="relative rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] overflow-hidden bg-white/85 p-2 sm:p-3.5 md:p-5 shadow-[0_20px_60px_rgba(11,25,44,0.08)] border border-[#E8DCCB]/75 backdrop-blur-xs transition-all duration-300 hover:shadow-[0_28px_75px_rgba(11,25,44,0.12)]">
             <img 
-              src="/images/alphasure-journey-roadmap.jpg" 
-              srcSet="/images/alphasure-journey-roadmap.jpg 1x, /images/alphasure-journey-roadmap-2x.jpg 2x"
-              alt="Alphasure Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
-              className="w-full h-auto rounded-[20px] sm:rounded-[28px] object-cover shadow-2xs"
+              src="/images/alphasure-journey-horizontal.jpg" 
+              srcSet="/images/alphasure-journey-horizontal.jpg 1x, /images/alphasure-journey-horizontal-2x.jpg 2x"
+              alt="Alphasure Horizontal Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
+              className="w-full h-auto rounded-[16px] sm:rounded-[24px] lg:rounded-[30px] object-cover shadow-2xs"
               loading="eager"
             />
           </div>
         </div>
 
-        {/* ================= INTERACTIVE MILESTONE CARDS (MATCHING THE ROADMAP DESIGN) ================= */}
-        <div className="max-w-[1240px] mx-auto">
+        {/* ================= HORIZONTAL INTERACTIVE MILESTONES (1-TO-1 MIRROR) ================= */}
+        <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
             {milestones.map((item, idx) => {
               const IconComp = item.icon;
