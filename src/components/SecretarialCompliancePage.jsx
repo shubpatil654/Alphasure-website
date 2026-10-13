@@ -1,6 +1,5 @@
 import React from 'react';
-import SecretarialScopeSection from './SecretarialScopeSection';
-import LlpAnnualComplianceScopeSection from './LlpAnnualComplianceScopeSection';
+import AnnualComplianceServicesSection from './AnnualComplianceServicesSection';
 import PackageBreakdownSection from './PackageBreakdownSection';
 import ReviewsSection from './ReviewsSection';
 
@@ -131,11 +130,8 @@ export default function SecretarialCompliancePage({ onOpenModal }) {
 
       </section>
 
-      {/* ================= SCOPE OF ANNUAL COMPLIANCE DELIVERABLES SECTION ================= */}
-      <SecretarialScopeSection onOpenModal={onOpenModal} />
-
-      {/* ================= LLP ANNUAL COMPLIANCE PACKAGE SCOPE SECTION ================= */}
-      <LlpAnnualComplianceScopeSection onOpenModal={onOpenModal} />
+      {/* ================= ANNUAL COMPLIANCE SERVICES SECTION (Image 2 Redesign) ================= */}
+      <AnnualComplianceServicesSection onOpenModal={onOpenModal} />
 
       {/* ================= COMPLETE PACKAGE BREAKDOWN SECTION ================= */}
       <PackageBreakdownSection onOpenModal={onOpenModal} structureType="secretarial" />
