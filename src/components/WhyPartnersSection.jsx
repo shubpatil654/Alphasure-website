@@ -58,65 +58,115 @@ export default function WhyPartnersSection() {
         
         {/* ================= DESKTOP STAGE (Screens >= 1024px) ================= */}
         <div className="hidden lg:block why-partners-desktop-stage">
-          {/* Main Visual Display seamlessly integrated with background */}
-          <div className="why-partners-visual-wrapper relative select-none">
+          <div className="why-partners-stage-wrapper relative w-full overflow-hidden select-none">
+            {/* Clean Aerial Photographic Background */}
             <img
-              src="/images/why-partners-blended.jpg"
-              srcSet="/images/why-partners-blended-retina.jpg 2x"
-              alt="Why We Work with Partners - Collaboration with Specialists"
+              src="/images/why-partners-aerial-clean.jpg"
+              srcSet="/images/why-partners-aerial-clean-retina.jpg 2x"
+              alt="Alphasure collaborative partner network meeting"
               className="w-full h-auto block select-none pointer-events-none"
               loading="eager"
             />
 
-            {/* Interactive Pulse & Glow Hotspots over the 4 Pillars */}
-            {pillars.map((pillar) => {
-              const isActive = activePillar === pillar.id;
-              return (
-                <div
-                  key={pillar.id}
-                  className="absolute cursor-pointer transition-all duration-300 rounded-2xl"
-                  style={{
-                    top: pillar.hitbox.top,
-                    left: pillar.hitbox.left,
-                    width: pillar.hitbox.width,
-                    height: pillar.hitbox.height,
-                  }}
-                  onMouseEnter={() => setActivePillar(pillar.id)}
-                  onMouseLeave={() => setActivePillar(null)}
-                >
-                  {/* Subtle interactive hover highlight aura around the badge */}
-                  <div 
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full transition-all duration-300 pointer-events-none ${
-                      isActive 
-                        ? 'opacity-100 scale-125 bg-amber-400/20 ring-4 ring-amber-400/40 shadow-[0_0_24px_rgba(184,134,72,0.5)]' 
-                        : 'opacity-0 scale-95'
-                    }`}
-                    style={{
-                      left: `${(parseFloat(pillar.badgeX) - parseFloat(pillar.hitbox.left)) / parseFloat(pillar.hitbox.width) * 100}%`,
-                      top: `${(parseFloat(pillar.badgeY) - parseFloat(pillar.hitbox.top)) / parseFloat(pillar.hitbox.height) * 100}%`,
-                    }}
-                  />
+            {/* Left Column: Real Editorial HTML Text, Narrative & Grounding Tag */}
+            <div className="absolute top-0 left-0 bottom-0 w-[42%] flex flex-col justify-between py-[4.5%] pl-[4%] pr-[1%] z-20">
+              <div className="space-y-4">
+                {/* Eyebrow */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[12.5px] font-semibold text-[#A07B43] tracking-[0.14em] uppercase font-sans">
+                    OUR APPROACH
+                  </span>
+                  <span className="w-10 h-[1.5px] bg-[#C5A059]" />
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Accessible Semantic Content (Accessible to Screen Readers & Search Engines) */}
-          <div className="sr-only">
-            <span>OUR APPROACH</span>
-            <h2>Why We Work with Partners</h2>
-            <p>We don’t believe that every service needs to be performed by Alphasure itself.</p>
-            <p><strong>We believe it needs to be done by the right people.</strong></p>
-            <p>For services outside our core expertise, we work with carefully selected specialists rather than outsourcing work to multiple low-cost service providers.</p>
-            <div>
-              <span>STRONGER TOGETHER FOR BETTER OUTCOMES</span>
-              {pillars.map((p) => (
-                <div key={p.id}>
-                  <h3>{p.title}</h3>
-                  <p>{p.description}</p>
+                {/* Main Headline Title */}
+                <h2 className="font-serif text-[clamp(28px,2.9vw,46px)] leading-[1.14] tracking-tight">
+                  <span className="text-[#0F241C] block">Why We Work</span>
+                  <span className="text-[#B88648] block">with Partners</span>
+                </h2>
+
+                {/* Accent Divider Bar */}
+                <div className="w-11 h-[2.5px] bg-[#C5A059] rounded-xs" />
+
+                {/* Body Copy */}
+                <div className="space-y-3.5 text-[clamp(13.5px,1vw,15.5px)] leading-[1.68] text-[#3D4852] max-w-[430px]">
+                  <p>
+                    We don’t believe that every service needs to be performed by Alphasure itself.
+                  </p>
+                  <p className="text-[#0F241C] font-bold">
+                    We believe it needs to be done by the right people.
+                  </p>
+                  <p>
+                    For services outside our core expertise, we work with carefully selected specialists rather than outsourcing work to multiple low-cost service providers.
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Bottom Grounding Accent Tag */}
+              <div className="pt-3">
+                <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg bg-[#10241B] shadow-sm border border-[#224434]">
+                  <span className="w-[3px] h-5 bg-[#C5A059] rounded-full" />
+                  <span className="text-[11.5px] font-bold tracking-[0.15em] text-[#C3DAC0] uppercase">
+                    Stronger Together For Better Outcomes
+                  </span>
+                </div>
+              </div>
             </div>
+
+            {/* Right Column: Real HTML 4 Strategic Pillars with Arc Alignment */}
+            <div className="absolute top-0 right-0 bottom-0 w-[38%] flex flex-col justify-center py-[3%] pr-[4%] z-20">
+              {/* Connecting Arc Line (SVG) */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 700" fill="none" preserveAspectRatio="none">
+                <path
+                  d="M 50 80 Q 110 350 70 620"
+                  stroke="#DFC8A5"
+                  strokeWidth="1.5"
+                  opacity="0.8"
+                />
+              </svg>
+
+              <div className="space-y-5 lg:space-y-6 relative z-20">
+                {pillars.map((pillar, idx) => {
+                  const IconComp = pillar.icon;
+                  const isActive = activePillar === pillar.id;
+                  
+                  // Graceful curved offsets matching the circular rug arc:
+                  const offsets = ['translate-x-0', 'translate-x-4', 'translate-x-6', 'translate-x-2'];
+                  const offsetClass = offsets[idx] || '';
+
+                  return (
+                    <div
+                      key={pillar.id}
+                      className={`flex items-start gap-4 transition-all duration-300 cursor-pointer ${offsetClass}`}
+                      onMouseEnter={() => setActivePillar(pillar.id)}
+                      onMouseLeave={() => setActivePillar(null)}
+                    >
+                      {/* Circular Pillar Badge */}
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 shadow-xs ${
+                        isActive
+                          ? 'bg-[#FAF5EE] border-[#B88648] scale-110 shadow-[0_0_20px_rgba(184,134,72,0.4)] ring-2 ring-[#B88648]/40'
+                          : 'bg-white/95 border-[#DFC8A5] hover:border-[#B88648]'
+                      }`}>
+                        <IconComp className={`w-5 h-5 transition-colors duration-200 ${isActive ? 'text-[#0F241C]' : 'text-[#8C6239]'}`} strokeWidth={1.9} />
+                      </div>
+
+                      {/* Pillar Narrative */}
+                      <div className="text-left">
+                        <h3 className={`font-serif font-bold text-base lg:text-lg transition-colors duration-200 ${
+                          isActive ? 'text-[#B88648]' : 'text-[#0F241C]'
+                        }`}>
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs lg:text-[13.5px] text-[#4A5568] leading-relaxed max-w-[240px]">
+                          {pillar.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -152,7 +202,7 @@ export default function WhyPartnersSection() {
           {/* Collaborative Meeting Visual */}
           <div className="my-8 rounded-2xl overflow-hidden border border-[#EADBCA] shadow-md relative bg-[#F7F2E9]">
             <img
-              src="/images/why-partners-meeting-circle.jpg"
+              src="/images/why-partners-aerial-clean.jpg"
               alt="Alphasure collaborative partner network meeting"
               className="w-full h-auto object-cover"
               loading="lazy"
