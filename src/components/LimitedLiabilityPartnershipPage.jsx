@@ -39,29 +39,28 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Exact Reference Match) ================= */}
       <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden select-none">
         
-        {/* Background Video (Jean-François Cornuet - Bird Flight) */}
+        {/* Background Video / Media (Sunset flock of birds soaring over water - Pinterest 1109785533257642410) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/llp-hero-poster.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.04]"
+            poster="/images/llp-pinterest-bg.jpg"
+            className="w-full h-full object-cover object-center filter brightness-[0.94] contrast-[1.05]"
           >
-            <source src="/videos/llp-hero-video.mp4" type="video/mp4" />
-            <source src="https://v1.pinimg.com/videos/mc/720p/03/cc/ee/03ccee58b1482704368eda39eac7aa54.mp4" type="video/mp4" />
+            <source src="/videos/llp-flamingos-hero.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
-              src="/images/llp-hero-poster.jpg"
+              src="/images/llp-pinterest-bg.jpg"
               alt="Birds soaring in flight - Fly Together. We'll Take Care of What's Below"
               className="w-full h-full object-cover object-center"
             />
           </video>
 
           {/* Low Opacity Layer for Optimal Text Contrast */}
-          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
