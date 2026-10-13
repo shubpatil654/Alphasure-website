@@ -36,11 +36,8 @@ export default function AboutPage({ onOpenModal }) {
                 who understand business
               </h1>
 
-              {/* Exact Paragraph Content from Provided Image */}
+              {/* Paragraph Content */}
               <div className="space-y-4 max-w-2xl text-slate-100 alpha-body drop-shadow-md">
-                <p>
-                  We began in 2015 with a mission to provide live accounting services so that businesses owners could make better decisions. Over the years, we've grown beyond accounting to support businesses with incorporation, compliance, payroll, controller services, financial advisory, and more.
-                </p>
                 <p>
                   We know that entrepreneurs have enough to worry about—winning customers, delivering for them, managing people, improving processes and growing the business. Accounting and compliance shouldn't become another burden. That's where Alphasure comes in.
                 </p>
