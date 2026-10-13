@@ -51,15 +51,15 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full pt-14 sm:pt-18 lg:pt-20 pb-16 sm:pb-20 bg-gradient-to-b from-[#F5F8FF]/60 via-[#F9FBFF]/80 to-white overflow-hidden select-none"
+      className="relative w-full pt-14 sm:pt-18 lg:pt-20 pb-12 sm:pb-16 bg-gradient-to-b from-white via-[#FCFBF9] to-[#FCFBF9] overflow-hidden select-none"
       id="annual-compliance-services"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      {/* Background Soft Wave Graphic Curves */}
+      {/* Background Soft Wave Graphic Curves matching the section below */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
         <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-          <path d="M-100 160 C 350 90, 750 320, 1150 180 C 1320 110, 1420 280, 1550 220" stroke="#DBEAFE" strokeWidth="1.5" />
-          <path d="M-80 640 C 360 520, 820 720, 1220 540 C 1360 480, 1460 620, 1560 560" stroke="#E2E8F0" strokeWidth="1.2" strokeDasharray="5 5" />
+          <path d="M-100 160 C 350 90, 750 320, 1150 180 C 1320 110, 1420 280, 1550 220" stroke="#E6DEC9" strokeWidth="1.5" />
+          <path d="M-80 640 C 360 520, 820 720, 1220 540 C 1360 480, 1460 620, 1560 560" stroke="#DDD4BD" strokeWidth="1.2" strokeDasharray="5 5" />
         </svg>
       </div>
 
