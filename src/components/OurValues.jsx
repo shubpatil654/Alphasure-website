@@ -22,7 +22,7 @@ export default function OurValues() {
     {
       id: 'integrity',
       title: 'Integrity',
-      color: '#1E4E79',
+      color: '#2E82D8',
       position: 'bottom-left',
       description: 'We do the right thing—always. We operate with honesty, transparency and accountability.'
     },
@@ -38,17 +38,29 @@ export default function OurValues() {
   return (
     <section className="our-values-section" id="our-values">
       
+      {/* Background Decorative Ambient Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[650px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      {/* Dark Grid Background Photo Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <img
+          src="/images/dark-grid-bg.png"
+          alt="Dark Grid Background"
+          className="w-full h-full object-cover filter brightness-105"
+        />
+      </div>
+
       {/* Background Subtle Elegant Arcs & Golden Circles */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-25">
         <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-          <circle cx="100" cy="450" r="380" stroke="#DFD1BE" strokeWidth="1.2" strokeDasharray="6 6" fill="none" opacity="0.6" />
-          <circle cx="100" cy="450" r="260" stroke="#E5DAC9" strokeWidth="1" fill="none" opacity="0.5" />
-          <circle cx="1340" cy="480" r="380" stroke="#DFD1BE" strokeWidth="1.2" strokeDasharray="8 6" fill="none" opacity="0.6" />
-          <circle cx="1340" cy="480" r="260" stroke="#E5DAC9" strokeWidth="1" fill="none" opacity="0.5" />
+          <circle cx="100" cy="450" r="380" stroke="#C5A059" strokeWidth="1.2" strokeDasharray="6 6" fill="none" opacity="0.3" />
+          <circle cx="100" cy="450" r="260" stroke="#C5A059" strokeWidth="1" fill="none" opacity="0.25" />
+          <circle cx="1340" cy="480" r="380" stroke="#C5A059" strokeWidth="1.2" strokeDasharray="8 6" fill="none" opacity="0.3" />
+          <circle cx="1340" cy="480" r="260" stroke="#C5A059" strokeWidth="1" fill="none" opacity="0.25" />
         </svg>
       </div>
 
-      <div className="our-values-container">
+      <div className="our-values-container relative z-10">
         
         {/* ================= SECTION HEADER ================= */}
         <div className="our-values-header">
@@ -68,15 +80,16 @@ export default function OurValues() {
           <div className="relative w-full max-w-[1240px] mx-auto select-none">
             
             {/* Unified Canvas SVG: 4 Interlocking Puzzle Pieces + Connector Lines + Descriptions */}
+            {/* viewBox starts at Y=140 to eliminate top whitespace and bring the puzzle close to the heading */}
             <svg 
-              viewBox="0 0 1200 800" 
-              className="w-full h-auto overflow-visible select-none drop-shadow-sm"
+              viewBox="0 140 1200 610" 
+              className="w-full h-auto overflow-visible select-none drop-shadow-md"
             >
               <defs>
-                {/* Multi-layer 3D Realistic Soft Drop Shadow */}
+                {/* Multi-layer 3D Realistic Soft Drop Shadow for Dark Background */}
                 <filter id="puzzle3DShadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="18" stdDeviation="22" floodColor="#081426" floodOpacity="0.28" />
-                  <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#081426" floodOpacity="0.14" />
+                  <feDropShadow dx="0" dy="18" stdDeviation="22" floodColor="#000000" floodOpacity="0.75" />
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#000000" floodOpacity="0.45" />
                 </filter>
 
                 {/* 1. Rose Gradient (Top-Left) */}
@@ -93,11 +106,11 @@ export default function OurValues() {
                   <stop offset="100%" stopColor="#C4840A" />
                 </linearGradient>
 
-                {/* 3. Navy Gradient (Bottom-Left) */}
+                {/* 3. Navy/Azure Gradient (Bottom-Left) */}
                 <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#256296" />
-                  <stop offset="40%" stopColor="#1E4E79" />
-                  <stop offset="100%" stopColor="#103254" />
+                  <stop offset="0%" stopColor="#2E82D8" />
+                  <stop offset="40%" stopColor="#1E65AB" />
+                  <stop offset="100%" stopColor="#12477B" />
                 </linearGradient>
 
                 {/* 4. Green Gradient (Bottom-Right) */}
@@ -136,17 +149,17 @@ export default function OurValues() {
                 <circle cx="1145" cy="225" r="5" fill="#E5A922" />
               </g>
 
-              {/* Connector 3: Bottom-Left (Navy) - Terminates with dot in front of Integrity */}
+              {/* Connector 3: Bottom-Left (Azure Blue) - Terminates with dot in front of Integrity */}
               <g className={`transition-opacity duration-300 ${activeValue && activeValue !== 'integrity' ? 'opacity-40' : 'opacity-100'}`}>
                 <path 
                   d="M 104 588 H 78 Q 62 588 62 571 V 552 Q 62 535 78 535 H 290 Q 320 535 340 520 L 386 515" 
                   fill="none" 
-                  stroke="#1E4E79" 
+                  stroke="#2E82D8" 
                   strokeWidth="2" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
-                <circle cx="110" cy="588" r="5" fill="#1E4E79" />
+                <circle cx="110" cy="588" r="5" fill="#2E82D8" />
               </g>
 
               {/* Connector 4: Bottom-Right (Green) - Terminates with dot at right end of the line */}
@@ -424,14 +437,14 @@ export default function OurValues() {
                 x="115" 
                 y="573" 
                 width="260" 
-                height="190" 
+                height="160" 
                 className={`svg-desc-fo ${activeValue === 'integrity' ? 'svg-desc-active' : ''}`}
                 onMouseEnter={() => setActiveValue('integrity')}
                 onMouseLeave={() => setActiveValue(null)}
               >
                 <div xmlns="http://www.w3.org/1999/xhtml" className="svg-desc-content">
                   <h3 className="svg-desc-title">Integrity</h3>
-                  <div className="svg-desc-line bg-[#1E4E79]" />
+                  <div className="svg-desc-line bg-[#2E82D8]" />
                   <p className="svg-desc-body">
                     We do the right thing—always. We operate with honesty, transparency and accountability.
                   </p>
@@ -443,7 +456,7 @@ export default function OurValues() {
                 x="855" 
                 y="613" 
                 width="285" 
-                height="190" 
+                height="160" 
                 className={`svg-desc-fo ${activeValue === 'continuous-improvement' ? 'svg-desc-active' : ''}`}
                 onMouseEnter={() => setActiveValue('continuous-improvement')}
                 onMouseLeave={() => setActiveValue(null)}
@@ -481,8 +494,8 @@ export default function OurValues() {
                   <stop offset="100%" stopColor="#C4840A" />
                 </linearGradient>
                 <linearGradient id="mNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#256296" />
-                  <stop offset="100%" stopColor="#103254" />
+                  <stop offset="0%" stopColor="#2E82D8" />
+                  <stop offset="100%" stopColor="#12477B" />
                 </linearGradient>
                 <linearGradient id="mGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#84C033" />
@@ -539,12 +552,12 @@ export default function OurValues() {
               <div key={val.id} className="mobile-card-item">
                 <div className="flex items-center gap-2.5 mb-1.5">
                   <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: val.color }} />
-                  <h3 className="font-serif font-black text-lg text-[#0B192C]">
+                  <h3 className="font-serif font-black text-lg text-white">
                     {val.title}
                   </h3>
                 </div>
                 <div className="w-8 h-[2px] rounded-full mb-2.5" style={{ backgroundColor: val.color }} />
-                <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
                   {val.description}
                 </p>
               </div>

@@ -3,9 +3,7 @@
 .data-security-section {
   position: relative;
   width: 100%;
-  background-color: #CBD5E1;
-  border-top: 1px solid #B4C0D0;
-  border-bottom: 1px solid #B4C0D0;
+  background-color: #FAF7F2;
   padding-top: 5rem;
   padding-bottom: 5.5rem;
   overflow: hidden;
@@ -64,7 +62,7 @@
 .data-security-tag-line {
   height: 1.5px;
   width: 3.25rem;
-  background-color: rgba(197, 160, 89, 0.85);
+  background-color: rgba(197, 160, 89, 0.75);
 }
 
 .data-security-tag-text {
@@ -117,7 +115,7 @@
 .data-security-p {
   font-size: var(--font-body);
   line-height: var(--lh-body);
-  color: #1E293B;
+  color: #4B5563;
   font-weight: 400;
   margin: 0;
 }
@@ -132,7 +130,7 @@
   width: 100%;
   max-width: 580px;
   padding-top: 0.75rem;
-  border-top: 1px solid #B4C0D0;
+  border-top: 1px solid #EADBCA;
 }
 
 @media (min-width: 640px) {
@@ -156,19 +154,18 @@
   width: 48px;
   height: 48px;
   border-radius: 9999px;
-  background-color: #FFFFFF;
-  border: 1px solid #CBD5E1;
+  background-color: #F8F3EA;
+  border: 1px solid #E8DCCB;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 .security-pillar-item:hover .security-pillar-icon-badge {
   transform: translateY(-2px);
-  background-color: #F8FAFC;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  background-color: #F2E8D8;
 }
 
 .security-pillar-label {
@@ -184,7 +181,7 @@
 .security-pillar-divider {
   width: 1px;
   height: 40px;
-  background-color: #94A3B8;
+  background-color: #E2D4C0;
   flex-shrink: 0;
 }
 

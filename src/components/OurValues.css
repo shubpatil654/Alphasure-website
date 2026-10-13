@@ -3,18 +3,21 @@
 .our-values-section {
   position: relative;
   width: 100%;
-  background-color: #FAF7F2;
-  padding-top: 4.5rem;
-  padding-bottom: 5.5rem;
+  background-color: #0B132A;
+  color: #FFFFFF;
+  padding-top: 3.5rem;
+  padding-bottom: 4.5rem;
   overflow: hidden;
   user-select: none;
   font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 768px) {
   .our-values-section {
-    padding-top: 5.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 5.5rem;
   }
 }
 
@@ -24,7 +27,7 @@
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +45,7 @@
 .our-values-tag-line {
   height: 1.5px;
   width: 3.5rem;
-  background-color: rgba(197, 160, 89, 0.75);
+  background-color: rgba(197, 160, 89, 0.7);
 }
 
 @media (min-width: 640px) {
@@ -56,8 +59,8 @@
   line-height: var(--lh-eyebrow);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #A67C52;
+  letter-spacing: 0.12em;
+  color: #C5A059;
 }
 
 /* Main Title (H2) */
@@ -66,7 +69,7 @@
   font-size: var(--font-h2);
   line-height: var(--lh-h2);
   font-weight: 700;
-  color: #0B192C;
+  color: #FFFFFF;
   letter-spacing: -0.02em;
   margin-top: 0.25rem;
 }
@@ -77,6 +80,7 @@
   background-color: #C5A059;
   margin-top: 0.6rem;
   border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.45);
 }
 
 /* Stage Canvas */
@@ -99,7 +103,7 @@
 
 .puzzle-interactive-piece:hover {
   transform: scale(1.025);
-  filter: drop-shadow(0 24px 34px rgba(8, 20, 38, 0.35));
+  filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.65));
 }
 
 /* SVG Integrated Description Blocks */
@@ -124,7 +128,7 @@
   font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
   font-size: 1.45rem;
   font-weight: 800;
-  color: #0B192C;
+  color: #FFFFFF;
   letter-spacing: -0.015em;
   line-height: 1.2;
   margin: 0;
@@ -133,7 +137,7 @@
 
 .svg-desc-line {
   width: 2.25rem;
-  height: 2px;
+  height: 2.5px;
   margin-top: 0.45rem;
   margin-bottom: 0.65rem;
   border-radius: 9999px;
@@ -142,8 +146,8 @@
 .svg-desc-body {
   font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #4B5563;
+  font-weight: 400;
+  color: #CBD5E1;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -173,9 +177,9 @@
 }
 
 .mobile-card-item {
-  background-color: #FFFFFF;
+  background-color: #131E3A;
   border-radius: 20px;
   padding: 1.25rem 1.5rem;
-  border: 1px solid #E8DCCB;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
