@@ -197,7 +197,7 @@
 .shield-graphic-wrapper {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,10 +208,10 @@
   height: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.06));
+  filter: drop-shadow(0 20px 40px rgba(166, 124, 82, 0.16)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
   transition: transform 0.4s ease;
 }
 
 .shield-graphic-wrapper:hover .shield-graphic-img {
-  transform: scale(1.02);
+  transform: translateY(-4px) scale(1.02);
 }
