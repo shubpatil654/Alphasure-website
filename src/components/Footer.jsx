@@ -82,9 +82,6 @@ export default function Footer({ onOpenModal, onNavigate }) {
               <AlphasureLogo className="h-10 sm:h-12 w-auto" />
             </a>
             
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal max-w-sm">
-              Alphasure provides end-to-end accounting, compliance, tax advisory, and virtual CFO services for growing enterprises worldwide. Technology-driven with human expertise at heart.
-            </p>
 
             <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-300">
               <div className="flex items-center gap-3 text-slate-300">
