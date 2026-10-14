@@ -78,7 +78,7 @@ export default function GettingStartedSection({ onOpenModal }) {
       
       {/* ================= Geometric Red Mesh Background (Left & Right Edge Wireframes on White) ================= */}
       {/* Left Low-Poly Geometric Orange Wireframe */}
-      <svg className="absolute left-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-45 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
+      <svg className="absolute left-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-[0.12] z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
         <polygon points="0,0 120,80 40,240 0,180" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowLeft1)" />
         <polygon points="120,80 280,160 180,360 40,240" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowLeft2)" />
         <polygon points="40,240 180,360 80,520 0,420" stroke="#FA5A16" strokeWidth="1.2" fill="none" />
@@ -96,7 +96,7 @@ export default function GettingStartedSection({ onOpenModal }) {
       </svg>
 
       {/* Right Low-Poly Geometric Orange Wireframe */}
-      <svg className="absolute right-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-45 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
+      <svg className="absolute right-0 top-0 bottom-0 h-full w-[240px] sm:w-[360px] pointer-events-none opacity-[0.12] z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
         <polygon points="300,0 180,100 260,260 300,200" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowRight1)" />
         <polygon points="180,100 20,180 120,380 260,260" stroke="#FA5A16" strokeWidth="1.2" fill="url(#orangeGlowRight2)" />
         <polygon points="260,260 120,380 220,540 300,440" stroke="#FA5A16" strokeWidth="1.2" fill="none" />

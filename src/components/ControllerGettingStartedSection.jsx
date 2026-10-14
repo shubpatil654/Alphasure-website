@@ -90,7 +90,7 @@ export default function ControllerGettingStartedSection({ onOpenModal }) {
       {/* ================= Left & Right Pink Faceted Geometric Wireframe Background ================= */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Left Side Faceted Wireframes */}
-        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-80 sm:w-[420px] md:w-[500px] h-[500px] opacity-35">
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-80 sm:w-[420px] md:w-[500px] h-[500px] opacity-[0.12]">
           <svg
             className="w-full h-full"
             viewBox="0 0 400 400"
@@ -125,7 +125,7 @@ export default function ControllerGettingStartedSection({ onOpenModal }) {
         </div>
 
         {/* Right Side Faceted Wireframes */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-80 sm:w-[420px] md:w-[500px] h-[500px] opacity-35">
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-80 sm:w-[420px] md:w-[500px] h-[500px] opacity-[0.12]">
           <svg
             className="w-full h-full"
             viewBox="0 0 400 400"

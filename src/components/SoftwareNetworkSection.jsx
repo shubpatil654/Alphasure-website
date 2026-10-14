@@ -123,7 +123,7 @@ export default function SoftwareNetworkSection() {
 
       {/* ================= Geometric Red Mesh Background Continuation (Flows seamlessly down into GettingStartedSection) ================= */}
       {/* Left Low-Poly Geometric Red Wireframe Continuation */}
-      <svg className="absolute left-0 bottom-0 h-3/4 w-[240px] sm:w-[360px] pointer-events-none opacity-40 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
+      <svg className="absolute left-0 bottom-0 h-3/4 w-[240px] sm:w-[360px] pointer-events-none opacity-[0.12] z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
         <polygon points="0,300 90,380 30,500 0,460" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowNetLeft1)" />
         <polygon points="90,380 240,440 120,600 0,600" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowNetLeft2)" />
         <polygon points="0,600 120,600 40,440 0,380" stroke="#FF1E43" strokeWidth="1.2" fill="none" />
@@ -140,7 +140,7 @@ export default function SoftwareNetworkSection() {
       </svg>
 
       {/* Right Low-Poly Geometric Red Wireframe Continuation */}
-      <svg className="absolute right-0 bottom-0 h-3/4 w-[240px] sm:w-[360px] pointer-events-none opacity-40 z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
+      <svg className="absolute right-0 bottom-0 h-3/4 w-[240px] sm:w-[360px] pointer-events-none opacity-[0.12] z-0" viewBox="0 0 300 600" fill="none" preserveAspectRatio="none">
         <polygon points="300,300 210,380 270,500 300,460" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowNetRight1)" />
         <polygon points="210,380 60,440 180,600 300,600" stroke="#FF1E43" strokeWidth="1.2" fill="url(#redGlowNetRight2)" />
         <polygon points="300,600 180,600 260,440 300,380" stroke="#FF1E43" strokeWidth="1.2" fill="none" />
