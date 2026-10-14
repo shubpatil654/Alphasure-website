@@ -156,7 +156,7 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
 
             <div className="relative z-10">
               {/* Header */}
-              <div className="flex items-start gap-4 mb-6 sm:mb-7">
+              <div className="flex items-center gap-4 mb-6 sm:mb-7">
                 <div 
                   className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm ${
                     isCompany
@@ -172,11 +172,6 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
                   }`}>
                     Company Compliance
                   </h3>
-                  <p className={`text-xs sm:text-sm font-medium mt-1 leading-relaxed ${
-                    isCompany ? 'text-purple-100' : 'text-slate-500'
-                  }`}>
-                    Ongoing monthly, quarterly and event-based corporate secretarial requirements.
-                  </p>
                 </div>
               </div>
 
@@ -348,19 +343,6 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
 
               </div>
             </div>
-
-            {/* Bottom Meta Footer */}
-            <div className={`mt-8 pt-4 border-t flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold relative z-10 ${
-              isCompany ? 'border-white/20 text-purple-100' : 'border-purple-100 text-slate-500'
-            }`}>
-              <span>Companies Act, 2013 Mandate</span>
-              <span className={`font-extrabold flex items-center gap-1.5 ${
-                isCompany ? 'text-white' : 'text-[#7C3AED]'
-              }`}>
-                <CheckCircle2 className="w-4 h-4" />
-                Comprehensive Filings
-              </span>
-            </div>
           </div>
 
 
@@ -408,7 +390,7 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
 
             <div className="relative z-10">
               {/* Header */}
-              <div className="flex items-start gap-4 mb-6 sm:mb-7">
+              <div className="flex items-center gap-4 mb-6 sm:mb-7">
                 <div 
                   className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm ${
                     isLlp
@@ -424,11 +406,6 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
                   }`}>
                     LLP Compliance
                   </h3>
-                  <p className={`text-xs sm:text-sm font-medium mt-1 leading-relaxed ${
-                    isLlp ? 'text-purple-100' : 'text-slate-500'
-                  }`}>
-                    Annual statutory filings, statements of account and partner-specific compliance.
-                  </p>
                 </div>
               </div>
 
@@ -557,19 +534,6 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
                 </div>
 
               </div>
-            </div>
-
-            {/* Bottom Meta Footer */}
-            <div className={`mt-8 pt-4 border-t flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold relative z-10 ${
-              isLlp ? 'border-white/20 text-purple-100' : 'border-purple-100 text-slate-500'
-            }`}>
-              <span>Statutory Compliance: LLP Act, 2008</span>
-              <span className={`font-extrabold flex items-center gap-1.5 ${
-                isLlp ? 'text-white' : 'text-[#7C3AED]'
-              }`}>
-                <CheckCircle2 className="w-4 h-4" />
-                Form 8 & Form 11 Complete Coverage
-              </span>
             </div>
           </div>
 
