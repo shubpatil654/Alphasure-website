@@ -53,7 +53,7 @@ export default function RealTimeAccountingPage({ onOpenModal }) {
                   Know where your <span className="whitespace-nowrap">business stands</span>
                 </h2>
                 <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
-                  -Every day.
+                  -<span className="text-[#FA5A16]">Every day.</span>
                 </h1>
               </div>
 
