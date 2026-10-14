@@ -27,18 +27,32 @@ export default function OurJourneySection({ onOpenModal }) {
           </div>
           
           <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
-            Our Journey
+            Our{' '}
+            <span className="relative inline-block text-[#FA5A16]">
+              Journey
+              <svg 
+                className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                viewBox="0 0 200 20" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M 4 16 Q 100 3, 196 16" 
+                  stroke="#FA5A16" 
+                  strokeWidth="4" 
+                  strokeLinecap="round" 
+                  className="animate-draw-curved-underline"
+                />
+              </svg>
+            </span>
           </h2>
           
-          {/* Centered Gold Accent Line */}
-          <div className="w-12 sm:w-16 h-[2.5px] bg-[#C5A059] mt-3 sm:mt-4 rounded-full" />
-          
-          <p className="alpha-body text-slate-600 font-medium text-center mt-3 max-w-xl mx-auto">
+          <p className="alpha-body text-slate-600 font-medium text-center mt-3.5 max-w-xl mx-auto">
             One milestone at a time. One vision throughout.
           </p>
         </div>
 
-        {/* ================= WIDESCREEN DYNAMIC UNDULATING 3D ROADMAP (Image 2) ================= */}
+        {/* ================= WIDESCREEN DYNAMIC UNDULATING 3D ROADMAP ================= */}
         <div className="relative w-full max-w-[1320px] mx-auto">
           
           {/* Seamless Feathered Blend Mask - No borders, no card box, pure integrated graphic */}
@@ -57,9 +71,9 @@ export default function OurJourneySection({ onOpenModal }) {
             <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
 
             <img 
-              src="/images/our-journey-image2-blended.jpg" 
-              srcSet="/images/our-journey-image2-blended.jpg 1x, /images/our-journey-image2.png 2x"
-              alt="Alphasure Journey Roadmap - From 2015 The Beginning to 2026 Expertise + Technology"
+              src="/images/our-journey-timeline-new.png" 
+              srcSet="/images/our-journey-timeline-new.png 1x, /images/our-journey-timeline-new-2x.png 2x"
+              alt="Alphasure Journey Roadmap - From 2015 Foundation to 2026 Alphasure Solutions"
               className="w-full h-auto object-contain select-none"
               loading="eager"
             />
