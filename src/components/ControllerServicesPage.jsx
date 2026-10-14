@@ -46,10 +46,12 @@ export default function ControllerServicesPage({ onOpenModal }) {
                 </span>
               </div>
 
-              {/* Main Headline Title (Exact 2-Line Reference Match) */}
+              {/* Main Headline Title */}
               <div className="space-y-1 sm:space-y-2">
-                <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                  Already have an accounting team? <br className="hidden sm:inline" />
+                <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap">
+                  Already have an accounting team?
+                </h2>
+                <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
                   We can help you get <span className="whitespace-nowrap">more from it.</span>
                 </h1>
               </div>
