@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BarChart3, UserCheck, Globe, Lightbulb } from 'lucide-react';
+import { ArrowRight, BarChart3, UserCheck, Globe, Lightbulb, Handshake, Scale, Gavel } from 'lucide-react';
 
 export default function OtherServicesPricingSection({ onOpenModal }) {
   const otherServices = [
@@ -99,7 +99,7 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
     },
     {
       id: 'transfer-pricing',
-      title: 'Transfer pricing',
+      title: 'Transfer Pricing',
       cardBg: 'bg-white',
       borderColor: 'border-white/90 hover:border-[#C5A059]',
       iconBg: 'bg-[#F5ECE0] text-[#8C6239] border border-[#E8DCCB]',
@@ -112,6 +112,46 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
       )
+    },
+    {
+      id: 'm-and-a',
+      title: 'M&A',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-purple-400',
+      iconBg: 'bg-[#F3E8FF] text-[#7E22CE] border border-[#E9D5FF]',
+      bottomShapeBg: 'bg-[#E9D5FF]',
+      accentLine: 'bg-[#7E22CE]',
+      icon: <Handshake className="w-6 h-6 stroke-[2]" />
+    },
+    {
+      id: 'international-taxation',
+      title: 'International Taxation',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-emerald-400',
+      iconBg: 'bg-[#E6F4EA] text-[#1E7E34] border border-[#CEEAD6]',
+      bottomShapeBg: 'bg-[#D1E7DD]',
+      accentLine: 'bg-[#1E7E34]',
+      icon: <Globe className="w-6 h-6 stroke-[2]" />
+    },
+    {
+      id: 'ifrs-and-ind-as',
+      title: 'IFRS and Ind AS',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-blue-400',
+      iconBg: 'bg-[#E5F0FC] text-[#2C5282] border border-[#D3E4F6]',
+      bottomShapeBg: 'bg-[#D8E8F8]',
+      accentLine: 'bg-[#2C5282]',
+      icon: <Scale className="w-6 h-6 stroke-[2]" />
+    },
+    {
+      id: 'corporate-legal',
+      title: 'Corporate Legal',
+      cardBg: 'bg-white',
+      borderColor: 'border-white/90 hover:border-rose-400',
+      iconBg: 'bg-[#FCEAEB] text-[#B85D65] border border-[#FAD2D6]',
+      bottomShapeBg: 'bg-[#FADDE0]',
+      accentLine: 'bg-[#B85D65]',
+      icon: <Gavel className="w-6 h-6 stroke-[2]" />
     }
   ];
 
@@ -143,13 +183,13 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
           <div className="w-12 sm:w-16 h-[2.5px] bg-[#C5A059] mt-3 sm:mt-4 rounded-full shadow-[0_0_10px_rgba(197,160,89,0.5)]" />
         </div>
 
-        {/* ================= 6 CARDS (3x2 GRID) ================= */}
+        {/* ================= 10 CARDS GRID ================= */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 w-full max-w-[1180px] mx-auto items-stretch">
-          {otherServices.map((service) => (
+          {otherServices.map((service, idx) => (
             <div
               key={service.id}
               onClick={onOpenModal}
-              className={`relative w-full ${service.cardBg} rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.3)] border ${service.borderColor} hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group select-none min-h-[170px] sm:min-h-[185px]`}
+              className={`relative w-full ${service.cardBg} rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 md:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.3)] border ${service.borderColor} hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden group select-none min-h-[170px] sm:min-h-[185px] ${idx === 9 ? 'lg:col-start-2' : ''}`}
             >
               {/* Bottom Right Curved Accent Graphic */}
               <div 
