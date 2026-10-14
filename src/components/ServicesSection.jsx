@@ -134,7 +134,7 @@ export default function ServicesSection() {
     },
     {
       id: 4,
-      title: 'Payroll\nAdvisory\nCorporate Legal\nFractional CFO',
+      title: 'Other\nServices',
       bgColor: 'bg-[#FA5A16]',
       textColor: 'text-white',
       borderStyle: 'border border-[#E04806]',

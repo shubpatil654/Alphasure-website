@@ -328,7 +328,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             </div>
           </div>
 
-          {/* ACCOUNTING AND COMPLIANCE Dropdown */}
+          {/* ACCOUNTING & COMPLIANCE Dropdown */}
           <div 
             className="relative py-2"
             onMouseEnter={handleAccountingEnter}
@@ -346,7 +346,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   : 'text-white/90 hover:text-white'
               }`}
             >
-              ACCOUNTING AND COMPLIANCE
+              ACCOUNTING & COMPLIANCE
             </button>
 
             {/* Accounting and Compliance Menu Card */}
@@ -718,13 +718,13 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               )}
             </div>
 
-            {/* ACCOUNTING AND COMPLIANCE Accordion in Mobile */}
+            {/* ACCOUNTING & COMPLIANCE Accordion in Mobile */}
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileAccountingOpen(!mobileAccountingOpen)}
                 className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
-                <span>ACCOUNTING AND COMPLIANCE</span>
+                <span>ACCOUNTING & COMPLIANCE</span>
                 <span className="text-[10px] text-blue-400 bg-blue-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileAccountingOpen ? 'Close' : 'View Options'}
                 </span>
