@@ -51,7 +51,7 @@ export default function PeriodicAccountingPage({ onOpenModal }) {
               {/* Main Headline Title */}
               <div className="space-y-1 sm:space-y-2">
                 <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap">
-                  Need us only once a <span className="whitespace-nowrap">month or year?</span>
+                  Once a <span className="text-[#FA5A16]">month</span> or <span className="text-[#FA5A16]">year</span>?
                 </h2>
                 <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
                   We’re ready <span className="whitespace-nowrap">when you are</span>
