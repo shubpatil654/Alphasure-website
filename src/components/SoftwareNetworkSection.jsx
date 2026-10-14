@@ -165,7 +165,26 @@ export default function SoftwareNetworkSection() {
           <div className="lg:col-span-6 flex flex-col justify-center text-center lg:text-left">
             <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
               <span className="block sm:inline lg:block whitespace-nowrap">You choose the software,</span>{' '}
-              <span className="text-[#FA5A16] block sm:inline lg:block whitespace-nowrap">We bring the expertise</span>
+              <span className="text-[#FA5A16] block sm:inline lg:block whitespace-nowrap">
+                We bring the{' '}
+                <span className="relative inline-block">
+                  expertise
+                  <svg 
+                    className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                    viewBox="0 0 200 20" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M 4 16 Q 100 3, 196 16" 
+                      stroke="#FA5A16" 
+                      strokeWidth="4" 
+                      strokeLinecap="round" 
+                      className="animate-draw-curved-underline"
+                    />
+                  </svg>
+                </span>
+              </span>
             </h2>
             <p className="alpha-large-body text-slate-600 font-normal mt-4 sm:mt-6 leading-relaxed">
               Because your accounting solution should adapt to you, not the <span className="whitespace-nowrap">other way around.</span>
