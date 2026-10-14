@@ -27,9 +27,17 @@ const InstagramIcon = () => (
   </svg>
 );
 
-export default function Footer({ onOpenModal }) {
+export default function Footer({ onOpenModal, onNavigate }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNav = (e, pageId) => {
+    if (onNavigate && pageId) {
+      e.preventDefault();
+      onNavigate(pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -140,12 +148,10 @@ export default function Footer({ onOpenModal }) {
               Company
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-400">
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> About Alphasure</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Our Leadership Team</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> What Sets Us Apart</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Seamless Software Integrations</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Client Reviews & Case Studies</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Frequently Asked Questions</a></li>
+              <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> About Alphasure</a></li>
+              <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Our Leadership Team</a></li>
+              <li><a href="#pricing" onClick={(e) => handleNav(e, 'pricing')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Pricing</a></li>
+              <li><a href="#careers" onClick={(e) => handleNav(e, 'careers')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Careers</a></li>
             </ul>
           </div>
 

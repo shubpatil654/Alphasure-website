@@ -88,7 +88,7 @@ export default function App() {
       </main>
 
       {/* Website Footer */}
-      <Footer onOpenModal={() => setModalOpen(true)} />
+      <Footer onOpenModal={() => setModalOpen(true)} onNavigate={setActivePage} />
 
       {/* Interactive Request Call Modal */}
       <RequestCallModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
