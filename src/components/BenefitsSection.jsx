@@ -91,8 +91,8 @@ export const opcBenefits = [
   },
   {
     id: 'seamless-transition',
-    title: 'Seamless Transition to Pvt Ltd Company',
-    description: 'Effortlessly convert your OPC into a full Private Limited Company anytime you choose to bring in co-founders or raise venture capital.',
+    title: 'Transition to PVT LTD CO.',
+    description: 'Effortlessly transition to PVT LTD CO. anytime you choose to bring in co-founders or raise venture capital.',
     image: '/images/benefit-investor-friendly.jpg',
     alt: 'Business partners shaking hands over corporate agreement',
     icon: TrendingUp,
