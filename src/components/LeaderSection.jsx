@@ -4,7 +4,7 @@ const leader1Data = {
   name: "Onkar Marathe",
   credentials: "CA, CPA (US)",
   role: "Founder",
-  image: "/images/onkar-marathe-new.jpg",
+  image: "/images/onkar-marathe-leader.jpg",
   imagePosition: "left",
   paragraphs: [
     "More than a decade ago, Alphasure was founded with a simple goal—to help businesses succeed through reliable accounting and financial expertise.",
@@ -18,7 +18,7 @@ const leader2Data = {
   name: "Abhijit Atre",
   credentials: "MBA",
   role: "CEO",
-  image: "/images/abhijit-atre-new.png",
+  image: "/images/abhijit-atre-leader.jpg",
   imagePosition: "right",
   paragraphs: [
     "Our approach is simple. We don’t believe in merely selling software or providing a service. We believe in delivering a complete solution. As technology and AI continue to transform our industry, we see them as powerful tools to improve speed, accuracy and efficiency.",
@@ -72,7 +72,7 @@ function LeaderCard({ leader }) {
           <img
             src={leader.image}
             alt={`${leader.name} - ${leader.role}`}
-            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
         </div>
