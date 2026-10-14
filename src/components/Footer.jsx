@@ -115,18 +115,22 @@ export default function Footer({ onOpenModal }) {
             <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wider uppercase border-l-2 border-[#FA5A16] pl-3">
               Services
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Business Registration</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Accounting & Reporting</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> GST & TDS Compliance</a></li>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-[13px] font-medium text-slate-400">
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Register a Pvt Ltd Co</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Register an LLP</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Register an OPC</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Secretarial Compliance</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Periodic Accounting</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Real Time Accounting</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Controller Services</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> TDS and GST Compliance</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> CFO</a></li>
               <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Payroll</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Corporate Legal</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Fractional CFO</a></li>
               <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Transfer Pricing</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Mergers & Acquisitions (M&A)</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Due Diligence</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> M&A</a></li>
               <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> International Taxation</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> IFRS and Ind AS Conversion</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> IFRS and Ind AS</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Corporate Legal</a></li>
             </ul>
           </div>
 
