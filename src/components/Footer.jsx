@@ -46,12 +46,12 @@ export default function Footer({ onOpenModal }) {
         <div className="mb-16 p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-r from-[#111C35] via-[#1B2A4A] to-[#111C35] border border-slate-700/60 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#FA5A16]/10 rounded-full blur-2xl pointer-events-none"></div>
           
-          <div className="text-center md:text-left z-10 max-w-2xl">
-            <h3 className="alpha-h3 font-semibold text-white tracking-tight">
-              Ready to elevate your financial operations?
+          <div className="text-center md:text-left z-10 max-w-2xl lg:max-w-3xl">
+            <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white tracking-tight leading-tight">
+              One Partner. Every Business Solution.
             </h3>
-            <p className="alpha-body text-slate-300 font-normal mt-2">
-              Join hundreds of growing businesses backed by expert CA & CPA leadership across 8+ countries.
+            <p className="text-sm sm:text-base text-slate-300 font-normal mt-2.5 sm:mt-3 leading-relaxed">
+              Your trusted partner for accounting, compliance and business advisory and more—combining expert people, proven processes and technology to help businesses grow.
             </p>
           </div>
 
