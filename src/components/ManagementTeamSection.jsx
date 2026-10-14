@@ -1,127 +1,94 @@
 import React from 'react';
-import './ManagementTeamSection.css';
 
 export default function ManagementTeamSection() {
-  const leaders = [
-    {
-      id: 'onkar-marathe',
-      number: '01',
-      name: 'Onkar Marathe',
-      role: 'Co-Founder',
-      image: '/team/onkar-marathe.jpg',
-      objectPosition: 'center 12%',
-      paragraphs: [
-        'Onkar brings extensive experience in accounting, financial reporting and building finance teams for businesses in India and international markets. A Chartered Accountant from the Institute of Chartered Accountants of India (ICAI), he has also successfully completed the Uniform CPA Examination in the United States.',
-        'A strong believer in teamwork, Onkar enjoys working closely with people and building teams that take ownership of their work. Outside work, he loves travelling and is an enthusiastic badminton and football player.'
-      ]
-    },
-    {
-      id: 'abhijit-atre',
-      number: '02',
-      name: 'Abhijit Atre',
-      role: 'Co-Founder',
-      image: '/team/abhijit-atre.png',
-      objectPosition: 'center 10%',
-      paragraphs: [
-        'Abhijit brings extensive experience in technology, business leadership and process transformation, with a strong focus on using technology to help businesses work smarter and scale. He has been closely involved with Pune\'s technology ecosystem for over two decades and has held leadership roles with SEAP.',
-        'A natural people person, Abhijit enjoys building relationships, mentoring others and bringing people together. Outside work, he is an enthusiastic badminton player—bringing the same energy, competitiveness and team spirit to everything he does.'
-      ]
-    },
-    {
-      id: 'satish-prabhu',
-      number: '03',
-      name: 'Satish Prabhu',
-      role: 'Country head - USA',
-      image: '/team/satish-prabhu.jpg',
-      objectPosition: 'center 35%',
-      paragraphs: [
-        'Satish brings 35+ years of experience in accounting, auditing and financial advisory across India and the United States. A US CPA and Chartered Accountant, he spent two decades in practice in Mumbai before moving to the US in 2005, where he worked as a Senior Manager with a leading US audit firm.',
-        'In 2008, he established his own practice and has since advised multinational companies on accounting, financial reporting and advisory matters.'
-      ]
-    }
-  ];
-
   return (
-    <section className="management-team-section" id="management-team">
-      
-      {/* Background Subtle Curved Arcs Matching Reference */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
-        <svg className="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-          {/* Top-Left Concentric Watermark Arcs */}
-          <circle cx="90" cy="200" r="280" stroke="#DFD1BE" strokeWidth="1.2" strokeDasharray="6 6" fill="none" opacity="0.6" />
-          <circle cx="90" cy="200" r="190" stroke="#E5DAC9" strokeWidth="1" fill="none" opacity="0.5" />
-          
-          {/* Top-Right Sweeping Curve */}
-          <path d="M 980 0 Q 1280 80 1440 320" stroke="#DFD1BE" strokeWidth="1.6" fill="none" opacity="0.7" />
-          <path d="M 1020 0 Q 1300 110 1440 360" stroke="#EAE0D2" strokeWidth="1.2" strokeDasharray="8 6" fill="none" opacity="0.5" />
-        </svg>
-      </div>
+    <section 
+      className="relative w-full bg-[#050608] text-white py-16 sm:py-20 lg:py-24 select-none overflow-hidden border-t border-b border-zinc-900"
+      id="management-team"
+    >
+      {/* Background Subtle Warm Golden Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[#C5A059]/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="management-team-container">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ================= SECTION HEADER ================= */}
-        <div className="management-team-header">
-          <div className="management-team-tag-row">
-            <span className="management-team-tag-line" />
-            <span className="management-team-tag-text">OUR PEOPLE</span>
-            <span className="management-team-tag-line" />
-          </div>
-          <h2 className="management-team-main-title">
-            Management Team
+        {/* ================= SECTION HEADER: "— Management Team —" ================= */}
+        <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 mb-12 sm:mb-16 lg:mb-20">
+          <span className="w-10 sm:w-20 md:w-28 lg:w-36 h-[1.5px] bg-[#C5A059]/90" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-serif font-normal text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
+            <span>Management</span>
+            <span className="text-[#D4A359]">Team</span>
           </h2>
-          <p className="management-team-subtitle">
-            Experienced leaders. A shared vision for a stronger tomorrow.
-          </p>
+          <span className="w-10 sm:w-20 md:w-28 lg:w-36 h-[1.5px] bg-[#C5A059]/90" />
         </div>
 
-        {/* ================= 3 LEADERSHIP CARDS GRID ================= */}
-        <div className="management-team-grid">
-          {leaders.map((leader) => (
-            <div key={leader.id} className="leader-card">
-              
-              {/* Card Top: Arch Portrait with Organic Backdrop & Number Badge */}
-              <div className="leader-portrait-wrapper">
-                
-                {/* Decorative Organic Warm Backdrop Shape */}
-                <div className="leader-portrait-backdrop" />
-
-                {/* Architectural Arch Photo Frame */}
-                <div className="leader-arch-frame">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="leader-photo"
-                    style={{ objectPosition: leader.objectPosition || 'center top' }}
-                  />
-                </div>
-
-                {/* Number Badge (01, 02, 03) */}
-                <div className="leader-number-badge">
-                  <span className="leader-number-text">{leader.number}</span>
-                  <span className="leader-number-bar" />
-                </div>
-              </div>
-
-              {/* Card Body: Name, Role & 2 Bio Paragraphs */}
-              <div className="leader-card-body">
-                <h3 className="leader-name">
-                  {leader.name}
-                </h3>
-                <div className="leader-role">
-                  {leader.role}
-                </div>
-
-                <div className="leader-bio-stack">
-                  {leader.paragraphs.map((para, idx) => (
-                    <p key={idx} className="leader-bio-p">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
+        {/* ================= 3-COLUMN LAYOUT: ABHIJIT | PHOTO | ONKAR ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-10 items-center">
+          
+          {/* ================= LEFT COLUMN: ABHIJIT ATRE ================= */}
+          <div className="order-2 lg:order-1 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
+            {/* Gold Accent Bar */}
+            <div className="w-12 h-[2px] bg-[#C5A059] mb-3.5" />
+            
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#E2C392] tracking-tight leading-tight mb-1">
+              Abhijit Atre
+            </h3>
+            
+            <div className="text-[#C5A059] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
+              Co-Founder
             </div>
-          ))}
+            
+            <div className="space-y-3.5 sm:space-y-4 text-slate-300 text-xs sm:text-[13px] md:text-sm font-normal leading-relaxed">
+              <p>
+                Abhijit brings extensive experience in technology, business leadership and process transformation, with a strong focus on using technology to help businesses work smarter and scale.
+              </p>
+              <p>
+                He has been closely involved with Pune's technology ecosystem for over two decades and has held leadership roles with SAP.
+              </p>
+              <p>
+                A natural people person, Abhijit enjoys building relationships, mentoring others and bringing people together. Outside work, he is an enthusiastic badminton player—bringing the same energy, competitiveness and team spirit to everything he does.
+              </p>
+            </div>
+          </div>
+
+          {/* ================= CENTER COLUMN: DUO STUDIO PORTRAIT ================= */}
+          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 flex items-center justify-center">
+            <div className="relative w-full max-w-[560px] mx-auto flex items-center justify-center">
+              <img
+                src="/images/founders-duo-photo.png"
+                srcSet="/images/founders-duo-photo.png 1x, /images/founders-duo-photo-2x.png 2x"
+                alt="Abhijit Atre and Onkar Marathe - Co-Founders of Alphasure"
+                className="w-full h-auto object-contain filter contrast-[1.04] brightness-[0.98] select-none"
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          {/* ================= RIGHT COLUMN: ONKAR MARATHE ================= */}
+          <div className="order-3 lg:order-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
+            {/* Gold Accent Bar */}
+            <div className="w-12 h-[2px] bg-[#C5A059] mb-3.5" />
+            
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#E2C392] tracking-tight leading-tight mb-1">
+              Onkar Marathe
+            </h3>
+            
+            <div className="text-[#C5A059] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
+              Co-Founder
+            </div>
+            
+            <div className="space-y-3.5 sm:space-y-4 text-slate-300 text-xs sm:text-[13px] md:text-sm font-normal leading-relaxed">
+              <p>
+                Onkar brings extensive experience in accounting, financial reporting and building finance teams for businesses in India and international markets.
+              </p>
+              <p>
+                A Chartered Accountant from the Institute of Chartered Accountants of India (ICAI), he has also successfully completed the Uniform CPA Examination in the United States.
+              </p>
+              <p>
+                A strong believer in teamwork, Onkar enjoys working closely with people and building teams that take ownership of their work. Outside work, he loves travelling and is an enthusiastic badminton and football player.
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>
