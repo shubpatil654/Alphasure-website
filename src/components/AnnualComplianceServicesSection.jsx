@@ -89,7 +89,7 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
               onClick={() => setActiveCycle('Company')}
               className={`px-7 sm:px-9 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
                 isCompany
-                  ? 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] text-white shadow-md shadow-orange-500/30 scale-[1.02]'
+                  ? 'bg-gradient-to-r from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] text-white shadow-md shadow-purple-500/35 scale-[1.02]'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -100,7 +100,7 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
               onClick={() => setActiveCycle('LLP')}
               className={`px-7 sm:px-9 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
                 isLlp
-                  ? 'bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] text-white shadow-md shadow-orange-500/30 scale-[1.02]'
+                  ? 'bg-gradient-to-r from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] text-white shadow-md shadow-purple-500/35 scale-[1.02]'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -543,7 +543,7 @@ export default function AnnualComplianceServicesSection({ onOpenModal }) {
         <div className="mt-12 sm:mt-14 text-center">
           <button
             onClick={onOpenModal}
-            className="inline-flex items-center gap-3 px-8 sm:px-9 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-[#FA5A16] to-[#EA4B07] hover:from-[#EA4B07] hover:to-[#D43F00] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl hover:shadow-orange-500/25 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-3 px-8 sm:px-9 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] hover:from-[#7C3AED] hover:to-[#5B21B6] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl hover:shadow-purple-500/35 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Get Complete Secretarial Coverage</span>
             <ArrowRight className="w-5 h-5" />
