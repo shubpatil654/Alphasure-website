@@ -16,7 +16,8 @@ export default {
       fontFamily: {
         sans: ['"Inter"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['"Inter"', '"Cabinet Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
-        serif: ['"Cinzel"', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', '"Cinzel"', 'Georgia', 'serif'],
+        playfair: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       fontSize: {
         'alpha-h1': ['var(--font-h1)', { lineHeight: 'var(--lh-h1)', fontWeight: 'var(--fw-h1)' }],

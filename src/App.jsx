@@ -27,10 +27,39 @@ import EverythingElsePage from './components/EverythingElsePage';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      const validPages = [
+        'pvt-ltd', 'opc', 'llp', 'secretarial', 
+        'periodic-accounting', 'real-time-accounting', 'controller-services', 'gst-tds-compliance', 
+        'pricing', 'about', 'careers', 'everything-else'
+      ];
+      if (validPages.includes(hash)) return hash;
+    }
+    return 'home';
+  });
+
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        setActivePage(hash);
+      } else {
+        setActivePage('home');
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const handleNavigate = (page) => {
     setActivePage(page);
+    if (page === 'home') {
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      window.location.hash = page;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
