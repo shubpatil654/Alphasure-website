@@ -46,13 +46,13 @@ export default function InterviewProcessSection() {
         >
           <defs>
             <linearGradient id="goldRibbonGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#DFC8A5" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#F5EFE6" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="#E6D3B8" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#D4A359" stopOpacity="0.22" />
+              <stop offset="50%" stopColor="#D4A359" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#D4A359" stopOpacity="0.15" />
             </linearGradient>
             <linearGradient id="goldRibbonGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#E2CA9E" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#FAF7F2" stopOpacity="0.0" />
+              <stop offset="0%" stopColor="#D4A359" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#080C14" stopOpacity="0.0" />
             </linearGradient>
           </defs>
 
@@ -63,17 +63,17 @@ export default function InterviewProcessSection() {
           />
           <path 
             d="M-60 260 C 220 180, 400 80, 580 0" 
-            stroke="#DFD1BE" 
+            stroke="#D4A359" 
             strokeWidth="1.2" 
-            opacity="0.5" 
+            opacity="0.35" 
           />
 
           {/* Bottom-Left Curving Ribbon */}
           <path 
             d="M -40 500 C 60 580, 70 650, 75 750" 
-            stroke="#DFC8A5" 
+            stroke="#D4A359" 
             strokeWidth="1.8" 
-            opacity="0.6" 
+            opacity="0.4" 
           />
 
           {/* Top-Right Sweeping Accent Ribbon */}
@@ -83,9 +83,9 @@ export default function InterviewProcessSection() {
           />
           <path 
             d="M 920 0 C 1100 50, 1280 140, 1460 300" 
-            stroke="#DFC8A5" 
+            stroke="#D4A359" 
             strokeWidth="1.5" 
-            opacity="0.6" 
+            opacity="0.4" 
           />
 
           {/* Bottom-Right Soft Golden Swell */}
@@ -94,6 +94,9 @@ export default function InterviewProcessSection() {
             fill="url(#goldRibbonGrad1)" 
           />
         </svg>
+
+        {/* Ambient Warm Golden Glow Center */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-[#D4A359]/[0.05] rounded-full blur-[140px] pointer-events-none" />
       </div>
 
       <div className="interview-process-container">
@@ -127,15 +130,16 @@ export default function InterviewProcessSection() {
               {/* Flowing Wave Line passing through nodes and junctions */}
               <path 
                 d="M 60 70 C 110 70, 150 70, 180 70 C 230 70, 260 115, 337 92 C 375 75, 410 70, 450 70 C 500 70, 530 115, 600 90 C 640 75, 680 70, 750 70 C 800 70, 830 115, 900 88 C 940 75, 980 70, 1050 70 C 1100 70, 1140 70, 1180 70" 
-                stroke="#DFC8A5" 
+                stroke="#D4A359" 
                 strokeWidth="1.8" 
                 strokeLinecap="round"
+                opacity="0.75"
               />
               
               {/* Small Gold Circular Junction Dots / Rings */}
-              <circle cx="337" cy="92" r="5" fill="#FAF7F2" stroke="#DFC8A5" strokeWidth="2" />
-              <circle cx="600" cy="90" r="5" fill="#FAF7F2" stroke="#DFC8A5" strokeWidth="2" />
-              <circle cx="900" cy="88" r="5" fill="#FAF7F2" stroke="#DFC8A5" strokeWidth="2" />
+              <circle cx="337" cy="92" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
+              <circle cx="600" cy="90" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
+              <circle cx="900" cy="88" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
             </svg>
           </div>
 

@@ -1,14 +1,15 @@
 /* =========================================================
-   OUR INTERVIEW PROCESS SECTION STYLES
+   OUR INTERVIEW PROCESS SECTION STYLES (LUXURY DARK THEME)
    ========================================================= */
 
 .interview-process-section {
   position: relative;
   width: 100%;
-  background-color: #FAF7F2;
-  padding: 80px 0 100px;
+  background-color: #080C14;
+  padding: 85px 0 110px;
   overflow: hidden;
   user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .interview-bg-ambient-layer {
@@ -45,7 +46,7 @@
   display: inline-block;
   width: 42px;
   height: 1.5px;
-  background-color: #C5A059;
+  background-color: #D4A359;
   border-radius: 1px;
 }
 
@@ -53,8 +54,8 @@
   font-size: var(--font-eyebrow);
   line-height: var(--lh-eyebrow);
   font-weight: 600;
-  color: #A07B43;
-  letter-spacing: 0.1em;
+  color: #D4A359;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-family: inherit;
 }
@@ -70,7 +71,7 @@
 }
 
 .title-dark {
-  color: #0B192C;
+  color: #FFFFFF;
 }
 
 .title-gold {
@@ -80,9 +81,10 @@
 .interview-process-title-bar {
   width: 54px;
   height: 2.5px;
-  background-color: #C5A059;
+  background-color: #D4A359;
   margin: 16px auto 0;
   border-radius: 2px;
+  box-shadow: 0 0 10px rgba(212, 163, 89, 0.4);
 }
 
 /* ================= TIMELINE STAGE ================= */
@@ -146,19 +148,26 @@
   background: transparent;
 }
 
-/* Big Faint Watermark Number */
+/* Big Vibrant Watermark Number (High Visibility on Dark Background) */
 .interview-watermark-number {
   position: absolute;
-  top: -14px;
-  left: 6px;
+  top: -16px;
+  left: 4px;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 80px;
+  font-size: 82px;
   font-weight: 700;
   line-height: 1;
-  color: #EBDDCB;
+  color: rgba(212, 163, 89, 0.32);
+  text-shadow: 0 0 25px rgba(212, 163, 89, 0.2);
   user-select: none;
   pointer-events: none;
   z-index: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.interview-step-card:hover .interview-watermark-number {
+  color: rgba(212, 163, 89, 0.48);
+  text-shadow: 0 0 35px rgba(212, 163, 89, 0.35);
 }
 
 /* Delicate Golden Orbit Ring */
@@ -169,15 +178,16 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  border: 1.6px solid #DFC8A5;
+  border: 1.8px solid #D4A359;
   border-left-color: transparent;
   border-bottom-left-radius: 50%;
   transform: rotate(-12deg);
   pointer-events: none;
   z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(212, 163, 89, 0.4));
 }
 
-/* Circular 3D Node Badge (Clean Transparent Floating Disc) */
+/* Circular 3D Node Badge (Clean Floating Disc with Depth) */
 .interview-node-badge {
   position: relative;
   z-index: 3;
@@ -191,12 +201,12 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
-  filter: drop-shadow(0 10px 18px rgba(166, 124, 82, 0.16));
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 16px rgba(212, 163, 89, 0.25));
 }
 
 .interview-step-card:hover .interview-node-badge {
-  transform: translateY(-4px) scale(1.03);
-  filter: drop-shadow(0 14px 24px rgba(166, 124, 82, 0.22));
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 24px rgba(212, 163, 89, 0.4));
 }
 
 .interview-node-img {
@@ -212,7 +222,7 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 19.5px;
   font-weight: 700;
-  color: #0B192C;
+  color: #FFFFFF;
   line-height: 1.25;
   margin: 0;
   min-height: 48px;
@@ -226,16 +236,17 @@
 .interview-step-line {
   width: 28px;
   height: 2px;
-  background-color: #C5A059;
+  background-color: #D4A359;
   margin: 10px auto 14px;
   border-radius: 1px;
+  box-shadow: 0 0 8px rgba(212, 163, 89, 0.35);
 }
 
 /* Step Description */
 .interview-step-desc {
   font-size: 13.5px;
   line-height: 1.62;
-  color: #55606E;
+  color: #94A3B8;
   margin: 0;
   max-width: 255px;
   text-align: center;
