@@ -36,7 +36,7 @@ export default function ManagementTeamSection() {
         </div>
 
         {/* ================= 3-COLUMN LAYOUT: ABHIJIT | PHOTO | ONKAR ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-8 items-center">
           
           {/* ================= LEFT COLUMN: ABHIJIT ATRE (No gold line, orange title & role) ================= */}
           <div className="order-2 lg:order-1 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
@@ -61,14 +61,18 @@ export default function ManagementTeamSection() {
             </div>
           </div>
 
-          {/* ================= CENTER COLUMN: DUO STUDIO PORTRAIT ================= */}
+          {/* ================= CENTER COLUMN: DUO STUDIO PORTRAIT (Enlarged, Seamless Blend, Bottom Gradient) ================= */}
           <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 flex items-center justify-center">
-            <div className="relative w-full max-w-[560px] mx-auto flex items-center justify-center">
+            <div className="relative w-full max-w-[660px] lg:max-w-[720px] xl:max-w-[760px] mx-auto flex items-center justify-center">
               <img
                 src="/images/founders-duo-photo.png"
                 srcSet="/images/founders-duo-photo.png 1x, /images/founders-duo-photo-2x.png 2x"
                 alt="Abhijit Atre and Onkar Marathe - Co-Founders of Alphasure"
                 className="w-full h-auto object-contain filter contrast-[1.04] brightness-[0.98] select-none"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)'
+                }}
                 loading="eager"
               />
             </div>
