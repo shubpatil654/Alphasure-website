@@ -51,12 +51,27 @@ export default function DataSecuritySection() {
 
             {/* Main Headline */}
             <h2 className="data-security-main-title">
-              <span className="title-dark">Your Data.</span>
+              <span className="text-black font-bold">Your Data.</span>
               <br />
-              <span className="title-gold">Our Responsibility.</span>
+              <span className="text-[#0B192C]">Our </span>
+              <span className="relative inline-block text-[#FA5A16]">
+                Responsibility.
+                <svg 
+                  className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                  viewBox="0 0 200 20" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    d="M 4 16 Q 100 3, 196 16" 
+                    stroke="#FA5A16" 
+                    strokeWidth="4" 
+                    strokeLinecap="round" 
+                    className="animate-draw-curved-underline"
+                  />
+                </svg>
+              </span>
             </h2>
-
-            <div className="data-security-title-bar" />
 
             {/* Description Paragraphs */}
             <div className="data-security-text-stack">

@@ -64,11 +64,26 @@ export default function OurValues() {
         
         {/* ================= SECTION HEADER ================= */}
         <div className="our-values-header">
-
           <h2 className="our-values-main-title">
-            Our Values
+            <span>Our </span>
+            <span className="relative inline-block text-[#FA5A16]">
+              Values
+              <svg 
+                className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                viewBox="0 0 100 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M 2 12 Q 50 2, 98 12" 
+                  stroke="#FA5A16" 
+                  strokeWidth="3.5" 
+                  strokeLinecap="round" 
+                  className="animate-draw-curved-underline"
+                />
+              </svg>
+            </span>
           </h2>
-          <div className="our-values-title-bar" />
         </div>
 
         {/* ================= DESKTOP STAGE (2x2 Interlocking Jigsaw Puzzle Canvas) ================= */}
