@@ -85,14 +85,14 @@ export default function ThreeIPhilosophySection() {
 
           </div>
 
-          {/* RIGHT COLUMN: High-Resolution 3-Circle Figure Image */}
+          {/* RIGHT COLUMN: Enlarged High-Resolution Transparent Figure Image */}
           <div className="lg:col-span-7 xl:col-span-7 flex justify-center items-center">
-            <div className="relative w-full max-w-[560px] sm:max-w-[620px] lg:max-w-[680px] xl:max-w-[720px] transition-transform duration-500 hover:scale-[1.01]">
+            <div className="relative w-full max-w-[520px] sm:max-w-[580px] lg:max-w-[640px] xl:max-w-[680px] transition-transform duration-500 hover:scale-[1.02]">
               <img
                 src="/images/philosophy/three-i-figure.png"
                 srcSet="/images/philosophy/three-i-figure.png 1x, /images/philosophy/three-i-figure-2x.png 2x"
                 alt="The 3 I Philosophy: 01 Integrity, 02 Intelligence, 03 Initiative - Alphasure"
-                className="w-full h-auto object-contain select-none filter drop-shadow-[0_15px_30px_rgba(0,102,255,0.08)]"
+                className="w-full h-auto object-contain select-none filter drop-shadow-[0_24px_45px_rgba(0,102,255,0.16)]"
                 loading="eager"
               />
             </div>
