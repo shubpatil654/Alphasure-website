@@ -6,34 +6,45 @@ export default function ManagementTeamSection() {
       className="relative w-full bg-[#050608] text-white py-16 sm:py-20 lg:py-24 select-none overflow-hidden border-t border-b border-zinc-900"
       id="management-team"
     >
-      {/* Background Subtle Warm Golden Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[#C5A059]/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Subtle Warm Orange Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[#FA5A16]/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ================= SECTION HEADER: "— Management Team —" ================= */}
-        <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 mb-12 sm:mb-16 lg:mb-20">
-          <span className="w-10 sm:w-20 md:w-28 lg:w-36 h-[1.5px] bg-[#C5A059]/90" />
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-serif font-normal text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
+        {/* ================= SECTION HEADER: "Management Team" (Lines Removed, Team in Orange with Underline) ================= */}
+        <div className="flex items-center justify-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-playfair font-normal text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
             <span>Management</span>
-            <span className="text-[#D4A359]">Team</span>
+            <span className="relative inline-block text-[#FA5A16]">
+              Team
+              <svg 
+                className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                viewBox="0 0 100 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M 2 12 Q 50 2, 98 12" 
+                  stroke="#FA5A16" 
+                  strokeWidth="3.5" 
+                  strokeLinecap="round" 
+                  className="animate-draw-curved-underline"
+                />
+              </svg>
+            </span>
           </h2>
-          <span className="w-10 sm:w-20 md:w-28 lg:w-36 h-[1.5px] bg-[#C5A059]/90" />
         </div>
 
         {/* ================= 3-COLUMN LAYOUT: ABHIJIT | PHOTO | ONKAR ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-10 items-center">
           
-          {/* ================= LEFT COLUMN: ABHIJIT ATRE ================= */}
+          {/* ================= LEFT COLUMN: ABHIJIT ATRE (No gold line, orange title & role) ================= */}
           <div className="order-2 lg:order-1 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
-            {/* Gold Accent Bar */}
-            <div className="w-12 h-[2px] bg-[#C5A059] mb-3.5" />
-            
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#E2C392] tracking-tight leading-tight mb-1">
+            <h3 className="font-playfair text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
               Abhijit Atre
             </h3>
             
-            <div className="text-[#C5A059] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
+            <div className="text-[#FA5A16] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
               Co-Founder
             </div>
             
@@ -63,16 +74,13 @@ export default function ManagementTeamSection() {
             </div>
           </div>
 
-          {/* ================= RIGHT COLUMN: ONKAR MARATHE ================= */}
+          {/* ================= RIGHT COLUMN: ONKAR MARATHE (No gold line, orange title & role) ================= */}
           <div className="order-3 lg:order-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
-            {/* Gold Accent Bar */}
-            <div className="w-12 h-[2px] bg-[#C5A059] mb-3.5" />
-            
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#E2C392] tracking-tight leading-tight mb-1">
+            <h3 className="font-playfair text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
               Onkar Marathe
             </h3>
             
-            <div className="text-[#C5A059] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
+            <div className="text-[#FA5A16] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
               Co-Founder
             </div>
             
