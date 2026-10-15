@@ -18,13 +18,7 @@ export default function OurJourneySection({ onOpenModal }) {
 
         {/* ================= SECTION HEADER ================= */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
-            <span className="w-10 sm:w-14 h-[1.5px] bg-[#C5A059]/75" />
-            <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.2em] text-[#A67C52]">
-              OUR JOURNEY
-            </span>
-            <span className="w-10 sm:w-14 h-[1.5px] bg-[#C5A059]/75" />
-          </div>
+
           
           <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
             Our{' '}

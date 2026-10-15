@@ -64,11 +64,7 @@ export default function OurValues() {
         
         {/* ================= SECTION HEADER ================= */}
         <div className="our-values-header">
-          <div className="our-values-tag-row">
-            <span className="our-values-tag-line" />
-            <span className="our-values-tag-text">OUR VALUES</span>
-            <span className="our-values-tag-line" />
-          </div>
+
           <h2 className="our-values-main-title">
             Our Values
           </h2>

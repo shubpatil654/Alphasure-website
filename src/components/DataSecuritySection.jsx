@@ -47,12 +47,7 @@ export default function DataSecuritySection() {
           {/* ================= LEFT COLUMN: Typography, Copy & 4 Security Pillars ================= */}
           <div className="data-security-left">
             
-            {/* Eyebrow Tag */}
-            <div className="data-security-tag-row">
-              <span className="data-security-tag-line" />
-              <span className="data-security-tag-text">DATA SECURITY</span>
-              <span className="data-security-tag-line" />
-            </div>
+
 
             {/* Main Headline */}
             <h2 className="data-security-main-title">
