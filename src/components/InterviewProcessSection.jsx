@@ -103,18 +103,27 @@ export default function InterviewProcessSection() {
         
         {/* ================= SECTION HEADER ================= */}
         <div className="interview-process-header">
-          <div className="interview-process-tag-row">
-            <span className="interview-process-tag-line" />
-            <span className="interview-process-tag-text">CAREERS AT ALPHASURE</span>
-            <span className="interview-process-tag-line" />
-          </div>
-
           <h2 className="interview-process-main-title">
             <span className="title-dark">Our </span>
-            <span className="title-gold">Interview Process</span>
+            <span className="relative inline-block text-[#FA5A16]">
+              Interview
+              <svg 
+                className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+                viewBox="0 0 100 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M 2 12 Q 50 2, 98 12" 
+                  stroke="#FA5A16" 
+                  strokeWidth="3.5" 
+                  strokeLinecap="round" 
+                  className="animate-draw-curved-underline"
+                />
+              </svg>
+            </span>
+            <span className="text-[#FA5A16]"> Process</span>
           </h2>
-
-          <div className="interview-process-title-bar" />
         </div>
 
         {/* ================= 4-STEP TIMELINE STAGE ================= */}
