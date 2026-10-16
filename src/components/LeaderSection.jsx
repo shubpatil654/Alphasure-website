@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const leader1Data = {
   name: "Onkar Marathe",
-  credentials: "CA, CPA (US)",
-  role: "Founder",
+  role: "Co-Founder",
   image: "/images/onkar-marathe-leader.jpg",
   imagePosition: "left",
   paragraphs: [
@@ -16,8 +15,7 @@ const leader1Data = {
 
 const leader2Data = {
   name: "Abhijit Atre",
-  credentials: "MBA",
-  role: "CEO",
+  role: "Co-Founder",
   image: "/images/abhijit-atre-leader.jpg",
   imagePosition: "right",
   paragraphs: [
@@ -94,13 +92,10 @@ function LeaderCard({ leader }) {
               : '-translate-x-12 opacity-0'
           }`}
         >
-          <h3 className="alpha-h3 font-semibold text-[#FA5A16] tracking-tight mb-1.5">
+          <h3 className="alpha-h3 font-semibold text-[#FA5A16] tracking-tight mb-1">
             {leader.name}
           </h3>
-          <div className="text-slate-500 font-extrabold text-xs sm:text-sm tracking-wider uppercase mb-0.5">
-            {leader.credentials}
-          </div>
-          <div className="text-slate-400 font-semibold text-xs sm:text-sm">
+          <div className="text-slate-500 font-semibold text-sm sm:text-base tracking-wide">
             {leader.role}
           </div>
         </div>
