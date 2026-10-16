@@ -59,7 +59,7 @@ export default function Footer({ onOpenModal, onNavigate }) {
               One Partner. Every Business Solution.
             </h3>
             <p className="text-sm sm:text-base text-slate-300 font-normal mt-2.5 sm:mt-3 leading-relaxed">
-              Your trusted partner for accounting, compliance and business advisory and more—combining expert people, proven processes and technology to help businesses grow.
+              Your trusted partner for accounting, compliance, business advisory and more—combining expert people, proven processes and technology to help businesses grow.
             </p>
           </div>
 
