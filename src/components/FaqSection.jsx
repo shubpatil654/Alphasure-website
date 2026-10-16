@@ -572,9 +572,6 @@ export default function FaqSection({
               </span>
             </span>
           </h2>
-          <p className="alpha-body text-slate-600 font-normal mt-3 sm:mt-4">
-            {subtitle}
-          </p>
         </div>
 
         {/* Full-Width Staggered Alternating Grid */}
@@ -607,10 +604,7 @@ export default function FaqSection({
               <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#FA5A16] shrink-0">
                 <HelpCircle size={22} />
               </div>
-              <div>
-                <h4 className="text-base font-bold text-[#1B2A4A] leading-tight">Have any questions?</h4>
-                <p className="text-slate-600 text-xs sm:text-sm mt-0.5 font-medium">Our dedicated team is ready to analyze your accounting needs.</p>
-              </div>
+              <h4 className="text-base sm:text-lg font-bold text-[#1B2A4A] leading-tight">Have any questions?</h4>
             </div>
             <button
               onClick={onOpenModal}
