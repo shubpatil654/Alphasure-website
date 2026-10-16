@@ -65,7 +65,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     }, 150);
   };
 
-  // Register a Business Submenu
+  // Register Your Business Submenu
   const registerSubmenu = [
     { 
       name: 'Private Limited Company', 
@@ -182,7 +182,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             HOME
           </a>
 
-          {/* REGISTER A BUSINESS Dropdown */}
+          {/* REGISTER YOUR BUSINESS Dropdown */}
           <div 
             className="relative py-2"
             onMouseEnter={handleRegisterEnter}
@@ -200,10 +200,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   : 'text-white/90 hover:text-white'
               }`}
             >
-              REGISTER A BUSINESS
+              REGISTER YOUR BUSINESS
             </button>
 
-            {/* Register a Business Menu Card */}
+            {/* Register Your Business Menu Card */}
             <div 
               style={{
                 width: '740px',
@@ -676,13 +676,13 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               HOME
             </a>
 
-            {/* REGISTER A BUSINESS Accordion in Mobile */}
+            {/* REGISTER YOUR BUSINESS Accordion in Mobile */}
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileRegisterOpen(!mobileRegisterOpen)}
                 className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
-                <span>REGISTER A BUSINESS</span>
+                <span>REGISTER YOUR BUSINESS</span>
                 <span className="text-[10px] text-orange-400 bg-orange-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileRegisterOpen ? 'Close' : 'View Options'}
                 </span>
