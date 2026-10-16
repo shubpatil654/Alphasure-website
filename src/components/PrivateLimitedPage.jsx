@@ -49,8 +49,7 @@ export default function PrivateLimitedPage({ onOpenModal }) {
             poster="/images/clean-rocket-hero-bg.jpg"
             className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.05]"
           >
-            <source src="/images/rocket-hero-video.mp4" type="video/mp4" />
-            <source src="https://video-previews.elements.envatousercontent.com/8dfcc734-49b9-4f46-b022-11efdd72fdc3/watermarked_preview/watermarked_preview.mp4" type="video/mp4" />
+            <source src="/videos/rocket-hero-video.mp4" type="video/mp4" />
             <img
               src="/images/clean-rocket-hero-bg.jpg"
               alt="Rocket Launch - Dream Big. We'll Help Launch It"
