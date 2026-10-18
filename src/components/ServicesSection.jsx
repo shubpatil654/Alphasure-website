@@ -98,7 +98,7 @@ export default function ServicesSection() {
   const services = [
     {
       id: 1,
-      title: 'Register a\nBusiness',
+      title: 'Register Your\nBusiness',
       bgColor: 'bg-[#FDFDFD]',
       textColor: 'text-[#1E293B]',
       borderStyle: 'border border-slate-200/90',

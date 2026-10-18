@@ -199,9 +199,11 @@ export default function PuzzleSection() {
 
             <div className="relative z-10 w-full flex justify-center lg:justify-end transition-transform duration-500 hover:scale-[1.01]">
               <img
-                src="/images/puzzle-3d-fit.png"
+                src="/images/puzzle-3d-fit.png?v=2"
+                srcSet="/images/puzzle-3d-fit.png?v=2 1x, /images/puzzle-3d-fit-2x.png?v=2 2x"
                 alt="Small Businesses, Growing Businesses - We just Fit"
-                className="w-full h-auto max-w-[620px] lg:max-w-[680px] object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
+                className="w-full h-auto max-w-[580px] lg:max-w-[640px] xl:max-w-[660px] object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
+                loading="eager"
               />
             </div>
           </div>
