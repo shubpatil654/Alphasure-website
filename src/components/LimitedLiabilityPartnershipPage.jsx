@@ -47,14 +47,14 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/llp-pinterest-bg.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
+            className="w-full h-full object-cover object-[center_35%] filter brightness-[1.15] contrast-[1.05]"
           >
             <source src="/videos/llp-flamingos-hero.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
               src="/images/llp-pinterest-bg.jpg"
               alt="Birds soaring in flight - Fly Together. We'll Take Care of What's Below"
-              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
+              className="w-full h-full object-cover object-[center_35%] filter brightness-[1.15] contrast-[1.05]"
             />
           </video>
 
