@@ -1,24 +1,17 @@
 /* =========================================================
-   OUR INTERVIEW PROCESS SECTION STYLES (LUXURY DARK THEME)
+   OUR INTERVIEW PROCESS SECTION STYLES (LIGHT THEME)
+   Matches Image 2 design: bold gradient numerals behind
+   elevated circular icon badges on a crisp white backdrop.
    ========================================================= */
 
 .interview-process-section {
   position: relative;
   width: 100%;
-  background-color: #080C14;
-  padding: 85px 0 110px;
+  background-color: #FFFFFF;
+  padding: 85px 0 115px;
   overflow: hidden;
   user-select: none;
   font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.interview-bg-ambient-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
 }
 
 .interview-process-container {
@@ -32,83 +25,34 @@
 /* ================= HEADER ================= */
 .interview-process-header {
   text-align: center;
-  margin-bottom: 60px;
-}
-
-.interview-process-tag-row {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-
-.interview-process-tag-line {
-  display: inline-block;
-  width: 42px;
-  height: 1.5px;
-  background-color: #D4A359;
-  border-radius: 1px;
-}
-
-.interview-process-tag-text {
-  font-size: var(--font-eyebrow);
-  line-height: var(--lh-eyebrow);
-  font-weight: 600;
-  color: #D4A359;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-family: inherit;
+  margin-bottom: 56px;
 }
 
 /* Main Title (H2) */
 .interview-process-main-title {
   font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  font-size: var(--font-h2);
-  line-height: var(--lh-h2);
+  font-size: var(--font-h2, 38px);
+  line-height: var(--lh-h2, 1.15);
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
 .title-dark {
-  color: #FFFFFF;
+  color: #0E1B38;
 }
 
-.title-gold {
-  color: #FA5A16;
-}
-
-.interview-process-title-bar {
-  width: 54px;
-  height: 2.5px;
-  background-color: #D4A359;
-  margin: 16px auto 0;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(212, 163, 89, 0.4);
-}
-
-/* ================= TIMELINE STAGE ================= */
+/* ================= 4-STEP TIMELINE STAGE ================= */
 .interview-timeline-stage {
   position: relative;
   width: 100%;
-  margin-top: 20px;
-}
-
-.interview-connecting-wave-wrap {
-  position: absolute;
-  top: 42px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1;
-  pointer-events: none;
+  margin-top: 10px;
 }
 
 .interview-steps-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 48px;
   position: relative;
   z-index: 2;
 }
@@ -123,7 +67,7 @@
 @media (min-width: 1024px) {
   .interview-steps-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 }
 
@@ -137,95 +81,107 @@
   padding: 0 10px;
 }
 
-/* Node Area Wrapper */
+/* Node Area: Numeral + Circular Floating Badge */
 .interview-node-wrapper {
   position: relative;
-  width: 140px;
-  height: 130px;
+  width: 100%;
+  max-width: 220px;
+  height: 168px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin-bottom: 22px;
-  background: transparent;
+  margin-bottom: 10px;
 }
 
-/* Big Vibrant Watermark Number (High Visibility on Dark Background) */
-.interview-watermark-number {
+/* Big Vibrant Gradient Number (01, 02, 03, 04) */
+.interview-step-num {
   position: absolute;
-  top: -46px;
+  top: -6px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  font-size: 80px;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(212, 163, 89, 0.46);
-  text-shadow: 0 0 25px rgba(212, 163, 89, 0.25);
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 116px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   user-select: none;
   pointer-events: none;
   z-index: 1;
-  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.interview-step-card:hover .interview-watermark-number {
-  transform: translateX(-50%) translateY(-3px);
-  color: rgba(212, 163, 89, 0.7);
-  text-shadow: 0 0 35px rgba(212, 163, 89, 0.45);
+/* Step 01: Warm Golden Yellow Gradient */
+.interview-step-num-01 {
+  background: linear-gradient(180deg, #E2C068 0%, #ECD79F 42%, rgba(247, 237, 214, 0.45) 72%, rgba(255, 255, 255, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Delicate Golden Orbit Ring */
-.interview-orbit-ring {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 1.8px solid #D4A359;
-  border-left-color: transparent;
-  border-bottom-left-radius: 50%;
-  transform: rotate(-12deg);
-  pointer-events: none;
-  z-index: 2;
-  filter: drop-shadow(0 0 8px rgba(212, 163, 89, 0.4));
+/* Step 02: Mint / Sage Teal Gradient */
+.interview-step-num-02 {
+  background: linear-gradient(180deg, #6BB7A5 0%, #90C8BB 42%, rgba(206, 233, 226, 0.45) 72%, rgba(255, 255, 255, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Circular 3D Node Badge (Clean Floating Disc with Depth) */
+/* Step 03: Terracotta / Coral Pink Gradient */
+.interview-step-num-03 {
+  background: linear-gradient(180deg, #DF7F68 0%, #E9A190 42%, rgba(248, 220, 214, 0.45) 72%, rgba(255, 255, 255, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Step 04: Caramel / Warm Tan Bronze Gradient */
+.interview-step-num-04 {
+  background: linear-gradient(180deg, #9F7E5E 0%, #BBA087 42%, rgba(225, 214, 203, 0.45) 72%, rgba(255, 255, 255, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.interview-step-card:hover .interview-step-num {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Circular Node Badge (Pure White Elevated Floating Disc) */
 .interview-node-badge {
-  position: relative;
-  z-index: 3;
-  width: 98px;
-  height: 98px;
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 16px rgba(212, 163, 89, 0.25));
+  overflow: hidden;
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.10), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(241, 245, 249, 0.95);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
 
 .interview-step-card:hover .interview-node-badge {
-  transform: translateY(-4px) scale(1.04);
-  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 24px rgba(212, 163, 89, 0.4));
+  transform: translateX(-50%) translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 36px -6px rgba(0, 0, 0, 0.14), 0 8px 18px -3px rgba(0, 0, 0, 0.06);
 }
 
 .interview-node-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
-  background: transparent;
 }
 
 /* Step Title */
 .interview-step-title {
   font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  font-size: 19.5px;
+  font-size: 19px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #0B1528;
   line-height: 1.25;
   margin: 0;
   min-height: 48px;
@@ -237,20 +193,47 @@
 
 /* Gold Step Line */
 .interview-step-line {
-  width: 28px;
+  width: 32px;
   height: 2px;
-  background-color: #D4A359;
-  margin: 10px auto 14px;
-  border-radius: 1px;
-  box-shadow: 0 0 8px rgba(212, 163, 89, 0.35);
+  background-color: #E5A93C;
+  margin: 12px auto 16px;
+  border-radius: 2px;
 }
 
 /* Step Description */
 .interview-step-desc {
   font-size: 13.5px;
   line-height: 1.62;
-  color: #94A3B8;
+  color: #475569;
   margin: 0;
   max-width: 255px;
   text-align: center;
+}
+
+/* Responsive adjust for smaller screens */
+@media (max-width: 639px) {
+  .interview-node-wrapper {
+    height: 155px;
+    max-width: 200px;
+  }
+  
+  .interview-step-num {
+    font-size: 102px;
+    top: -4px;
+  }
+
+  .interview-node-badge {
+    top: 54px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .interview-step-title {
+    font-size: 18px;
+    min-height: 42px;
+  }
+
+  .interview-step-desc {
+    max-width: 290px;
+  }
 }

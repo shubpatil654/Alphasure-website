@@ -36,6 +36,9 @@ export default function App() {
         'pricing', 'about', 'careers', 'everything-else'
       ];
       if (validPages.includes(hash)) return hash;
+      const params = new URLSearchParams(window.location.search);
+      const pageParam = params.get('page');
+      if (pageParam && validPages.includes(pageParam)) return pageParam;
     }
     return 'home';
   });

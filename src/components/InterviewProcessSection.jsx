@@ -6,99 +6,39 @@ export default function InterviewProcessSection() {
     {
       id: 'step-1',
       number: '01',
+      numClass: 'interview-step-num-01',
       title: 'Get to Know You',
-      nodeImg: '/images/interview-process/step-icon-1.png?v=clean3',
+      nodeImg: '/images/interview-process/step-icon-light-1.png',
       description: 'A conversation with our Talent Acquisition team to understand your work experience, areas of interest and a primary assessment of skills required for the job.'
     },
     {
       id: 'step-2',
       number: '02',
+      numClass: 'interview-step-num-02',
       title: <>Technical and Soft<br />Skills Assessment</>,
-      nodeImg: '/images/interview-process/step-icon-2.png?v=clean3',
+      nodeImg: '/images/interview-process/step-icon-light-2.png',
       description: 'A technical discussion to deep dive into the technical skills and soft skills required for the job.'
     },
     {
       id: 'step-3',
       number: '03',
+      numClass: 'interview-step-num-03',
       title: <>Reference &amp;<br />Background Check</>,
-      nodeImg: '/images/interview-process/step-icon-3.png?v=clean3',
+      nodeImg: '/images/interview-process/step-icon-light-3.png',
       description: 'We verify a professional reference and complete our standard background screening.'
     },
     {
       id: 'step-4',
       number: '04',
+      numClass: 'interview-step-num-04',
       title: 'Welcome to Alphasure',
-      nodeImg: '/images/interview-process/step-icon-4.png?v=clean3',
+      nodeImg: '/images/interview-process/step-icon-light-4.png',
       description: 'Once selected, we complete the formalities and get you ready to join the team.'
     }
   ];
 
   return (
     <section className="interview-process-section" id="interview-process">
-      
-      {/* Background Subtle Elegant Sweeping Ribbons & Arcs */}
-      <div className="interview-bg-ambient-layer pointer-events-none">
-        <svg 
-          className="w-full h-full" 
-          viewBox="0 0 1440 700" 
-          fill="none" 
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="goldRibbonGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D4A359" stopOpacity="0.22" />
-              <stop offset="50%" stopColor="#D4A359" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#D4A359" stopOpacity="0.15" />
-            </linearGradient>
-            <linearGradient id="goldRibbonGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#D4A359" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#080C14" stopOpacity="0.0" />
-            </linearGradient>
-          </defs>
-
-          {/* Top-Left Ambient Sweeping Ribbon */}
-          <path 
-            d="M-50 220 C 180 140, 320 60, 480 0 L 0 0 Z" 
-            fill="url(#goldRibbonGrad1)" 
-          />
-          <path 
-            d="M-60 260 C 220 180, 400 80, 580 0" 
-            stroke="#D4A359" 
-            strokeWidth="1.2" 
-            opacity="0.35" 
-          />
-
-          {/* Bottom-Left Curving Ribbon */}
-          <path 
-            d="M -40 500 C 60 580, 70 650, 75 750" 
-            stroke="#D4A359" 
-            strokeWidth="1.8" 
-            opacity="0.4" 
-          />
-
-          {/* Top-Right Sweeping Accent Ribbon */}
-          <path 
-            d="M 960 0 C 1120 40, 1300 120, 1480 280 L 1480 0 Z" 
-            fill="url(#goldRibbonGrad2)" 
-          />
-          <path 
-            d="M 920 0 C 1100 50, 1280 140, 1460 300" 
-            stroke="#D4A359" 
-            strokeWidth="1.5" 
-            opacity="0.4" 
-          />
-
-          {/* Bottom-Right Soft Golden Swell */}
-          <path 
-            d="M 800 700 C 1050 620, 1280 600, 1480 500 L 1480 700 Z" 
-            fill="url(#goldRibbonGrad1)" 
-          />
-        </svg>
-
-        {/* Ambient Warm Golden Glow Center */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-[#D4A359]/[0.05] rounded-full blur-[140px] pointer-events-none" />
-      </div>
-
       <div className="interview-process-container">
         
         {/* ================= SECTION HEADER ================= */}
@@ -128,47 +68,19 @@ export default function InterviewProcessSection() {
 
         {/* ================= 4-STEP TIMELINE STAGE ================= */}
         <div className="interview-timeline-stage">
-          
-          {/* Continuous Flowing Golden Connecting Wave (Desktop) */}
-          <div className="hidden lg:block interview-connecting-wave-wrap">
-            <svg 
-              viewBox="0 0 1200 160" 
-              className="w-full h-auto overflow-visible pointer-events-none"
-              fill="none"
-            >
-              {/* Flowing Wave Line passing through nodes and junctions */}
-              <path 
-                d="M 60 70 C 110 70, 150 70, 180 70 C 230 70, 260 115, 337 92 C 375 75, 410 70, 450 70 C 500 70, 530 115, 600 90 C 640 75, 680 70, 750 70 C 800 70, 830 115, 900 88 C 940 75, 980 70, 1050 70 C 1100 70, 1140 70, 1180 70" 
-                stroke="#D4A359" 
-                strokeWidth="1.8" 
-                strokeLinecap="round"
-                opacity="0.75"
-              />
-              
-              {/* Small Gold Circular Junction Dots / Rings */}
-              <circle cx="337" cy="92" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
-              <circle cx="600" cy="90" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
-              <circle cx="900" cy="88" r="5" fill="#080C14" stroke="#D4A359" strokeWidth="2" />
-            </svg>
-          </div>
-
-          {/* 4 Steps Grid */}
           <div className="interview-steps-grid">
             {steps.map((step) => (
               <div key={step.id} className="interview-step-card">
                 
-                {/* Node Area: Watermark Number + Orbit Ring + Circular 3D Icon Badge */}
+                {/* Node Area: Bold Colorful Gradient Number + Elevated Floating Circular Icon Badge */}
                 <div className="interview-node-wrapper">
                   
-                  {/* Watermark Sand Number (01, 02, 03, 04) */}
-                  <span className="interview-watermark-number">
+                  {/* Large Gradient Number (01, 02, 03, 04) */}
+                  <span className={`interview-step-num ${step.numClass}`}>
                     {step.number}
                   </span>
 
-                  {/* Golden Vector Orbit Arc */}
-                  <div className="interview-orbit-ring" />
-
-                  {/* 3D Circular Node Badge */}
+                  {/* Elevated Circular Icon Badge */}
                   <div className="interview-node-badge">
                     <img
                       src={step.nodeImg}
@@ -194,7 +106,6 @@ export default function InterviewProcessSection() {
               </div>
             ))}
           </div>
-
         </div>
 
       </div>
