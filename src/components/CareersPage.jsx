@@ -8,7 +8,7 @@ export default function CareersPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Our people are our STRENGTH) ================= */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden select-none bg-[#0e1726]">
         
-        {/* Background Video / Media (Standing at snowy summit overlooking golden sunset cloud inversion - Pinterest 1109785533257642991) */}
+        {/* Background Video / Media with Boosted Brightness & Crisp Clarity */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
@@ -16,21 +16,19 @@ export default function CareersPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/careers-hero-poster.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/careers-hero-video.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
               src="/images/careers-hero-poster.jpg"
               alt="Be part of something bigger than Yourself - Alphasure Careers"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Smooth Dark Gradient Overlays for Optimal Text Contrast & Legibility */}
-          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+          {/* Clean directional gradient overlay on the left to keep text crisp while keeping the entire video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

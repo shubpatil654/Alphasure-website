@@ -18,19 +18,18 @@ export default function ControllerServicesPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/controller-services-hero.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/controller-services-hero.mp4" type="video/mp4" />
             <img
               src="/images/controller-services-hero.jpg"
               alt="Controller Services - Already have an accounting team? We can help you get more from it."
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Low Opacity Dark Overlay for optimal text contrast and legibility */}
-          <div className="absolute inset-0 bg-black/35 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent pointer-events-none" />
+          {/* Soft directional gradient to keep text crisp while keeping the video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

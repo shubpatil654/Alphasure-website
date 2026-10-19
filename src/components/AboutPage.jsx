@@ -15,13 +15,11 @@ export default function AboutPage({ onOpenModal }) {
           <img
             src="/images/about-hero-pinterest.jpg"
             alt="We are accountants, who understand business - Alphasure Team"
-            className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
           />
 
-          {/* Smooth Dark Gradient Overlays for Optimal Text Contrast & Legibility */}
-          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+          {/* Clean subtle directional gradient overlay to keep text crisp while keeping the team visual bright and vibrant */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

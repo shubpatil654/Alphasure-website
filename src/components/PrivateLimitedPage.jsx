@@ -47,19 +47,18 @@ export default function PrivateLimitedPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/clean-rocket-hero-bg.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/rocket-hero-video.mp4" type="video/mp4" />
             <img
               src="/images/clean-rocket-hero-bg.jpg"
               alt="Rocket Launch - Dream Big. We'll Help Launch It"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Black Low Opacity Layer (20% opacity) to ensure optimal text visibility */}
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent pointer-events-none" />
+          {/* Soft directional gradient to keep text crisp while keeping the rocket video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

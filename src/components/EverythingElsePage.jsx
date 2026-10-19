@@ -13,13 +13,11 @@ export default function EverythingElsePage({ onOpenModal }) {
           <img
             src="/images/everything-else-hero-bg.jpg"
             alt="Your business shouldn't need a different service provider for every new requirement - Alphasure"
-            className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
           />
 
-          {/* Smooth Dark Gradient Overlays for Optimal Text Legibility */}
-          <div className="absolute inset-0 bg-black/35 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none" />
+          {/* Clean subtle directional gradient overlay to keep text crisp while keeping the visual bright and vibrant */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
         </div>
 
         {/* ================= TOP/MIDDLE: Headline & Exact Copy ================= */}

@@ -47,20 +47,19 @@ export default function OnePersonCompanyPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/opc-skydiver-hero.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.04]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/opc-skydiver-hero.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
               src="/images/opc-skydiver-hero.jpg"
               alt="Solo Skydiver - Want to Fly Solo? We've Got You Covered"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Black Low Opacity Layer to ensure optimal text contrast & readability */}
-          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none" />
+          {/* Soft directional gradient to maintain text legibility while keeping the video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

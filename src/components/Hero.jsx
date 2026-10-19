@@ -5,7 +5,7 @@ export default function Hero({ onOpenModal }) {
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12">
       
-      {/* Live Video Background from Envato with 20% Opacity Black Layer */}
+      {/* Live Video Background with Boosted Brightness & Crisp Contrast */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
         <video
           autoPlay
@@ -13,13 +13,13 @@ export default function Hero({ onOpenModal }) {
           muted
           playsInline
           poster="/images/hero-mountain.jpg"
-          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top]"
+          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top] filter brightness-[1.12] contrast-[1.03]"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* 20% Black Opacity Overlay for maximum text pop & legibility */}
-        <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none"></div>
+        {/* Soft subtle overlay to keep video vivid, bright and punchy while ensuring text legibility */}
+        <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Central Hero Content */}

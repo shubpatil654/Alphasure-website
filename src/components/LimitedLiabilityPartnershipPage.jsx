@@ -39,7 +39,7 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Exact Reference Match) ================= */}
       <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden select-none">
         
-        {/* Background Video / Media (Sunset flock of birds soaring over water - Pinterest 1109785533257642410) */}
+        {/* Background Video / Media (Sunset flock of birds soaring over water) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
@@ -47,20 +47,19 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/llp-pinterest-bg.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.94] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/llp-flamingos-hero.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
               src="/images/llp-pinterest-bg.jpg"
               alt="Birds soaring in flight - Fly Together. We'll Take Care of What's Below"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Low Opacity Layer for Optimal Text Contrast */}
-          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent pointer-events-none" />
+          {/* Soft directional gradient to keep text crisp while keeping the video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/15 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

@@ -20,19 +20,18 @@ export default function PeriodicAccountingPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/periodic-accounting-hero.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
           >
             <source src="/videos/periodic-accounting-hero.mp4" type="video/mp4" />
             <img
               src="/images/periodic-accounting-hero.jpg"
               alt="Periodic Accounting - Need us monthly? Yearly? We're ready when you are"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter brightness-[1.10] contrast-[1.02]"
             />
           </video>
 
-          {/* Low Opacity Dark Overlay for optimal text contrast and legibility */}
-          <div className="absolute inset-0 bg-black/35 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none" />
+          {/* Soft directional gradient to keep text crisp while keeping the video bright and vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
