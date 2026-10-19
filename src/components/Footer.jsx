@@ -93,8 +93,10 @@ export default function Footer({ onOpenModal, onNavigate }) {
                 <span>+1 (800) 555-ALPH</span>
               </div>
               <div className="flex items-start gap-3 text-slate-300">
-                <MapPin size={16} className="text-[#3B82F6] shrink-0 mt-0.5" />
-                <span>Global Offices: US • UK • Canada • Australia • UAE • India</span>
+                <MapPin size={16} className="text-[#3B82F6] shrink-0 mt-1" />
+                <span className="leading-relaxed">
+                  202/1A, Ranade Road, Opp. to JAIN Temple, Radhakrishna Marg, Radhakrishma building, Hindwadi, Belagavi, Karnataka, India – 590011
+                </span>
               </div>
             </div>
 
