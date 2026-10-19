@@ -39,22 +39,22 @@ export default function LimitedLiabilityPartnershipPage({ onOpenModal }) {
       {/* ================= HERO SECTION (Exact Reference Match) ================= */}
       <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden select-none">
         
-        {/* Background Video / Media (Sunset flock of birds soaring over water) */}
+        {/* Background Video / Media (Two fighter jets soaring together at sunset) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/llp-pinterest-bg.jpg"
-            className="w-full h-full object-cover object-[center_35%] filter brightness-[1.15] contrast-[1.05]"
+            poster="/images/llp-jets-poster.jpg"
+            className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.05]"
           >
-            <source src="/videos/llp-flamingos-hero.mp4" type="video/mp4" />
+            <source src="/videos/llp-jets-hero.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
-              src="/images/llp-pinterest-bg.jpg"
-              alt="Birds soaring in flight - Fly Together. We'll Take Care of What's Below"
-              className="w-full h-full object-cover object-[center_35%] filter brightness-[1.15] contrast-[1.05]"
+              src="/images/llp-jets-poster.jpg"
+              alt="Two fighter jets soaring together at sunset - Fly Together. We'll Take Care of What's Below"
+              className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.05]"
             />
           </video>
 
