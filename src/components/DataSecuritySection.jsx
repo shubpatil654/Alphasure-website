@@ -50,7 +50,7 @@ export default function DataSecuritySection() {
 
 
             {/* Main Headline */}
-            <h2 className="data-security-main-title">
+            <h2 className="data-security-main-title mb-6 sm:mb-8">
               <span className="text-black font-bold">Your Data.</span>
               <br />
               <span className="text-[#0B192C]">Our </span>
