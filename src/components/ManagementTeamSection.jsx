@@ -65,8 +65,8 @@ export default function ManagementTeamSection() {
           <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 flex items-center justify-center">
             <div className="relative w-full max-w-[660px] lg:max-w-[720px] xl:max-w-[760px] mx-auto flex items-center justify-center">
               <img
-                src="/images/founders-duo-photo.png"
-                srcSet="/images/founders-duo-photo.png 1x, /images/founders-duo-photo-2x.png 2x"
+                src="/images/founders-duo-photo.png?v=2"
+                srcSet="/images/founders-duo-photo.png?v=2 1x, /images/founders-duo-photo-2x.png?v=2 2x"
                 alt="Abhijit Atre and Onkar Marathe - Co-Founders of Alphasure"
                 className="w-full h-auto object-contain filter contrast-[1.04] brightness-[0.98] select-none"
                 style={{
