@@ -52,7 +52,7 @@ export default function ThreeIPhilosophySection() {
             </div>
 
             {/* Main Title: The 3 I Philosophy */}
-            <h2 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] tracking-tight leading-[1.04] mb-6">
+            <h2 className="alpha-h2 sm:alpha-h1 font-bold tracking-tight leading-[1.08] mb-6">
               <span className="text-[#0E1B38] block">The 3 I</span>
               <span className="text-[#9E6732] block mt-1">Philosophy</span>
             </h2>
@@ -99,7 +99,7 @@ export default function ThreeIPhilosophySection() {
                 className="bg-[#FAF7F2] rounded-2xl p-4 border border-[#EBD6B8] shadow-sm flex flex-col items-start text-left"
               >
                 <div className="flex items-center justify-between w-full mb-2">
-                  <span className="text-lg font-bold font-playfair text-[#182238]">
+                  <span className="text-lg font-bold text-[#182238]">
                     {pillar.number}
                   </span>
                   <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${pillar.badgeBg} flex items-center justify-center shadow-sm`}>
@@ -107,7 +107,7 @@ export default function ThreeIPhilosophySection() {
                   </div>
                 </div>
 
-                <h4 className="font-playfair text-base font-bold text-[#182238] mb-0.5">
+                <h4 className="alpha-h4 text-base font-bold text-[#182238] mb-0.5">
                   {pillar.title}
                 </h4>
                 <p className="text-slate-600 text-xs leading-relaxed">
@@ -131,7 +131,7 @@ export default function ThreeIPhilosophySection() {
 
             <div className="w-[1.5px] h-8 bg-[#E5DAC9]" />
 
-            <h3 className="font-playfair text-xl sm:text-2xl font-bold text-[#0E1B38] tracking-tight whitespace-nowrap">
+            <h3 className="alpha-h3 text-xl sm:text-2xl font-bold text-[#0E1B38] tracking-tight whitespace-nowrap">
               One Important Rule
             </h3>
           </div>

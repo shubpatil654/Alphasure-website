@@ -9,6 +9,7 @@
   padding: 85px 0 110px;
   overflow: hidden;
   user-select: none;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -62,7 +63,7 @@
 
 /* Main Title (H2) */
 .interview-process-main-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: var(--font-h2);
   line-height: var(--lh-h2);
   font-weight: 700;
@@ -154,9 +155,9 @@
   top: -46px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: 80px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   color: rgba(212, 163, 89, 0.46);
   text-shadow: 0 0 25px rgba(212, 163, 89, 0.25);
@@ -221,7 +222,7 @@
 
 /* Step Title */
 .interview-step-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: 19.5px;
   font-weight: 700;
   color: #FFFFFF;

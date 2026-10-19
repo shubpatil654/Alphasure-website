@@ -9,7 +9,7 @@
   padding-bottom: 4.5rem;
   overflow: hidden;
   user-select: none;
-  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -65,7 +65,7 @@
 
 /* Main Title (H2) */
 .our-values-main-title {
-  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: var(--font-h2);
   line-height: var(--lh-h2);
   font-weight: 700;
@@ -125,9 +125,9 @@
 }
 
 .svg-desc-title {
-  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.015em;
   line-height: 1.2;
@@ -144,7 +144,7 @@
 }
 
 .svg-desc-body {
-  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   color: #CBD5E1;

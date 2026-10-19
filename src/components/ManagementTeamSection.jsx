@@ -13,7 +13,7 @@ export default function ManagementTeamSection() {
         
         {/* ================= SECTION HEADER: "Management Team" (Lines Removed, Team in Orange with Underline) ================= */}
         <div className="flex items-center justify-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-playfair font-normal text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
+          <h2 className="alpha-h2 font-bold text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
             <span>Management</span>
             <span className="relative inline-block text-[#FA5A16]">
               Team
@@ -40,7 +40,7 @@ export default function ManagementTeamSection() {
           
           {/* ================= LEFT COLUMN: ABHIJIT ATRE (No gold line, orange title & role) ================= */}
           <div className="order-2 lg:order-1 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
-            <h3 className="font-playfair text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
+            <h3 className="alpha-h3 font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
               Abhijit Atre
             </h3>
             
@@ -80,7 +80,7 @@ export default function ManagementTeamSection() {
 
           {/* ================= RIGHT COLUMN: ONKAR MARATHE (No gold line, orange title & role) ================= */}
           <div className="order-3 lg:order-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
-            <h3 className="font-playfair text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
+            <h3 className="alpha-h3 font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
               Onkar Marathe
             </h3>
             

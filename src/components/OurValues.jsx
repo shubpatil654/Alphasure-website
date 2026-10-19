@@ -234,7 +234,7 @@ export default function OurValues() {
                   y="360" 
                   textAnchor="middle" 
                   fill="#ffffff" 
-                  fontFamily="'Playfair Display', Georgia, serif" 
+                  fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" 
                   fontWeight="bold" 
                   fontSize="14.5" 
                   letterSpacing="0.2"
@@ -289,7 +289,7 @@ export default function OurValues() {
                   y="392" 
                   textAnchor="middle" 
                   fill="#ffffff" 
-                  fontFamily="'Playfair Display', Georgia, serif" 
+                  fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" 
                   fontWeight="bold" 
                   fontSize="13.5" 
                   letterSpacing="0.2"
@@ -334,7 +334,7 @@ export default function OurValues() {
                   y="530" 
                   textAnchor="middle" 
                   fill="#ffffff" 
-                  fontFamily="'Playfair Display', Georgia, serif" 
+                  fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" 
                   fontWeight="bold" 
                   fontSize="15" 
                   letterSpacing="0.2"
@@ -382,7 +382,7 @@ export default function OurValues() {
                   y="558" 
                   textAnchor="middle" 
                   fill="#ffffff" 
-                  fontFamily="'Playfair Display', Georgia, serif" 
+                  fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" 
                   fontWeight="bold" 
                   fontSize="13.5" 
                   letterSpacing="0.2"
@@ -394,7 +394,7 @@ export default function OurValues() {
                   y="576" 
                   textAnchor="middle" 
                   fill="#ffffff" 
-                  fontFamily="'Playfair Display', Georgia, serif" 
+                  fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" 
                   fontWeight="bold" 
                   fontSize="13.5" 
                   letterSpacing="0.2"
@@ -522,7 +522,7 @@ export default function OurValues() {
                 strokeWidth="1.2"
               />
               <circle cx="515" cy="310" r="22" fill="rgba(255,255,255,0.2)" />
-              <text x="515" y="360" textAnchor="middle" fill="#ffffff" fontFamily="'Playfair Display', Georgia, serif" fontWeight="bold" fontSize="14">Client-Centric</text>
+              <text x="515" y="360" textAnchor="middle" fill="#ffffff" fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" fontWeight="bold" fontSize="14">Client-Centric</text>
 
               {/* Piece 2: Gold */}
               <path
@@ -532,7 +532,7 @@ export default function OurValues() {
                 strokeWidth="1.2"
               />
               <circle cx="685" cy="342" r="22" fill="rgba(255,255,255,0.2)" />
-              <text x="685" y="392" textAnchor="middle" fill="#ffffff" fontFamily="'Playfair Display', Georgia, serif" fontWeight="bold" fontSize="13">Employee-Focused</text>
+              <text x="685" y="392" textAnchor="middle" fill="#ffffff" fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" fontWeight="bold" fontSize="13">Employee-Focused</text>
 
               {/* Piece 3: Navy */}
               <path
@@ -542,7 +542,7 @@ export default function OurValues() {
                 strokeWidth="1.2"
               />
               <circle cx="515" cy="480" r="22" fill="rgba(255,255,255,0.2)" />
-              <text x="515" y="530" textAnchor="middle" fill="#ffffff" fontFamily="'Playfair Display', Georgia, serif" fontWeight="bold" fontSize="14">Integrity</text>
+              <text x="515" y="530" textAnchor="middle" fill="#ffffff" fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" fontWeight="bold" fontSize="14">Integrity</text>
 
               {/* Piece 4: Green */}
               <path
@@ -552,8 +552,8 @@ export default function OurValues() {
                 strokeWidth="1.2"
               />
               <circle cx="685" cy="512" r="22" fill="rgba(255,255,255,0.2)" />
-              <text x="685" y="558" textAnchor="middle" fill="#ffffff" fontFamily="'Playfair Display', Georgia, serif" fontWeight="bold" fontSize="13">Continuous</text>
-              <text x="685" y="576" textAnchor="middle" fill="#ffffff" fontFamily="'Playfair Display', Georgia, serif" fontWeight="bold" fontSize="13">Improvement</text>
+              <text x="685" y="558" textAnchor="middle" fill="#ffffff" fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" fontWeight="bold" fontSize="13">Continuous</text>
+              <text x="685" y="576" textAnchor="middle" fill="#ffffff" fontFamily="'Inter', 'Plus Jakarta Sans', sans-serif" fontWeight="bold" fontSize="13">Improvement</text>
             </svg>
           </div>
 
@@ -563,7 +563,7 @@ export default function OurValues() {
               <div key={val.id} className="mobile-card-item">
                 <div className="flex items-center gap-2.5 mb-1.5">
                   <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: val.color }} />
-                  <h3 className="font-serif font-black text-lg text-white">
+                  <h3 className="font-sans font-bold text-lg text-white">
                     {val.title}
                   </h3>
                 </div>

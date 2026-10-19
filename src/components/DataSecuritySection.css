@@ -8,7 +8,7 @@
   padding-bottom: 5.5rem;
   overflow: hidden;
   user-select: none;
-  font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -76,7 +76,7 @@
 
 /* Main Title (H2) */
 .data-security-main-title {
-  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: var(--font-h2);
   line-height: var(--lh-h2);
   font-weight: 700;
@@ -171,9 +171,9 @@
 .security-pillar-label {
   display: flex;
   flex-direction: column;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.8125rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0B192C;
   line-height: 1.25;
 }
