@@ -150,7 +150,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
 
               {/* Card Main Content */}
               <div className="flex-1 flex flex-col justify-start relative z-10 mb-4">
-                <h3 className="font-serif font-black text-xl sm:text-[22px] md:text-[23px] text-[#0B192C] leading-tight tracking-tight uppercase">
+                <h3 className="font-sans font-black text-xl sm:text-[22px] md:text-[23px] text-[#0B192C] leading-tight tracking-tight uppercase">
                   {card.title}
                 </h3>
                 
@@ -167,7 +167,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                 <div className="w-9 h-[2px] bg-[#B89255] mb-2.5 rounded-full" />
 
                 {/* Price Display */}
-                <div className="font-serif font-black text-2xl sm:text-3xl md:text-[32px] text-[#8C6239] tracking-tight leading-none">
+                <div className="font-sans font-black text-2xl sm:text-3xl md:text-[32px] text-[#8C6239] tracking-tight leading-none">
                   {card.price}
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                 </div>
 
                 <div>
-                  <h3 className="font-serif font-black text-2xl sm:text-[26px] md:text-3xl text-[#0B192C] tracking-tight">
+                  <h3 className="font-sans font-black text-2xl sm:text-[26px] md:text-3xl text-[#0B192C] tracking-tight">
                     Income Tax return:
                   </h3>
                 </div>
@@ -217,10 +217,10 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                   key={idx}
                   className="flex items-baseline gap-2 py-2.5 px-4 rounded-xl bg-[#FAF7F2] border border-[#E8DCCB]/90 hover:border-[#C5A059] transition-all"
                 >
-                  <span className="font-serif font-black text-base sm:text-lg text-[#0B192C] shrink-0">
+                  <span className="font-sans font-black text-base sm:text-lg text-[#0B192C] shrink-0">
                     {item.form}-
                   </span>
-                  <span className="font-serif font-black text-base sm:text-lg text-[#8C6239] shrink-0">
+                  <span className="font-sans font-black text-base sm:text-lg text-[#8C6239] shrink-0">
                     {item.price}
                   </span>
                   <span className="text-xs sm:text-[13.5px] font-semibold text-slate-700 leading-snug">

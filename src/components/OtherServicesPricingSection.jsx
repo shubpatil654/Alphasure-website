@@ -205,7 +205,7 @@ export default function OtherServicesPricingSection({ onOpenModal }) {
 
               {/* Card Title & Divider Line */}
               <div className="relative z-10 mt-auto">
-                <h3 className="font-serif font-black text-2xl sm:text-[26px] md:text-[27px] text-[#0B192C] leading-tight tracking-tight mb-2.5 group-hover:text-[#B89255] transition-colors">
+                <h3 className="font-sans font-black text-2xl sm:text-[26px] md:text-[27px] text-[#0B192C] leading-tight tracking-tight mb-2.5 group-hover:text-[#B89255] transition-colors">
                   {service.title}
                 </h3>
                 {/* Short Accent Line */}

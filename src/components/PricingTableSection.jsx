@@ -75,24 +75,24 @@ export default function PricingTableSection({ onOpenModal }) {
                   </th>
                   
                   {/* Column 2: Incorporation */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[20%] text-center text-slate-950 font-serif text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90">
+                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[20%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90">
                     Incorporation
                   </th>
 
                   {/* Column 3: Post-Incorporation compliance */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-serif text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
+                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
                     Post-Incorporation <br />
                     compliance
                   </th>
 
                   {/* Column 4: Annual Compliance Package */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-serif text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
+                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
                     Annual Compliance <br />
                     Package
                   </th>
 
                   {/* Column 5: Total */}
-                  <th className="py-3.5 sm:py-4 px-5 sm:px-6 w-[16%] text-center text-[#8C6239] font-serif text-lg sm:text-xl md:text-[23px] font-black tracking-tight border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90">
+                  <th className="py-3.5 sm:py-4 px-5 sm:px-6 w-[16%] text-center text-[#8C6239] font-sans text-lg sm:text-xl md:text-[23px] font-black tracking-tight border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90">
                     Total
                   </th>
                 </tr>
@@ -119,7 +119,7 @@ export default function PricingTableSection({ onOpenModal }) {
                       style={isCurrent ? { borderRadius: '14px' } : {}}
                     >
                       {/* Structure Name */}
-                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 font-serif text-lg sm:text-xl md:text-[22px] font-black text-slate-950 tracking-tight transition-colors duration-200 ${isCurrent ? 'rounded-l-xl text-[#8C6239]' : 'group-hover:text-[#8C6239]'}`}>
+                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 font-sans text-lg sm:text-xl md:text-[22px] font-black text-slate-950 tracking-tight transition-colors duration-200 ${isCurrent ? 'rounded-l-xl text-[#8C6239]' : 'group-hover:text-[#8C6239]'}`}>
                         <div className="flex items-center gap-2.5">
                           <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isCurrent ? 'bg-[#FA5A16] scale-100 opacity-100' : 'bg-transparent scale-50 opacity-0'}`} />
                           <span>{row.name}</span>
@@ -127,22 +127,22 @@ export default function PricingTableSection({ onOpenModal }) {
                       </td>
 
                       {/* Incorporation Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-serif text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
                         {row.incorporation}
                       </td>
 
                       {/* Post-Incorporation Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-serif text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
                         {row.postIncorporation}
                       </td>
 
                       {/* Annual Compliance Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-serif text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
                         {row.annualCompliance}
                       </td>
 
                       {/* Total Price */}
-                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 text-center font-serif text-lg sm:text-xl md:text-[24px] font-black text-[#8C6239] border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90 transition-transform duration-200 ${isCurrent ? 'rounded-r-xl scale-105' : ''}`}>
+                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 text-center font-sans text-lg sm:text-xl md:text-[24px] font-black text-[#8C6239] border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90 transition-transform duration-200 ${isCurrent ? 'rounded-r-xl scale-105' : ''}`}>
                         {row.total}
                       </td>
                     </tr>
