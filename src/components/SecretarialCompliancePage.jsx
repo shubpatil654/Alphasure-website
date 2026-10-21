@@ -63,7 +63,7 @@ export default function SecretarialCompliancePage({ onOpenModal }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
             
             {/* ================= LEFT COLUMN: Headline & CTA ================= */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left text-white space-y-6">
+            <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6">
               
               {/* Top Outline Pill / Rectangle Badge */}
               <div className="inline-flex items-center px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
@@ -72,15 +72,15 @@ export default function SecretarialCompliancePage({ onOpenModal }) {
                 </span>
               </div>
 
-              {/* Main Headline Title (Exactly 2 Lines) */}
+              {/* Main Headline Title (Single Line Guarantee) */}
               <div className="space-y-1.5 sm:space-y-2">
                 {/* Line 1 */}
-                <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
+                <h1 className="text-[clamp(1.35rem,4.2vw,3.625rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.1] !whitespace-nowrap [text-wrap:nowrap!important]">
                   You Focus on the Journey.
                 </h1>
 
                 {/* Line 2 */}
-                <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
+                <h2 className="text-[clamp(1.15rem,3.4vw,2.75rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.18] !whitespace-nowrap [text-wrap:nowrap!important]">
                   We Keep You on the Right Path.
                 </h2>
               </div>
@@ -103,7 +103,7 @@ export default function SecretarialCompliancePage({ onOpenModal }) {
             </div>
 
             {/* ================= RIGHT COLUMN: 3 Floating Sticky Post-it Feature Cards ================= */}
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center space-y-5 sm:space-y-6 w-full pt-6 lg:pt-0">
+            <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-center lg:items-end justify-center space-y-5 sm:space-y-6 w-full pt-6 lg:pt-0">
               {stickyCards.map((card) => (
                 <div
                   key={card.id}
