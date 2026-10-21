@@ -65,8 +65,8 @@ export default function OurJourneySection({ onOpenModal }) {
             <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
 
             <img 
-              src="/images/our-journey-timeline-new.png?v=3" 
-              srcSet="/images/our-journey-timeline-new.png?v=3 1x, /images/our-journey-timeline-new-2x.png?v=3 2x"
+              src="/images/our-journey-timeline-v5.png" 
+              srcSet="/images/our-journey-timeline-v5.png 1x, /images/our-journey-timeline-v5-2x.png 2x"
               alt="Alphasure Journey Roadmap - From 2015 Foundation to 2026 Alphasure Solutions"
               className="w-full h-auto object-contain select-none"
               loading="eager"
