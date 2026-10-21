@@ -35,51 +35,11 @@ export default function ManagementTeamSection() {
           </h2>
         </div>
 
-        {/* ================= 3-COLUMN LAYOUT: ABHIJIT | PHOTO | ONKAR ================= */}
+        {/* ================= 3-COLUMN LAYOUT: ONKAR | PHOTO | ABHIJIT ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-8 items-center">
           
-          {/* ================= LEFT COLUMN: ABHIJIT ATRE (No gold line, orange title & role) ================= */}
+          {/* ================= LEFT COLUMN: ONKAR MARATHE ================= */}
           <div className="order-2 lg:order-1 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
-            <h3 className="alpha-h3 font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
-              Abhijit Atre
-            </h3>
-            
-            <div className="text-[#FA5A16] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
-              Co-Founder
-            </div>
-            
-            <div className="space-y-3.5 sm:space-y-4 text-slate-300 text-xs sm:text-[13px] md:text-sm font-normal leading-relaxed">
-              <p>
-                Abhijit brings extensive experience in technology, business leadership and process transformation, with a strong focus on using technology to help businesses work smarter and scale.
-              </p>
-              <p>
-                He has been closely involved with Pune's technology ecosystem for over two decades and has held leadership roles with SAP.
-              </p>
-              <p>
-                A natural people person, Abhijit enjoys building relationships, mentoring others and bringing people together. Outside work, he is an enthusiastic badminton player—bringing the same energy, competitiveness and team spirit to everything he does.
-              </p>
-            </div>
-          </div>
-
-          {/* ================= CENTER COLUMN: DUO STUDIO PORTRAIT (Enlarged, Seamless Blend, Bottom Gradient) ================= */}
-          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 flex items-center justify-center">
-            <div className="relative w-full max-w-[660px] lg:max-w-[720px] xl:max-w-[760px] mx-auto flex items-center justify-center">
-              <img
-                src="/images/founders-duo-photo.png?v=3"
-                srcSet="/images/founders-duo-photo.png?v=3 1x, /images/founders-duo-photo-2x.png?v=3 2x"
-                alt="Abhijit Atre and Onkar Marathe - Co-Founders of Alphasure"
-                className="w-full h-auto object-contain filter contrast-[1.04] brightness-[0.98] select-none"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)'
-                }}
-                loading="eager"
-              />
-            </div>
-          </div>
-
-          {/* ================= RIGHT COLUMN: ONKAR MARATHE (No gold line, orange title & role) ================= */}
-          <div className="order-3 lg:order-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
             <h3 className="alpha-h3 font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
               Onkar Marathe
             </h3>
@@ -97,6 +57,46 @@ export default function ManagementTeamSection() {
               </p>
               <p>
                 A strong believer in teamwork, Onkar enjoys working closely with people and building teams that take ownership of their work. Outside work, he loves travelling and is an enthusiastic badminton and football player.
+              </p>
+            </div>
+          </div>
+
+          {/* ================= CENTER COLUMN: DUO STUDIO PORTRAIT (Enlarged, Seamless Blend, Bottom Gradient) ================= */}
+          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 flex items-center justify-center">
+            <div className="relative w-full max-w-[660px] lg:max-w-[720px] xl:max-w-[760px] mx-auto flex items-center justify-center">
+              <img
+                src="/images/founders-duo-photo.png?v=4"
+                srcSet="/images/founders-duo-photo.png?v=4 1x, /images/founders-duo-photo-2x.png?v=4 2x"
+                alt="Onkar Marathe and Abhijit Atre - Co-Founders of Alphasure"
+                className="w-full h-auto object-contain filter contrast-[1.04] brightness-[0.98] select-none"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)'
+                }}
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          {/* ================= RIGHT COLUMN: ABHIJIT ATRE ================= */}
+          <div className="order-3 lg:order-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-center text-left">
+            <h3 className="alpha-h3 font-bold text-[#FA5A16] tracking-tight leading-tight mb-1">
+              Abhijit Atre
+            </h3>
+            
+            <div className="text-[#FA5A16] font-medium text-sm sm:text-base mb-4 sm:mb-5 tracking-wide">
+              Co-Founder
+            </div>
+            
+            <div className="space-y-3.5 sm:space-y-4 text-slate-300 text-xs sm:text-[13px] md:text-sm font-normal leading-relaxed">
+              <p>
+                Abhijit brings extensive experience in technology, business leadership and process transformation, with a strong focus on using technology to help businesses work smarter and scale.
+              </p>
+              <p>
+                He has been closely involved with Pune's technology ecosystem for over two decades and has held leadership roles with SAP.
+              </p>
+              <p>
+                A natural people person, Abhijit enjoys building relationships, mentoring others and bringing people together. Outside work, he is an enthusiastic badminton player—bringing the same energy, competitiveness and team spirit to everything he does.
               </p>
             </div>
           </div>
