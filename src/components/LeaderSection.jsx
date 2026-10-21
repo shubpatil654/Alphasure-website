@@ -16,7 +16,7 @@ const leader1Data = {
 const leader2Data = {
   name: "Abhijit Atre",
   role: "Co-Founder",
-  image: "/images/abhijit-atre-leader.jpg",
+  image: "/images/abhijit-atre-leader.jpg?v=2",
   imagePosition: "right",
   paragraphs: [
     "Our approach is simple. We don’t believe in merely selling software or providing a service. We believe in delivering a complete solution. As technology and AI continue to transform our industry, we see them as powerful tools to improve speed, accuracy and efficiency.",
