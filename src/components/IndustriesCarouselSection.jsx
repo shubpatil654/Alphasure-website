@@ -124,26 +124,27 @@ export default function IndustriesCarouselSection() {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ================= HEADING ONLY ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 flex flex-col items-center">
-          <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
-            Industries we provide services{' '}
+        <div className="text-center w-full max-w-5xl mx-auto mb-8 sm:mb-12 flex flex-col items-center px-2">
+          <h2 className="font-bold text-[#0B192C] tracking-tight whitespace-nowrap text-[clamp(1rem,3.4vw,2.65rem)] leading-tight">
             <span className="relative inline-block text-[#FA5A16]">
-              too
-              {/* Decorative Curved Underline */}
+              Industries
+              {/* Signature Animated Curved Underline SVG */}
               <svg 
-                className="absolute left-0 -bottom-1.5 sm:-bottom-2 w-full h-2.5 sm:h-3 overflow-visible pointer-events-none" 
-                viewBox="0 0 100 12" 
+                className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-2.5 sm:h-3.5 overflow-visible pointer-events-none" 
+                viewBox="0 0 200 20" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path 
-                  d="M 2 10 Q 50 2, 98 10" 
+                  d="M 4 16 Q 100 3, 196 16" 
                   stroke="#FA5A16" 
                   strokeWidth="3.5" 
                   strokeLinecap="round" 
+                  className="animate-draw-curved-underline" 
                 />
               </svg>
             </span>
+            {' '}we provide services too
           </h2>
         </div>
 
