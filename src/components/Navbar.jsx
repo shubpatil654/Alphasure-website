@@ -251,10 +251,6 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                       </span>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#EA580C] text-xs font-semibold tracking-wide shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#FA5A16] animate-pulse" />
-                    Fast-Track MCA Filing
-                  </span>
                 </div>
 
                 {/* 2-Column Grid */}
@@ -397,10 +393,6 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                       </span>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#2563EB] text-xs font-semibold tracking-wide shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-                    Dedicated CA & CPA Advisory
-                  </span>
                 </div>
 
                 {/* 2-Column Grid */}
