@@ -144,13 +144,15 @@ export default function Footer({ onOpenModal, onNavigate }) {
           {/* Column 3: Quick Navigation (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wider uppercase border-l-2 border-[#3B82F6] pl-3">
-              Company
+              Company & Resources
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
               <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> About Alphasure</a></li>
-              <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Our Leadership Team</a></li>
               <li><a href="#pricing" onClick={(e) => handleNav(e, 'pricing')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Pricing</a></li>
               <li><a href="#careers" onClick={(e) => handleNav(e, 'careers')} className="hover:text-white transition-colors duration-150 flex items-center gap-1.5"><span className="text-slate-600">›</span> Careers</a></li>
+              <li><a href="#blogs" onClick={(e) => handleNav(e, 'blogs')} className="hover:text-[#FA5A16] transition-colors duration-150 flex items-center gap-1.5"><span className="text-[#FA5A16]">›</span> Blogs & Insights</a></li>
+              <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-[#FA5A16] transition-colors duration-150 flex items-center gap-1.5"><span className="text-[#FA5A16]">›</span> Client Testimonials</a></li>
+              <li><a href="#faqs" onClick={(e) => handleNav(e, 'faqs')} className="hover:text-[#FA5A16] transition-colors duration-150 flex items-center gap-1.5"><span className="text-[#FA5A16]">›</span> FAQ's</a></li>
             </ul>
           </div>
 

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { 
   Menu, X, PhoneCall, Building2, UserCheck, Users, ShieldCheck, 
   ArrowRight, Sparkles, CalendarClock, Activity, Sliders, FileSpreadsheet,
-  Calculator, Briefcase
+  Calculator, Briefcase, BookOpen, MessageSquareQuote, HelpCircle
 } from 'lucide-react';
 import AlphasureLogo from './AlphasureLogo';
 
@@ -11,21 +11,26 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
   const [mobileRegisterOpen, setMobileRegisterOpen] = useState(false);
   const [mobileAccountingOpen, setMobileAccountingOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isAccountingOpen, setIsAccountingOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   
   const registerTimeoutRef = useRef(null);
   const accountingTimeoutRef = useRef(null);
   const aboutTimeoutRef = useRef(null);
+  const resourcesTimeoutRef = useRef(null);
 
   const handleRegisterEnter = () => {
     if (registerTimeoutRef.current) clearTimeout(registerTimeoutRef.current);
     if (accountingTimeoutRef.current) clearTimeout(accountingTimeoutRef.current);
     if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
     setIsAccountingOpen(false);
     setIsAboutOpen(false);
+    setIsResourcesOpen(false);
     setIsRegisterOpen(true);
   };
 
@@ -39,8 +44,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     if (accountingTimeoutRef.current) clearTimeout(accountingTimeoutRef.current);
     if (registerTimeoutRef.current) clearTimeout(registerTimeoutRef.current);
     if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
     setIsRegisterOpen(false);
     setIsAboutOpen(false);
+    setIsResourcesOpen(false);
     setIsAccountingOpen(true);
   };
 
@@ -54,14 +61,33 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
     if (registerTimeoutRef.current) clearTimeout(registerTimeoutRef.current);
     if (accountingTimeoutRef.current) clearTimeout(accountingTimeoutRef.current);
+    if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
     setIsRegisterOpen(false);
     setIsAccountingOpen(false);
+    setIsResourcesOpen(false);
     setIsAboutOpen(true);
   };
 
   const handleAboutLeave = () => {
     aboutTimeoutRef.current = setTimeout(() => {
       setIsAboutOpen(false);
+    }, 150);
+  };
+
+  const handleResourcesEnter = () => {
+    if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
+    if (registerTimeoutRef.current) clearTimeout(registerTimeoutRef.current);
+    if (accountingTimeoutRef.current) clearTimeout(accountingTimeoutRef.current);
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    setIsRegisterOpen(false);
+    setIsAccountingOpen(false);
+    setIsAboutOpen(false);
+    setIsResourcesOpen(true);
+  };
+
+  const handleResourcesLeave = () => {
+    resourcesTimeoutRef.current = setTimeout(() => {
+      setIsResourcesOpen(false);
     }, 150);
   };
 
@@ -137,13 +163,31 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     },
   ];
 
+  // Resources Submenu (Blogs, Testimonials, FAQ's)
+  const resourcesSubmenu = [
+    { 
+      name: 'Blogs', 
+      id: 'blogs',
+      subheading: 'Articles, guides & expert insights',
+      icon: BookOpen,
+    },
+    { 
+      name: 'Testimonials', 
+      id: 'testimonials',
+      subheading: 'Client reviews & success stories',
+      icon: MessageSquareQuote,
+    },
+    { 
+      name: "FAQ's", 
+      id: 'faqs',
+      subheading: 'Answers to common questions',
+      icon: HelpCircle,
+    },
+  ];
+
   const otherNavLinksBefore = [
     { name: 'EVERYTHING ELSE', page: 'everything-else', href: '#everything-else' },
     { name: 'PRICING', page: 'pricing', href: '#pricing' },
-  ];
-
-  const otherNavLinksAfter = [
-    { name: 'RESOURCES', page: 'resources', href: '#resources' },
   ];
 
   const handleNavClick = (e, page) => {
@@ -604,24 +648,97 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             </div>
           </div>
 
-          {/* Links After About */}
-          {otherNavLinksAfter.map((link) => {
-            const isActive = activePage === link.page;
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.page)}
-                className={`text-white text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
-                  isActive
-                    ? 'border-b-2 border-white text-white'
-                    : 'text-white/90 hover:text-white hover:border-b-2 hover:border-white/60'
-                }`}
+          {/* RESOURCES Dropdown */}
+          <div 
+            className="relative py-2"
+            onMouseEnter={handleResourcesEnter}
+            onMouseLeave={handleResourcesLeave}
+          >
+            <button
+              onClick={() => {
+                setIsRegisterOpen(false);
+                setIsAccountingOpen(false);
+                setIsAboutOpen(false);
+                setIsResourcesOpen(!isResourcesOpen);
+              }}
+              className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+                isResourcesOpen || activePage === 'resources' || activePage === 'blogs' || activePage === 'testimonials' || activePage === 'faqs'
+                  ? 'text-white font-black border-b-2 border-white' 
+                  : 'text-white/90 hover:text-white'
+              }`}
+            >
+              RESOURCES
+            </button>
+
+            {/* Resources Dropdown Menu Card */}
+            <div 
+              style={{
+                width: '360px',
+                maxWidth: '92vw',
+                right: '-20px',
+              }}
+              className={`absolute top-full pt-3 z-50 transition-all duration-200 ease-out ${
+                isResourcesOpen 
+                  ? 'opacity-100 translate-y-0 pointer-events-auto' 
+                  : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
+            >
+              <div 
+                style={{ height: '14px', top: '-14px', left: 0, right: 0 }}
+                className="absolute" 
+              />
+
+              <div 
+                style={{
+                  borderRadius: '24px',
+                  boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.95)',
+                  backgroundColor: '#ffffff',
+                  padding: '16px 18px',
+                }}
+                className="select-none"
               >
-                {link.name}
-              </a>
-            );
-          })}
+                <div className="flex flex-col gap-2">
+                  {resourcesSubmenu.map((item) => {
+                    const IconComp = item.icon;
+                    const isSubActive = activePage === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => {
+                          setIsResourcesOpen(false);
+                          if (onNavigate) onNavigate(item.id);
+                        }}
+                        className={`group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-150 text-left cursor-pointer w-full border ${
+                          isSubActive
+                            ? 'bg-orange-50/70 border-orange-200'
+                            : 'hover:bg-slate-50 border-slate-100 hover:border-slate-200'
+                        }`}
+                      >
+                        <div className="mt-0.5 text-[#FA5A16] shrink-0 p-2 rounded-lg bg-orange-50 group-hover/item:scale-105 transition-transform duration-150">
+                          <IconComp className="w-4.5 h-4.5" />
+                        </div>
+                        <div className="flex flex-col min-w-0">
+                          <span 
+                            style={{ fontSize: '14.5px', fontWeight: 700, color: '#0f172a', lineHeight: 1.3 }} 
+                            className="group-hover/item:text-[#FA5A16] transition-colors"
+                          >
+                            {item.name}
+                          </span>
+                          <span 
+                            style={{ fontSize: '12px', color: '#64748b', fontWeight: 500, marginTop: '2px' }}
+                            className="inline-flex items-center gap-1 group-hover/item:text-slate-800 transition-colors"
+                          >
+                            <span>{item.subheading}</span>
+                            <ArrowRight className="w-3 h-3 text-[#FA5A16] transform transition-transform duration-150 group-hover/item:translate-x-1" />
+                          </span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
 
         {/* Right CTA Button (Desktop) */}
@@ -816,27 +933,47 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               )}
             </div>
 
-            {/* Links After About */}
-            {otherNavLinksAfter.map((link) => {
-              const isActive = activePage === link.page;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    setMobileMenuOpen(false);
-                    handleNavClick(e, link.page);
-                  }}
-                  className={`text-xs sm:text-sm font-bold tracking-wider py-2 px-3 rounded-lg transition-colors cursor-pointer ${
-                    isActive
-                      ? 'text-white bg-white/15'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              );
-            })}
+            {/* RESOURCES Accordion in Mobile */}
+            <div className="flex flex-col">
+              <button
+                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
+              >
+                <span>RESOURCES</span>
+                <span className="text-[10px] text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded-full font-bold">
+                  {mobileResourcesOpen ? 'Close' : 'View Subpages'}
+                </span>
+              </button>
+
+              {mobileResourcesOpen && (
+                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-white/5 rounded-xl my-1 border border-white/10">
+                  {resourcesSubmenu.map((item) => {
+                    const IconComp = item.icon;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          if (onNavigate) onNavigate(item.id);
+                        }}
+                        className="text-left p-2.5 rounded-lg hover:bg-white/10 flex items-start gap-3 cursor-pointer group"
+                      >
+                        <div className="text-[#FA5A16] shrink-0 mt-0.5">
+                          <IconComp className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-white group-hover:text-[#FA5A16] transition-colors">{item.name}</div>
+                          <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
+                            <span>{item.subheading}</span>
+                            <ArrowRight className="w-3 h-3 text-[#FA5A16]" />
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
             <div className="pt-2 border-t border-white/10">
               <button

@@ -25,6 +25,9 @@ import PricingPage from './components/PricingPage';
 import AboutPage from './components/AboutPage';
 import CareersPage from './components/CareersPage';
 import EverythingElsePage from './components/EverythingElsePage';
+import BlogsPage from './components/BlogsPage';
+import TestimonialsPage from './components/TestimonialsPage';
+import FaqPage from './components/FaqPage';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,7 +37,8 @@ export default function App() {
       const validPages = [
         'pvt-ltd', 'opc', 'llp', 'secretarial', 
         'periodic-accounting', 'real-time-accounting', 'controller-services', 'gst-tds-compliance', 
-        'pricing', 'about', 'careers', 'everything-else'
+        'pricing', 'about', 'careers', 'everything-else',
+        'resources', 'blogs', 'testimonials', 'faqs'
       ];
       if (validPages.includes(hash)) return hash;
       const params = new URLSearchParams(window.location.search);
@@ -104,6 +108,12 @@ export default function App() {
           <CareersPage onOpenModal={() => setModalOpen(true)} />
         ) : activePage === 'everything-else' ? (
           <EverythingElsePage onOpenModal={() => setModalOpen(true)} />
+        ) : activePage === 'blogs' || activePage === 'resources' ? (
+          <BlogsPage onOpenModal={() => setModalOpen(true)} onNavigate={handleNavigate} />
+        ) : activePage === 'testimonials' ? (
+          <TestimonialsPage onOpenModal={() => setModalOpen(true)} />
+        ) : activePage === 'faqs' ? (
+          <FaqPage onOpenModal={() => setModalOpen(true)} />
         ) : (
           <>
             <Hero onOpenModal={() => setModalOpen(true)} />
