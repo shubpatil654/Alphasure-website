@@ -8,6 +8,7 @@ import LeaderSection from './components/LeaderSection';
 import WhatSetsUsApartSection from './components/WhatSetsUsApartSection';
 import SoftwareNetworkSection from './components/SoftwareNetworkSection';
 import GettingStartedSection from './components/GettingStartedSection';
+import IndustriesCarouselSection from './components/IndustriesCarouselSection';
 import ReviewsSection from './components/ReviewsSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
@@ -113,6 +114,7 @@ export default function App() {
             <WhatSetsUsApartSection />
             <SoftwareNetworkSection />
             <GettingStartedSection onOpenModal={() => setModalOpen(true)} />
+            <IndustriesCarouselSection onOpenModal={() => setModalOpen(true)} />
             <ReviewsSection />
             <FaqSection onOpenModal={() => setModalOpen(true)} />
           </>
