@@ -317,7 +317,7 @@ export default function SoftwareNetworkSection() {
                 {/* Alphasure Brand Logo Icon */}
                 <div className="w-12 h-12 sm:w-14 sm:h-14 mb-1 flex items-center justify-center">
                   <img
-                    src="/images/logo-exact-clean.png"
+                    src="/images/alphasure-logo-v3.png"
                     alt="Alphasure Logo"
                     className="w-full h-full object-contain filter drop-shadow-md"
                   />

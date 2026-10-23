@@ -11,36 +11,52 @@ export default function WhyPartnersSection() {
       title: 'Expertise',
       icon: GraduationCap,
       description: 'Specialists with demonstrated knowledge in their field.',
-      badgeX: '70.8%',
-      badgeY: '15.5%',
-      hitbox: { top: '8%', left: '68%', width: '28%', height: '17%' },
+      badgeX: '75.1%',
+      badgeY: '17.6%',
+      hitbox: { top: '2%', left: '71%', width: '28%', height: '23%' },
+      iconBg: 'bg-[#FFF0E6]',
+      iconBorder: 'border-[#FED7AA]',
+      iconColor: 'text-[#FA5A16]',
+      glowColor: 'bg-orange-500/20 ring-4 ring-orange-500/35 shadow-[0_0_24px_rgba(250,90,22,0.4)]',
     },
     {
       id: 'reliability',
       title: 'Reliability',
       icon: Handshake,
       description: 'People we know and are comfortable putting in front of our clients.',
-      badgeX: '77.2%',
-      badgeY: '34.5%',
-      hitbox: { top: '26%', left: '74%', width: '25%', height: '18%' },
+      badgeX: '75.2%',
+      badgeY: '40.0%',
+      hitbox: { top: '26%', left: '71%', width: '28%', height: '23%' },
+      iconBg: 'bg-[#EFF6FF]',
+      iconBorder: 'border-[#BFDBFE]',
+      iconColor: 'text-[#2563EB]',
+      glowColor: 'bg-blue-500/20 ring-4 ring-blue-500/35 shadow-[0_0_24px_rgba(37,99,235,0.4)]',
     },
     {
       id: 'quality',
       title: 'Quality',
       icon: Award,
       description: 'A standard of work that meets the expectations we set for ourselves.',
-      badgeX: '81.2%',
-      badgeY: '56.5%',
-      hitbox: { top: '48%', left: '78%', width: '22%', height: '18%' },
+      badgeX: '75.1%',
+      badgeY: '63.1%',
+      hitbox: { top: '50%', left: '71%', width: '28%', height: '23%' },
+      iconBg: 'bg-[#F1F5F9]',
+      iconBorder: 'border-[#E2E8F0]',
+      iconColor: 'text-[#64748B]',
+      glowColor: 'bg-slate-400/20 ring-4 ring-slate-400/35 shadow-[0_0_24px_rgba(100,116,139,0.4)]',
     },
     {
       id: 'accountability',
       title: 'Accountability',
       icon: Users,
       description: 'We remain involved rather than simply passing your requirement to someone else.',
-      badgeX: '80.5%',
-      badgeY: '80.5%',
-      hitbox: { top: '71%', left: '77%', width: '23%', height: '19%' },
+      badgeX: '75.2%',
+      badgeY: '85.2%',
+      hitbox: { top: '74%', left: '71%', width: '28%', height: '24%' },
+      iconBg: 'bg-[#FFF5ED]',
+      iconBorder: 'border-[#FDBA74]',
+      iconColor: 'text-[#EA580C]',
+      glowColor: 'bg-amber-500/20 ring-4 ring-amber-500/35 shadow-[0_0_24px_rgba(234,88,12,0.4)]',
     }
   ];
 
@@ -58,11 +74,12 @@ export default function WhyPartnersSection() {
         
         {/* ================= DESKTOP STAGE (Screens >= 1024px) ================= */}
         <div className="hidden lg:block why-partners-desktop-stage">
-          {/* Main Visual Display matching Image 2 */}
-          <div className="why-partners-artwork-frame relative rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(15,36,25,0.09)] border border-[#EADBCA]/80 bg-[#FAF7F2]">
+          {/* Main Visual Display matching Image */}
+          <div className="why-partners-artwork-frame relative rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(11,25,44,0.08)] border border-slate-200/80 bg-white">
             <img
-              src="/images/why-partners-aerial-hero-retina.jpg"
-              alt="Why We Work with Partners - Collaboration with Specialists"
+              src="/images/why-partners-approach-v1.png"
+              srcSet="/images/why-partners-approach-v1.png 1x, /images/why-partners-approach-v1-2x.png 2x"
+              alt="Why We Work with Partners - Our Approach: Expertise, Reliability, Quality, Accountability"
               className="w-full h-auto block select-none"
               loading="eager"
             />
@@ -87,7 +104,7 @@ export default function WhyPartnersSection() {
                   <div 
                     className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full transition-all duration-300 pointer-events-none ${
                       isActive 
-                        ? 'opacity-100 scale-125 bg-amber-400/20 ring-4 ring-amber-400/40 shadow-[0_0_24px_rgba(184,134,72,0.5)]' 
+                        ? `opacity-100 scale-125 ${pillar.glowColor}` 
                         : 'opacity-0 scale-95'
                     }`}
                     style={{
@@ -108,7 +125,6 @@ export default function WhyPartnersSection() {
             <p><strong>We believe it needs to be done by the right people.</strong></p>
             <p>For services outside our core expertise, we work with carefully selected specialists rather than outsourcing work to multiple low-cost service providers.</p>
             <div>
-              <span>STRONGER TOGETHER FOR BETTER OUTCOMES</span>
               {pillars.map((p) => (
                 <div key={p.id}>
                   <h3>{p.title}</h3>
@@ -130,7 +146,7 @@ export default function WhyPartnersSection() {
 
             <h2 className="why-partners-main-title">
               <span className="title-navy block">Why We Work</span>
-              <span className="title-gold block">with Partners</span>
+              <span className="title-orange block">with Partners</span>
             </h2>
 
             <div className="why-partners-title-bar" />
@@ -140,7 +156,7 @@ export default function WhyPartnersSection() {
                 We don’t believe that every service needs to be performed by Alphasure itself.
               </p>
               <p>
-                <strong className="text-[#0F241C] font-bold">We believe it needs to be done by the right people.</strong>
+                <strong className="text-[#0B192C] font-bold">We believe it needs to be done by the right people.</strong>
               </p>
               <p>
                 For services outside our core expertise, we work with carefully selected specialists rather than outsourcing work to multiple low-cost service providers.
@@ -149,11 +165,11 @@ export default function WhyPartnersSection() {
           </div>
 
           {/* Collaborative Meeting Visual */}
-          <div className="my-8 rounded-2xl overflow-hidden border border-[#EADBCA] shadow-md relative bg-[#F7F2E9]">
+          <div className="my-8 rounded-2xl overflow-hidden border border-slate-200/90 shadow-md relative bg-white">
             <img
-              src="/images/why-partners-meeting-circle.jpg"
+              src="/images/why-partners-meeting-v2.jpg"
               alt="Alphasure collaborative partner network meeting"
-              className="w-full h-auto object-cover"
+              className="w-full max-h-[360px] object-cover object-center"
               loading="lazy"
             />
           </div>
@@ -165,29 +181,22 @@ export default function WhyPartnersSection() {
               return (
                 <div
                   key={pillar.id}
-                  className="bg-white/90 backdrop-blur-xs p-5 sm:p-6 rounded-2xl border border-[#EADBCA] shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4"
+                  className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4"
                 >
-                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#F5EDE1] border border-[#DFC8A5] flex items-center justify-center shrink-0 shadow-xs">
-                    <IconComp className="w-6 h-6 text-[#9A7036]" strokeWidth={1.9} />
+                  <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full ${pillar.iconBg} border ${pillar.iconBorder} flex items-center justify-center shrink-0 shadow-xs`}>
+                    <IconComp className={`w-6 h-6 ${pillar.iconColor}`} strokeWidth={2} />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-serif font-bold text-xl text-[#0F241C] mb-1">
+                    <h3 className="font-sans font-bold text-xl text-[#0B192C] mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-sm text-[#4A5568] leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
                       {pillar.description}
                     </p>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          {/* Bottom Dark Green Tag: Stronger Together For Better Outcomes */}
-          <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-[#10241B] via-[#142E23] to-[#10241B] text-center shadow-md">
-            <span className="text-xs sm:text-sm font-bold tracking-[0.14em] text-[#C3DAC0] uppercase">
-              Stronger Together For Better Outcomes
-            </span>
           </div>
 
         </div>

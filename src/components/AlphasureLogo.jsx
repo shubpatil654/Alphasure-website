@@ -4,7 +4,7 @@ export default function AlphasureLogo({ className = "h-10 sm:h-12 w-auto", textC
   return (
     <div className="flex items-center gap-2.5 sm:gap-3 select-none group cursor-pointer">
       <img
-        src="/images/logo-exact-clean.png"
+        src="/images/alphasure-logo-v3.png"
         alt="Alphasure Logo"
         className={`${className} object-contain filter drop-shadow-md transition-transform duration-200 group-hover:scale-105`}
       />
