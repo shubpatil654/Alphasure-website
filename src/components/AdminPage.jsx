@@ -7,7 +7,8 @@ import {
 import { 
   getSupabase, isSupabaseConfigured, saveSupabaseCredentials, 
   clearSupabaseCredentials, fetchAllBlogs, createBlog, deleteBlogById, 
-  fetchAllJobs, createJob, updateJobStatus, deleteJobById, seedDatabaseIfEmpty 
+  fetchAllJobs, createJob, updateJobStatus, deleteJobById, seedDatabaseIfEmpty,
+  testSupabaseConnection
 } from '../lib/supabase';
 
 export default function AdminPage({ onNavigate }) {
@@ -70,11 +71,34 @@ export default function AdminPage({ onNavigate }) {
     import.meta.env.VITE_SUPABASE_ANON_KEY || localStorage.getItem('alphasure_supabase_anon_key') || ''
   );
   const [isSeeding, setIsSeeding] = useState(false);
+  const [diagnosticResult, setDiagnosticResult] = useState(null);
+  const [isRunningDiagnostics, setIsRunningDiagnostics] = useState(false);
+  const [copiedSql, setCopiedSql] = useState(false);
 
   // Trigger Notification helper
   const showNotification = (msg, type = 'success') => {
     setNotification({ msg, type });
     setTimeout(() => setNotification(null), 4000);
+  };
+
+  // Run Supabase Diagnostics
+  const handleRunDiagnostics = async () => {
+    setIsRunningDiagnostics(true);
+    setDiagnosticResult(null);
+    try {
+      const res = await testSupabaseConnection();
+      setDiagnosticResult(res);
+      if (res.success) {
+        showNotification('Diagnostics passed! Full CRUD permissions verified.');
+      } else {
+        showNotification(res.message, 'error');
+      }
+    } catch (err) {
+      setDiagnosticResult({ success: false, message: err.message });
+      showNotification(err.message, 'error');
+    } finally {
+      setIsRunningDiagnostics(false);
+    }
   };
 
   // Load Data
@@ -155,14 +179,15 @@ export default function AdminPage({ onNavigate }) {
   };
 
   // Handle Save Supabase Credentials
-  const handleSaveSupabaseConfig = (e) => {
+  const handleSaveSupabaseConfig = async (e) => {
     e.preventDefault();
     if (!supabaseUrl.trim() || !supabaseAnonKey.trim()) {
       showNotification('Please provide both Project URL and Anon Public Key', 'error');
       return;
     }
     saveSupabaseCredentials(supabaseUrl, supabaseAnonKey);
-    showNotification('Supabase configuration saved! Reloading data...');
+    showNotification('Supabase configuration saved! Running connection test...');
+    await handleRunDiagnostics();
     loadAllData();
   };
 
@@ -858,28 +883,100 @@ export default function AdminPage({ onNavigate }) {
                     />
                   </div>
 
-                  <div className="pt-2 flex items-center justify-between gap-4">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        clearSupabaseCredentials();
-                        setSupabaseUrl('');
-                        setSupabaseAnonKey('');
-                        showNotification('Cleared Supabase credentials. Reverted to Local Storage mode.');
-                      }}
-                      className="text-xs font-bold text-red-500 hover:text-red-700 cursor-pointer"
-                    >
-                      Clear Credentials
-                    </button>
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={handleRunDiagnostics}
+                        disabled={isRunningDiagnostics || !supabaseUrl || !supabaseAnonKey}
+                        className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 disabled:opacity-50"
+                      >
+                        <RefreshCw className={`w-3.5 h-3.5 ${isRunningDiagnostics ? 'animate-spin' : ''}`} />
+                        <span>{isRunningDiagnostics ? 'Testing...' : 'Test Connection & Permissions'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          clearSupabaseCredentials();
+                          setSupabaseUrl('');
+                          setSupabaseAnonKey('');
+                          setDiagnosticResult(null);
+                          showNotification('Cleared Supabase credentials. Reverted to Local Storage mode.');
+                        }}
+                        className="text-xs font-bold text-red-500 hover:text-red-700 cursor-pointer"
+                      >
+                        Clear
+                      </button>
+                    </div>
 
                     <button
                       type="submit"
-                      className="px-6 py-3 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer"
+                      className="px-6 py-2.5 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer"
                     >
-                      Save & Connect Supabase
+                      Save & Connect
                     </button>
                   </div>
                 </form>
+
+                {/* Diagnostics Results Display */}
+                {diagnosticResult && (
+                  <div className={`p-4 sm:p-5 rounded-2xl border ${
+                    diagnosticResult.success 
+                      ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                      : 'bg-red-50 border-red-200 text-red-800'
+                  }`}>
+                    <div className="flex items-start gap-3">
+                      {diagnosticResult.success ? (
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                      ) : (
+                        <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                      )}
+                      <div className="space-y-1 text-xs sm:text-sm">
+                        <p className="font-bold">
+                          {diagnosticResult.success ? 'Supabase Connection Verified!' : 'Supabase Permission / Connection Error'}
+                        </p>
+                        <p className="leading-relaxed opacity-90">
+                          {diagnosticResult.message}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* RLS Fix & Schema Helper Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h4 className="text-base sm:text-lg font-bold text-[#0B192C]">
+                      Why CRUD operations fail on Supabase (RLS Issue)
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                      By default, Supabase activates <strong>Row Level Security (RLS)</strong> which blocks the public <code>anon</code> key from adding, editing, or deleting rows. Run this simple SQL command in your Supabase SQL Editor to grant full CRUD permissions:
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      const sql = "ALTER TABLE public.blogs DISABLE ROW LEVEL SECURITY;\nALTER TABLE public.job_openings DISABLE ROW LEVEL SECURITY;";
+                      navigator.clipboard.writeText(sql);
+                      setCopiedSql(true);
+                      setTimeout(() => setCopiedSql(false), 3000);
+                      showNotification('SQL fix copied to clipboard!');
+                    }}
+                    className="shrink-0 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-[#0B192C] transition-colors cursor-pointer flex items-center gap-1.5"
+                  >
+                    {copiedSql ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> : <FileText className="w-3.5 h-3.5" />}
+                    <span>{copiedSql ? 'Copied!' : 'Copy SQL Fix'}</span>
+                  </button>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto select-all leading-relaxed border border-slate-800">
+                  <span className="text-amber-400">-- Run in Supabase SQL Editor:</span><br />
+                  <span className="text-emerald-400">ALTER TABLE</span> public.blogs <span className="text-orange-400">DISABLE ROW LEVEL SECURITY</span>;<br />
+                  <span className="text-emerald-400">ALTER TABLE</span> public.job_openings <span className="text-orange-400">DISABLE ROW LEVEL SECURITY</span>;
+                </div>
               </div>
 
               {/* Seed Database Card */}
@@ -889,7 +986,7 @@ export default function AdminPage({ onNavigate }) {
                     Initial Data Seed Helper
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-                    If your Supabase tables are fresh and empty, click here to automatically insert all 11 standard blogs and initial job openings with a single click.
+                    Insert all default blogs and job openings into your Supabase database with a single click.
                   </p>
                 </div>
 
