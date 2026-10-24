@@ -860,13 +860,16 @@ export default function AdminPage({ onNavigate }) {
                       Supabase Project URL
                     </label>
                     <input
-                      type="url"
+                      type="text"
                       required
                       value={supabaseUrl}
                       onChange={(e) => setSupabaseUrl(e.target.value)}
-                      placeholder="https://xyzcompany.supabase.co"
+                      placeholder="https://abcdefghijklmnopqrst.supabase.co"
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none font-mono"
                     />
+                    <p className="text-[11px] text-slate-500 mt-1">
+                      Must be formatted like <span className="text-[#FA5A16] font-bold font-mono">https://&lt;project-id&gt;.supabase.co</span> (from Supabase &rarr; Project Settings &rarr; API &rarr; Project URL).
+                    </p>
                   </div>
 
                   <div>
@@ -881,6 +884,9 @@ export default function AdminPage({ onNavigate }) {
                       placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none font-mono"
                     />
+                    <p className="text-[11px] text-slate-500 mt-1">
+                      Found in Supabase &rarr; Project Settings &rarr; API &rarr; Project API keys &rarr; <span className="text-[#FA5A16] font-bold">anon public</span>.
+                    </p>
                   </div>
 
                   <div className="pt-2 flex flex-wrap items-center justify-between gap-4">

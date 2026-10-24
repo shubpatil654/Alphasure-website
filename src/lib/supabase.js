@@ -2,10 +2,31 @@ import { createClient } from '@supabase/supabase-js';
 import { blogsData } from '../data/blogsData';
 import { initialJobsData } from '../data/jobsData';
 
-// URL normalizer: ensures protocol and removes trailing slashes
-const normalizeUrl = (raw) => {
+// URL normalizer: handles project IDs, dashboard URLs, database strings, and cleans protocols
+export const normalizeUrl = (raw) => {
   let url = (raw || '').trim();
   if (!url) return '';
+
+  // Case 1: User pasted the Supabase Dashboard URL:
+  // e.g. https://supabase.com/dashboard/project/abcdefghijklmnopqrst
+  const dashboardMatch = url.match(/supabase\.com\/dashboard\/project\/([a-zA-Z0-9_-]+)/);
+  if (dashboardMatch && dashboardMatch[1]) {
+    return `https://${dashboardMatch[1]}.supabase.co`;
+  }
+
+  // Case 2: User pasted postgres connection string:
+  // e.g. postgresql://postgres:...@db.abcdefghijklmnopqrst.supabase.co:5432/...
+  const dbMatch = url.match(/@db\.([a-zA-Z0-9_-]+)\.supabase\.co/);
+  if (dbMatch && dbMatch[1]) {
+    return `https://${dbMatch[1]}.supabase.co`;
+  }
+
+  // Case 3: User pasted just the project ID (e.g. abcdefghijklmnopqrst)
+  if (/^[a-zA-Z0-9]{15,25}$/.test(url) && !url.includes('.')) {
+    return `https://${url}.supabase.co`;
+  }
+
+  // Case 4: Ensure https:// and strip trailing slashes
   if (!url.startsWith('http://') && !url.startsWith('https://')) {
     url = `https://${url}`;
   }
@@ -83,18 +104,30 @@ export const testSupabaseConnection = async () => {
       .limit(1);
 
     if (blogErr) {
+      if (blogErr.message && (blogErr.message.includes('Failed to fetch') || blogErr.message.includes('NetworkError'))) {
+        const attemptedUrl = getEnvUrl();
+        return {
+          success: false,
+          step: 'failed_to_fetch',
+          message: `Network Error: The browser failed to reach "${attemptedUrl}". This usually means:\n` +
+                   `1. Incorrect URL: Make sure it is your Project URL (https://<project-ref>.supabase.co), NOT the supabase.com dashboard URL or postgres connection string.\n` +
+                   `2. Project Paused: If your Supabase project was inactive, it may be paused. Check your Supabase dashboard and click "Restore project".\n` +
+                   `3. Adblocker / Shields: Disable Brave Shields or adblock extensions that might block requests to supabase.co.`,
+          error: blogErr
+        };
+      }
       if (blogErr.code === '42P01') {
         return {
           success: false,
           step: 'blogs_table',
-          message: 'Table "blogs" does not exist in your Supabase database. Please run supabase_schema.sql in your Supabase SQL Editor.',
+          message: 'Table "blogs" does not exist in your Supabase database. Please copy and run supabase_schema.sql in your Supabase SQL Editor.',
           error: blogErr
         };
       }
       return {
         success: false,
         step: 'blogs_read',
-        message: `Failed to read from "blogs" table: ${blogErr.message} (Code: ${blogErr.code}). Check RLS policies.`,
+        message: `Failed to read from "blogs" table: ${blogErr.message} (Code: ${blogErr.code || 'None'}). Check RLS policies in Supabase SQL Editor.`,
         error: blogErr
       };
     }
