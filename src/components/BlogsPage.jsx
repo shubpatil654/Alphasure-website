@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { 
   BookOpen, Search, ArrowRight, ArrowLeft, Clock, Calendar, 
-  Share2, CheckCircle2, Lightbulb, ShieldCheck, HelpCircle, 
-  ChevronRight, Sparkles, User, Tag
+  Lightbulb, ShieldCheck, ChevronRight, Sparkles, User, FileText
 } from 'lucide-react';
 import { blogsData } from '../data/blogsData';
 
@@ -11,8 +10,14 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeArticleId, setActiveArticleId] = useState(null);
 
-  // Categories list
-  const categories = ['All', 'Accounting & Finance', 'Incorporation & Setup', 'Compliance & Secretarial', 'Financial Strategy', 'Real-Time Accounting', 'Accounting Strategy'];
+  // Exactly 4 categories as requested: All, Incorporation, Accounting, Compliance
+  const categories = ['All', 'Incorporation', 'Accounting', 'Compliance'];
+
+  // Count helper
+  const getCategoryCount = (cat) => {
+    if (cat === 'All') return blogsData.length;
+    return blogsData.filter((b) => b.category === cat).length;
+  };
 
   // Filtered blogs
   const filteredBlogs = useMemo(() => {
@@ -44,29 +49,23 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Helper to get category badge color
+  // Category badge color
   const getCategoryColor = (category) => {
     switch (category) {
-      case 'Accounting & Finance':
-        return 'bg-blue-50 text-blue-700 border-blue-200/80';
-      case 'Incorporation & Setup':
+      case 'Incorporation':
         return 'bg-emerald-50 text-emerald-700 border-emerald-200/80';
-      case 'Compliance & Secretarial':
+      case 'Accounting':
+        return 'bg-blue-50 text-blue-700 border-blue-200/80';
+      case 'Compliance':
         return 'bg-purple-50 text-purple-700 border-purple-200/80';
-      case 'Financial Strategy':
-        return 'bg-amber-50 text-amber-700 border-amber-200/80';
-      case 'Real-Time Accounting':
-        return 'bg-teal-50 text-teal-700 border-teal-200/80';
-      case 'Accounting Strategy':
-        return 'bg-indigo-50 text-indigo-700 border-indigo-200/80';
       default:
         return 'bg-orange-50 text-[#FA5A16] border-orange-200/80';
     }
   };
 
-  // Helper to render article body lines with semantic typography and styled callouts
+  // Semantic article body renderer
   const renderArticleBody = (lines) => {
-    const bodyLines = lines.slice(1); // skip title
+    const bodyLines = lines.slice(1); // skip title line
     const renderedElements = [];
     let currentBulletList = [];
 
@@ -309,109 +308,74 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
 
         </div>
       ) : (
-        /* ================= BLOGS DIRECTORY VIEW ================= */
+        /* ================= DIRECT CATEGORY DIRECTORY VIEW (NO HERO SECTION) ================= */
         <>
-          {/* ================= HERO SECTION ================= */}
-          <section className="relative w-full pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 bg-[#0e1726] text-white overflow-hidden select-none">
-            {/* Ambient Radial Lighting Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#FA5A16]/15 via-blue-500/10 to-transparent blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 right-0 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+          {/* ================= COMPACT TOP BAR CONTAINING THE 4 CATEGORIES ================= */}
+          <header className="relative w-full bg-[#0e1726] pt-28 sm:pt-32 lg:pt-36 pb-6 sm:pb-8 border-b border-slate-800/80 select-none shadow-md">
+            <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
               
-              {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs sm:text-sm font-bold text-amber-400 mb-4 sm:mb-6">
-                <BookOpen className="w-4 h-4 text-[#FA5A16]" />
-                <span className="tracking-wider uppercase">ALPHASURE RESOURCES • BLOGS & GUIDES</span>
-              </div>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                
+                {/* Exactly 4 Categories: all, incorporation, accounting, compliance */}
+                <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-1">
+                  {categories.map((cat) => {
+                    const isActive = selectedCategory === cat;
+                    const count = getCategoryCount(cat);
+                    return (
+                      <button
+                        key={cat}
+                        onClick={() => setSelectedCategory(cat)}
+                        className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+                          isActive
+                            ? 'bg-[#FA5A16] text-white shadow-lg shadow-orange-500/25 scale-[1.02]'
+                            : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white border border-white/10'
+                        }`}
+                      >
+                        <span className="capitalize">{cat}</span>
+                        <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                          isActive ? 'bg-black/25 text-white' : 'bg-white/10 text-slate-300'
+                        }`}>
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
 
-              {/* Main Headline */}
-              <h1 className="alpha-h1 font-bold text-white tracking-tight leading-tight max-w-4xl">
-                Expert Financial & Corporate{' '}
-                <span className="relative inline-block text-[#FA5A16]">
-                  Insights
-                  {/* Decorative Animated Curved Underline */}
-                  <svg 
-                    className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-2.5 sm:h-3.5 overflow-visible pointer-events-none" 
-                    viewBox="0 0 200 20" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M 4 16 Q 100 3, 196 16" 
-                      stroke="#FA5A16" 
-                      strokeWidth="3.5" 
-                      strokeLinecap="round" 
-                      className="animate-draw-curved-underline" 
-                    />
-                  </svg>
-                </span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="alpha-large-body text-slate-300 font-normal leading-relaxed max-w-2xl mt-4 sm:mt-6">
-                Practical guides, regulatory updates, and strategic financial advice to help founders and finance leaders scale with complete clarity.
-              </p>
-
-              {/* Live Search Bar */}
-              <div className="w-full max-w-xl mt-8 sm:mt-10 relative">
-                <div className="relative flex items-center">
-                  <Search className="absolute left-4 w-5 h-5 text-slate-400 pointer-events-none" />
+                {/* Live Keyword Search Input */}
+                <div className="relative w-full md:w-80 shrink-0">
+                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search articles, guides, compliance topics..."
-                    className="w-full pl-12 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent transition-all shadow-xl"
+                    placeholder="Search articles & topics..."
+                    className="w-full pl-10 pr-8 py-2.5 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent transition-all"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-4 text-xs font-bold text-slate-400 hover:text-white"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-white cursor-pointer"
                     >
-                      Clear
+                      ✕
                     </button>
                   )}
                 </div>
+
               </div>
 
             </div>
-          </section>
-
-          {/* ================= CATEGORY FILTER TABS ================= */}
-          <section className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs py-3 sm:py-4">
-            <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-                {categories.map((cat) => {
-                  const isActive = selectedCategory === cat;
-                  return (
-                    <button
-                      key={cat}
-                      onClick={() => setSelectedCategory(cat)}
-                      className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-150 cursor-pointer ${
-                        isActive
-                          ? 'bg-[#0B192C] text-white shadow-md'
-                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200/80 hover:text-slate-900'
-                      }`}
-                    >
-                      {cat}
-                      {cat === 'All' && ` (${blogsData.length})`}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+          </header>
 
           {/* ================= ARTICLES DIRECTORY GRID ================= */}
-          <section className="py-12 sm:py-16 lg:py-20">
+          <main className="py-10 sm:py-14 lg:py-16">
             <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
               
-              {/* Directory Header Bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-10 pb-4 border-b border-slate-200">
+              {/* Directory Status Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 pb-4 border-b border-slate-200/80">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#0B192C]">
-                    {selectedCategory === 'All' ? 'All Published Articles' : selectedCategory}
+                    {selectedCategory === 'All' ? 'All Articles' : `${selectedCategory} Articles`}
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
                     Showing {filteredBlogs.length} {filteredBlogs.length === 1 ? 'article' : 'articles'}
@@ -420,20 +384,37 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
 
                 {searchQuery && (
                   <div className="text-xs sm:text-sm text-slate-500">
-                    Search results for: <span className="font-bold text-[#0B192C]">"{searchQuery}"</span>
+                    Results for: <span className="font-bold text-[#0B192C]">"{searchQuery}"</span>
                   </div>
                 )}
               </div>
 
-              {/* Empty State */}
-              {filteredBlogs.length === 0 ? (
+              {/* Special State for Compliance (Details will be added later) */}
+              {selectedCategory === 'Compliance' && filteredBlogs.length === 0 && !searchQuery ? (
+                <div className="text-center py-16 px-6 bg-white rounded-3xl border border-slate-200/80 max-w-xl mx-auto shadow-sm">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5 border border-purple-100">
+                    <ShieldCheck className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0B192C]">Compliance Articles Coming Soon</h3>
+                  <p className="text-sm text-slate-600 mt-2.5 mb-6 leading-relaxed">
+                    Our compliance editorial guides on GST, TDS, ROC filings, and secretarial requirements will be published shortly. In the meantime, explore our Accounting and Incorporation guides.
+                  </p>
+                  <button
+                    onClick={() => setSelectedCategory('All')}
+                    className="px-6 py-2.5 rounded-xl bg-[#0B192C] hover:bg-[#FA5A16] text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer"
+                  >
+                    View All Articles
+                  </button>
+                </div>
+              ) : filteredBlogs.length === 0 ? (
+                /* Search Empty State */
                 <div className="text-center py-16 px-4 bg-white rounded-3xl border border-slate-200/80 max-w-lg mx-auto">
                   <div className="w-14 h-14 mx-auto rounded-full bg-orange-50 flex items-center justify-center text-[#FA5A16] mb-4">
                     <Search className="w-7 h-7" />
                   </div>
                   <h3 className="text-lg font-bold text-[#0B192C]">No articles found</h3>
                   <p className="text-sm text-slate-500 mt-1 mb-6">
-                    We couldn't find any articles matching your search query. Try searching for different keywords or clearing your filters.
+                    We couldn't find any articles matching your search query. Try searching for different keywords or reset your filters.
                   </p>
                   <button
                     onClick={() => {
@@ -442,7 +423,7 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
                     }}
                     className="px-5 py-2.5 rounded-xl bg-[#0B192C] text-white text-xs font-bold hover:bg-[#FA5A16] transition-colors cursor-pointer"
                   >
-                    Reset All Filters
+                    Reset Filters
                   </button>
                 </div>
               ) : (
@@ -454,7 +435,7 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
                       onClick={() => handleOpenArticle(blog.id)}
                       className="group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#FA5A16]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer relative overflow-hidden"
                     >
-                      {/* Top Category and Reading Time */}
+                      {/* Top Category Badge and Reading Time */}
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-4">
                           <span className={`text-[11px] font-bold px-3 py-1 rounded-full border ${getCategoryColor(blog.category)}`}>
@@ -494,7 +475,7 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
               )}
 
             </div>
-          </section>
+          </main>
 
           {/* ================= BOTTOM CTA BANNER ================= */}
           <section className="pb-16 sm:pb-24">

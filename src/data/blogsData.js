@@ -3,7 +3,7 @@ export const blogsData = [
   {
     "id": "monthly-vs-annual-accounting",
     "title": "Monthly vs Annual Accounting: Which Is Right for Your Business?",
-    "category": "Accounting & Finance",
+    "category": "Accounting",
     "readTime": "4 min read",
     "excerpt": "Every business needs accurate financial records, but how frequently should you update your books? Monthly accounting provides regular financial insights, while annual accounting offers a more cost-effective option for bu...",
     "contentLines": [
@@ -38,7 +38,7 @@ export const blogsData = [
   {
     "id": "beyond-bookkeeping-monthly-insights",
     "title": "Beyond book-keeping. How monthly financial insights help you make better business decisions",
-    "category": "Accounting & Finance",
+    "category": "Accounting",
     "readTime": "5 min read",
     "excerpt": "Bookkeeping is more than recording income and expenses. When your accounts are updated regularly and supported by meaningful financial reports, they become a powerful tool for business decision-making.",
     "contentLines": [
@@ -83,7 +83,7 @@ export const blogsData = [
   {
     "id": "finding-trusted-accountant-small-business",
     "title": "Why finding a trusted accountant is challenging for small businesses?",
-    "category": "Accounting & Finance",
+    "category": "Accounting",
     "readTime": "5 min read",
     "excerpt": "Finding a reliable accountant is one of the biggest challenges for small business owners. You need someone who understands your business, maintains accurate books, meets deadlines, and provides useful financial insights—...",
     "contentLines": [
@@ -116,7 +116,7 @@ export const blogsData = [
   {
     "id": "llp-vs-pvt-ltd-structure",
     "title": "LLP v/s Pvt Ltd Company. Which structure is right for you?",
-    "category": "Incorporation & Setup",
+    "category": "Incorporation",
     "readTime": "3 min read",
     "excerpt": "The right structure depends on your business objectives, funding plans, ownership preferences, and compliance budget. Choose an LLP if:",
     "contentLines": [
@@ -140,7 +140,7 @@ export const blogsData = [
   {
     "id": "benefits-of-llp-over-partnership",
     "title": "Benefits of LLP over a Partnership",
-    "category": "Incorporation & Setup",
+    "category": "Incorporation",
     "readTime": "4 min read",
     "excerpt": "Choosing the right business structure is an important decision for entrepreneurs. In India, both a Limited Liability Partnership (LLP) and a traditional partnership allow two or more people to run a business together. Ho...",
     "contentLines": [
@@ -166,7 +166,7 @@ export const blogsData = [
   {
     "id": "documents-inputs-required-register-company",
     "title": "Documents and inputs required to register a Company",
-    "category": "Incorporation & Setup",
+    "category": "Incorporation",
     "readTime": "3 min read",
     "excerpt": "For Directors and Shareholders: • Identity Proof: A valid Passport, Aadhaar Card, Voter ID, or Driver’s License.",
     "contentLines": [
@@ -189,7 +189,7 @@ export const blogsData = [
   {
     "id": "guide-post-incorporation-secretarial-compliance",
     "title": "A guide to post-incorporation secretarial compliance for Companies",
-    "category": "Compliance & Secretarial",
+    "category": "Incorporation",
     "readTime": "5 min read",
     "excerpt": "Incorporating a Private Limited Company is just the beginning. Companies must fulfil various post-incorporation secretarial compliance requirements under the Companies Act, 2013, to maintain proper records and meet statu...",
     "contentLines": [
@@ -223,7 +223,7 @@ export const blogsData = [
   {
     "id": "foreign-national-start-business-india",
     "title": "Can a foreign national or an overseas company start a business in India?",
-    "category": "FDI & Foreign Expansion",
+    "category": "Incorporation",
     "readTime": "4 min read",
     "excerpt": "Yes, foreign nationals and overseas companies can start a business in India, subject to applicable company law, Foreign Direct Investment (FDI) regulations, and sector-specific restrictions.",
     "contentLines": [
@@ -256,7 +256,7 @@ export const blogsData = [
   {
     "id": "real-time-vs-monthly-accounting",
     "title": "Real time accounting v/s monthly accounting. What works best for you?",
-    "category": "Real-Time Accounting",
+    "category": "Accounting",
     "readTime": "5 min read",
     "excerpt": "How frequently should your business accounts be updated? Should you choose real-time accounting for continuous financial visibility or monthly accounting for a more affordable solution?",
     "contentLines": [
@@ -304,7 +304,7 @@ export const blogsData = [
   {
     "id": "profitability-vs-cash-flow",
     "title": "Profitability v/s cash flow",
-    "category": "Financial Strategy",
+    "category": "Accounting",
     "readTime": "5 min read",
     "excerpt": "A business can be profitable and still struggle to pay its bills. How is that possible? The answer lies in the difference between profitability and cash flow.",
     "contentLines": [
@@ -354,7 +354,7 @@ export const blogsData = [
   {
     "id": "outsource-part-of-accounting-function",
     "title": "Does it make sense to outsource part of my accounting function?",
-    "category": "Accounting Strategy",
+    "category": "Accounting",
     "readTime": "6 min read",
     "excerpt": "Not every business needs to outsource its entire accounting function. Sometimes, outsourcing specific activities is enough to reduce workload, access specialist expertise, and improve efficiency while retaining control o...",
     "contentLines": [
