@@ -86,13 +86,28 @@ export const clearSupabaseCredentials = () => {
 // COMPREHENSIVE CONNECTION & PERMISSIONS DIAGNOSTIC TEST
 // =========================================================================
 
-export const testSupabaseConnection = async () => {
-  const client = getSupabase();
-  if (!client) {
+export const testSupabaseConnection = async (customUrl, customKey) => {
+  const url = customUrl ? normalizeUrl(customUrl) : getEnvUrl();
+  const key = (customKey || getEnvAnonKey()).trim();
+
+  if (!url || !key) {
     return {
       success: false,
       step: 'init',
-      message: 'Supabase URL or Anon Public Key is missing.'
+      message: 'Supabase Project URL or Anon Public Key is missing. Please enter both fields.'
+    };
+  }
+
+  let client;
+  try {
+    client = createClient(url, key, {
+      auth: { persistSession: false, autoRefreshToken: false }
+    });
+  } catch (err) {
+    return {
+      success: false,
+      step: 'init',
+      message: `Invalid URL format ("${url}"): ${err.message}`
     };
   }
 

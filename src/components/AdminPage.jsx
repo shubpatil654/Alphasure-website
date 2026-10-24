@@ -8,7 +8,7 @@ import {
   getSupabase, isSupabaseConfigured, saveSupabaseCredentials, 
   clearSupabaseCredentials, fetchAllBlogs, createBlog, deleteBlogById, 
   fetchAllJobs, createJob, updateJobStatus, deleteJobById, seedDatabaseIfEmpty,
-  testSupabaseConnection
+  testSupabaseConnection, normalizeUrl
 } from '../lib/supabase';
 
 export default function AdminPage({ onNavigate }) {
@@ -86,7 +86,7 @@ export default function AdminPage({ onNavigate }) {
     setIsRunningDiagnostics(true);
     setDiagnosticResult(null);
     try {
-      const res = await testSupabaseConnection();
+      const res = await testSupabaseConnection(supabaseUrl, supabaseAnonKey);
       setDiagnosticResult(res);
       if (res.success) {
         showNotification('Diagnostics passed! Full CRUD permissions verified.');
@@ -888,6 +888,13 @@ export default function AdminPage({ onNavigate }) {
                       Found in Supabase &rarr; Project Settings &rarr; API &rarr; Project API keys &rarr; <span className="text-[#FA5A16] font-bold">anon public</span>.
                     </p>
                   </div>
+
+                  {supabaseUrl && (
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                      <span className="text-slate-500 font-semibold">Resolved API Endpoint:</span>
+                      <span className="font-mono font-bold text-[#FA5A16] break-all">{normalizeUrl(supabaseUrl)}</span>
+                    </div>
+                  )}
 
                   <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
