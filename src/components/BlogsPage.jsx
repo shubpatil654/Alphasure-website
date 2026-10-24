@@ -1,42 +1,60 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   BookOpen, Search, ArrowRight, ArrowLeft, Clock, Calendar, 
   Lightbulb, ShieldCheck, ChevronRight, Sparkles, User, FileText
 } from 'lucide-react';
 import { blogsData } from '../data/blogsData';
+import { fetchAllBlogs } from '../lib/supabase';
 
 export default function BlogsPage({ onOpenModal, onNavigate }) {
+  const [blogs, setBlogs] = useState(blogsData);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeArticleId, setActiveArticleId] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const loadDynamicBlogs = async () => {
+      try {
+        const data = await fetchAllBlogs();
+        if (isMounted && data && data.length > 0) {
+          setBlogs(data);
+        }
+      } catch (err) {
+        console.warn('Error loading dynamic blogs:', err);
+      }
+    };
+    loadDynamicBlogs();
+    return () => { isMounted = false; };
+  }, []);
 
   // Exactly 4 categories as requested: All, Incorporation, Accounting, Compliance
   const categories = ['All', 'Incorporation', 'Accounting', 'Compliance'];
 
   // Count helper
   const getCategoryCount = (cat) => {
-    if (cat === 'All') return blogsData.length;
-    return blogsData.filter((b) => b.category === cat).length;
+    if (cat === 'All') return blogs.length;
+    return blogs.filter((b) => b.category === cat).length;
   };
 
   // Filtered blogs
   const filteredBlogs = useMemo(() => {
-    return blogsData.filter((blog) => {
+    return blogs.filter((blog) => {
       const matchesCategory = selectedCategory === 'All' || blog.category === selectedCategory;
       const matchesSearch = 
         searchQuery === '' ||
         blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        blog.contentLines.some(line => line.toLowerCase().includes(searchQuery.toLowerCase()));
+        (blog.contentLines && blog.contentLines.some(line => line.toLowerCase().includes(searchQuery.toLowerCase())));
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [blogs, selectedCategory, searchQuery]);
 
   // Currently active article for full reader view
   const currentArticle = useMemo(() => {
     if (!activeArticleId) return null;
-    return blogsData.find((b) => b.id === activeArticleId) || null;
-  }, [activeArticleId]);
+    return blogs.find((b) => b.id === activeArticleId) || null;
+  }, [blogs, activeArticleId]);
 
   // Open full article view and scroll top
   const handleOpenArticle = (id) => {
@@ -275,7 +293,7 @@ export default function BlogsPage({ onOpenModal, onNavigate }) {
               More Recommended Articles
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {blogsData
+              {blogs
                 .filter(b => b.id !== currentArticle.id)
                 .slice(0, 2)
                 .map((item) => (

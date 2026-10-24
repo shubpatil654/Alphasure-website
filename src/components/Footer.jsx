@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowUp, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp, ShieldCheck, Lock } from 'lucide-react';
 import AlphasureLogo from './AlphasureLogo';
 
 // Clean SVG Social Icons
@@ -196,6 +196,14 @@ export default function Footer({ onOpenModal, onNavigate }) {
             <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-slate-300 transition-colors">Security</a>
+            <a 
+              href="#admin" 
+              onClick={(e) => handleNav(e, 'admin')} 
+              className="hover:text-[#FA5A16] transition-colors flex items-center gap-1.5 opacity-80 hover:opacity-100"
+            >
+              <Lock size={12} className="text-[#FA5A16]" />
+              <span>Admin</span>
+            </a>
 
             <button
               onClick={scrollToTop}

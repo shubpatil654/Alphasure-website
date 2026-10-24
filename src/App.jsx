@@ -28,6 +28,7 @@ import EverythingElsePage from './components/EverythingElsePage';
 import BlogsPage from './components/BlogsPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import FaqPage from './components/FaqPage';
+import AdminPage from './components/AdminPage';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,7 +39,7 @@ export default function App() {
         'pvt-ltd', 'opc', 'llp', 'secretarial', 
         'periodic-accounting', 'real-time-accounting', 'controller-services', 'gst-tds-compliance', 
         'pricing', 'about', 'careers', 'everything-else',
-        'resources', 'blogs', 'testimonials', 'faqs'
+        'resources', 'blogs', 'testimonials', 'faqs', 'admin'
       ];
       if (validPages.includes(hash)) return hash;
       const params = new URLSearchParams(window.location.search);
@@ -70,6 +71,10 @@ export default function App() {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (activePage === 'admin') {
+    return <AdminPage onNavigate={handleNavigate} />;
+  }
 
   return (
     <div className="min-h-screen w-full relative bg-[#0e1726] text-white flex flex-col justify-between selection:bg-[#FA5A16] selection:text-white overflow-x-hidden">

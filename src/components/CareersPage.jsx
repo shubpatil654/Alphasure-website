@@ -1,6 +1,7 @@
 import React from 'react';
 import ThreeIPhilosophySection from './ThreeIPhilosophySection';
 import InterviewProcessSection from './InterviewProcessSection';
+import JobOpeningsSection from './JobOpeningsSection';
 
 export default function CareersPage({ onOpenModal }) {
   return (
@@ -79,6 +80,9 @@ export default function CareersPage({ onOpenModal }) {
 
         {/* ================= THE 3 I PHILOSOPHY SECTION ================= */}
         <ThreeIPhilosophySection />
+
+        {/* ================= CURRENT JOB OPENINGS SECTION ================= */}
+        <JobOpeningsSection onOpenModal={onOpenModal} />
 
         {/* ================= OUR INTERVIEW PROCESS SECTION ================= */}
         <InterviewProcessSection />
