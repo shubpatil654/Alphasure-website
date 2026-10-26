@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Camera, ChevronLeft, ChevronRight, X, ZoomIn, Sparkles } from 'lucide-react';
 
-// 29 photos loaded from /Users/shubham/Desktop/alphasure/carousel images/ into /public/images/about-gallery/
-const TOTAL_PHOTOS = 29;
+// 25 photos loaded from /Users/shubham/Desktop/alphasure/carousel images/ into /public/images/about-gallery/
+const TOTAL_PHOTOS = 25;
 const photos = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
   id: i + 1,
   src: `/images/about-gallery/photo-${i + 1}.jpg`,
