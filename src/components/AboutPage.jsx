@@ -11,16 +11,27 @@ export default function AboutPage({ onOpenModal }) {
       {/* ================= HERO SECTION (With Pinterest Team Image) ================= */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden select-none bg-[#0e1726]">
         
-        {/* Background Team Image Covering Entire Hero Section */}
+        {/* Background Video Covering Entire Hero Section */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src="/images/about-hero-pinterest.jpg"
-            alt="We are accountants, who understand business - Alphasure Team"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/about-hero-pinterest.jpg"
             className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
-          />
+          >
+            <source src="/videos/about-hero-video.mp4" type="video/mp4" />
+            {/* Fallback image */}
+            <img
+              src="/images/about-hero-pinterest.jpg"
+              alt="We are accountants, who understand business - Alphasure Team"
+              className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
+            />
+          </video>
 
           {/* Clean subtle directional gradient overlay to keep text crisp while keeping the team visual bright and vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/30 pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
