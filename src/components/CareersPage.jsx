@@ -73,7 +73,7 @@ export default function CareersPage({ onOpenModal }) {
                   We encourage <span className="text-[#FA5A16]">continuous learning</span>, recognise <span className="text-[#FA5A16]">contributions</span>, celebrate <span className="text-[#FA5A16]">achievements</span> and believe in giving our people opportunities to take on <span className="text-[#FA5A16]">new challenges</span>.
                 </p>
 
-                <p className="text-base sm:text-lg lg:text-xl font-normal text-slate-700 leading-relaxed">
+                <p className="text-xl sm:text-2xl lg:text-[27px] font-semibold text-[#0B192C] leading-snug tracking-tight">
                   We also believe that a successful career should go hand in hand with a healthy and fulfilling life outside work.
                 </p>
               </div>
