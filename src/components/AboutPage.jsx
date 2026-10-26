@@ -3,6 +3,7 @@ import OurJourneySection from './OurJourneySection';
 import OurValues from './OurValues';
 import DataSecuritySection from './DataSecuritySection';
 import ManagementTeamSection from './ManagementTeamSection';
+import AboutGalleryCarousel from './AboutGalleryCarousel';
 
 export default function AboutPage({ onOpenModal }) {
   return (
@@ -76,6 +77,9 @@ export default function AboutPage({ onOpenModal }) {
 
         {/* ================= MANAGEMENT TEAM SECTION ================= */}
         <ManagementTeamSection />
+
+        {/* ================= ABOUT US PHOTO GALLERY CAROUSEL ================= */}
+        <AboutGalleryCarousel />
 
       </div>
     </div>

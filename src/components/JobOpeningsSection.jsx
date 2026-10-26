@@ -110,9 +110,14 @@ export default function JobOpeningsSection({ onOpenModal }) {
             </span>
           </h2>
 
-          <p className="alpha-large-body text-slate-600 font-normal leading-relaxed mt-4 max-w-2xl mx-auto">
-            Explore rewarding roles across accounting, direct & indirect taxation, corporate compliance, and advisory services.
-          </p>
+          <div className="mt-4 max-w-2xl mx-auto space-y-2.5">
+            <p className="alpha-large-body text-slate-600 font-normal leading-relaxed">
+              As we grow, we want our people to grow with us.
+            </p>
+            <p className="alpha-large-body text-slate-600 font-normal leading-relaxed">
+              Join a team where your ideas matter, your growth is valued, and the work you do makes a difference.
+            </p>
+          </div>
         </div>
 
         {/* Department Filter Tabs */}

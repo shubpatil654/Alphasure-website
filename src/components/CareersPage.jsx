@@ -37,28 +37,24 @@ export default function CareersPage({ onOpenModal }) {
           <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl max-w-4xl">
             Be part of something <span className="whitespace-nowrap">bigger than Yourself</span>
           </h1>
+
+          {/* Subheading */}
+          <p className="mt-4 sm:mt-6 alpha-large-body text-white font-medium tracking-tight text-shadow-hero max-w-3xl mx-auto">
+            At Alphasure, we believe great businesses are built by great people
+          </p>
         </div>
 
       </section>
 
-      {/* ================= SUBTEXT SECTION (Exact Content as Separate Section Below Hero) ================= */}
-      <section className="relative w-full bg-[#FAF7F2] py-14 sm:py-18 lg:py-20 text-[#0B192C]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed font-normal">
-            <p>
-              At Alphasure, we believe great businesses are built by great people. We invest in our team by creating an environment where people can learn, grow, take ownership and do their best work.
-            </p>
-            <p>
-              We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges. We also believe that a successful career should go hand in hand with a healthy and fulfilling life outside work.
-            </p>
-            <p>
-              As we grow, we want our people to grow with us.
-            </p>
-            <p>
-              Join a team where your ideas matter, your growth is valued, and the work you do makes a difference.
-            </p>
-          </div>
-        </div>
+      {/* ================= CULTURE & TEAM COLLAGE SECTION (Full Width Unified Section) ================= */}
+      <section className="relative w-full bg-[#FAF7F2] select-none overflow-hidden">
+        <img
+          src="/images/careers-culture-collage.jpg"
+          srcSet="/images/careers-culture-collage.jpg 1x, /images/careers-culture-collage-2x.jpg 2x"
+          alt="Alphasure Team & Culture: We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges. We also believe that a successful career should go hand in hand with a healthy and fulfilling life outside work."
+          className="w-full h-auto block select-none"
+          loading="eager"
+        />
       </section>
 
       {/* ================= PAGE-WIDE ABSTRACT BACKGROUND LAYER ================= */}
