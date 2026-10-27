@@ -46,19 +46,15 @@ export default function CareersPage({ onOpenModal }) {
 
       </section>
 
-      {/* ================= CULTURE & TEAM BANNER SECTION ================= */}
-      <section className="relative w-full bg-[#FAF7F2] py-12 sm:py-16 lg:py-20 select-none overflow-hidden">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-center">
-          <div className="w-full max-w-[1140px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#E8DFC8]/80 bg-white transition-transform duration-300 hover:scale-[1.005]">
-            <img
-              src="/images/careers-culture-banner.png"
-              srcSet="/images/careers-culture-banner.png 1x, /images/careers-culture-banner-2x.png 2x"
-              alt="Alphasure Team Culture - We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges"
-              className="w-full h-auto block select-none"
-              loading="eager"
-            />
-          </div>
-        </div>
+      {/* ================= CULTURE & TEAM BANNER SECTION (Full Width Edge-to-Edge) ================= */}
+      <section className="relative w-full bg-white select-none overflow-hidden">
+        <img
+          src="/images/careers-culture-banner.png"
+          srcSet="/images/careers-culture-banner.png 1x, /images/careers-culture-banner-2x.png 2x"
+          alt="Alphasure Team Culture - We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges"
+          className="w-full h-auto block select-none"
+          loading="eager"
+        />
       </section>
 
       {/* ================= PAGE-WIDE ABSTRACT BACKGROUND LAYER ================= */}
