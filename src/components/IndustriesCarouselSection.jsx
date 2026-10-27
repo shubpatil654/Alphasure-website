@@ -144,7 +144,7 @@ export default function IndustriesCarouselSection() {
                 />
               </svg>
             </span>
-            {' '}we provide services too
+            {' '}we serve
           </h2>
         </div>
 
