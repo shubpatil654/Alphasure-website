@@ -46,39 +46,17 @@ export default function CareersPage({ onOpenModal }) {
 
       </section>
 
-      {/* ================= CULTURE & TEAM COLLAGE SECTION (Left: Collage, Right: Content) ================= */}
-      <section className="relative w-full bg-[#FAF7F2] py-16 sm:py-20 lg:py-24 select-none overflow-hidden text-[#0B192C]">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-            
-            {/* Left Column: Team Photo Collage */}
-            <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="w-full max-w-[540px] lg:max-w-none rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#E8DFC8]/80 bg-white transition-transform duration-300 hover:scale-[1.01]">
-                <img
-                  src="/images/careers-culture-team-collage.jpg"
-                  srcSet="/images/careers-culture-team-collage.jpg 1x, /images/careers-culture-team-collage-2x.jpg 2x"
-                  alt="Alphasure Team Culture Collage"
-                  className="w-full h-auto object-cover select-none"
-                  loading="eager"
-                />
-              </div>
-            </div>
-
-            {/* Right Column: Exact Content */}
-            <div className="lg:col-span-6 flex flex-col justify-center text-left">
-              <div className="w-12 h-1 bg-[#FA5A16] rounded-full mb-6 sm:mb-8" />
-
-              <div className="space-y-6 sm:space-y-7 max-w-xl">
-                <p className="text-xl sm:text-2xl lg:text-[27px] font-semibold text-[#0B192C] leading-snug tracking-tight">
-                  We encourage <span className="text-[#FA5A16]">continuous learning</span>, recognise <span className="text-[#FA5A16]">contributions</span>, celebrate <span className="text-[#FA5A16]">achievements</span> and believe in giving our people opportunities to take on <span className="text-[#FA5A16]">new challenges</span>.
-                </p>
-
-                <p className="text-xl sm:text-2xl lg:text-[27px] font-semibold text-[#0B192C] leading-snug tracking-tight">
-                  We also believe that a successful career should go hand in hand with a healthy and fulfilling life outside work.
-                </p>
-              </div>
-            </div>
-
+      {/* ================= CULTURE & TEAM BANNER SECTION ================= */}
+      <section className="relative w-full bg-[#FAF7F2] py-12 sm:py-16 lg:py-20 select-none overflow-hidden">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-center">
+          <div className="w-full max-w-[1140px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#E8DFC8]/80 bg-white transition-transform duration-300 hover:scale-[1.005]">
+            <img
+              src="/images/careers-culture-banner.png"
+              srcSet="/images/careers-culture-banner.png 1x, /images/careers-culture-banner-2x.png 2x"
+              alt="Alphasure Team Culture - We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges"
+              className="w-full h-auto block select-none"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
