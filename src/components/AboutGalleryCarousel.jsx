@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Camera, ChevronLeft, ChevronRight, X, ZoomIn, Sparkles } from 'lucide-react';
 
-// 25 photos loaded from /Users/shubham/Desktop/alphasure/carousel images/ into /public/images/about-gallery/
-const TOTAL_PHOTOS = 25;
-const photos = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
+// Selected 19 curated photos: 2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 24, 25
+const KEPT_PHOTO_IDS = [2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 24, 25];
+const TOTAL_PHOTOS = KEPT_PHOTO_IDS.length;
+const photos = KEPT_PHOTO_IDS.map((photoNum, i) => ({
   id: i + 1,
-  src: `/images/about-gallery/photo-${i + 1}.jpg`,
+  originalNumber: photoNum,
+  src: `/images/about-gallery/photo-${photoNum}.jpg`,
   alt: `Alphasure Team & Culture Moment ${i + 1}`,
   caption: `Team Moment ${i + 1}`,
 }));
