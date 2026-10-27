@@ -46,15 +46,97 @@ export default function CareersPage({ onOpenModal }) {
 
       </section>
 
-      {/* ================= CULTURE & TEAM BANNER SECTION (Full Width Edge-to-Edge) ================= */}
+      {/* ================= CULTURE & TEAM SECTION (Full Width Edge-to-Edge with Real Text) ================= */}
       <section className="relative w-full bg-white select-none overflow-hidden">
-        <img
-          src="/images/careers-culture-banner.png"
-          srcSet="/images/careers-culture-banner.png 1x, /images/careers-culture-banner-2x.png 2x"
-          alt="Alphasure Team Culture - We encourage continuous learning, recognise contributions, celebrate achievements and believe in giving our people opportunities to take on new challenges"
-          className="w-full h-auto block select-none"
-          loading="eager"
-        />
+        {/* Top Photos Row: Spans full width edge-to-edge */}
+        <div className="w-full flex items-start justify-between">
+          <div className="shrink-0" style={{ width: '23.8%' }}>
+            <img
+              src="/images/culture/culture-photo-1.jpg"
+              srcSet="/images/culture/culture-photo-1.jpg 1x, /images/culture/culture-photo-1-2x.jpg 2x"
+              alt="Alphasure Rafting Adventure"
+              className="w-full h-auto object-cover block"
+              loading="eager"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '18.2%' }}>
+            <img
+              src="/images/culture/culture-photo-2.jpg"
+              srcSet="/images/culture/culture-photo-2.jpg 1x, /images/culture/culture-photo-2-2x.jpg 2x"
+              alt="Alphasure Team Outdoors"
+              className="w-full h-auto object-cover block"
+              loading="eager"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '22.7%' }}>
+            <img
+              src="/images/culture/culture-photo-3.jpg"
+              srcSet="/images/culture/culture-photo-3.jpg 1x, /images/culture/culture-photo-3-2x.jpg 2x"
+              alt="Alphasure at Sula Vineyards"
+              className="w-full h-auto object-cover block"
+              loading="eager"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '28.8%' }}>
+            <img
+              src="/images/culture/culture-photo-4.jpg"
+              srcSet="/images/culture/culture-photo-4.jpg 1x, /images/culture/culture-photo-4-2x.jpg 2x"
+              alt="Alphasure Team Gathering"
+              className="w-full h-auto object-cover block"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        {/* Center Text Form Content */}
+        <div className="w-full py-8 sm:py-10 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 text-center max-w-[1200px] mx-auto flex flex-col items-center justify-center">
+          <p className="text-base sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-semibold text-[#0B192C] leading-snug sm:leading-snug md:leading-snug tracking-tight max-w-4xl">
+            We encourage <span className="text-[#FA5A16]">continuous learning</span>, recognise <span className="text-[#FA5A16]">contributions</span>, celebrate <span className="text-[#FA5A16]">achievements</span> and believe in giving our people opportunities to take on new <span className="text-[#FA5A16]">challenges</span>.
+          </p>
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-semibold text-[#0B192C] leading-snug sm:leading-snug md:leading-snug tracking-tight max-w-3xl">
+            We also believe that a successful career should go hand in hand with a healthy and fulfilling life outside work.
+          </p>
+        </div>
+
+        {/* Bottom Photos Row: Spans full width edge-to-edge */}
+        <div className="w-full flex items-end justify-between">
+          <div className="shrink-0" style={{ width: '17.6%' }}>
+            <img
+              src="/images/culture/culture-photo-5.jpg"
+              srcSet="/images/culture/culture-photo-5.jpg 1x, /images/culture/culture-photo-5-2x.jpg 2x"
+              alt="Alphasure Team by the Lake"
+              className="w-full h-auto object-cover block"
+              loading="lazy"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '20.9%' }}>
+            <img
+              src="/images/culture/culture-photo-6.jpg"
+              srcSet="/images/culture/culture-photo-6.jpg 1x, /images/culture/culture-photo-6-2x.jpg 2x"
+              alt="Alphasure Team Retreat"
+              className="w-full h-auto object-cover block"
+              loading="lazy"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '26.1%' }}>
+            <img
+              src="/images/culture/culture-photo-7.jpg"
+              srcSet="/images/culture/culture-photo-7.jpg 1x, /images/culture/culture-photo-7-2x.jpg 2x"
+              alt="Alphasure Team Walkway"
+              className="w-full h-auto object-cover block"
+              loading="lazy"
+            />
+          </div>
+          <div className="shrink-0" style={{ width: '27.7%' }}>
+            <img
+              src="/images/culture/culture-photo-8.jpg"
+              srcSet="/images/culture/culture-photo-8.jpg 1x, /images/culture/culture-photo-8-2x.jpg 2x"
+              alt="Alphasure Celebration"
+              className="w-full h-auto object-cover block"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </section>
 
       {/* ================= PAGE-WIDE ABSTRACT BACKGROUND LAYER ================= */}
