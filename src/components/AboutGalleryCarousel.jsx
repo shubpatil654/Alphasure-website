@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Camera, ChevronLeft, ChevronRight, X, ZoomIn, Sparkles } from 'lucide-react';
-
+import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 // Selected 19 curated photos: 2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 24, 25
 const KEPT_PHOTO_IDS = [2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 24, 25];
 const TOTAL_PHOTOS = KEPT_PHOTO_IDS.length;
@@ -44,17 +43,6 @@ export default function AboutGalleryCarousel() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused, activePhotoIndex]);
 
-  // Manual arrow navigation
-  const scrollManual = (direction) => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const scrollAmount = 360;
-    container.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth',
-    });
-  };
-
   // Mouse / Touch drag to scroll
   const handleMouseDown = (e) => {
     isDraggingRef.current = true;
@@ -97,69 +85,8 @@ export default function AboutGalleryCarousel() {
   return (
     <section 
       id="team-gallery" 
-      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FAF7F2] select-none overflow-hidden"
+      className="relative w-full py-12 sm:py-16 lg:py-20 bg-[#FAF7F2] select-none overflow-hidden"
     >
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* ================= SECTION HEADER ================= */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
-          <div className="text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FA5A16] alpha-eyebrow mb-3 shadow-xs">
-              <Camera size={14} className="text-[#FA5A16]" />
-              <span className="tracking-wider uppercase font-extrabold text-xs">Life At Alphasure</span>
-            </div>
-
-            <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
-              Memories &{' '}
-              <span className="relative inline-block text-[#FA5A16]">
-                Milestones
-                <svg 
-                  className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-2.5 sm:h-3.5 overflow-visible pointer-events-none" 
-                  viewBox="0 0 200 20" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path 
-                    d="M 4 16 Q 100 3, 196 16" 
-                    stroke="#FA5A16" 
-                    strokeWidth="3.5" 
-                    strokeLinecap="round" 
-                    className="animate-draw-curved-underline" 
-                  />
-                </svg>
-              </span>
-            </h2>
-
-            <p className="alpha-body text-slate-600 font-normal leading-relaxed mt-3">
-              A glimpse into our vibrant team culture, celebrated milestones, and the passionate people building Alphasure every day.
-            </p>
-          </div>
-
-          {/* Navigation Controls & Photo Counter */}
-          <div className="flex items-center gap-3 shrink-0 self-start sm:self-end">
-            <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 shadow-xs">
-              {TOTAL_PHOTOS} Photos
-            </span>
-
-            <button
-              onClick={() => scrollManual('left')}
-              aria-label="Scroll gallery left"
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#FA5A16] hover:bg-orange-50 text-slate-700 hover:text-[#FA5A16] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
-            >
-              <ChevronLeft size={20} />
-            </button>
-
-            <button
-              onClick={() => scrollManual('right')}
-              aria-label="Scroll gallery right"
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#FA5A16] hover:bg-orange-50 text-slate-700 hover:text-[#FA5A16] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-
-      </div>
 
       {/* ================= INFINITE CAROUSEL TRACK ================= */}
       <div 
