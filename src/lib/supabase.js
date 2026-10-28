@@ -479,6 +479,107 @@ export const deleteJobById = async (id) => {
 };
 
 // =========================================================================
+// JOB APPLICATIONS SERVICES
+// =========================================================================
+
+export const submitJobApplication = async (application) => {
+  const applicationRecord = {
+    id: `app-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
+    job_id: application.jobId || null,
+    job_title: application.jobTitle || 'General Application',
+    first_name: application.firstName || '',
+    last_name: application.lastName || '',
+    phone: application.phone || '',
+    email: application.email || '',
+    city: application.city || '',
+    qualification: application.qualification || '',
+    experience_years: String(application.experienceYears || ''),
+    date_of_birth: application.dob || '',
+    current_ctc: String(application.currentCtc || ''),
+    current_employer: application.currentEmployer || '',
+    notice_period: application.noticePeriod || '',
+    resume_url: application.resumeUrl || application.linkedin || '',
+    cover_note: application.coverNote || application.note || '',
+    created_at: new Date().toISOString()
+  };
+
+  // 1. Always save in localStorage
+  try {
+    const existingApps = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+    existingApps.unshift(applicationRecord);
+    localStorage.setItem('alphasure_job_applications', JSON.stringify(existingApps));
+  } catch (err) {
+    console.warn('Could not store application locally:', err);
+  }
+
+  // 2. If Supabase is connected, attempt to insert into job_applications table
+  const client = getSupabase();
+  if (client) {
+    try {
+      const { data, error } = await client
+        .from('job_applications')
+        .insert([applicationRecord])
+        .select();
+
+      if (error) {
+        console.warn('Could not save application to Supabase (table may need schema run):', error.message);
+      } else if (data && data[0]) {
+        return data[0];
+      }
+    } catch (err) {
+      console.warn('Error saving application to Supabase:', err);
+    }
+  }
+
+  return applicationRecord;
+};
+
+export const fetchAllJobApplications = async () => {
+  const local = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+  const client = getSupabase();
+  if (!client) return local;
+
+  try {
+    const { data, error } = await client
+      .from('job_applications')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error || !data) {
+      return local;
+    }
+    const ids = new Set(data.map(d => d.id));
+    const merged = [...data, ...local.filter(l => !ids.has(l.id))];
+    return merged;
+  } catch (err) {
+    return local;
+  }
+};
+
+export const deleteJobApplicationById = async (id) => {
+  try {
+    const local = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+    const filtered = local.filter(app => app.id !== id);
+    localStorage.setItem('alphasure_job_applications', JSON.stringify(filtered));
+  } catch (err) {
+    console.warn('Error deleting local application:', err);
+  }
+
+  const client = getSupabase();
+  if (client) {
+    try {
+      await client
+        .from('job_applications')
+        .delete()
+        .eq('id', id);
+    } catch (err) {
+      console.warn('Error deleting application in Supabase:', err);
+    }
+  }
+  return true;
+};
+
+// =========================================================================
 // SEEDING HELPER TO POPULATE SUPABASE TABLES
 // =========================================================================
 

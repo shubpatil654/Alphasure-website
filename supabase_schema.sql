@@ -30,6 +30,27 @@ CREATE TABLE IF NOT EXISTS public.job_openings (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 3. Create the job_applications table
+CREATE TABLE IF NOT EXISTS public.job_applications (
+  id TEXT PRIMARY KEY,
+  job_id TEXT,
+  job_title TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  city TEXT NOT NULL,
+  qualification TEXT NOT NULL,
+  experience_years TEXT NOT NULL,
+  date_of_birth TEXT NOT NULL,
+  current_ctc TEXT NOT NULL,
+  current_employer TEXT NOT NULL,
+  notice_period TEXT NOT NULL,
+  resume_url TEXT,
+  cover_note TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- =========================================================================
 -- PERMISSIONS & ROW LEVEL SECURITY (RLS) FIX
 -- Why CRUD failed: Supabase blocks ANON key from INSERT/UPDATE/DELETE by default!
@@ -42,6 +63,7 @@ CREATE TABLE IF NOT EXISTS public.job_openings (
 -- -------------------------------------------------------------------------
 ALTER TABLE public.blogs DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.job_openings DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.job_applications DISABLE ROW LEVEL SECURITY;
 
 -- -------------------------------------------------------------------------
 -- OPTION B (ALTERNATIVE): If you must keep RLS enabled, run these explicit policies:

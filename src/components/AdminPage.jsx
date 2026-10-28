@@ -2,13 +2,15 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ShieldCheck, Lock, LogOut, Plus, Trash2, Edit3, Eye, 
   Search, CheckCircle2, AlertCircle, RefreshCw, Database, 
-  Briefcase, FileText, ArrowLeft, ExternalLink, Sparkles, X, ChevronRight, Globe
+  Briefcase, FileText, ArrowLeft, ExternalLink, Sparkles, X, ChevronRight, Globe,
+  Users, Phone, Mail, Calendar, MapPin, GraduationCap, IndianRupee
 } from 'lucide-react';
 import { 
   getSupabase, isSupabaseConfigured, saveSupabaseCredentials, 
   clearSupabaseCredentials, fetchAllBlogs, createBlog, deleteBlogById, 
   fetchAllJobs, createJob, updateJobStatus, deleteJobById, seedDatabaseIfEmpty,
-  testSupabaseConnection, normalizeUrl
+  testSupabaseConnection, normalizeUrl,
+  fetchAllJobApplications, deleteJobApplicationById
 } from '../lib/supabase';
 
 export default function AdminPage({ onNavigate }) {
@@ -22,11 +24,12 @@ export default function AdminPage({ onNavigate }) {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   // Active Admin Tab
-  const [activeTab, setActiveTab] = useState('blogs'); // 'blogs' | 'jobs' | 'database'
+  const [activeTab, setActiveTab] = useState('blogs'); // 'blogs' | 'jobs' | 'applications' | 'database'
 
   // Data State
   const [blogs, setBlogs] = useState([]);
   const [jobs, setJobs] = useState([]);
+  const [applications, setApplications] = useState([]);
   const [loadingData, setLoadingData] = useState(false);
   const [notification, setNotification] = useState(null);
 
@@ -35,6 +38,8 @@ export default function AdminPage({ onNavigate }) {
   const [blogCategoryFilter, setBlogCategoryFilter] = useState('All');
   const [jobSearch, setJobSearch] = useState('');
   const [jobDeptFilter, setJobDeptFilter] = useState('All');
+  const [appSearch, setAppSearch] = useState('');
+  const [selectedApp, setSelectedApp] = useState(null);
 
   // Modal State
   const [isAddBlogOpen, setIsAddBlogOpen] = useState(false);
@@ -105,12 +110,14 @@ export default function AdminPage({ onNavigate }) {
   const loadAllData = async () => {
     setLoadingData(true);
     try {
-      const [fetchedBlogs, fetchedJobs] = await Promise.all([
+      const [fetchedBlogs, fetchedJobs, fetchedApps] = await Promise.all([
         fetchAllBlogs(),
-        fetchAllJobs()
+        fetchAllJobs(),
+        fetchAllJobApplications()
       ]);
       setBlogs(fetchedBlogs || []);
       setJobs(fetchedJobs || []);
+      setApplications(fetchedApps || []);
     } catch (err) {
       console.error('Error fetching admin data:', err);
       showNotification('Error loading records', 'error');
@@ -557,9 +564,24 @@ export default function AdminPage({ onNavigate }) {
             }`}
           >
             <Briefcase className="w-4 h-4" />
-            <span>Careers & Openings</span>
+            <span>Careers &amp; Openings</span>
             <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'jobs' ? 'bg-black/25 text-white' : 'bg-white/10 text-slate-300'}`}>
               {jobs.length}
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('applications')}
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${
+              activeTab === 'applications'
+                ? 'bg-[#FA5A16] text-white shadow-md'
+                : 'text-slate-300 hover:bg-white/10'
+            }`}
+          >
+            <Users className="w-4 h-4" />
+            <span>Job Applications</span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'applications' ? 'bg-black/25 text-white' : 'bg-white/10 text-slate-300'}`}>
+              {applications.length}
             </span>
           </button>
 
@@ -836,7 +858,181 @@ export default function AdminPage({ onNavigate }) {
             </div>
           )}
 
-          {/* ================= TAB 3: SUPABASE CONNECTION & TOOLS ================= */}
+          {/* ================= TAB 3: APPLICATIONS MANAGEMENT ================= */}
+          {activeTab === 'applications' && (
+            <div className="space-y-6">
+              {/* Header and Search */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0B192C]">
+                    Candidate Applications ({applications.length})
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-0.5">
+                    Review candidate profiles submitted through the careers application form.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="relative w-full sm:w-72">
+                    <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="Search candidates, roles, cities..."
+                      value={appSearch}
+                      onChange={(e) => setAppSearch(e.target.value)}
+                      className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                    />
+                  </div>
+
+                  <button
+                    onClick={loadAllData}
+                    className="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 transition-colors cursor-pointer"
+                    title="Refresh Applications"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${loadingData ? 'animate-spin text-[#FA5A16]' : ''}`} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Applications List */}
+              {applications.length === 0 ? (
+                <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 shadow-sm">
+                  <div className="w-16 h-16 rounded-full bg-orange-50 text-[#FA5A16] flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8" />
+                  </div>
+                  <h4 className="text-lg font-bold text-[#0B192C]">No candidate applications yet</h4>
+                  <p className="text-sm text-slate-500 mt-1 max-w-md mx-auto">
+                    When candidates click "Apply Now" on any job opening on the Careers page and submit their details, their full profile will appear here.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {applications
+                    .filter(app => {
+                      const q = appSearch.toLowerCase();
+                      const name = `${app.first_name || ''} ${app.last_name || ''}`.toLowerCase();
+                      const title = (app.job_title || '').toLowerCase();
+                      const city = (app.city || '').toLowerCase();
+                      const qual = (app.qualification || '').toLowerCase();
+                      const employer = (app.current_employer || '').toLowerCase();
+                      return name.includes(q) || title.includes(q) || city.includes(q) || qual.includes(q) || employer.includes(q);
+                    })
+                    .map((app) => (
+                      <div
+                        key={app.id}
+                        className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all space-y-4"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                          <div>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h4 className="text-lg font-bold text-[#0B192C]">
+                                {app.first_name} {app.last_name}
+                              </h4>
+                              <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-orange-100 text-[#FA5A16]">
+                                {app.job_title}
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-500 mt-0.5">
+                              Applied on {new Date(app.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center gap-2 shrink-0">
+                            {app.email && (
+                              <a
+                                href={`mailto:${app.email}`}
+                                className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                              >
+                                <Mail size={13} />
+                                <span>{app.email}</span>
+                              </a>
+                            )}
+                            {app.phone && (
+                              <a
+                                href={`tel:${app.phone}`}
+                                className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                              >
+                                <Phone size={13} />
+                                <span>{app.phone}</span>
+                              </a>
+                            )}
+                            <button
+                              onClick={async () => {
+                                if (window.confirm(`Delete application for ${app.first_name} ${app.last_name}?`)) {
+                                  await deleteJobApplicationById(app.id);
+                                  setApplications(prev => prev.filter(a => a.id !== app.id));
+                                  showNotification('Application deleted');
+                                }
+                              }}
+                              className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                              title="Delete Application"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Candidate Key Details Grid */}
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs bg-[#FAF7F2] p-3.5 rounded-xl border border-[#EBD6B8]/50">
+                          <div>
+                            <span className="text-slate-400 block font-medium">City</span>
+                            <span className="font-bold text-[#0B192C]">{app.city || '—'}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium">Date of Birth</span>
+                            <span className="font-bold text-[#0B192C]">{app.date_of_birth || '—'}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium">Qualification</span>
+                            <span className="font-bold text-[#0B192C]">{app.qualification || '—'}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium">Work Experience</span>
+                            <span className="font-bold text-[#0B192C]">{app.experience_years ? `${app.experience_years} Yrs` : '—'}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium">Current Employer</span>
+                            <span className="font-bold text-[#0B192C] truncate block" title={app.current_employer}>{app.current_employer || '—'}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium">Annual CTC</span>
+                            <span className="font-bold text-[#FA5A16]">{app.current_ctc ? `₹${app.current_ctc} Lakhs` : '—'}</span>
+                          </div>
+                        </div>
+
+                        {/* Notice Period & Resume / Cover Note */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="px-2 py-0.5 rounded-md bg-slate-100 font-semibold text-slate-700">
+                              Notice Period: <strong className="text-[#0B192C]">{app.notice_period || 'Not specified'}</strong>
+                            </span>
+                            {app.resume_url && (
+                              <a
+                                href={app.resume_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-[#FA5A16] hover:underline font-semibold"
+                              >
+                                <ExternalLink size={12} />
+                                <span>View Resume / Profile Link</span>
+                              </a>
+                            )}
+                          </div>
+
+                          {app.cover_note && (
+                            <p className="text-slate-500 italic max-w-xl truncate">
+                              "{app.cover_note}"
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ================= TAB 4: SUPABASE CONNECTION & TOOLS ================= */}
           {activeTab === 'database' && (
             <div className="max-w-3xl mx-auto space-y-6">
               

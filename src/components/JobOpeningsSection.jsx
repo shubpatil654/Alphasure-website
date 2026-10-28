@@ -1,9 +1,51 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Briefcase, MapPin, Clock, ChevronDown, ChevronUp, 
-  Send, CheckCircle2, ArrowRight, Sparkles, Filter, Building2
+  Send, CheckCircle2, ArrowRight, Sparkles, Filter, Building2,
+  User, Mail, Phone, Calendar, GraduationCap, IndianRupee,
+  FileText, Link2, X, AlertCircle, Loader2
 } from 'lucide-react';
-import { fetchAllJobs } from '../lib/supabase';
+import { fetchAllJobs, submitJobApplication } from '../lib/supabase';
+
+const INITIAL_APPLICANT_DATA = {
+  firstName: '',
+  lastName: '',
+  phone: '',
+  email: '',
+  city: '',
+  qualification: '',
+  experienceYears: '',
+  dob: '',
+  currentCtc: '',
+  currentEmployer: '',
+  noticePeriod: '',
+  resumeUrl: '',
+  coverNote: ''
+};
+
+const NOTICE_PERIOD_OPTIONS = [
+  'Immediate / Serving Notice',
+  '15 Days',
+  '30 Days (1 Month)',
+  '45 Days',
+  '60 Days (2 Months)',
+  '90 Days (3 Months)',
+  'More than 90 Days'
+];
+
+const QUALIFICATION_SUGGESTIONS = [
+  'Chartered Accountant (CA)',
+  'Semi-Qualified CA / CA Inter',
+  'Company Secretary (CS)',
+  'Cost & Management Accountant (CMA)',
+  'MBA (Finance)',
+  'B.Com / B.Com (Hons)',
+  'M.Com',
+  'BBA / BMS (Finance)',
+  'CFA / ACCA / CPA',
+  'LLB / Corporate Law',
+  'Other Graduate / Post-Graduate'
+];
 
 export default function JobOpeningsSection({ onOpenModal }) {
   const [jobs, setJobs] = useState([]);
@@ -12,13 +54,9 @@ export default function JobOpeningsSection({ onOpenModal }) {
   const [expandedJobId, setExpandedJobId] = useState(null);
   const [applicationModalJob, setApplicationModalJob] = useState(null);
   const [applicationSubmitted, setApplicationSubmitted] = useState(false);
-  const [applicantData, setApplicantData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    note: ''
-  });
+  const [applicantData, setApplicantData] = useState(INITIAL_APPLICANT_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [dobError, setDobError] = useState('');
 
   useEffect(() => {
     let isMounted = true;
@@ -59,23 +97,74 @@ export default function JobOpeningsSection({ onOpenModal }) {
   };
 
   const handleOpenApply = (job, e) => {
-    e.stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
     setApplicationModalJob(job);
     setApplicationSubmitted(false);
-    setApplicantData({ name: '', email: '', phone: '', linkedin: '', note: '' });
+    setApplicantData(INITIAL_APPLICANT_DATA);
+    setDobError('');
+    setIsSubmitting(false);
   };
 
   const handleCloseApply = () => {
     setApplicationModalJob(null);
     setApplicationSubmitted(false);
+    setIsSubmitting(false);
   };
 
-  const handleSubmitApplication = (e) => {
+  const handleDobChange = (e) => {
+    const raw = e.target.value;
+    const digits = raw.replace(/\D/g, '').slice(0, 8);
+    let formatted = digits;
+    if (digits.length >= 5) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+    } else if (digits.length >= 3) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    }
+    setApplicantData(prev => ({ ...prev, dob: formatted }));
+
+    if (formatted.length === 10) {
+      const [d, m, y] = formatted.split('/').map(Number);
+      const currentYear = new Date().getFullYear();
+      if (d < 1 || d > 31 || m < 1 || m > 12 || y < 1940 || y > currentYear - 16) {
+        setDobError('Please enter a valid date in DD/MM/YYYY format');
+      } else {
+        setDobError('');
+      }
+    } else {
+      setDobError('');
+    }
+  };
+
+  const handleSubmitApplication = async (e) => {
     e.preventDefault();
-    setApplicationSubmitted(true);
-    setTimeout(() => {
-      handleCloseApply();
-    }, 2500);
+
+    // Validate DOB format (DD/MM/YYYY)
+    if (applicantData.dob && applicantData.dob.length === 10) {
+      const [d, m, y] = applicantData.dob.split('/').map(Number);
+      const currentYear = new Date().getFullYear();
+      if (d < 1 || d > 31 || m < 1 || m > 12 || y < 1940 || y > currentYear - 16) {
+        setDobError('Please enter a valid date of birth (DD/MM/YYYY)');
+        return;
+      }
+    } else {
+      setDobError('Please enter Date of Birth in DD/MM/YYYY format');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await submitJobApplication({
+        ...applicantData,
+        jobId: applicationModalJob?.id || null,
+        jobTitle: applicationModalJob?.title || 'General Opening'
+      });
+      setApplicationSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting application:', err);
+      setApplicationSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -164,7 +253,7 @@ export default function JobOpeningsSection({ onOpenModal }) {
               We are constantly seeking brilliant accounting and compliance minds. Submit an open inquiry and we'll reach out when a matching role opens.
             </p>
             <button
-              onClick={onOpenModal}
+              onClick={(e) => handleOpenApply({ id: 'general-opening', title: 'Open Application (General)', department: 'General', location: 'India (Hybrid / Remote)' }, e)}
               className="px-6 py-2.5 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white text-xs sm:text-sm font-bold shadow-md transition-all cursor-pointer"
             >
               Send Open Application
@@ -304,11 +393,12 @@ export default function JobOpeningsSection({ onOpenModal }) {
       {/* ================= APPLICATION MODAL ================= */}
       {applicationModalJob && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto">
             
             <button
+              type="button"
               onClick={handleCloseApply}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 text-sm font-bold cursor-pointer"
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 text-sm font-bold cursor-pointer transition-colors"
             >
               ✕
             </button>
@@ -319,10 +409,20 @@ export default function JobOpeningsSection({ onOpenModal }) {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0B192C]">Application Received!</h3>
-                <p className="text-slate-600 text-sm mt-2 mb-6">
-                  Thank you for applying for <span className="font-semibold text-[#0B192C]">{applicationModalJob.title}</span>. Our HR and talent acquisition team will review your profile and reach out shortly.
+                <p className="text-slate-600 text-sm mt-2 mb-4">
+                  Thank you, <span className="font-bold text-[#0B192C]">{applicantData.firstName} {applicantData.lastName}</span>, for applying for <span className="font-semibold text-[#0B192C]">{applicationModalJob.title}</span>. Our HR and talent acquisition team will review your profile and reach out shortly.
                 </p>
+
+                {/* Brief Summary */}
+                <div className="bg-[#FAF7F2] border border-[#EBD6B8]/70 rounded-2xl p-4 text-left grid grid-cols-2 gap-2.5 text-xs text-slate-600 mb-6">
+                  <div><span className="text-slate-400">City:</span> <strong className="text-[#0B192C]">{applicantData.city}</strong></div>
+                  <div><span className="text-slate-400">Qualification:</span> <strong className="text-[#0B192C]">{applicantData.qualification}</strong></div>
+                  <div><span className="text-slate-400">Experience:</span> <strong className="text-[#0B192C]">{applicantData.experienceYears} Yrs</strong></div>
+                  <div><span className="text-slate-400">Notice Period:</span> <strong className="text-[#0B192C]">{applicantData.noticePeriod}</strong></div>
+                </div>
+
                 <button
+                  type="button"
                   onClick={handleCloseApply}
                   className="px-6 py-2.5 rounded-xl bg-[#0B192C] text-white text-xs font-bold hover:bg-[#FA5A16] transition-colors cursor-pointer"
                 >
@@ -344,34 +444,44 @@ export default function JobOpeningsSection({ onOpenModal }) {
                 </div>
 
                 <form onSubmit={handleSubmitApplication} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={applicantData.name}
-                      onChange={(e) => setApplicantData({ ...applicantData, name: e.target.value })}
-                      placeholder="e.g. Rahul Sharma"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
-                    />
-                  </div>
+                  <datalist id="qualifications-list">
+                    {QUALIFICATION_SUGGESTIONS.map((q) => (
+                      <option key={q} value={q} />
+                    ))}
+                  </datalist>
 
+                  {/* 1. First Name & 2. Last Name */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Email Address *
+                        First Name *
                       </label>
                       <input
-                        type="email"
+                        type="text"
                         required
-                        value={applicantData.email}
-                        onChange={(e) => setApplicantData({ ...applicantData, email: e.target.value })}
-                        placeholder="you@example.com"
+                        value={applicantData.firstName}
+                        onChange={(e) => setApplicantData({ ...applicantData, firstName: e.target.value })}
+                        placeholder="e.g. Rahul"
                         className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
                       />
                     </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={applicantData.lastName}
+                        onChange={(e) => setApplicantData({ ...applicantData, lastName: e.target.value })}
+                        placeholder="e.g. Sharma"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 3. Phone Number & 4. Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">
                         Phone Number *
@@ -385,31 +495,152 @@ export default function JobOpeningsSection({ onOpenModal }) {
                         className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
                       />
                     </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={applicantData.email}
+                        onChange={(e) => setApplicantData({ ...applicantData, email: e.target.value })}
+                        placeholder="you@example.com"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
                   </div>
 
+                  {/* 5. City & 6. Qualification */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        City *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={applicantData.city}
+                        onChange={(e) => setApplicantData({ ...applicantData, city: e.target.value })}
+                        placeholder="e.g. Mumbai"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Qualification *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        list="qualifications-list"
+                        value={applicantData.qualification}
+                        onChange={(e) => setApplicantData({ ...applicantData, qualification: e.target.value })}
+                        placeholder="e.g. CA, Semi-Qualified CA, MBA, B.Com"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 7. Work Experience (In Yrs) & 8. Date of Birth (DD/MM/YYYY) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Work Experience (In Yrs) *
+                      </label>
+                      <input
+                        type="number"
+                        step="0.5"
+                        min="0"
+                        max="40"
+                        required
+                        value={applicantData.experienceYears}
+                        onChange={(e) => setApplicantData({ ...applicantData, experienceYears: e.target.value })}
+                        placeholder="e.g. 3.5"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Date of Birth (DD/MM/YYYY) *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        maxLength={10}
+                        value={applicantData.dob}
+                        onChange={handleDobChange}
+                        placeholder="DD/MM/YYYY (e.g. 15/08/1996)"
+                        className={`w-full px-4 py-2.5 rounded-xl border ${
+                          dobError ? 'border-red-400 focus:ring-red-400' : 'border-slate-300 focus:ring-[#FA5A16]'
+                        } text-sm text-[#0B192C] focus:ring-2 focus:border-transparent outline-none`}
+                      />
+                      {dobError && (
+                        <p className="text-[11px] text-red-500 font-medium mt-1">{dobError}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 9. Current/Last Drawn Annual CTC (In Lakhs) & 11. Current Notice Period */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Current/Last Drawn Annual CTC (In Lakhs) *
+                      </label>
+                      <input
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        max="500"
+                        required
+                        value={applicantData.currentCtc}
+                        onChange={(e) => setApplicantData({ ...applicantData, currentCtc: e.target.value })}
+                        placeholder="e.g. 8.5 (₹ Lakhs)"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Current Notice Period *
+                      </label>
+                      <select
+                        required
+                        value={applicantData.noticePeriod}
+                        onChange={(e) => setApplicantData({ ...applicantData, noticePeriod: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] bg-white focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none cursor-pointer"
+                      >
+                        <option value="" disabled>Select Notice Period</option>
+                        {NOTICE_PERIOD_OPTIONS.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* 10. Current Employer */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      LinkedIn Profile or Resume Link *
+                      Current Employer *
                     </label>
                     <input
-                      type="url"
+                      type="text"
                       required
-                      value={applicantData.linkedin}
-                      onChange={(e) => setApplicantData({ ...applicantData, linkedin: e.target.value })}
-                      placeholder="https://linkedin.com/in/profile or Google Drive link"
+                      value={applicantData.currentEmployer}
+                      onChange={(e) => setApplicantData({ ...applicantData, currentEmployer: e.target.value })}
+                      placeholder="e.g. Current Company / Firm or 'Fresher'"
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
                     />
                   </div>
 
+                  {/* LinkedIn Profile or Resume Link (Optional) */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Brief Cover Note or Experience Summary
+                      LinkedIn Profile or Resume Link <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
-                    <textarea
-                      rows="3"
-                      value={applicantData.note}
-                      onChange={(e) => setApplicantData({ ...applicantData, note: e.target.value })}
-                      placeholder="Tell us briefly about your background and why you'd be a great fit..."
+                    <input
+                      type="url"
+                      value={applicantData.resumeUrl}
+                      onChange={(e) => setApplicantData({ ...applicantData, resumeUrl: e.target.value })}
+                      placeholder="https://linkedin.com/in/profile or Google Drive link"
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
                     />
                   </div>
@@ -417,10 +648,11 @@ export default function JobOpeningsSection({ onOpenModal }) {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer flex items-center justify-center gap-2"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
                     >
                       <Send className="w-4 h-4" />
-                      <span>Submit Application</span>
+                      <span>{isSubmitting ? 'Submitting Application...' : 'Submit Application'}</span>
                     </button>
                   </div>
                 </form>
