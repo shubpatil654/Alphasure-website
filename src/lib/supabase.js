@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { blogsData } from '../data/blogsData';
 import { initialJobsData } from '../data/jobsData';
+import { generateInitialCandidates } from '../data/hiringData';
 
 // URL normalizer: handles project IDs, dashboard URLs, database strings, and cleans protocols
 export const normalizeUrl = (raw) => {
@@ -484,28 +485,31 @@ export const deleteJobById = async (id) => {
 
 export const submitJobApplication = async (application) => {
   const applicationRecord = {
-    id: `app-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
-    job_id: application.jobId || null,
-    job_title: application.jobTitle || 'General Application',
-    first_name: application.firstName || '',
-    last_name: application.lastName || '',
+    id: application.id || `app-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
+    job_id: application.jobId || application.job_id || null,
+    job_title: application.jobTitle || application.job_title || 'General Application',
+    first_name: application.firstName || application.first_name || '',
+    last_name: application.lastName || application.last_name || '',
     phone: application.phone || '',
     email: application.email || '',
     city: application.city || '',
     qualification: application.qualification || '',
-    experience_years: String(application.experienceYears || ''),
-    date_of_birth: application.dob || '',
-    current_ctc: String(application.currentCtc || ''),
-    current_employer: application.currentEmployer || '',
-    notice_period: application.noticePeriod || '',
-    resume_url: application.resumeUrl || application.linkedin || '',
-    cover_note: application.coverNote || application.note || '',
-    created_at: new Date().toISOString()
+    experience_years: String(application.experienceYears || application.experience_years || ''),
+    date_of_birth: application.dob || application.date_of_birth || '',
+    current_ctc: String(application.currentCtc || application.current_ctc || ''),
+    current_employer: application.currentEmployer || application.current_employer || '',
+    notice_period: application.noticePeriod || application.notice_period || '',
+    resume_url: application.resumeUrl || application.resume_url || application.linkedin || '',
+    cover_note: application.coverNote || application.cover_note || application.note || '',
+    stage: application.stage || 'New CVs',
+    source: application.source || 'Website Application',
+    created_at: application.created_at || new Date().toISOString()
   };
 
   // 1. Always save in localStorage
   try {
-    const existingApps = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+    const raw = localStorage.getItem('alphasure_job_applications');
+    const existingApps = raw ? JSON.parse(raw) : generateInitialCandidates();
     existingApps.unshift(applicationRecord);
     localStorage.setItem('alphasure_job_applications', JSON.stringify(existingApps));
   } catch (err) {
@@ -535,7 +539,21 @@ export const submitJobApplication = async (application) => {
 };
 
 export const fetchAllJobApplications = async () => {
-  const local = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+  const raw = localStorage.getItem('alphasure_job_applications');
+  let local;
+  if (!raw) {
+    local = generateInitialCandidates();
+    try {
+      localStorage.setItem('alphasure_job_applications', JSON.stringify(local));
+    } catch (e) {}
+  } else {
+    try {
+      local = JSON.parse(raw);
+    } catch (e) {
+      local = generateInitialCandidates();
+    }
+  }
+
   const client = getSupabase();
   if (!client) return local;
 
@@ -545,7 +563,7 @@ export const fetchAllJobApplications = async () => {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (error || !data) {
+    if (error || !data || data.length === 0) {
       return local;
     }
     const ids = new Set(data.map(d => d.id));
@@ -556,9 +574,58 @@ export const fetchAllJobApplications = async () => {
   }
 };
 
+export const updateJobApplicationStage = async (id, stage) => {
+  try {
+    const raw = localStorage.getItem('alphasure_job_applications');
+    const local = raw ? JSON.parse(raw) : generateInitialCandidates();
+    const updated = local.map(app => app.id === id ? { ...app, stage } : app);
+    localStorage.setItem('alphasure_job_applications', JSON.stringify(updated));
+  } catch (err) {
+    console.warn('Error updating application stage in local storage:', err);
+  }
+
+  const client = getSupabase();
+  if (client) {
+    try {
+      await client
+        .from('job_applications')
+        .update({ stage })
+        .eq('id', id);
+    } catch (err) {
+      console.warn('Error updating application stage in Supabase:', err);
+    }
+  }
+  return true;
+};
+
+export const updateJobApplication = async (id, fields) => {
+  try {
+    const raw = localStorage.getItem('alphasure_job_applications');
+    const local = raw ? JSON.parse(raw) : generateInitialCandidates();
+    const updated = local.map(app => app.id === id ? { ...app, ...fields } : app);
+    localStorage.setItem('alphasure_job_applications', JSON.stringify(updated));
+  } catch (err) {
+    console.warn('Error updating application in local storage:', err);
+  }
+
+  const client = getSupabase();
+  if (client) {
+    try {
+      await client
+        .from('job_applications')
+        .update(fields)
+        .eq('id', id);
+    } catch (err) {
+      console.warn('Error updating application in Supabase:', err);
+    }
+  }
+  return true;
+};
+
 export const deleteJobApplicationById = async (id) => {
   try {
-    const local = JSON.parse(localStorage.getItem('alphasure_job_applications') || '[]');
+    const raw = localStorage.getItem('alphasure_job_applications');
+    const local = raw ? JSON.parse(raw) : generateInitialCandidates();
     const filtered = local.filter(app => app.id !== id);
     localStorage.setItem('alphasure_job_applications', JSON.stringify(filtered));
   } catch (err) {

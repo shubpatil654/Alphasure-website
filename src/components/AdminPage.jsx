@@ -3,7 +3,7 @@ import {
   ShieldCheck, Lock, LogOut, Plus, Trash2, Edit3, Eye, 
   Search, CheckCircle2, AlertCircle, RefreshCw, Database, 
   Briefcase, FileText, ArrowLeft, ExternalLink, Sparkles, X, ChevronRight, Globe,
-  Users, Phone, Mail, Calendar, MapPin, GraduationCap, IndianRupee
+  Users, Phone, Mail, Calendar, MapPin, GraduationCap, IndianRupee, BarChart3
 } from 'lucide-react';
 import { 
   getSupabase, isSupabaseConfigured, saveSupabaseCredentials, 
@@ -12,6 +12,7 @@ import {
   testSupabaseConnection, normalizeUrl,
   fetchAllJobApplications, deleteJobApplicationById
 } from '../lib/supabase';
+import HiringDashboard from './HiringDashboard';
 
 export default function AdminPage({ onNavigate }) {
   // Authentication State
@@ -24,7 +25,7 @@ export default function AdminPage({ onNavigate }) {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   // Active Admin Tab
-  const [activeTab, setActiveTab] = useState('blogs'); // 'blogs' | 'jobs' | 'applications' | 'database'
+  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'blogs' | 'jobs' | 'applications' | 'database'
 
   // Data State
   const [blogs, setBlogs] = useState([]);
@@ -541,6 +542,18 @@ export default function AdminPage({ onNavigate }) {
         {/* Sub-Navigation Tabs */}
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 border-t border-slate-800/80 overflow-x-auto no-scrollbar py-2">
           <button
+            onClick={() => setActiveTab('dashboard')}
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${
+              activeTab === 'dashboard'
+                ? 'bg-[#FA5A16] text-white shadow-md'
+                : 'text-slate-300 hover:bg-white/10'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4" />
+            <span>Hiring Dashboard</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('blogs')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${
               activeTab === 'blogs'
@@ -603,6 +616,17 @@ export default function AdminPage({ onNavigate }) {
       <main className="flex-1 py-8 sm:py-10">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           
+          {/* ================= TAB 0: HIRING DASHBOARD ================= */}
+          {activeTab === 'dashboard' && (
+            <HiringDashboard
+              applications={applications}
+              setApplications={setApplications}
+              jobs={jobs}
+              onRefresh={loadAllData}
+              showNotification={showNotification}
+            />
+          )}
+
           {/* ================= TAB 1: BLOGS MANAGEMENT ================= */}
           {activeTab === 'blogs' && (
             <div className="space-y-6">
