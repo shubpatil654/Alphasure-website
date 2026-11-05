@@ -9,7 +9,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'gst-customs',
     title: 'GST & Customs',
-    fullTitle: 'GST & Customs- Offerings provided',
+    fullTitle: 'GST & Customs',
     degree: 20,
     icon: FileText,
     isGrouped: true,
@@ -46,7 +46,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'ifrs',
     title: 'IFRS',
-    fullTitle: 'IFRS- Offerings provided',
+    fullTitle: 'IFRS',
     degree: 48,
     icon: Globe,
     isGrouped: false,
@@ -59,7 +59,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'm-and-a',
     title: 'M&A',
-    fullTitle: 'M&A- Offerings provided',
+    fullTitle: 'M&A',
     degree: 76,
     icon: Briefcase,
     isGrouped: false,
@@ -73,7 +73,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'corporate-legal',
     title: 'Corporate Legal',
-    fullTitle: 'Corporate Legal- Offerings provided',
+    fullTitle: 'Corporate Legal',
     degree: 104,
     icon: Scale,
     isGrouped: false,
@@ -87,7 +87,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'transfer-pricing',
     title: 'Transfer Pricing',
-    fullTitle: 'Transfer Pricing- Offerings provided',
+    fullTitle: 'Transfer Pricing',
     degree: 132,
     icon: ShieldCheck,
     isGrouped: false,
@@ -101,7 +101,7 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'payroll',
     title: 'Payroll',
-    fullTitle: 'Payroll- Offerings provided',
+    fullTitle: 'Payroll',
     degree: 160,
     icon: Calculator,
     isGrouped: false,
@@ -250,9 +250,6 @@ export default function Solutions360Section({ onOpenModal }) {
                       {/* Title: Same font size and color across all 6 tiles */}
                       <span className="offering-item-title">
                         {item.title}
-                      </span>
-                      <span className="offering-item-suffix">
-                        - Offerings provided
                       </span>
                     </div>
 
