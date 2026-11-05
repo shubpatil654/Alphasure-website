@@ -1,5 +1,4 @@
 import React from 'react';
-import { Handshake } from 'lucide-react';
 import './TrustedPartnersSection.css';
 
 export const TRUSTED_PARTNERS = [
@@ -48,14 +47,8 @@ export default function TrustedPartnersSection() {
     <section className="trusted-partners-section" id="trusted-partners">
       
       {/* ================= SECTION HEADER ================= */}
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
+      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-12">
         
-        {/* Subtle Top Category Tag */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/70 border border-orange-200/80 text-[#FA5A16] text-[11px] sm:text-xs font-extrabold uppercase tracking-widest mb-3">
-          <Handshake className="w-3.5 h-3.5 text-[#FA5A16]" />
-          <span>Strategic Collaborations</span>
-        </div>
-
         {/* Requested Heading: "Our Trusted Partners" */}
         <h2 className="alpha-h2 font-black text-[#0B192C] tracking-tight">
           Our Trusted Partners
@@ -63,11 +56,6 @@ export default function TrustedPartnersSection() {
 
         {/* Centered Orange Accent Line */}
         <div className="w-16 h-1 bg-[#FA5A16] rounded-full mx-auto mt-3 shadow-xs" />
-
-        {/* Short Subtitle */}
-        <p className="max-w-2xl mx-auto text-slate-500 text-xs sm:text-sm md:text-base mt-3.5 font-medium leading-relaxed">
-          Partnering with leading specialist advisory, legal, tax, and payroll firms to deliver comprehensive, world-class expertise to your business.
-        </p>
       </div>
 
       {/* ================= CONTINUOUS LEFT-TO-RIGHT MARQUEE ================= */}

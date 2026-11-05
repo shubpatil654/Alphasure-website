@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  ChevronRight, Sparkles, 
+  ChevronRight, 
   FileText, Briefcase, Globe, Scale, Calculator, ShieldCheck
 } from 'lucide-react';
 import './Solutions360Section.css';
@@ -175,12 +175,6 @@ export default function Solutions360Section({ onOpenModal }) {
         {/* ================= SECTION HEADER: "We Offer 360° Solutions" ================= */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 lg:mb-16">
           
-          {/* Subtle Top Tag */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/70 border border-orange-200/80 text-[#FA5A16] text-[11px] sm:text-xs font-extrabold uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#FA5A16]" />
-            <span>Integrated Financial &amp; Advisory Ecosystem</span>
-          </div>
-
           {/* "We Offer" in 3D dark charcoal typography */}
           <h2 className="text-3d-dark text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
             We Offer
