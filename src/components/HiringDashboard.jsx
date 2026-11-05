@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { 
   Users, Briefcase, Plus, Search, ChevronRight, X, Phone, Mail, 
   ExternalLink, Trash2, RefreshCw, CheckCircle2, UserCheck, ArrowRight,
-  Filter, Sparkles, Building2, MapPin, Calendar, Clock, IndianRupee, GraduationCap
+  Filter, Sparkles, Building2, MapPin, Calendar, Clock, IndianRupee, GraduationCap,
+  FileText, FileUp, Upload
 } from 'lucide-react';
 import { 
   PIPELINE_STAGES, 
@@ -21,7 +22,9 @@ export default function HiringDashboard({
   setApplications, 
   jobs = [], 
   onRefresh, 
-  showNotification 
+  showNotification,
+  onOpenUploadCv,
+  onViewCv
 }) {
   // Filter state
   const [selectedStage, setSelectedStage] = useState(null);
@@ -50,6 +53,7 @@ export default function HiringDashboard({
     coverNote: '',
     stage: 'New CVs',
     source: 'Referral',
+    referredBy: '',
     jobTitle: 'Accountant'
   });
 
@@ -293,11 +297,11 @@ export default function HiringDashboard({
           </button>
 
           <button
-            onClick={() => setIsAddCandidateOpen(true)}
-            className="px-4 py-2 rounded-xl bg-[#FA5A16] hover:bg-[#E04808] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-orange-500/20 transition-all flex items-center gap-1.5 cursor-pointer"
+            onClick={() => onOpenUploadCv ? onOpenUploadCv() : setIsAddCandidateOpen(true)}
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#FA5A16] to-[#FF7A3D] hover:from-[#E04808] hover:to-[#FA5A16] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-orange-500/20 transition-all flex items-center gap-1.5 cursor-pointer"
           >
-            <Plus size={16} />
-            <span>Add Candidate</span>
+            <FileUp size={16} />
+            <span>Upload CV / Add Candidate</span>
           </button>
         </div>
       </div>
@@ -604,7 +608,10 @@ export default function HiringDashboard({
                 <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 bg-white/80 p-2.5 rounded-xl border border-slate-100">
                   <div>
                     <span className="text-slate-400 block font-normal">Source:</span>
-                    <strong className="text-slate-800">{cand.source || 'Referral'}</strong>
+                    <strong className="text-slate-800 truncate block">
+                      {cand.source || 'Referral'}
+                      {cand.referred_by && <span className="text-[#FA5A16] font-semibold text-[10px] block truncate">By: {cand.referred_by}</span>}
+                    </strong>
                   </div>
                   <div>
                     <span className="text-slate-400 block font-normal">City:</span>
@@ -641,16 +648,15 @@ export default function HiringDashboard({
                         <Mail size={13} />
                       </a>
                     )}
-                    {cand.resume_url && (
-                      <a 
-                        href={cand.resume_url} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="p-1 rounded-md text-[#FA5A16] hover:bg-orange-50"
-                        title="Resume Link"
+                    {(cand.resume_url || cand.resume_data_url) && (
+                      <button 
+                        onClick={() => onViewCv ? onViewCv(cand) : (cand.resume_url ? window.open(cand.resume_url, '_blank') : setCandidateDetail(cand))}
+                        className="px-2 py-1 rounded-md bg-orange-50 hover:bg-orange-100 text-[#FA5A16] font-bold text-[11px] flex items-center gap-1 border border-orange-200/60 transition-colors cursor-pointer"
+                        title="View Candidate CV"
                       >
-                        <ExternalLink size={13} />
-                      </a>
+                        <FileText size={12} />
+                        <span>CV</span>
+                      </button>
                     )}
                   </div>
 
@@ -773,9 +779,42 @@ export default function HiringDashboard({
                     {PIPELINE_SOURCES.map(s => (
                       <option key={s} value={s}>{s}</option>
                     ))}
+                    <option value="WhatsApp / Email CV">WhatsApp / Email CV</option>
                   </select>
                 </div>
-                <div>
+
+                {(newCandidate.source === 'Referral' || newCandidate.source.toLowerCase().includes('whatsapp')) ? (
+                  <div className="animate-fadeIn">
+                    <label className="block text-xs font-bold text-[#FA5A16] mb-1 flex items-center gap-1.5">
+                      <UserCheck className="w-3.5 h-3.5" />
+                      <span>By Whom *</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={newCandidate.referredBy}
+                      onChange={(e) => setNewCandidate({ ...newCandidate, referredBy: e.target.value })}
+                      placeholder={newCandidate.source.toLowerCase().includes('whatsapp') ? "Sent via WhatsApp by..." : "Referred by..."}
+                      className="w-full px-4 py-2.5 rounded-xl border-2 border-orange-400 bg-orange-50/50 text-sm font-semibold text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] outline-none"
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">City *</label>
+                    <input
+                      type="text"
+                      required
+                      value={newCandidate.city}
+                      onChange={(e) => setNewCandidate({ ...newCandidate, city: e.target.value })}
+                      placeholder="e.g. Mumbai"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] outline-none"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {(newCandidate.source === 'Referral' || newCandidate.source.toLowerCase().includes('whatsapp')) && (
+                <div className="animate-fadeIn">
                   <label className="block text-xs font-bold text-slate-700 mb-1">City *</label>
                   <input
                     type="text"
@@ -786,7 +825,7 @@ export default function HiringDashboard({
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-[#0B192C] focus:ring-2 focus:ring-[#FA5A16] outline-none"
                   />
                 </div>
-              </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -877,7 +916,7 @@ export default function HiringDashboard({
                 {candidateDetail.first_name} {candidateDetail.last_name}
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                Applied for <span className="font-semibold text-slate-800">{candidateDetail.job_title}</span> • Source: {candidateDetail.source || 'Referral'}
+                Applied for <span className="font-semibold text-slate-800">{candidateDetail.job_title}</span> • Source: {candidateDetail.source || 'Referral'}{candidateDetail.referred_by ? ` (By: ${candidateDetail.referred_by})` : ''}
               </p>
             </div>
 
@@ -952,17 +991,33 @@ export default function HiringDashboard({
                   <span>Call: {candidateDetail.phone}</span>
                 </a>
               )}
-              {candidateDetail.resume_url && (
-                <a
-                  href={candidateDetail.resume_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl bg-orange-50 hover:bg-orange-100 text-[#FA5A16] text-xs font-bold flex items-center justify-center gap-2 transition-colors"
+              {(candidateDetail.resume_url || candidateDetail.resume_data_url) && (
+                <button
+                  onClick={() => {
+                    if (onViewCv) {
+                      onViewCv(candidateDetail);
+                    } else if (candidateDetail.resume_url) {
+                      window.open(candidateDetail.resume_url, '_blank');
+                    }
+                  }}
+                  className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FA5A16] to-[#FF7A3D] hover:from-[#E04808] hover:to-[#FA5A16] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                 >
-                  <ExternalLink size={14} />
-                  <span>View Resume / LinkedIn Link</span>
-                </a>
+                  <FileText size={14} />
+                  <span>View &amp; Download CV Document {candidateDetail.resume_file_size ? `(${candidateDetail.resume_file_size})` : ''}</span>
+                </button>
               )}
+
+              <button
+                onClick={() => {
+                  if (onOpenUploadCv) {
+                    onOpenUploadCv(candidateDetail);
+                  }
+                }}
+                className="w-full py-2 px-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <Upload size={14} className="text-[#FA5A16]" />
+                <span>{(candidateDetail.resume_url || candidateDetail.resume_data_url) ? 'Replace / Upload New CV' : 'Upload Candidate CV Document'}</span>
+              </button>
             </div>
 
             <button

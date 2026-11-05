@@ -1,6 +1,7 @@
 import React from 'react';
 import WhyPartnersSection from './WhyPartnersSection';
-import TransparencySection from './TransparencySection';
+import Solutions360Section from './Solutions360Section';
+import TrustedPartnersSection from './TrustedPartnersSection';
 
 export default function EverythingElsePage({ onOpenModal }) {
   return (
@@ -55,8 +56,11 @@ export default function EverythingElsePage({ onOpenModal }) {
       {/* ================= WHY WE WORK WITH PARTNERS SECTION ================= */}
       <WhyPartnersSection />
 
-      {/* ================= TRANSPARENCY MATTERS TO US SECTION ================= */}
-      <TransparencySection />
+      {/* ================= 360° SOLUTIONS SECTION ================= */}
+      <Solutions360Section onOpenModal={onOpenModal} />
+
+      {/* ================= OUR TRUSTED PARTNERS SECTION ================= */}
+      <TrustedPartnersSection />
     </div>
   );
 }

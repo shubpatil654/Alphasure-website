@@ -483,6 +483,73 @@ export const deleteJobById = async (id) => {
 // JOB APPLICATIONS SERVICES
 // =========================================================================
 
+// Utility: Convert File to Base64 Data URL
+export const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+};
+
+// Utility: Format File Size
+export const formatFileSize = (bytes) => {
+  if (!bytes || isNaN(bytes)) return '';
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+};
+
+// Utility: Smart Candidate Name & Title Parser from Filename
+export const parseCandidateFromFileName = (fileName) => {
+  if (!fileName) return { firstName: '', lastName: '', jobTitle: '' };
+  const baseName = fileName.replace(/\.[^/.]+$/, '');
+  const cleaned = baseName
+    .replace(/[_\-+.]+/g, ' ')
+    .replace(/\b(resume|cv|biodata|profile|curriculum|vitae|final|updated|new|latest|alphasure|doc|pdf)\b/gi, '')
+    .trim();
+  
+  const parts = cleaned.split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return { firstName: '', lastName: '', jobTitle: '' };
+  if (parts.length === 1) return { firstName: parts[0], lastName: '', jobTitle: '' };
+  if (parts.length === 2) return { firstName: parts[0], lastName: parts[1], jobTitle: '' };
+  return {
+    firstName: parts[0],
+    lastName: parts[1],
+    jobTitle: parts.slice(2).join(' ')
+  };
+};
+
+// Utility: Supabase Storage Resume Upload
+export const uploadResumeToSupabaseStorage = async (file) => {
+  const client = getSupabase();
+  if (!client) return null;
+  try {
+    const fileExt = file.name.split('.').pop();
+    const sanitizedName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+    const fileName = `${Date.now()}_${sanitizedName}`;
+    const filePath = `resumes/${fileName}`;
+    
+    const { data, error } = await client.storage
+      .from('resumes')
+      .upload(filePath, file, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (!error && data) {
+      const { data: publicData } = client.storage
+        .from('resumes')
+        .getPublicUrl(filePath);
+      return publicData?.publicUrl || null;
+    }
+  } catch (err) {
+    console.warn('Supabase storage upload skipped or failed:', err);
+  }
+  return null;
+};
+
 export const submitJobApplication = async (application) => {
   const applicationRecord = {
     id: application.id || `app-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
@@ -499,10 +566,15 @@ export const submitJobApplication = async (application) => {
     current_ctc: String(application.currentCtc || application.current_ctc || ''),
     current_employer: application.currentEmployer || application.current_employer || '',
     notice_period: application.noticePeriod || application.notice_period || '',
-    resume_url: application.resumeUrl || application.resume_url || application.linkedin || '',
+    resume_url: application.resumeUrl || application.resume_url || application.resumeDataUrl || application.resume_data_url || application.linkedin || '',
+    resume_file_name: application.resumeFileName || application.resume_file_name || '',
+    resume_file_size: application.resumeFileSize || application.resume_file_size || '',
+    resume_file_type: application.resumeFileType || application.resume_file_type || '',
+    resume_data_url: application.resumeDataUrl || application.resume_data_url || '',
     cover_note: application.coverNote || application.cover_note || application.note || '',
     stage: application.stage || 'New CVs',
     source: application.source || 'Website Application',
+    referred_by: application.referredBy || application.referred_by || '',
     created_at: application.created_at || new Date().toISOString()
   };
 
@@ -526,7 +598,40 @@ export const submitJobApplication = async (application) => {
         .select();
 
       if (error) {
-        console.warn('Could not save application to Supabase (table may need schema run):', error.message);
+        // Fallback: If custom columns are missing in table, insert base standard columns
+        const baseNote = applicationRecord.referred_by
+          ? `${applicationRecord.cover_note ? applicationRecord.cover_note + ' | ' : ''}Referred/Sent By: ${applicationRecord.referred_by}`
+          : applicationRecord.cover_note;
+
+        const baseRecord = {
+          id: applicationRecord.id,
+          job_id: applicationRecord.job_id,
+          job_title: applicationRecord.job_title,
+          first_name: applicationRecord.first_name,
+          last_name: applicationRecord.last_name,
+          phone: applicationRecord.phone,
+          email: applicationRecord.email,
+          city: applicationRecord.city,
+          qualification: applicationRecord.qualification,
+          experience_years: applicationRecord.experience_years,
+          date_of_birth: applicationRecord.date_of_birth,
+          current_ctc: applicationRecord.current_ctc,
+          current_employer: applicationRecord.current_employer,
+          notice_period: applicationRecord.notice_period,
+          resume_url: applicationRecord.resume_url,
+          cover_note: baseNote,
+          created_at: applicationRecord.created_at
+        };
+        const { data: retryData, error: retryErr } = await client
+          .from('job_applications')
+          .insert([baseRecord])
+          .select();
+
+        if (retryErr) {
+          console.warn('Could not save application to Supabase:', retryErr.message);
+        } else if (retryData && retryData[0]) {
+          return { ...applicationRecord, ...retryData[0] };
+        }
       } else if (data && data[0]) {
         return data[0];
       }
@@ -620,6 +725,51 @@ export const updateJobApplication = async (id, fields) => {
     }
   }
   return true;
+};
+
+export const attachCvToCandidate = async (candidateId, { file, resumeUrl, fileName, fileSize, fileType, dataUrl, referredBy, source, coverNote, stage }) => {
+  let finalUrl = resumeUrl || '';
+  let finalDataUrl = dataUrl || '';
+  let finalFileName = fileName || (file ? file.name : '');
+  let finalFileSize = fileSize || (file ? formatFileSize(file.size) : '');
+  let finalFileType = fileType || (file ? file.type : '');
+
+  if (file && !finalDataUrl) {
+    try {
+      finalDataUrl = await fileToBase64(file);
+    } catch (e) {
+      console.warn('Could not encode file to Base64:', e);
+    }
+  }
+
+  if (file && !finalUrl) {
+    try {
+      const storageUrl = await uploadResumeToSupabaseStorage(file);
+      if (storageUrl) {
+        finalUrl = storageUrl;
+      }
+    } catch (e) {}
+  }
+
+  if (!finalUrl && finalDataUrl) {
+    finalUrl = finalDataUrl;
+  }
+
+  const updates = {
+    resume_url: finalUrl,
+    resume_file_name: finalFileName,
+    resume_file_size: finalFileSize,
+    resume_file_type: finalFileType,
+    resume_data_url: finalDataUrl
+  };
+
+  if (referredBy !== undefined) updates.referred_by = referredBy;
+  if (source !== undefined) updates.source = source;
+  if (coverNote !== undefined) updates.cover_note = coverNote;
+  if (stage !== undefined) updates.stage = stage;
+
+  await updateJobApplication(candidateId, updates);
+  return updates;
 };
 
 export const deleteJobApplicationById = async (id) => {

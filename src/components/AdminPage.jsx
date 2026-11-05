@@ -3,7 +3,8 @@ import {
   ShieldCheck, Lock, LogOut, Plus, Trash2, Edit3, Eye, 
   Search, CheckCircle2, AlertCircle, RefreshCw, Database, 
   Briefcase, FileText, ArrowLeft, ExternalLink, Sparkles, X, ChevronRight, Globe,
-  Users, Phone, Mail, Calendar, MapPin, GraduationCap, IndianRupee, BarChart3
+  Users, Phone, Mail, Calendar, MapPin, GraduationCap, IndianRupee, BarChart3,
+  FileUp, Upload
 } from 'lucide-react';
 import { 
   getSupabase, isSupabaseConfigured, saveSupabaseCredentials, 
@@ -13,6 +14,8 @@ import {
   fetchAllJobApplications, deleteJobApplicationById
 } from '../lib/supabase';
 import HiringDashboard from './HiringDashboard';
+import UploadCvModal from './UploadCvModal';
+import CvViewerModal from './CvViewerModal';
 
 export default function AdminPage({ onNavigate }) {
   // Authentication State
@@ -47,6 +50,11 @@ export default function AdminPage({ onNavigate }) {
   const [isAddJobOpen, setIsAddJobOpen] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState(null); // { type: 'blog' | 'job', id: string, title: string }
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // CV & Resume Modals State
+  const [isUploadCvOpen, setIsUploadCvOpen] = useState(false);
+  const [selectedCvCandidate, setSelectedCvCandidate] = useState(null);
+  const [candidateForCvUpload, setCandidateForCvUpload] = useState(null);
 
   // New Blog Form
   const [newBlog, setNewBlog] = useState({
@@ -609,6 +617,18 @@ export default function AdminPage({ onNavigate }) {
             <Database className="w-4 h-4" />
             <span>Supabase Connection</span>
           </button>
+
+          {/* Quick Header Action: Upload Candidate CV */}
+          <button
+            onClick={() => {
+              setCandidateForCvUpload(null);
+              setIsUploadCvOpen(true);
+            }}
+            className="ml-auto px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide transition-all cursor-pointer flex items-center gap-2 bg-gradient-to-r from-[#FA5A16] to-[#FF7A3D] hover:from-[#E04808] hover:to-[#FA5A16] text-white shadow-md hover:shadow-orange-500/25 shrink-0"
+          >
+            <FileUp className="w-4 h-4" />
+            <span>Upload CV</span>
+          </button>
         </div>
       </header>
 
@@ -624,6 +644,11 @@ export default function AdminPage({ onNavigate }) {
               jobs={jobs}
               onRefresh={loadAllData}
               showNotification={showNotification}
+              onOpenUploadCv={(cand) => {
+                setCandidateForCvUpload(cand || null);
+                setIsUploadCvOpen(true);
+              }}
+              onViewCv={(cand) => setSelectedCvCandidate(cand)}
             />
           )}
 
@@ -896,8 +921,8 @@ export default function AdminPage({ onNavigate }) {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="relative w-full sm:w-72">
+                <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+                  <div className="relative w-full sm:w-64">
                     <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                     <input
                       type="text"
@@ -907,6 +932,17 @@ export default function AdminPage({ onNavigate }) {
                       className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:ring-2 focus:ring-[#FA5A16] focus:border-transparent outline-none"
                     />
                   </div>
+
+                  <button
+                    onClick={() => {
+                      setCandidateForCvUpload(null);
+                      setIsUploadCvOpen(true);
+                    }}
+                    className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#FA5A16] to-[#FF7A3D] hover:from-[#E04808] hover:to-[#FA5A16] text-white text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer whitespace-nowrap"
+                  >
+                    <FileUp className="w-4 h-4" />
+                    <span>Upload CV</span>
+                  </button>
 
                   <button
                     onClick={loadAllData}
@@ -1028,18 +1064,50 @@ export default function AdminPage({ onNavigate }) {
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="px-2 py-0.5 rounded-md bg-slate-100 font-semibold text-slate-700">
-                              Notice Period: <strong className="text-[#0B192C]">{app.notice_period || 'Not specified'}</strong>
+                              Notice: <strong className="text-[#0B192C]">{app.notice_period || 'Not specified'}</strong>
                             </span>
-                            {app.resume_url && (
-                              <a
-                                href={app.resume_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-[#FA5A16] hover:underline font-semibold"
+                            <span className="px-2 py-0.5 rounded-md bg-slate-100 font-semibold text-slate-700">
+                              Stage: <strong className="text-[#FA5A16]">{app.stage || 'New CVs'}</strong>
+                            </span>
+                            {app.referred_by && (
+                              <span className="px-2 py-0.5 rounded-md bg-orange-100 text-[#FA5A16] font-bold border border-orange-200">
+                                By: {app.referred_by}
+                              </span>
+                            )}
+
+                            {(app.resume_url || app.resume_data_url) ? (
+                              <button
+                                onClick={() => setSelectedCvCandidate(app)}
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 hover:bg-orange-100 text-[#FA5A16] border border-orange-200 font-bold transition-all cursor-pointer"
                               >
-                                <ExternalLink size={12} />
-                                <span>View Resume / Profile Link</span>
-                              </a>
+                                <FileText size={13} />
+                                <span>View CV {app.resume_file_size ? `(${app.resume_file_size})` : ''}</span>
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  setCandidateForCvUpload(app);
+                                  setIsUploadCvOpen(true);
+                                }}
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 hover:bg-orange-100 text-[#FA5A16] border border-orange-200 font-semibold cursor-pointer"
+                              >
+                                <Upload size={12} />
+                                <span>Upload CV</span>
+                              </button>
+                            )}
+
+                            {(app.resume_url || app.resume_data_url) && (
+                              <button
+                                onClick={() => {
+                                  setCandidateForCvUpload(app);
+                                  setIsUploadCvOpen(true);
+                                }}
+                                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-700 text-[11px] font-semibold hover:underline cursor-pointer ml-1"
+                                title="Replace existing CV document"
+                              >
+                                <Upload size={11} />
+                                <span>Replace CV</span>
+                              </button>
                             )}
                           </div>
 
@@ -1556,6 +1624,32 @@ export default function AdminPage({ onNavigate }) {
           </div>
         </div>
       )}
+
+      {/* ================= MODAL: UPLOAD CV / ADD CANDIDATE ================= */}
+      <UploadCvModal
+        isOpen={isUploadCvOpen}
+        onClose={() => {
+          setIsUploadCvOpen(false);
+          setCandidateForCvUpload(null);
+        }}
+        onSuccess={() => {
+          loadAllData();
+        }}
+        jobs={jobs}
+        existingCandidate={candidateForCvUpload}
+        showNotification={showNotification}
+      />
+
+      {/* ================= MODAL: CV PREVIEW & VIEWER ================= */}
+      <CvViewerModal
+        isOpen={Boolean(selectedCvCandidate)}
+        onClose={() => setSelectedCvCandidate(null)}
+        candidate={selectedCvCandidate}
+        onOpenUploadForCandidate={(cand) => {
+          setCandidateForCvUpload(cand);
+          setIsUploadCvOpen(true);
+        }}
+      />
 
     </div>
   );

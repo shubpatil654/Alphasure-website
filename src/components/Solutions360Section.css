@@ -1,0 +1,319 @@
+/* =========================================================================
+   SOLUTIONS 360 SECTION - 3D CLAY & PROTRACTOR STYLES (ALPHASURE ORANGE)
+   ========================================================================= */
+
+.solutions-360-wrapper {
+  position: relative;
+  width: 100%;
+  background: #FAF7F2;
+  overflow: hidden;
+  padding: 5rem 1rem 6rem;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .solutions-360-wrapper {
+    padding: 6rem 1.5rem 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .solutions-360-wrapper {
+    padding: 7rem 2rem 8.5rem;
+  }
+}
+
+/* 3D Torus Ring Decorations in Alphasure Brand Orange */
+.torus-ring {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.torus-ring-top-left {
+  top: -120px;
+  left: -140px;
+  width: 380px;
+  height: 380px;
+  border: 42px solid #FA5A16;
+  border-top-color: #FF854D;
+  border-left-color: #FA5A16;
+  border-bottom-color: #C73E06;
+  border-right-color: #E04808;
+  filter: drop-shadow(0 25px 35px rgba(250, 90, 22, 0.28)) drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
+  opacity: 0.9;
+  transform: rotate(-25deg);
+}
+
+.torus-ring-bottom-left {
+  bottom: -150px;
+  left: -120px;
+  width: 340px;
+  height: 340px;
+  border: 38px solid #FA5A16;
+  border-top-color: #FF854D;
+  border-left-color: #FA5A16;
+  border-bottom-color: #C73E06;
+  border-right-color: #E04808;
+  filter: drop-shadow(0 25px 35px rgba(250, 90, 22, 0.25)) drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
+  opacity: 0.85;
+  transform: rotate(35deg);
+}
+
+/* 3D "We Offer" typography */
+.text-3d-dark {
+  color: #1A2332;
+  text-shadow: 
+    0 1px 0 #CBD5E1,
+    0 2px 0 #94A3B8,
+    0 3px 6px rgba(11, 25, 44, 0.22);
+}
+
+/* 3D "360° Solutions" Beveled Block (Orange) */
+.block-3d-orange {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #FF7F43 0%, #FA5A16 48%, #E04808 100%);
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 2px 0 rgba(255, 255, 255, 0.45) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.2) inset,
+    0 7px 0 #B83803,
+    0 9px 2px rgba(0, 0, 0, 0.25),
+    0 16px 30px rgba(250, 90, 22, 0.42);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .block-3d-orange {
+    border-radius: 1.5rem;
+    box-shadow: 
+      0 2px 0 rgba(255, 255, 255, 0.5) inset,
+      0 -2px 0 rgba(0, 0, 0, 0.2) inset,
+      0 9px 0 #B83803,
+      0 11px 2px rgba(0, 0, 0, 0.25),
+      0 20px 36px rgba(250, 90, 22, 0.45);
+  }
+}
+
+.block-3d-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 2px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.2) inset,
+    0 11px 0 #B83803,
+    0 13px 3px rgba(0, 0, 0, 0.25),
+    0 24px 40px rgba(250, 90, 22, 0.5);
+}
+
+/* 3D Letter embossing on 360 Solutions */
+.text-3d-white {
+  color: #FFFFFF;
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.4),
+    0 2px 2px rgba(0, 0, 0, 0.35),
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* -------------------------------------------------------------------------
+   TITLES LIST ITEMS (DEFAULT STATE: EXACT SAME FONT SIZE AND COLOR)
+   ------------------------------------------------------------------------- */
+.offering-item-card {
+  position: relative;
+  width: 100%;
+  border-radius: 1.15rem;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 
+    0 2px 0 #F1F5F9 inset,
+    0 4px 0 #CBD5E1,
+    0 7px 16px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+/* Clickable Header Bar */
+.offering-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  transition: all 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .offering-item-header {
+    padding: 1rem 1.4rem;
+  }
+}
+
+/* Default typography (Identical for all 6 titles) */
+.offering-item-title {
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.015em;
+  transition: color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .offering-item-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .offering-item-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Sub-phrase in title */
+.offering-item-suffix {
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.88em;
+  margin-left: 0.25rem;
+  transition: color 0.25s ease;
+}
+
+/* Hover & Active Pop State (Transforms into the 3D Orange block!) */
+.offering-item-card:hover {
+  transform: translateX(6px) translateY(-2px);
+  border-color: #FA5A16;
+  box-shadow: 
+    0 4px 0 #B83803,
+    0 12px 24px rgba(250, 90, 22, 0.25);
+}
+
+.offering-item-card.is-active {
+  border-color: #FA5A16;
+  box-shadow: 
+    0 4px 0 #B83803,
+    0 14px 28px rgba(250, 90, 22, 0.32);
+}
+
+.offering-item-card.is-active .offering-item-header {
+  background: linear-gradient(135deg, #FF7B3E 0%, #FA5A16 48%, #E04808 100%);
+}
+
+.offering-item-card.is-active .offering-item-title {
+  color: #FFFFFF;
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.offering-item-card.is-active .offering-item-suffix {
+  color: #FFE4D6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Chevron indicator */
+.offering-chevron-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: #F1F5F9;
+  color: #64748B;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.offering-item-card:hover .offering-chevron-badge {
+  background: #FFEDD5;
+  color: #FA5A16;
+}
+
+.offering-item-card.is-active .offering-chevron-badge {
+  background: #FFFFFF;
+  color: #FA5A16;
+  transform: rotate(90deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------------------------------------------------
+   POINTERS CONTENT BOX (DISPLAYING ONLY USER'S EXACT POINTERS)
+   ------------------------------------------------------------------------- */
+.offering-pointers-box {
+  padding: 1.15rem 1.25rem 1.35rem;
+  background: #FAFBFD;
+  border-top: 1px solid #FED7AA;
+  animation: fadeInDown 0.25s ease-out;
+}
+
+@media (min-width: 640px) {
+  .offering-pointers-box {
+    padding: 1.25rem 1.5rem 1.45rem;
+  }
+}
+
+.pointer-group-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #FA5A16;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pointer-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 0.45rem;
+}
+
+@media (min-width: 640px) {
+  .pointer-list-item {
+    font-size: 0.92rem;
+  }
+}
+
+.pointer-dot {
+  color: #FA5A16;
+  font-size: 1.1rem;
+  line-height: 1;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* Protractor 3D Frame & Shadows */
+.protractor-svg-wrapper {
+  filter: 
+    drop-shadow(0 18px 32px rgba(11, 25, 44, 0.12))
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+}
+
+.protractor-needle {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: 40px 250px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

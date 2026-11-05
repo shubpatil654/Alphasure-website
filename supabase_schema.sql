@@ -47,9 +47,42 @@ CREATE TABLE IF NOT EXISTS public.job_applications (
   current_employer TEXT NOT NULL,
   notice_period TEXT NOT NULL,
   resume_url TEXT,
+  resume_file_name TEXT,
+  resume_file_size TEXT,
+  resume_file_type TEXT,
+  resume_data_url TEXT,
   cover_note TEXT,
+  stage TEXT DEFAULT 'New CVs',
+  source TEXT DEFAULT 'Website Application',
+  referred_by TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Upgrade existing tables if already created earlier:
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS stage TEXT DEFAULT 'New CVs';
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS source TEXT DEFAULT 'Website Application';
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS referred_by TEXT;
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS resume_file_name TEXT;
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS resume_file_size TEXT;
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS resume_file_type TEXT;
+ALTER TABLE public.job_applications ADD COLUMN IF NOT EXISTS resume_data_url TEXT;
+
+-- =========================================================================
+-- OPTIONAL: SUPABASE STORAGE BUCKET FOR RESUMES / CVS
+-- To store uploaded PDF/Word resumes in Supabase Storage, run:
+-- =========================================================================
+INSERT INTO storage.buckets (id, name, public) 
+VALUES ('resumes', 'resumes', true)
+ON CONFLICT (id) DO NOTHING;
+
+DROP POLICY IF EXISTS "allow_public_upload_resumes" ON storage.objects;
+DROP POLICY IF EXISTS "allow_public_read_resumes" ON storage.objects;
+
+CREATE POLICY "allow_public_upload_resumes" ON storage.objects
+FOR INSERT TO anon, authenticated WITH CHECK (bucket_id = 'resumes');
+
+CREATE POLICY "allow_public_read_resumes" ON storage.objects
+FOR SELECT TO anon, authenticated USING (bucket_id = 'resumes');
 
 -- =========================================================================
 -- PERMISSIONS & ROW LEVEL SECURITY (RLS) FIX

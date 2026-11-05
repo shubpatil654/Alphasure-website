@@ -25,7 +25,7 @@ export default function AboutGalleryCarousel() {
     if (!container) return;
 
     let animationFrameId;
-    const speed = 0.85; // Pixels per frame
+    const speed = 2.2; // Pixels per frame (increased for faster continuous motion)
 
     const step = () => {
       if (!isPaused && !isDraggingRef.current && activePhotoIndex === null) {
