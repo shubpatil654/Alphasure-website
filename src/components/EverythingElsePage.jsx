@@ -1,5 +1,4 @@
 import React from 'react';
-import WhyPartnersSection from './WhyPartnersSection';
 import Solutions360Section from './Solutions360Section';
 import RotatingSolutions360Section from './RotatingSolutions360Section';
 import RoadmapSolutions360Section from './RoadmapSolutions360Section';
@@ -54,9 +53,6 @@ export default function EverythingElsePage({ onOpenModal }) {
         </div>
 
       </section>
-
-      {/* ================= WHY WE WORK WITH PARTNERS SECTION ================= */}
-      <WhyPartnersSection />
 
       {/* ================= 360° SOLUTIONS SECTION ================= */}
       <Solutions360Section onOpenModal={onOpenModal} />
