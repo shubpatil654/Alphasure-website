@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import { 
-  ChevronRight, 
-  FileText, Briefcase, Globe, Scale, Calculator, ShieldCheck
+  ArrowLeft,
+  ArrowRight,
+  FileText, 
+  Briefcase, 
+  Globe, 
+  Scale, 
+  Calculator, 
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  Award,
+  ChevronRight
 } from 'lucide-react';
 import './Solutions360Section.css';
 
@@ -9,10 +20,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'gst-customs',
     title: 'GST & Customs',
-    fullTitle: 'GST & Customs',
-    degree: 20,
+    fullTitle: 'GST & Customs Advisory',
+    category: 'Taxation & Foreign Trade',
+    badge: '17 Core Offerings',
     icon: FileText,
     isGrouped: true,
+    startDeg: -61,
+    endDeg: -44,
+    midDeg: -52.5,
+    summary: 'Comprehensive indirect tax advisory, departmental assessments, refunds and end-to-end import/export trade compliance.',
     groups: [
       {
         label: 'A) GST –',
@@ -46,10 +62,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'ifrs',
     title: 'IFRS',
-    fullTitle: 'IFRS',
-    degree: 50,
+    fullTitle: 'Financial Reporting Standards',
+    category: 'Accounting & Conversions',
+    badge: '3 Conversion Pillars',
     icon: Globe,
     isGrouped: false,
+    startDeg: -40,
+    endDeg: -23,
+    midDeg: -31.5,
+    summary: 'Global financial reporting compliance, multi-standard GAAP conversions, and IPO accounting readiness.',
     pointers: [
       'Ind AS / IFRS / US GAAP conversion',
       'IPO reporting (Main Board and SME)',
@@ -59,10 +80,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'm-and-a',
     title: 'M&A',
-    fullTitle: 'M&A',
-    degree: 80,
+    fullTitle: 'Mergers & Acquisitions',
+    category: 'Corporate Restructuring',
+    badge: '4 Strategic Pillars',
     icon: Briefcase,
     isGrouped: false,
+    startDeg: -19,
+    endDeg: -2,
+    midDeg: -10.5,
+    summary: 'Strategic deal structuring, tax-optimized corporate reorganizations, regulatory clearances, and funding assistance.',
     pointers: [
       'Corporate Structuring',
       'Regulatory Advisory',
@@ -73,10 +99,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'corporate-legal',
     title: 'Corporate Legal',
-    fullTitle: 'Corporate Legal',
-    degree: 110,
+    fullTitle: 'Corporate Legal & Governance',
+    category: 'Commercial Contracts',
+    badge: '4 Legal Pillars',
     icon: Scale,
     isGrouped: false,
+    startDeg: 2,
+    endDeg: 19,
+    midDeg: 10.5,
+    summary: 'Robust governance documentation, commercial contract drafting, startup legal hygiene, and employment law support.',
     pointers: [
       'Founders Agreements',
       'Start up Advisory',
@@ -87,10 +118,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'transfer-pricing',
     title: 'Transfer Pricing',
-    fullTitle: 'Transfer Pricing',
-    degree: 140,
+    fullTitle: 'International Transfer Pricing',
+    category: 'Cross-Border TP',
+    badge: '4 TP Compliance Pillars',
     icon: ShieldCheck,
     isGrouped: false,
+    startDeg: 23,
+    endDeg: 40,
+    midDeg: 31.5,
+    summary: 'Arm’s length margin benchmarking, transfer pricing documentation, intercompany agreements, and audit defence.',
     pointers: [
       'TP Benchmarking Study',
       'TP Assessment support',
@@ -101,10 +137,15 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'payroll',
     title: 'Payroll',
-    fullTitle: 'Payroll',
-    degree: 170,
+    fullTitle: 'Human Resources & Payroll',
+    category: 'Employer of Record (EOR)',
+    badge: '4 Operations Pillars',
     icon: Calculator,
     isGrouped: false,
+    startDeg: 44,
+    endDeg: 61,
+    midDeg: 52.5,
+    summary: 'Accurate monthly payroll operations, statutory compliance (PF, ESI, PT), leave administration, and EOR solutions.',
     pointers: [
       'Payroll Outsourcing',
       'Statutory Compliance',
@@ -115,46 +156,56 @@ export const SOLUTIONS_360_ITEMS = [
 ];
 
 export default function Solutions360Section({ onOpenModal }) {
-  // All titles are minimized by default on load; only opens when clicked
+  // activeItemId is null at the initial phase -> shows "Your Business"
   const [activeItemId, setActiveItemId] = useState(null);
-  const [expandedItems, setExpandedItems] = useState([]);
-  // Track hovered title so needle animates dynamically on hover
+  // Hovered item tracking for petal & node highlighting
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
-  // Target item: hovered item takes priority for dynamic needle animation;
-  // otherwise points to clicked/open item; if none, rests at neutral 90°
-  const targetItemId = hoveredItemId || activeItemId;
-  const targetItem = SOLUTIONS_360_ITEMS.find(item => item.id === targetItemId) || null;
-  const targetAngle = targetItem ? targetItem.degree : 90;
+  const activeItem = SOLUTIONS_360_ITEMS.find((item) => item.id === activeItemId) || null;
 
-  // Toggle item expansion: click to open, click again to minimize
-  const toggleItemExpansion = (itemId) => {
-    if (expandedItems.includes(itemId)) {
-      setExpandedItems([]);
-      setActiveItemId(null);
-    } else {
-      setExpandedItems([itemId]);
-      setActiveItemId(itemId);
-    }
+  // Toggle item selection: clicking an active item resets to "Your Business"
+  const handleToggleItem = (itemId) => {
+    setActiveItemId((prev) => (prev === itemId ? null : itemId));
   };
 
-  // Protractor geometry constants
-  // Semicircle with flat edge on left (x=50), center (cx=50, cy=250), radius R=205
-  const cx = 50;
-  const cy = 250;
-  const radius = 205;
+  // Semicircle Fan Geometry Constants
+  // Right semicircle centered on the left: cx=55, cy=320
+  const cx = 55;
+  const cy = 320;
+  const rTrack = 122; // Concentric arc track
+  const rIn = 148;    // Petal inner radius
+  const rOut = 335;   // Petal outer radius
 
-  // Degrees list for protractor dial (10° to 170°, 180 number removed)
-  const degrees = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170];
+  // Helper to compute annular wedge sector path
+  const getSectorPath = (startDeg, endDeg, rInner, rOuter) => {
+    const rad1 = (startDeg * Math.PI) / 180;
+    const rad2 = (endDeg * Math.PI) / 180;
 
-  // Helper for polar to cartesian coordinates
-  const getCoordinates = (deg, r) => {
-    const rad = (deg - 90) * (Math.PI / 180);
+    const p1x = cx + rInner * Math.cos(rad1);
+    const p1y = cy + rInner * Math.sin(rad1);
+    const p2x = cx + rInner * Math.cos(rad2);
+    const p2y = cy + rInner * Math.sin(rad2);
+    const p3x = cx + rOuter * Math.cos(rad2);
+    const p3y = cy + rOuter * Math.sin(rad2);
+    const p4x = cx + rOuter * Math.cos(rad1);
+    const p4y = cy + rOuter * Math.sin(rad1);
+
+    return `M ${p1x.toFixed(2)},${p1y.toFixed(2)} A ${rInner} ${rInner} 0 0,1 ${p2x.toFixed(2)},${p2y.toFixed(2)} L ${p3x.toFixed(2)},${p3y.toFixed(2)} A ${rOuter} ${rOuter} 0 0,0 ${p4x.toFixed(2)},${p4y.toFixed(2)} Z`;
+  };
+
+  // Helper for polar to cartesian
+  const getPoint = (deg, r) => {
+    const rad = (deg * Math.PI) / 180;
     return {
       x: cx + r * Math.cos(rad),
       y: cy + r * Math.sin(rad)
     };
   };
+
+  // Track arc from -68deg to +68deg
+  const trackStart = getPoint(-68, rTrack);
+  const trackEnd = getPoint(68, rTrack);
+  const trackPath = `M ${trackStart.x.toFixed(2)},${trackStart.y.toFixed(2)} A ${rTrack} ${rTrack} 0 0,1 ${trackEnd.x.toFixed(2)},${trackEnd.y.toFixed(2)}`;
 
   return (
     <section 
@@ -165,11 +216,10 @@ export default function Solutions360Section({ onOpenModal }) {
       <div className="torus-ring torus-ring-top-left" aria-hidden="true" />
       <div className="torus-ring torus-ring-bottom-left" aria-hidden="true" />
 
-      <div className="max-w-[1340px] mx-auto relative z-10">
+      <div className="max-w-[1360px] mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
 
         {/* ================= SECTION HEADER: "We Offer 360° Solutions" ================= */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 lg:mb-16">
-          
           {/* "We Offer" in font matching the rest of the website */}
           <h2 className="font-sans font-black text-[#0B192C] text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none">
             We Offer
@@ -183,357 +233,424 @@ export default function Solutions360Section({ onOpenModal }) {
           </div>
         </div>
 
-        {/* ================= MAIN INTERACTIVE COMPOSITION ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* ================= MAIN INTERACTIVE COMPOSITION (PINTEREST LAYOUT) ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* ---------------- LEFT COLUMN: 6 TILES WITH EXACT POINTERS ---------------- */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col space-y-3.5">
-            
-            {/* Quick helper label */}
-            <div className="flex items-center pb-1 px-1">
-              <span className="text-xs font-bold text-slate-500 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FA5A16]" />
-                Click on any service to explore details
-              </span>
-            </div>
+          {/* ---------------- LEFT COLUMN: DYNAMIC CONTENT CONTAINER ---------------- */}
+          {/* Shows "Your business" initially, or the selected practice pointers on click */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center">
 
-            {SOLUTIONS_360_ITEMS.map((item) => {
-              const isExpanded = expandedItems.includes(item.id);
-              const isHovered = hoveredItemId === item.id;
-              const IconComponent = item.icon;
+            {activeItemId === null ? (
+              /* ================= INITIAL PHASE: "YOUR BUSINESS" ================= */
+              <div className="your-business-card animate-fadeIn">
+                
+                {/* Eyebrow Pill */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/70 text-[#FA5A16] text-xs font-bold uppercase tracking-wider mb-5">
+                  <span className="w-2 h-2 rounded-full bg-[#FA5A16] animate-pulse" />
+                  <span>360° Comprehensive Advisory</span>
+                </div>
 
-              return (
-                <div
-                  key={item.id}
-                  onMouseEnter={() => setHoveredItemId(item.id)}
-                  onMouseLeave={() => setHoveredItemId(null)}
-                  className={`offering-item-card ${isExpanded ? 'is-active' : ''} ${isHovered && !isExpanded ? 'border-[#FA5A16]/60 shadow-md' : ''}`}
-                >
-                  {/* Clickable Header Bar */}
-                  <div
-                    onClick={() => toggleItemExpansion(item.id)}
-                    className="offering-item-header cursor-pointer"
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        toggleItemExpansion(item.id);
-                      }
-                    }}
-                  >
-                    <div className="flex items-center min-w-0 pr-2">
-                      {/* Left icon badge */}
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-3 transition-colors shrink-0 ${
-                        isExpanded 
-                          ? 'bg-white/20 text-white' 
-                          : isHovered
-                            ? 'bg-orange-100 text-[#FA5A16]'
-                            : 'bg-slate-100 text-slate-600'
-                      }`}>
-                        <IconComponent className="w-4 h-4" />
-                      </div>
+                {/* Main Prominent Headline: "Your Business" */}
+                <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#0B192C] tracking-tight leading-[1.12] mb-4">
+                  Built Around <br className="hidden sm:inline" />
+                  <span className="text-[#FA5A16]">Your Business.</span>
+                </h3>
 
-                      {/* Title: Same font size and color across all 6 tiles */}
-                      <span className={`offering-item-title ${isHovered && !isExpanded ? 'text-[#FA5A16]' : ''}`}>
-                        {item.title}
-                      </span>
-                    </div>
+                {/* Explanatory Copy */}
+                <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed mb-6">
+                  Your business shouldn't need a separate service provider for every new requirement. From tax assessments and global GAAP conversions to corporate restructuring and payroll compliance, explore how our dedicated specialists support every stage of your growth.
+                </p>
 
-                    {/* Expand/Collapse Chevron Indicator */}
-                    <div className="offering-chevron-badge">
-                      <ChevronRight className="w-4 h-4" />
-                    </div>
+                {/* 3 Core Value Highlight Blocks */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-7">
+                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
+                      01 / Tax & Customs
+                    </span>
+                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
+                      GST, Customs, Litigation & Refunds
+                    </span>
                   </div>
 
-                  {/* Pointers Container: Visible when expanded */}
-                  {isExpanded && (
-                    <div className="offering-pointers-box">
-                      {item.isGrouped ? (
-                        /* Grouped Pointers (GST & Customs) */
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {item.groups.map((grp, gIdx) => (
-                            <div 
-                              key={gIdx}
-                              className="bg-white rounded-xl p-3.5 border border-slate-200/90 shadow-2xs"
-                            >
-                              <div className="pointer-group-title">
-                                <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
-                                <span>{grp.label}</span>
-                              </div>
-                              <div className="space-y-1.5 pt-0.5">
-                                {grp.pointers.map((pt, pIdx) => (
-                                  <div key={pIdx} className="pointer-list-item">
-                                    <span className="pointer-dot">•</span>
-                                    <span>{pt}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        /* Standard Pointers List (IFRS, M&A, Corporate Legal, TP, Payroll) */
-                        <div className="bg-white rounded-xl p-3.5 border border-slate-200/90 shadow-2xs">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-                            {item.pointers.map((pt, pIdx) => (
-                              <div key={pIdx} className="pointer-list-item">
-                                <span className="pointer-dot">•</span>
+                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
+                      02 / Global Standards
+                    </span>
+                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
+                      IFRS, Ind AS, US GAAP & TP
+                    </span>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
+                      03 / Corporate Ops
+                    </span>
+                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
+                      M&A, Legal & Complete Payroll EOR
+                    </span>
+                  </div>
+                </div>
+
+                {/* Interactive Guidance Prompt */}
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/90 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FA5A16] animate-ping" />
+                    <span className="text-xs sm:text-sm font-bold text-[#0B192C]">
+                      Click any service on the arc to explore its full pointers
+                    </span>
+                  </div>
+                  <span className="text-xs font-black text-[#FA5A16] tracking-wider uppercase hidden sm:inline">
+                    6 Practices on the Dial →
+                  </span>
+                </div>
+
+              </div>
+            ) : (
+              /* ================= ACTIVE PHASE: PRACTICE DETAILS CONTAINER ================= */
+              <div className="service-details-card animate-fadeIn">
+                
+                {/* Top Navigation Bar: Back to "Your Business" */}
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setActiveItemId(null)}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-500 hover:text-[#FA5A16] transition-colors cursor-pointer group"
+                  >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span>Back to <strong>"Your Business"</strong></span>
+                  </button>
+
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#FA5A16] bg-orange-50 px-3 py-1 rounded-full border border-orange-200/60">
+                    {activeItem.badge}
+                  </span>
+                </div>
+
+                {/* Header with Title & Icon */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FA5A16] to-[#E04808] text-white flex items-center justify-center shadow-md shadow-orange-500/25 shrink-0">
+                    {React.createElement(activeItem.icon, { className: "w-6 h-6" })}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-[#0B192C] tracking-tight leading-tight">
+                      {activeItem.title}
+                    </h3>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-500">
+                      {activeItem.fullTitle} — {activeItem.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Summary Sentence */}
+                <p className="text-xs sm:text-sm text-slate-600 font-medium mb-4 leading-relaxed">
+                  {activeItem.summary}
+                </p>
+
+                {/* Exact Bullet Pointers Container */}
+                <div className="max-h-[380px] overflow-y-auto pr-1 space-y-3.5 custom-scrollbar mb-5">
+                  {activeItem.isGrouped ? (
+                    /* Grouped Pointers (GST & Customs) */
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                      {activeItem.groups.map((grp, gIdx) => (
+                        <div key={gIdx} className="bg-slate-50/90 rounded-2xl p-4 border border-slate-200/80">
+                          <div className="text-xs font-extrabold text-[#FA5A16] tracking-wide mb-2.5 flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
+                            <span>{grp.label}</span>
+                          </div>
+                          <div className="space-y-1.5">
+                            {grp.pointers.map((pt, pIdx) => (
+                              <div key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                                <span className="text-[#FA5A16] font-black text-sm shrink-0 leading-none mt-0.5">•</span>
                                 <span>{pt}</span>
                               </div>
                             ))}
                           </div>
                         </div>
-                      )}
+                      ))}
+                    </div>
+                  ) : (
+                    /* Standard Pointers List (IFRS, M&A, Corporate Legal, TP, Payroll) */
+                    <div className="bg-slate-50/90 rounded-2xl p-5 border border-slate-200/80">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                        {activeItem.pointers.map((pt, pIdx) => (
+                          <div key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                            <span className="text-[#FA5A16] font-black text-sm shrink-0 leading-none mt-0.5">•</span>
+                            <span>{pt}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
-
                 </div>
-              );
-            })}
+
+                {/* Bottom Action Footer */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setActiveItemId(null)}
+                    className="text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+                  >
+                    ← Close Details
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (typeof onOpenModal === 'function') {
+                        onOpenModal('call');
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-orange-500/25 transition-all transform hover:scale-[1.02] cursor-pointer"
+                  >
+                    <span>Speak to {activeItem.title} Specialist</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+              </div>
+            )}
 
           </div>
 
-          {/* ---------------- RIGHT COLUMN: 180° PROTRACTOR DIAL ---------------- */}
-          <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center lg:sticky lg:top-28">
+          {/* ---------------- RIGHT COLUMN: SEMICIRCLE ARC & 6 FAN PETAL TILES ---------------- */}
+          {/* Inspired directly by the Pinterest design: circular concentric arc + radiating petal cards */}
+          <div className="lg:col-span-5 xl:col-span-5 flex items-center justify-center">
             
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px] flex items-center justify-center">
+            <div className="relative w-full max-w-[460px] flex items-center justify-center">
               
-              {/* Subtle background glow behind dial */}
+              {/* Subtle background glow */}
               <div 
-                className="absolute inset-0 rounded-full blur-3xl opacity-35 pointer-events-none transition-all duration-500"
+                className="absolute inset-0 rounded-full blur-3xl opacity-30 pointer-events-none"
                 style={{
-                  background: 'radial-gradient(circle, rgba(250,90,22,0.4) 0%, rgba(250,90,22,0) 70%)'
+                  background: 'radial-gradient(circle, rgba(250,90,22,0.35) 0%, rgba(250,90,22,0) 70%)'
                 }}
               />
 
-              {/* The SVG Protractor (Matching reference image) */}
+              {/* The SVG Semicircle Fan */}
               <svg 
-                className="w-full h-auto protractor-svg-wrapper"
-                viewBox="0 0 310 500" 
+                className="w-full h-auto pinterest-fan-svg"
+                viewBox="0 0 440 640" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <defs>
-                  {/* Subtle 3D Protractor Face Gradient */}
-                  <linearGradient id="protractorFaceGrad" x1="50" y1="45" x2="260" y2="250" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="50%" stopColor="#FAFBFD" />
-                    <stop offset="100%" stopColor="#EEF2F6" />
+                  {/* Active Petal Gradient (Alphasure Brand Orange) */}
+                  <linearGradient id="activePetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FF7A3E" />
+                    <stop offset="50%" stopColor="#FA5A16" />
+                    <stop offset="100%" stopColor="#D84204" />
                   </linearGradient>
 
-                  {/* Outer Rim Chrome Gradient */}
-                  <linearGradient id="protractorRimGrad" x1="50" y1="45" x2="260" y2="455" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#CBD5E1" />
-                    <stop offset="35%" stopColor="#F8FAFC" />
-                    <stop offset="70%" stopColor="#94A3B8" />
-                    <stop offset="100%" stopColor="#E2E8F0" />
-                  </linearGradient>
-
-                  {/* Active Needle Gradient (Alphasure Orange) */}
-                  <linearGradient id="needleOrangeGrad" x1="0" y1="0" x2={radius} y2="0" gradientUnits="userSpaceOnUse">
+                  {/* Concentric Arc Track Gradient */}
+                  <linearGradient id="trackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FA5A16" />
-                    <stop offset="100%" stopColor="#E04808" />
+                    <stop offset="50%" stopColor="#FF854D" />
+                    <stop offset="100%" stopColor="#FA5A16" />
                   </linearGradient>
 
-                  {/* Soft Drop Shadow for Protractor */}
-                  <filter id="dialShadow" x="-10" y="-10" width="330" height="520" filterUnits="userSpaceOnUse">
-                    <feDropShadow dx="4" dy="12" stdDeviation="12" floodColor="#0F172A" floodOpacity="0.14" />
+                  {/* Soft Drop Shadow for Inactive Petals */}
+                  <filter id="petalShadow" x="-15%" y="-15%" width="130%" height="130%">
+                    <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#0F172A" floodOpacity="0.08" />
                   </filter>
 
-                  {/* Needle tip glow */}
-                  <filter id="needleGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#FA5A16" floodOpacity="0.6" />
+                  {/* Prominent Glow Shadow for Active Petal */}
+                  <filter id="activePetalShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="4" dy="12" stdDeviation="14" floodColor="#FA5A16" floodOpacity="0.38" />
+                  </filter>
+
+                  {/* Subtle Hover Shadow */}
+                  <filter id="hoverPetalShadow" x="-15%" y="-15%" width="130%" height="130%">
+                    <feDropShadow dx="3" dy="10" stdDeviation="10" floodColor="#FA5A16" floodOpacity="0.22" />
+                  </filter>
+
+                  {/* Central Disc Shadow */}
+                  <filter id="hubShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="6" stdDeviation="8" floodColor="#0F172A" floodOpacity="0.12" />
                   </filter>
                 </defs>
 
-                {/* 1. Semicircular Protractor Body & Beveled Rim */}
+                {/* 1. Semicircular Concentric Guide Arc */}
                 <path
-                  d={`M ${cx},${cy - radius} A ${radius},${radius} 0 0,1 ${cx},${cy + radius} L ${cx},${cy - radius} Z`}
-                  fill="url(#protractorFaceGrad)"
-                  stroke="url(#protractorRimGrad)"
-                  strokeWidth="6"
-                  filter="url(#dialShadow)"
+                  d={trackPath}
+                  stroke="url(#trackGrad)"
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  opacity="0.85"
                 />
 
-                {/* 2. Inner Dial Concentric Arc */}
-                <path
-                  d={`M ${cx},${cy - (radius - 38)} A ${radius - 38},${radius - 38} 0 0,1 ${cx},${cy + (radius - 38)}`}
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="1.2"
-                />
+                {/* 2. Top and Bottom Track Terminal Pips */}
+                <circle cx={trackStart.x} cy={trackStart.y} r="3.5" fill="#FA5A16" />
+                <circle cx={trackEnd.x} cy={trackEnd.y} r="3.5" fill="#FA5A16" />
 
-                {/* 3. Outer Tick Track Arc */}
-                <path
-                  d={`M ${cx},${cy - (radius - 1)} A ${radius - 1},${radius - 1} 0 0,1 ${cx},${cy + (radius - 1)}`}
-                  fill="none"
-                  stroke="#94A3B8"
-                  strokeWidth="1.2"
-                />
+                {/* 3. The 6 Radiating Fan Petals on the Right */}
+                {SOLUTIONS_360_ITEMS.map((item, idx) => {
+                  const isActive = activeItemId === item.id;
+                  const isHovered = hoveredItemId === item.id;
+                  
+                  // Radial displacement vector for active or hover pop
+                  const midRad = (item.midDeg * Math.PI) / 180;
+                  const popDist = isActive ? 12 : isHovered ? 6 : 0;
+                  const dx = popDist * Math.cos(midRad);
+                  const dy = popDist * Math.sin(midRad);
 
-                {/* 4. Fine Radiating Rays (Every 10 degrees) */}
-                {degrees.map((deg) => {
-                  const pStart = getCoordinates(deg, 26);
-                  const pEnd = getCoordinates(deg, radius - 40);
-                  const isCurrentTarget = targetItemId !== null && Math.abs(deg - targetAngle) < 6;
+                  // Sector path
+                  const sectorPath = getSectorPath(item.startDeg, item.endDeg, rIn, rOut);
 
-                  return (
-                    <line
-                      key={`ray-${deg}`}
-                      x1={pStart.x}
-                      y1={pStart.y}
-                      x2={pEnd.x}
-                      y2={pEnd.y}
-                      stroke={isCurrentTarget ? '#FA5A16' : '#94A3B8'}
-                      strokeWidth={isCurrentTarget ? '1.8' : '0.65'}
-                      opacity={isCurrentTarget ? '0.95' : '0.45'}
-                      className="transition-all duration-300"
-                    />
-                  );
-                })}
+                  // Node dot on the concentric track
+                  const nodePt = getPoint(item.midDeg, rTrack);
+                  // Connector line from node dot to inner petal edge
+                  const petalInnerPt = getPoint(item.midDeg, rIn - 2);
 
-                {/* 5. Minor Ticks (Every 1 degree) */}
-                {Array.from({ length: 181 }, (_, i) => i).map((deg) => {
-                  if (deg % 5 === 0) return null; // Handled by major/medium
-                  const p1 = getCoordinates(deg, radius - 7);
-                  const p2 = getCoordinates(deg, radius);
-                  return (
-                    <line
-                      key={`minor-${deg}`}
-                      x1={p1.x}
-                      y1={p1.y}
-                      x2={p2.x}
-                      y2={p2.y}
-                      stroke="#94A3B8"
-                      strokeWidth="0.5"
-                      opacity="0.6"
-                    />
-                  );
-                })}
-
-                {/* 6. Medium Ticks (Every 5 degrees) */}
-                {Array.from({ length: 37 }, (_, i) => i * 5).map((deg) => {
-                  if (deg % 10 === 0) return null; // Handled by major
-                  const p1 = getCoordinates(deg, radius - 13);
-                  const p2 = getCoordinates(deg, radius);
-                  return (
-                    <line
-                      key={`med-${deg}`}
-                      x1={p1.x}
-                      y1={p1.y}
-                      x2={p2.x}
-                      y2={p2.y}
-                      stroke="#64748B"
-                      strokeWidth="0.8"
-                    />
-                  );
-                })}
-
-                {/* 7. Major Ticks & Angle Numbers (Every 10 degrees, 10 to 170) */}
-                {degrees.map((deg) => {
-                  const p1 = getCoordinates(deg, radius - 20);
-                  const p2 = getCoordinates(deg, radius);
-                  const pLabel = getCoordinates(deg, radius - 33);
-                  const isCurrentTarget = targetItemId !== null && Math.abs(deg - targetAngle) < 6;
+                  // Text center coordinate
+                  const rText = (rIn + rOut) / 2;
+                  const textPt = getPoint(item.midDeg, rText);
 
                   return (
-                    <g key={`major-${deg}`} className="cursor-pointer">
+                    <g key={item.id} className="fan-petal-group">
+                      
+                      {/* Radial Connector Line */}
                       <line
-                        x1={p1.x}
-                        y1={p1.y}
-                        x2={p2.x}
-                        y2={p2.y}
-                        stroke={isCurrentTarget ? '#FA5A16' : '#334155'}
-                        strokeWidth={isCurrentTarget ? '2.2' : '1.2'}
-                        className="transition-colors duration-300"
+                        x1={nodePt.x}
+                        y1={nodePt.y}
+                        x2={petalInnerPt.x + (isActive ? dx * 0.5 : 0)}
+                        y2={petalInnerPt.y + (isActive ? dy * 0.5 : 0)}
+                        stroke={isActive || isHovered ? '#FA5A16' : '#CBD5E1'}
+                        strokeWidth={isActive ? '2.5' : '1.5'}
+                        strokeDasharray={isActive ? 'none' : '3 3'}
+                        className="transition-all duration-300"
                       />
-                      <text
-                        x={pLabel.x}
-                        y={pLabel.y + 4}
-                        textAnchor="middle"
-                        fontSize={deg === 90 ? '11' : '9.5'}
-                        fontWeight={isCurrentTarget ? '900' : '700'}
-                        fill={isCurrentTarget ? '#FA5A16' : '#1E293B'}
-                        className="transition-colors duration-300 select-none font-sans"
+
+                      {/* Node Dot on Concentric Track */}
+                      <g className="cursor-pointer" onClick={() => handleToggleItem(item.id)}>
+                        {isActive && (
+                          <circle
+                            cx={nodePt.x}
+                            cy={nodePt.y}
+                            r="11"
+                            fill="#FA5A16"
+                            opacity="0.28"
+                            className="animate-ping"
+                          />
+                        )}
+                        <circle
+                          cx={nodePt.x}
+                          cy={nodePt.y}
+                          r={isActive ? 8 : isHovered ? 7 : 5}
+                          fill={isActive ? '#FA5A16' : '#FFFFFF'}
+                          stroke={isActive ? '#FFFFFF' : isHovered ? '#FA5A16' : '#94A3B8'}
+                          strokeWidth="2.5"
+                          className="transition-all duration-300"
+                        />
+                      </g>
+
+                      {/* Petal Card Wedge */}
+                      <g
+                        transform={popDist > 0 ? `translate(${dx.toFixed(2)}, ${dy.toFixed(2)})` : undefined}
+                        style={{
+                          transition: 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                          cursor: 'pointer'
+                        }}
+                        onClick={() => handleToggleItem(item.id)}
+                        onMouseEnter={() => setHoveredItemId(item.id)}
+                        onMouseLeave={() => setHoveredItemId(null)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleToggleItem(item.id);
+                          }
+                        }}
                       >
-                        {deg}
-                      </text>
+                        {/* Wedge Sector Background */}
+                        <path
+                          d={sectorPath}
+                          fill={isActive ? 'url(#activePetalGrad)' : isHovered ? '#FFF9F6' : '#FFFFFF'}
+                          stroke={isActive ? '#FA5A16' : isHovered ? '#FA5A16' : '#E2E8F0'}
+                          strokeWidth={isActive ? '2.5' : isHovered ? '2' : '1.5'}
+                          strokeLinejoin="round"
+                          filter={isActive ? 'url(#activePetalShadow)' : isHovered ? 'url(#hoverPetalShadow)' : 'url(#petalShadow)'}
+                          className="transition-all duration-300"
+                        />
+
+                        {/* Petal Text Label (Rotated slightly to align with fan radius) */}
+                        <g 
+                          transform={`translate(${textPt.x.toFixed(2)}, ${textPt.y.toFixed(2)}) rotate(${(item.midDeg * 0.35).toFixed(2)})`}
+                          className="select-none pointer-events-none"
+                        >
+                          {/* Index Pill / Number */}
+                          <text
+                            x="-52"
+                            y="-3"
+                            fontSize="10"
+                            fontWeight="900"
+                            textAnchor="middle"
+                            fill={isActive ? 'rgba(255,255,255,0.75)' : '#FA5A16'}
+                            className="font-mono tracking-tight"
+                          >
+                            0{idx + 1}
+                          </text>
+
+                          {/* Primary Title */}
+                          <text
+                            x="8"
+                            y="-3"
+                            fontSize={item.title.length > 12 ? '13' : '14.5'}
+                            fontWeight="900"
+                            textAnchor="middle"
+                            fill={isActive ? '#FFFFFF' : '#0B192C'}
+                            className="font-sans tracking-tight"
+                          >
+                            {item.title}
+                          </text>
+
+                          {/* Sub-label */}
+                          <text
+                            x="0"
+                            y="14"
+                            fontSize="9"
+                            fontWeight="700"
+                            textAnchor="middle"
+                            fill={isActive ? 'rgba(255,255,255,0.85)' : '#64748B'}
+                            className="font-sans tracking-normal uppercase"
+                          >
+                            {item.category.split('&')[0].trim()}
+                          </text>
+                        </g>
+
+                      </g>
+
                     </g>
                   );
                 })}
 
-                {/* 8. Straight Vertical Diameter Edge (Metallic bar) */}
-                <line
-                  x1={cx}
-                  y1={cy - radius}
-                  x2={cx}
-                  y2={cy + radius}
-                  stroke="#94A3B8"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-
-                {/* 9. Dynamic Indicator Needle (Swings smoothly to active or hovered angle) */}
-                <g transform={`translate(${cx}, ${cy})`}>
-                  <g 
-                    className="protractor-needle"
-                    style={{
-                      transform: `rotate(${targetAngle - 90}deg)`,
-                      transformOrigin: '0px 0px'
-                    }}
-                    filter="url(#needleGlow)"
-                  >
-                    {/* Needle line */}
-                    <line
-                      x1={0}
-                      y1={0}
-                      x2={radius + 4}
-                      y2={0}
-                      stroke="url(#needleOrangeGrad)"
-                      strokeWidth="3.2"
-                      strokeLinecap="round"
-                    />
-
-                    {/* Outer needle pointer arrow / pip */}
-                    <circle
-                      cx={radius + 4}
-                      cy={0}
-                      r="4.5"
-                      fill="#FA5A16"
-                      stroke="#FFFFFF"
-                      strokeWidth="1.5"
-                    />
-                  </g>
-                </g>
-
-                {/* 10. Center Pivot Hub */}
-                <g>
-                  {/* Outer chrome ring */}
+                {/* 4. Center Semi-Disc Hub on the Left */}
+                <g className="cursor-pointer" onClick={() => setActiveItemId(null)}>
+                  {/* Outer White Hub Disc */}
                   <circle
                     cx={cx}
                     cy={cy}
-                    r="12"
+                    r="46"
                     fill="#FFFFFF"
-                    stroke="#CBD5E1"
+                    stroke="#E2E8F0"
                     strokeWidth="2.5"
-                    filter="url(#dialShadow)"
+                    filter="url(#hubShadow)"
                   />
-                  {/* Inner orange pin */}
+                  {/* Inner Orange Hub Accent */}
                   <circle
                     cx={cx}
                     cy={cy}
-                    r="6.5"
+                    r="18"
                     fill="#FA5A16"
                   />
-                  {/* Highlight pip */}
+                  {/* Specular Pip */}
                   <circle
-                    cx={cx - 2}
-                    cy={cy - 2}
-                    r="2"
+                    cx={cx - 3}
+                    cy={cy - 3}
+                    r="4"
                     fill="#FFFFFF"
-                    opacity="0.8"
+                    opacity="0.85"
                   />
                 </g>
+
               </svg>
 
             </div>

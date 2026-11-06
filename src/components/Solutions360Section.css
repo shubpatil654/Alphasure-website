@@ -1,5 +1,5 @@
 /* =========================================================================
-   SOLUTIONS 360 SECTION - 3D CLAY & PROTRACTOR STYLES (ALPHASURE ORANGE)
+   SOLUTIONS 360 SECTION - PINTEREST SEMICIRCLE FAN & DYNAMIC HUB (ALPHASURE)
    ========================================================================= */
 
 .solutions-360-wrapper {
@@ -61,13 +61,6 @@
   transform: rotate(35deg);
 }
 
-/* "We Offer" typography matching website font system */
-.text-3d-dark {
-  color: #0B192C;
-  font-family: "Inter", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.025em;
-}
-
 /* 3D "360° Solutions" Beveled Block (Orange) */
 .block-3d-orange {
   position: relative;
@@ -107,212 +100,110 @@
     0 24px 40px rgba(250, 90, 22, 0.5);
 }
 
-/* 3D Letter embossing on 360 Solutions */
-.text-3d-white {
-  color: #FFFFFF;
-  text-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.4),
-    0 2px 2px rgba(0, 0, 0, 0.35),
-    0 4px 8px rgba(0, 0, 0, 0.25);
-}
-
 /* -------------------------------------------------------------------------
-   TITLES LIST ITEMS (DEFAULT STATE: EXACT SAME FONT SIZE AND COLOR)
+   LEFT COLUMN: "YOUR BUSINESS" INITIAL CARD & SERVICE DETAILS CARD
    ------------------------------------------------------------------------- */
-.offering-item-card {
+.your-business-card {
   position: relative;
   width: 100%;
-  border-radius: 1.15rem;
   background: #FFFFFF;
+  border-radius: 1.75rem;
+  padding: 2rem 1.75rem;
   border: 1.5px solid #E2E8F0;
   box-shadow: 
-    0 2px 0 #F1F5F9 inset,
-    0 4px 0 #CBD5E1,
-    0 7px 16px rgba(15, 23, 42, 0.06);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  overflow: hidden;
-}
-
-/* Clickable Header Bar */
-.offering-item-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.9rem 1.25rem;
-  transition: all 0.25s ease;
+    0 20px 45px -12px rgba(11, 25, 44, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s ease;
 }
 
 @media (min-width: 640px) {
-  .offering-item-header {
-    padding: 1rem 1.4rem;
-  }
-}
-
-/* Default typography (Identical for all 6 titles) */
-.offering-item-title {
-  font-size: 1rem;
-  line-height: 1.35;
-  font-weight: 800;
-  color: #0F172A;
-  letter-spacing: -0.015em;
-  transition: color 0.25s ease;
-}
-
-@media (min-width: 640px) {
-  .offering-item-title {
-    font-size: 1.125rem;
+  .your-business-card {
+    padding: 2.5rem 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .offering-item-title {
-    font-size: 1.2rem;
+  .your-business-card {
+    padding: 3rem 2.5rem;
   }
 }
 
-/* Sub-phrase in title */
-.offering-item-suffix {
-  font-weight: 700;
-  color: #475569;
-  font-size: 0.88em;
-  margin-left: 0.25rem;
-  transition: color 0.25s ease;
-}
-
-/* Hover & Active Pop State (Transforms into the 3D Orange block!) */
-.offering-item-card:hover {
-  transform: translateX(6px) translateY(-2px);
-  border-color: #FA5A16;
-  box-shadow: 
-    0 4px 0 #B83803,
-    0 12px 24px rgba(250, 90, 22, 0.25);
-}
-
-.offering-item-card.is-active {
-  border-color: #FA5A16;
-  box-shadow: 
-    0 4px 0 #B83803,
-    0 14px 28px rgba(250, 90, 22, 0.32);
-}
-
-.offering-item-card.is-active .offering-item-header {
-  background: linear-gradient(135deg, #FF7B3E 0%, #FA5A16 48%, #E04808 100%);
-}
-
-.offering-item-card.is-active .offering-item-title {
-  color: #FFFFFF;
-  text-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.35),
-    0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.offering-item-card.is-active .offering-item-suffix {
-  color: #FFE4D6;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-/* Chevron indicator */
-.offering-chevron-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 9999px;
-  background: #F1F5F9;
-  color: #64748B;
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
-}
-
-.offering-item-card:hover .offering-chevron-badge {
-  background: #FFEDD5;
-  color: #FA5A16;
-}
-
-.offering-item-card.is-active .offering-chevron-badge {
+.service-details-card {
+  position: relative;
+  width: 100%;
   background: #FFFFFF;
-  color: #FA5A16;
-  transform: rotate(90deg);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 1.75rem;
+  padding: 1.75rem 1.5rem;
+  border: 2px solid rgba(250, 90, 22, 0.35);
+  box-shadow: 
+    0 24px 50px -10px rgba(250, 90, 22, 0.15),
+    0 8px 24px -4px rgba(15, 23, 42, 0.08);
+  transition: all 0.4s ease;
+}
+
+@media (min-width: 640px) {
+  .service-details-card {
+    padding: 2.25rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-details-card {
+    padding: 2.5rem 2.25rem;
+  }
+}
+
+/* Custom Sleek Scrollbar for Long Service Pointers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FA5A16;
 }
 
 /* -------------------------------------------------------------------------
-   POINTERS CONTENT BOX (DISPLAYING ONLY USER'S EXACT POINTERS)
+   RIGHT COLUMN: PINTEREST SEMICIRCLE FAN & PETALS
    ------------------------------------------------------------------------- */
-.offering-pointers-box {
-  padding: 1.15rem 1.25rem 1.35rem;
-  background: #FAFBFD;
-  border-top: 1px solid #FED7AA;
-  animation: fadeInDown 0.25s ease-out;
+.pinterest-fan-svg {
+  filter: drop-shadow(0 14px 30px rgba(11, 25, 44, 0.07));
+  overflow: visible;
 }
 
-@media (min-width: 640px) {
-  .offering-pointers-box {
-    padding: 1.25rem 1.5rem 1.45rem;
-  }
+.fan-petal-group {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.pointer-group-title {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: #FA5A16;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.65rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.fan-petal-group path {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.pointer-list-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  font-weight: 600;
-  color: #1E293B;
-  margin-bottom: 0.45rem;
+.fan-petal-group text {
+  transition: fill 0.25s ease;
 }
 
-@media (min-width: 640px) {
-  .pointer-list-item {
-    font-size: 0.92rem;
-  }
-}
-
-.pointer-dot {
-  color: #FA5A16;
-  font-size: 1.1rem;
-  line-height: 1;
-  font-weight: 900;
-  flex-shrink: 0;
-  margin-top: 0.05rem;
-}
-
-/* Protractor 3D Frame & Shadows */
-.protractor-svg-wrapper {
-  filter: 
-    drop-shadow(0 18px 32px rgba(11, 25, 44, 0.12))
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
-}
-
-.protractor-needle {
-  transform-origin: 0px 0px;
-  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
-}
-
-@keyframes fadeInDown {
+/* Fade in animation for dynamic switching */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
