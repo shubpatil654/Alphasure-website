@@ -118,10 +118,14 @@ export default function Solutions360Section({ onOpenModal }) {
   // All titles are minimized by default on load; only opens when clicked
   const [activeItemId, setActiveItemId] = useState(null);
   const [expandedItems, setExpandedItems] = useState([]);
+  // Track hovered title so needle animates dynamically on hover
+  const [hoveredItemId, setHoveredItemId] = useState(null);
 
-  const activeItem = SOLUTIONS_360_ITEMS.find(item => item.id === activeItemId) || null;
-  // Neutral angle 90° (horizontal center) when all minimized; points to item degree when open
-  const activeAngle = activeItem ? activeItem.degree : 90;
+  // Target item: hovered item takes priority for dynamic needle animation;
+  // otherwise points to clicked/open item; if none, rests at neutral 90°
+  const targetItemId = hoveredItemId || activeItemId;
+  const targetItem = SOLUTIONS_360_ITEMS.find(item => item.id === targetItemId) || null;
+  const targetAngle = targetItem ? targetItem.degree : 90;
 
   // Toggle item expansion: click to open, click again to minimize
   const toggleItemExpansion = (itemId) => {
@@ -195,12 +199,15 @@ export default function Solutions360Section({ onOpenModal }) {
 
             {SOLUTIONS_360_ITEMS.map((item) => {
               const isExpanded = expandedItems.includes(item.id);
+              const isHovered = hoveredItemId === item.id;
               const IconComponent = item.icon;
 
               return (
                 <div
                   key={item.id}
-                  className={`offering-item-card ${isExpanded ? 'is-active' : ''}`}
+                  onMouseEnter={() => setHoveredItemId(item.id)}
+                  onMouseLeave={() => setHoveredItemId(null)}
+                  className={`offering-item-card ${isExpanded ? 'is-active' : ''} ${isHovered && !isExpanded ? 'border-[#FA5A16]/60 shadow-md' : ''}`}
                 >
                   {/* Clickable Header Bar */}
                   <div
@@ -219,13 +226,15 @@ export default function Solutions360Section({ onOpenModal }) {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-3 transition-colors shrink-0 ${
                         isExpanded 
                           ? 'bg-white/20 text-white' 
-                          : 'bg-slate-100 text-slate-600'
+                          : isHovered
+                            ? 'bg-orange-100 text-[#FA5A16]'
+                            : 'bg-slate-100 text-slate-600'
                       }`}>
                         <IconComponent className="w-4 h-4" />
                       </div>
 
                       {/* Title: Same font size and color across all 6 tiles */}
-                      <span className="offering-item-title">
+                      <span className={`offering-item-title ${isHovered && !isExpanded ? 'text-[#FA5A16]' : ''}`}>
                         {item.title}
                       </span>
                     </div>
@@ -321,7 +330,7 @@ export default function Solutions360Section({ onOpenModal }) {
                   </linearGradient>
 
                   {/* Active Needle Gradient (Alphasure Orange) */}
-                  <linearGradient id="needleOrangeGrad" x1={cx} y1={cy} x2={cx + radius} y2={cy} gradientUnits="userSpaceOnUse">
+                  <linearGradient id="needleOrangeGrad" x1="0" y1="0" x2={radius} y2="0" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#FA5A16" />
                     <stop offset="100%" stopColor="#E04808" />
                   </linearGradient>
@@ -366,7 +375,7 @@ export default function Solutions360Section({ onOpenModal }) {
                 {degrees.map((deg) => {
                   const pStart = getCoordinates(deg, 26);
                   const pEnd = getCoordinates(deg, radius - 40);
-                  const isCurrentTarget = activeItemId !== null && Math.abs(deg - activeAngle) < 6;
+                  const isCurrentTarget = targetItemId !== null && Math.abs(deg - targetAngle) < 6;
 
                   return (
                     <line
@@ -376,8 +385,8 @@ export default function Solutions360Section({ onOpenModal }) {
                       x2={pEnd.x}
                       y2={pEnd.y}
                       stroke={isCurrentTarget ? '#FA5A16' : '#94A3B8'}
-                      strokeWidth={isCurrentTarget ? '1.6' : '0.65'}
-                      opacity={isCurrentTarget ? '0.9' : '0.45'}
+                      strokeWidth={isCurrentTarget ? '1.8' : '0.65'}
+                      opacity={isCurrentTarget ? '0.95' : '0.45'}
                       className="transition-all duration-300"
                     />
                   );
@@ -424,7 +433,7 @@ export default function Solutions360Section({ onOpenModal }) {
                 {degrees.map((deg) => {
                   const p1 = getCoordinates(deg, radius - 20);
                   const p2 = getCoordinates(deg, radius);
-                  const isCurrentTarget = activeItemId !== null && Math.abs(deg - activeAngle) < 6;
+                  const isCurrentTarget = targetItemId !== null && Math.abs(deg - targetAngle) < 6;
 
                   // Position label: for 180, place safely inside bottom arc so it never clashes with the vertical metallic bar
                   let labelX, labelY;
@@ -449,7 +458,7 @@ export default function Solutions360Section({ onOpenModal }) {
                         x2={p2.x}
                         y2={p2.y}
                         stroke={isCurrentTarget ? '#FA5A16' : '#334155'}
-                        strokeWidth={isCurrentTarget ? '2' : '1.2'}
+                        strokeWidth={isCurrentTarget ? '2.2' : '1.2'}
                         className="transition-colors duration-300"
                       />
                       <text
@@ -478,35 +487,37 @@ export default function Solutions360Section({ onOpenModal }) {
                   strokeLinecap="round"
                 />
 
-                {/* 9. Dynamic Indicator Needle (Swings to active angle) */}
-                <g 
-                  className="protractor-needle"
-                  transform={`rotate(${activeAngle - 90} ${cx} ${cy})`}
-                  style={{
-                    transformOrigin: `${cx}px ${cy}px`
-                  }}
-                  filter="url(#needleGlow)"
-                >
-                  {/* Needle line */}
-                  <line
-                    x1={cx}
-                    y1={cy}
-                    x2={cx + radius + 4}
-                    y2={cy}
-                    stroke="url(#needleOrangeGrad)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
+                {/* 9. Dynamic Indicator Needle (Swings smoothly to active or hovered angle) */}
+                <g transform={`translate(${cx}, ${cy})`}>
+                  <g 
+                    className="protractor-needle"
+                    style={{
+                      transform: `rotate(${targetAngle - 90}deg)`,
+                      transformOrigin: '0px 0px'
+                    }}
+                    filter="url(#needleGlow)"
+                  >
+                    {/* Needle line */}
+                    <line
+                      x1={0}
+                      y1={0}
+                      x2={radius + 4}
+                      y2={0}
+                      stroke="url(#needleOrangeGrad)"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                    />
 
-                  {/* Outer needle pointer arrow / pip */}
-                  <circle
-                    cx={cx + radius + 4}
-                    cy={cy}
-                    r="4"
-                    fill="#FA5A16"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                  />
+                    {/* Outer needle pointer arrow / pip */}
+                    <circle
+                      cx={radius + 4}
+                      cy={0}
+                      r="4.5"
+                      fill="#FA5A16"
+                      stroke="#FFFFFF"
+                      strokeWidth="1.5"
+                    />
+                  </g>
                 </g>
 
                 {/* 10. Center Pivot Hub */}
