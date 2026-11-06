@@ -1,33 +1,42 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   PhoneCall, 
   ArrowRight, 
-  CheckCircle2, 
-  Layers,
-  ChevronDown,
-  Sparkles
+  X,
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 import { SOLUTIONS_360_ITEMS } from './Solutions360Section';
 import './RoadmapSolutions360Section.css';
 
 export default function RoadmapSolutions360Section({ onOpenModal }) {
-  // Active selected practice from the pills roadmap
-  const [activePracticeId, setActivePracticeId] = useState('gst-customs');
-  // Optional view all toggle
-  const [viewAll, setViewAll] = useState(false);
-  
-  const detailsRef = useRef(null);
+  // Modal state: holds the ID of the practice currently popped open on screen (null if closed)
+  const [modalPracticeId, setModalPracticeId] = useState(null);
 
-  const activeItem = SOLUTIONS_360_ITEMS.find((item) => item.id === activePracticeId) || SOLUTIONS_360_ITEMS[0];
-  const ActiveIcon = activeItem.icon;
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setModalPracticeId(null);
+      }
+    };
+    if (modalPracticeId) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [modalPracticeId]);
+
+  const activeItem = SOLUTIONS_360_ITEMS.find((item) => item.id === modalPracticeId) || SOLUTIONS_360_ITEMS[0];
+  const ActiveIcon = activeItem?.icon;
 
   const handlePillClick = (id) => {
-    setActivePracticeId(id);
-    setViewAll(false);
-    // Smoothly scroll down to details card if on mobile
-    if (window.innerWidth < 768 && detailsRef.current) {
-      detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    setModalPracticeId(id);
   };
 
   const handleConsultationClick = () => {
@@ -60,7 +69,7 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
           </h2>
 
           <p className="text-slate-300 text-xs sm:text-sm font-medium max-w-md mx-auto mt-4">
-            Click on any pill to view its complete offerings and pointers
+            Click on any pill to view its complete offerings
           </p>
         </div>
 
@@ -108,8 +117,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('gst-customs')}
-                className={`branding-pill branding-pill-white ${activePracticeId === 'gst-customs' && !viewAll ? 'is-active' : ''}`}
-                title="View GST & Customs Offerings"
+                className="branding-pill branding-pill-white"
+                title="Click to pop GST & Customs offerings on screen"
               >
                 <span>GST & Customs</span>
               </button>
@@ -118,8 +127,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('ifrs')}
-                className={`branding-pill branding-pill-orange ${activePracticeId === 'ifrs' && !viewAll ? 'is-active' : ''}`}
-                title="View IFRS Offerings"
+                className="branding-pill branding-pill-orange"
+                title="Click to pop IFRS offerings on screen"
               >
                 <span>IFRS</span>
               </button>
@@ -131,8 +140,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('m-and-a')}
-                className={`branding-pill branding-pill-orange ${activePracticeId === 'm-and-a' && !viewAll ? 'is-active' : ''}`}
-                title="View M&A Offerings"
+                className="branding-pill branding-pill-orange"
+                title="Click to pop M&A offerings on screen"
               >
                 <span>M&A</span>
               </button>
@@ -141,8 +150,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('corporate-legal')}
-                className={`branding-pill branding-pill-white ${activePracticeId === 'corporate-legal' && !viewAll ? 'is-active' : ''}`}
-                title="View Corporate Legal Offerings"
+                className="branding-pill branding-pill-white"
+                title="Click to pop Corporate Legal offerings on screen"
               >
                 <span>Corporate Legal</span>
               </button>
@@ -154,8 +163,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('transfer-pricing')}
-                className={`branding-pill branding-pill-white ${activePracticeId === 'transfer-pricing' && !viewAll ? 'is-active' : ''}`}
-                title="View Transfer Pricing Offerings"
+                className="branding-pill branding-pill-white"
+                title="Click to pop Transfer Pricing offerings on screen"
               >
                 <span>Transfer Pricing</span>
               </button>
@@ -164,8 +173,8 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => handlePillClick('payroll')}
-                className={`branding-pill branding-pill-orange ${activePracticeId === 'payroll' && !viewAll ? 'is-active' : ''}`}
-                title="View Payroll Offerings"
+                className="branding-pill branding-pill-orange"
+                title="Click to pop Payroll offerings on screen"
               >
                 <span>Payroll</span>
               </button>
@@ -190,142 +199,129 @@ export default function RoadmapSolutions360Section({ onOpenModal }) {
 
         </div>
 
-        {/* ================= DETAILED OFFERINGS CARD (EXACT USER CONTENT) ================= */}
-        <div ref={detailsRef} className="roadmap-details-card">
+      </div>
 
-          {/* Card Header */}
-          <div className="roadmap-card-header">
-            <div className="roadmap-card-title-group">
-              <div className="roadmap-card-icon-box">
-                <ActiveIcon className="w-6 h-6" />
+      {/* ================= POPUP MODAL CONTAINER ON SCREEN ================= */}
+      {modalPracticeId && activeItem && (
+        <div 
+          className="roadmap-modal-overlay"
+          onClick={() => setModalPracticeId(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeItem.title} Offerings`}
+        >
+          {/* Modal Container Card */}
+          <div 
+            className="roadmap-modal-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="roadmap-modal-header">
+              <div className="roadmap-modal-title-group">
+                <div className="roadmap-modal-icon-box">
+                  {ActiveIcon && <ActiveIcon className="w-5 h-5" />}
+                </div>
+                <div>
+                  <span className="roadmap-modal-badge">Practice Offerings</span>
+                  <h3 className="roadmap-modal-title">{activeItem.title}</h3>
+                </div>
               </div>
-              <div>
-                <span className="roadmap-card-badge">Selected Practice</span>
-                <h3 className="roadmap-card-title">{activeItem.title}</h3>
-              </div>
+
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setModalPracticeId(null)}
+                className="roadmap-modal-close-btn"
+                title="Close (Esc)"
+                aria-label="Close offerings container"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            {/* Quick action: View all vs Focused view */}
-            <button
-              type="button"
-              onClick={() => setViewAll((prev) => !prev)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 text-xs font-bold text-slate-200 border border-white/15 cursor-pointer transition-colors"
-            >
-              <Layers className="w-3.5 h-3.5 text-[#FA5A16]" />
-              <span>{viewAll ? 'Show Focused View' : 'View All 6 Practices'}</span>
-            </button>
-          </div>
+            {/* Quick Practice Switcher Tabs */}
+            <div className="roadmap-modal-nav">
+              {SOLUTIONS_360_ITEMS.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setModalPracticeId(item.id)}
+                  className={`roadmap-modal-nav-btn ${item.id === activeItem.id ? 'active' : ''}`}
+                >
+                  {item.title}
+                </button>
+              ))}
+            </div>
 
-          {/* Card Body: The exact bullet points (strictly without AI filler text) */}
-          <div className="pt-6">
-            {viewAll ? (
-              /* All 6 Practices View */
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {SOLUTIONS_360_ITEMS.map((item) => {
-                  const ItemIcon = item.icon;
-                  return (
-                    <div 
-                      key={item.id} 
-                      className={`bg-black/35 rounded-xl p-4 border ${item.id === activePracticeId ? 'border-[#FA5A16]' : 'border-white/10'}`}
-                    >
-                      <div className="flex items-center gap-2.5 mb-3 pb-2 border-b border-white/10">
-                        <div className="w-7 h-7 rounded-lg bg-[#FA5A16]/20 text-[#FA5A16] flex items-center justify-center shrink-0">
-                          <ItemIcon className="w-4 h-4" />
-                        </div>
-                        <h4 className="font-extrabold text-white text-base">{item.title}</h4>
+            {/* Modal Body: Exact Verbatim Pointers (Zero AI content) */}
+            <div className="roadmap-modal-body">
+              {activeItem.isGrouped ? (
+                /* Grouped Content (GST & Customs) */
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {activeItem.groups.map((grp, gIdx) => (
+                    <div key={gIdx} className="bg-black/35 rounded-xl p-4 sm:p-5 border border-white/10">
+                      <div className="roadmap-subgroup-title">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#FA5A16]" />
+                        <span>{grp.label}</span>
                       </div>
-
-                      {item.isGrouped ? (
-                        <div className="space-y-3">
-                          {item.groups.map((grp, gIdx) => (
-                            <div key={gIdx}>
-                              <div className="roadmap-subgroup-title text-xs">
-                                <span>{grp.label}</span>
-                              </div>
-                              <div className="space-y-1">
-                                {grp.pointers.map((pt, pIdx) => (
-                                  <div key={pIdx} className="roadmap-bullet-item text-xs">
-                                    <span className="roadmap-bullet-dot text-sm">•</span>
-                                    <span>{pt}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="space-y-1.5">
-                          {item.pointers.map((pt, pIdx) => (
-                            <div key={pIdx} className="roadmap-bullet-item text-xs">
-                              <span className="roadmap-bullet-dot text-sm">•</span>
-                              <span>{pt}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                      <div className="space-y-2 pt-1">
+                        {grp.pointers.map((pt, pIdx) => (
+                          <div key={pIdx} className="roadmap-bullet-item">
+                            <span className="roadmap-bullet-dot">•</span>
+                            <span>{pt}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  );
-                })}
-              </div>
-            ) : (
-              /* Focused Single Practice View */
-              <div>
-                {activeItem.isGrouped ? (
-                  /* Grouped View (GST & Customs) */
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {activeItem.groups.map((grp, gIdx) => (
-                      <div key={gIdx} className="bg-black/30 rounded-xl p-5 border border-white/10">
-                        <div className="roadmap-subgroup-title">
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#FA5A16]" />
-                          <span>{grp.label}</span>
-                        </div>
-                        <div className="space-y-2 pt-1">
-                          {grp.pointers.map((pt, pIdx) => (
-                            <div key={pIdx} className="roadmap-bullet-item">
-                              <span className="roadmap-bullet-dot">•</span>
-                              <span>{pt}</span>
-                            </div>
-                          ))}
-                        </div>
+                  ))}
+                </div>
+              ) : (
+                /* Standard Content (IFRS, M&A, Corporate Legal, TP, Payroll) */
+                <div className="bg-black/35 rounded-xl p-5 sm:p-6 border border-white/10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                    {activeItem.pointers.map((pt, pIdx) => (
+                      <div key={pIdx} className="roadmap-bullet-item">
+                        <span className="roadmap-bullet-dot">•</span>
+                        <span>{pt}</span>
                       </div>
                     ))}
                   </div>
-                ) : (
-                  /* Standard List View (IFRS, M&A, Corporate Legal, TP, Payroll) */
-                  <div className="bg-black/30 rounded-xl p-5 sm:p-6 border border-white/10">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                      {activeItem.pointers.map((pt, pIdx) => (
-                        <div key={pIdx} className="roadmap-bullet-item">
-                          <span className="roadmap-bullet-dot">•</span>
-                          <span>{pt}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="roadmap-modal-footer">
+              <span className="text-xs text-slate-300 font-medium">
+                Need specialized assistance with <strong className="text-white">{activeItem.title}</strong>?
+              </span>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setModalPracticeId(null)}
+                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 text-xs font-bold text-slate-200 transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModalPracticeId(null);
+                    handleConsultationClick();
+                  }}
+                  className="roadmap-cta-btn"
+                >
+                  <span>Speak with Specialist</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
-            )}
+            </div>
+
           </div>
-
-          {/* Card Footer */}
-          <div className="roadmap-card-footer">
-            <span className="text-xs text-slate-300 font-medium">
-              Need personalized advisory on <strong className="text-white">{activeItem.title}</strong>?
-            </span>
-
-            <button
-              type="button"
-              onClick={handleConsultationClick}
-              className="roadmap-cta-btn"
-            >
-              <span>Schedule Call with Specialist</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
         </div>
-
-      </div>
+      )}
 
     </section>
   );

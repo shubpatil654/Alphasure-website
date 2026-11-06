@@ -3,7 +3,7 @@
    Matches attached reference:
    - Header: "360° SOLUTION OF" in white, "SERVICES" in massive bold orange
    - Serpentine winding dashed line connecting alternating White & Orange pills
-   - Interactive pill selection & high-contrast offerings presentation
+   - Interactive pill click opens popup content modal container on screen
    - Strictly verbatim bullet points from the first section
    ========================================================================= */
 
@@ -218,56 +218,84 @@
 }
 
 /* -------------------------------------------------------------------------
-   INTERACTIVE OFFERINGS PRESENTATION CARD (EXACT USER BULLET POINTERS)
+   POPUP MODAL CONTAINER STYLING (CONTENT POPS ON SCREEN)
    ------------------------------------------------------------------------- */
-.roadmap-details-card {
+.roadmap-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: modalFadeIn 0.22s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.roadmap-modal-container {
   position: relative;
   width: 100%;
-  max-width: 980px;
-  margin: 3.5rem auto 0;
-  background: linear-gradient(165deg, #111C2C 0%, #0A121E 60%, #060B12 100%);
+  max-width: 840px;
+  max-height: 88vh;
+  background: linear-gradient(165deg, #131F32 0%, #0E1726 55%, #080E18 100%);
   border: 2px solid #FA5A16;
   border-radius: 1.5rem;
   box-shadow: 
-    0 24px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 35px rgba(250, 90, 22, 0.25);
-  padding: 1.75rem 1.5rem;
-  z-index: 15;
-  transition: all 0.35s ease;
-}
-
-@media (min-width: 640px) {
-  .roadmap-details-card {
-    padding: 2.25rem 2.5rem;
-  }
-}
-
-.roadmap-card-header {
+    0 25px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(250, 90, 22, 0.35);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: modalPopIn 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
-@media (min-width: 640px) {
-  .roadmap-card-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-.roadmap-card-title-group {
+.roadmap-modal-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.roadmap-card-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 1rem;
+@media (min-width: 640px) {
+  .roadmap-modal-header {
+    padding: 1.5rem 2rem 1.25rem;
+  }
+}
+
+.roadmap-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.roadmap-modal-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.85rem;
   background: rgba(250, 90, 22, 0.18);
   border: 1.5px solid rgba(250, 90, 22, 0.4);
   color: #FA5A16;
@@ -275,25 +303,115 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(250, 90, 22, 0.3);
 }
 
-.roadmap-card-title {
-  font-size: 1.5rem;
+.roadmap-modal-title {
+  font-size: 1.35rem;
   font-weight: 900;
   color: #FFFFFF;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
 }
 
-.roadmap-card-badge {
-  font-size: 0.75rem;
+@media (min-width: 640px) {
+  .roadmap-modal-title {
+    font-size: 1.6rem;
+  }
+}
+
+.roadmap-modal-badge {
+  font-size: 0.72rem;
   font-weight: 700;
   color: #FA5A16;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
-/* Bullet list inside the card */
+.roadmap-modal-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.roadmap-modal-close-btn:hover {
+  background: #FA5A16;
+  border-color: #FA5A16;
+  transform: scale(1.08);
+}
+
+/* Practice Switcher Bar inside modal */
+.roadmap-modal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 640px) {
+  .roadmap-modal-nav {
+    padding: 0.75rem 2rem;
+  }
+}
+
+.roadmap-modal-nav-btn {
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.roadmap-modal-nav-btn:hover {
+  color: #FFFFFF;
+  border-color: #FA5A16;
+}
+
+.roadmap-modal-nav-btn.active {
+  color: #FFFFFF;
+  background: #FA5A16;
+  border-color: #FA5A16;
+  box-shadow: 0 2px 10px rgba(250, 90, 22, 0.4);
+}
+
+.roadmap-modal-body {
+  padding: 1.5rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  .roadmap-modal-body {
+    padding: 1.75rem 2rem;
+  }
+}
+
+/* Custom scrollbar for modal */
+.roadmap-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.roadmap-modal-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+.roadmap-modal-body::-webkit-scrollbar-thumb {
+  background: #FA5A16;
+  border-radius: 6px;
+}
+
+/* Bullet list inside the modal */
 .roadmap-bullet-item {
   display: flex;
   align-items: flex-start;
@@ -302,7 +420,7 @@
   line-height: 1.5;
   color: #F1F5F9;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
 }
 
 .roadmap-bullet-dot {
@@ -327,21 +445,22 @@
   margin-bottom: 0.65rem;
 }
 
-/* Card bottom action bar */
-.roadmap-card-footer {
+/* Modal Bottom Action Footer */
+.roadmap-modal-footer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.75rem;
-  padding-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 @media (min-width: 640px) {
-  .roadmap-card-footer {
+  .roadmap-modal-footer {
     flex-direction: row;
+    padding: 1.25rem 2rem;
   }
 }
 
