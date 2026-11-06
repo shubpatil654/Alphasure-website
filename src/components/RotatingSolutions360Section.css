@@ -1,0 +1,633 @@
+/* =========================================================================
+   3D ROTATING 360 SOLUTIONS CYLINDER CAROUSEL & FLIP TILES (ALPHASURE)
+   Inspired by: Circular 3D Card Carousel with slow continuous rotation & hover flip
+   ========================================================================= */
+
+:root {
+  --carousel-radius: 380px;
+  --card-width: 310px;
+  --card-height: 440px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --carousel-radius: 310px;
+    --card-width: 275px;
+    --card-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --carousel-radius: 220px;
+    --card-width: 240px;
+    --card-height: 380px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   SECTION WRAPPER & AMBIENT 3D STAGE
+   ------------------------------------------------------------------------- */
+.rotating-360-wrapper {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 50% 25%, #122036 0%, #0B1320 55%, #050910 100%);
+  color: #FFFFFF;
+  padding: 5.5rem 1rem 6.5rem;
+  overflow: clip;
+  overflow-x: clip;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 640px) {
+  .rotating-360-wrapper {
+    padding: 6.5rem 1.5rem 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rotating-360-wrapper {
+    padding: 7.5rem 2rem 8.5rem;
+  }
+}
+
+/* Background Ambient Glow Spotlights */
+.orbit-glow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(250, 90, 22, 0.18) 0%, rgba(250, 90, 22, 0.05) 45%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 1;
+}
+
+.orbit-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 260px;
+  background: radial-gradient(ellipse at center, rgba(30, 58, 138, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+/* -------------------------------------------------------------------------
+   3D PERSPECTIVE STAGE & CYLINDER GEOMETRY
+   ------------------------------------------------------------------------- */
+.rotating-360-scene {
+  position: relative;
+  width: 100%;
+  height: calc(var(--card-height) + 110px);
+  margin: 2.5rem auto 1.5rem;
+  perspective: 1300px;
+  perspective-origin: 50% 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 3D Circular Pedestal Ground Grid */
+.pedestal-ring-floor {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  width: calc(var(--carousel-radius) * 2.3);
+  height: calc(var(--carousel-radius) * 2.3);
+  transform: translate(-50%, -50%) rotateX(75deg);
+  border-radius: 50%;
+  border: 2px dashed rgba(250, 90, 22, 0.35);
+  box-shadow: 
+    0 0 45px rgba(250, 90, 22, 0.22),
+    inset 0 0 50px rgba(250, 90, 22, 0.12);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pedestal-inner-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* The rotating cylinder container */
+.cylinder-carousel-ring {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Continuous 3D slow rotation animation */
+.cylinder-carousel-ring.auto-orbiting {
+  animation: cylinderOrbit 38s linear infinite;
+}
+
+/* Pause rotation on mouse hover over the scene or card */
+.rotating-360-scene:hover .cylinder-carousel-ring.auto-orbiting,
+.cylinder-carousel-ring.is-paused {
+  animation-play-state: paused !important;
+}
+
+@keyframes cylinderOrbit {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   3D CARD SLOT IN CYLINDER
+   ------------------------------------------------------------------------- */
+.cylinder-card-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-width);
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  /* Card position along circumference */
+  transform: rotateY(calc(var(--card-index) * 60deg)) translateZ(var(--carousel-radius));
+  cursor: pointer;
+  transition: filter 0.35s ease;
+}
+
+/* Card 3D Flip Inner Container */
+.cylinder-card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.34, 1.35, 0.64, 1);
+  border-radius: 1.5rem;
+}
+
+/* Flip Trigger on Hover OR Toggled State */
+.cylinder-card-slot:hover .cylinder-card-flip-inner,
+.cylinder-card-slot.is-flipped .cylinder-card-flip-inner {
+  transform: rotateY(180deg) scale(1.03);
+}
+
+/* Front & Back Faces */
+.cylinder-card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------------------------------------------------------
+   FRONT FACE STYLING
+   ------------------------------------------------------------------------- */
+.cylinder-card-front {
+  background: linear-gradient(160deg, #132238 0%, #0B1626 50%, #08101C 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-top: 3px solid #FA5A16;
+  box-shadow: 
+    0 16px 36px -10px rgba(0, 0, 0, 0.7),
+    0 2px 10px rgba(250, 90, 22, 0.15) inset;
+  padding: 1.6rem 1.5rem;
+  justify-content: space-between;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cylinder-card-slot:hover .cylinder-card-front {
+  border-color: #FA5A16;
+  box-shadow: 
+    0 24px 50px -12px rgba(250, 90, 22, 0.35),
+    0 0 25px rgba(250, 90, 22, 0.2) inset;
+}
+
+/* Front Header */
+.card-front-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-index-badge {
+  font-family: monospace;
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #FA5A16;
+  letter-spacing: 0.08em;
+  background: rgba(250, 90, 22, 0.12);
+  border: 1px solid rgba(250, 90, 22, 0.25);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.card-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94A3B8;
+}
+
+/* Front Center */
+.card-front-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.card-icon-container {
+  width: 68px;
+  height: 68px;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(250, 90, 22, 0.25) 0%, rgba(250, 90, 22, 0.08) 100%);
+  border: 1.5px solid rgba(250, 90, 22, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FA5A16;
+  box-shadow: 0 10px 24px -6px rgba(250, 90, 22, 0.35);
+  margin-bottom: 1.15rem;
+  transition: transform 0.3s ease;
+}
+
+.cylinder-card-slot:hover .card-icon-container {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.card-front-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.card-front-subtag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FA5A16;
+  background: rgba(250, 90, 22, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(250, 90, 22, 0.2);
+}
+
+/* Front Highlights Preview */
+.card-front-highlights {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.card-front-preview-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.6rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-front-preview-pill span.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #FA5A16;
+  flex-shrink: 0;
+}
+
+/* Front Bottom Hint */
+.card-front-bottom {
+  width: 100%;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-flip-prompt-pill {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, rgba(250, 90, 22, 0.85) 0%, #FA5A16 100%);
+  padding: 0.6rem 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 14px rgba(250, 90, 22, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-flip-prompt-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(250, 90, 22, 0.45);
+}
+
+/* -------------------------------------------------------------------------
+   BACK FACE STYLING (THE EXACT USER BULLET POINTERS)
+   ------------------------------------------------------------------------- */
+.cylinder-card-back {
+  background: linear-gradient(160deg, #0e1726 0%, #0A111E 60%, #060B14 100%);
+  border: 2px solid #FA5A16;
+  box-shadow: 
+    0 24px 50px -10px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(250, 90, 22, 0.28);
+  padding: 1.4rem 1.35rem 1.25rem;
+  justify-content: space-between;
+  transform: rotateY(180deg);
+}
+
+.card-back-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-back-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card-back-icon-mini {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.6rem;
+  background: rgba(250, 90, 22, 0.2);
+  border: 1px solid rgba(250, 90, 22, 0.4);
+  color: #FA5A16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-back-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.card-back-flip-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollable Pointers List on Back */
+.card-back-content-scroll {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  margin: 0.85rem 0;
+  padding-right: 0.35rem;
+}
+
+/* Custom Sleek Scrollbar */
+.card-back-content-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.card-back-content-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.card-back-content-scroll::-webkit-scrollbar-thumb {
+  background: #FA5A16;
+  border-radius: 4px;
+}
+
+/* Group Labels (e.g. A) GST – & B) Customs –) */
+.card-back-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #FA5A16;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.card-back-group-title:first-child {
+  margin-top: 0;
+}
+
+/* Bullet Items */
+.card-back-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  line-height: 1.45;
+  color: #E2E8F0;
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+}
+
+.card-back-bullet-item:last-child {
+  margin-bottom: 0;
+}
+
+.card-back-bullet-dot {
+  color: #FA5A16;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: -0.05rem;
+}
+
+/* Back Action Footer */
+.card-back-footer {
+  width: 100%;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-back-cta-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: #FA5A16;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.card-back-cta-btn:hover {
+  background: #E04808;
+  transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------------------
+   INTERACTIVE TOOLBAR & CONTROLS
+   ------------------------------------------------------------------------- */
+.rotating-360-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 20;
+}
+
+.orbit-control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.orbit-control-btn:hover {
+  background: #FA5A16;
+  border-color: #FA5A16;
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(250, 90, 22, 0.5);
+}
+
+.orbit-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #E2E8F0;
+  backdrop-filter: blur(8px);
+}
+
+.orbit-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FA5A16;
+}
+
+.orbit-status-dot.active {
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   PRACTICE QUICK SELECTOR PILLS
+   ------------------------------------------------------------------------- */
+.practice-selector-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 900px;
+  margin: 1.75rem auto 0;
+  position: relative;
+  z-index: 20;
+}
+
+.practice-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.practice-pill-btn:hover {
+  color: #FFFFFF;
+  border-color: #FA5A16;
+  background: rgba(250, 90, 22, 0.12);
+}
+
+.practice-pill-btn.active {
+  color: #FFFFFF;
+  background: #FA5A16;
+  border-color: #FA5A16;
+  box-shadow: 0 4px 16px rgba(250, 90, 22, 0.4);
+}

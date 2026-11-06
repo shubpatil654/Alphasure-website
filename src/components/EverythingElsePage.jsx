@@ -1,6 +1,7 @@
 import React from 'react';
 import WhyPartnersSection from './WhyPartnersSection';
 import Solutions360Section from './Solutions360Section';
+import RotatingSolutions360Section from './RotatingSolutions360Section';
 import TrustedPartnersSection from './TrustedPartnersSection';
 
 export default function EverythingElsePage({ onOpenModal }) {
@@ -58,6 +59,9 @@ export default function EverythingElsePage({ onOpenModal }) {
 
       {/* ================= 360° SOLUTIONS SECTION ================= */}
       <Solutions360Section onOpenModal={onOpenModal} />
+
+      {/* ================= 3D ROTATING 360° SOLUTIONS CYLINDER CAROUSEL ================= */}
+      <RotatingSolutions360Section onOpenModal={onOpenModal} />
 
       {/* ================= OUR TRUSTED PARTNERS SECTION ================= */}
       <TrustedPartnersSection />
