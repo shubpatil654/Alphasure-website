@@ -94,13 +94,28 @@ export default function TrustedPartnersSection() {
           OUR APPROACH
         </span>
 
-        {/* Requested Heading: "Why We Work with Partners" */}
+        {/* Requested Heading: "Why We Work with Partners" with animated underline */}
         <h2 className="alpha-h2 font-black text-[#0B192C] tracking-tight">
-          Why We Work with Partners
+          Why We Work with{' '}
+          <span className="relative inline-block text-[#FA5A16]">
+            Partners
+            <svg 
+              className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
+              viewBox="0 0 120 16" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path 
+                d="M 2 12 Q 60 2, 118 12" 
+                stroke="#FA5A16" 
+                strokeWidth="3.5" 
+                strokeLinecap="round" 
+                className="animate-draw-curved-underline"
+              />
+            </svg>
+          </span>
         </h2>
-
-        {/* Centered Orange Accent Line */}
-        <div className="w-16 h-1 bg-[#FA5A16] rounded-full mx-auto mt-3 shadow-xs" />
 
         {/* ================= SUBCONTENT COPY ================= */}
         <div className="max-w-3xl mx-auto mt-6 sm:mt-7 space-y-3.5 text-center">
