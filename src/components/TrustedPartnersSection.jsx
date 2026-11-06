@@ -75,14 +75,6 @@ export const CORE_VALUES = [
 ];
 
 export default function TrustedPartnersSection() {
-  // Duplicate partner list for a seamless, continuous left-to-right marquee loop
-  const marqueeItems = [
-    ...TRUSTED_PARTNERS, 
-    ...TRUSTED_PARTNERS, 
-    ...TRUSTED_PARTNERS, 
-    ...TRUSTED_PARTNERS
-  ];
-
   return (
     <section className="trusted-partners-section" id="why-partners">
       
@@ -174,25 +166,21 @@ export default function TrustedPartnersSection() {
 
       </div>
 
-      {/* ================= CONTINUOUS LEFT-TO-RIGHT PARTNER LOGOS MARQUEE ================= */}
-      <div className="relative w-full overflow-hidden pt-4 pb-2">
+      {/* ================= STATIC SPECIALIST PARTNER LOGOS ================= */}
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-2">
         
         {/* Sub-label above logos */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 sm:mb-8">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
             Our Specialist Partner Network
           </span>
         </div>
 
-        {/* Left & Right Soft Fade Masks */}
-        <div className="partners-fade-edge-left" aria-hidden="true" />
-        <div className="partners-fade-edge-right" aria-hidden="true" />
-
-        {/* Sliding Track (Left to Right Animation) */}
-        <div className="partners-marquee-track flex items-center gap-5 sm:gap-7">
-          {marqueeItems.map((partner, idx) => (
+        {/* Static Centered Partner Logos */}
+        <div className="partners-static-grid">
+          {TRUSTED_PARTNERS.map((partner) => (
             <div
-              key={`${partner.id}-${idx}`}
+              key={partner.id}
               className="partner-logo-card"
               title={`${partner.name} - ${partner.subtitle}`}
             >
