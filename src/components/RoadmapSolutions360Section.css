@@ -1,0 +1,368 @@
+/* =========================================================================
+   360° SOLUTION ROADMAP PILLS SECTION (BRANDING STYLE INSPIRATION)
+   Matches attached reference:
+   - Header: "360° SOLUTION OF" in white, "SERVICES" in massive bold orange
+   - Serpentine winding dashed line connecting alternating White & Orange pills
+   - Interactive pill selection & high-contrast offerings presentation
+   - Strictly verbatim bullet points from the first section
+   ========================================================================= */
+
+.roadmap-360-wrapper {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 50% 20%, #111A29 0%, #080D16 55%, #03060B 100%);
+  color: #FFFFFF;
+  padding: 5.5rem 1rem 6.5rem;
+  overflow: clip;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 640px) {
+  .roadmap-360-wrapper {
+    padding: 6.5rem 1.5rem 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .roadmap-360-wrapper {
+    padding: 7.5rem 2rem 8.5rem;
+  }
+}
+
+/* Background Ambient Lighting */
+.roadmap-glow-radial {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(250, 90, 22, 0.16) 0%, rgba(250, 90, 22, 0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* -------------------------------------------------------------------------
+   ROADMAP STAGE & PILLS LAYOUT
+   ------------------------------------------------------------------------- */
+.roadmap-pills-stage {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+/* SVG Curving Dashed Line Behind Pills */
+.roadmap-dashed-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.roadmap-dashed-path {
+  stroke: #FFFFFF;
+  stroke-width: 2.5;
+  stroke-dasharray: 8 8;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+  animation: roadmapDashFlow 25s linear infinite;
+}
+
+@keyframes roadmapDashFlow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+/* Pills Grid Container (3 Rows of 2 Pills + 1 Center Bottom Pill) */
+.roadmap-pills-grid {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .roadmap-pills-grid {
+    gap: 2.75rem;
+  }
+}
+
+.roadmap-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .roadmap-pill-row {
+    gap: 2.5rem;
+  }
+}
+
+.roadmap-pill-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+/* -------------------------------------------------------------------------
+   INDIVIDUAL PILLS (WHITE & ORANGE ACCENTS MATCHING ATTACHED IMAGE)
+   ------------------------------------------------------------------------- */
+.branding-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  min-height: 56px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  border: none;
+}
+
+@media (min-width: 640px) {
+  .branding-pill {
+    min-height: 64px;
+    padding: 0.9rem 1.75rem;
+    font-size: 1.15rem;
+  }
+}
+
+/* White Pill (Reference: Logo, Portfolio Design, Corporate Gifting) */
+.branding-pill-white {
+  background: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.branding-pill-white:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    0 0 0 3px #FA5A16;
+  color: #000000;
+}
+
+.branding-pill-white.is-active {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 
+    0 0 0 4px #FA5A16,
+    0 12px 30px rgba(250, 90, 22, 0.45);
+}
+
+/* Orange Pill (Reference: Brochure Design, Flyer, Package Design, Ad Campaign) */
+.branding-pill-orange {
+  background: #FA5A16;
+  color: #FFFFFF;
+  box-shadow: 
+    0 8px 24px -4px rgba(250, 90, 22, 0.5),
+    0 0 0 1px rgba(250, 90, 22, 0.6);
+}
+
+.branding-pill-orange:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: #E04808;
+  box-shadow: 
+    0 14px 32px -4px rgba(250, 90, 22, 0.65),
+    0 0 0 3px #FFFFFF;
+}
+
+.branding-pill-orange.is-active {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 
+    0 0 0 4px #FFFFFF,
+    0 14px 35px rgba(250, 90, 22, 0.7);
+}
+
+/* Bottom Center Action Pill (Reference: Ad Campaign) */
+.branding-pill-center {
+  max-width: 420px;
+  background: linear-gradient(135deg, #FF7033 0%, #FA5A16 100%);
+  box-shadow: 
+    0 10px 28px -4px rgba(250, 90, 22, 0.55),
+    0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.branding-pill-center:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 16px 36px -4px rgba(250, 90, 22, 0.7),
+    0 0 0 3px #FFFFFF;
+}
+
+/* -------------------------------------------------------------------------
+   INTERACTIVE OFFERINGS PRESENTATION CARD (EXACT USER BULLET POINTERS)
+   ------------------------------------------------------------------------- */
+.roadmap-details-card {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 3.5rem auto 0;
+  background: linear-gradient(165deg, #111C2C 0%, #0A121E 60%, #060B12 100%);
+  border: 2px solid #FA5A16;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 24px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(250, 90, 22, 0.25);
+  padding: 1.75rem 1.5rem;
+  z-index: 15;
+  transition: all 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .roadmap-details-card {
+    padding: 2.25rem 2.5rem;
+  }
+}
+
+.roadmap-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+  .roadmap-card-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.roadmap-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.roadmap-card-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 1rem;
+  background: rgba(250, 90, 22, 0.18);
+  border: 1.5px solid rgba(250, 90, 22, 0.4);
+  color: #FA5A16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(250, 90, 22, 0.3);
+}
+
+.roadmap-card-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.roadmap-card-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FA5A16;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Bullet list inside the card */
+.roadmap-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: #F1F5F9;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-bullet-dot {
+  color: #FA5A16;
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: -0.05rem;
+}
+
+/* Subgroup header (e.g. A) GST – & B) Customs –) */
+.roadmap-subgroup-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #FA5A16;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
+}
+
+/* Card bottom action bar */
+.roadmap-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+  .roadmap-card-footer {
+    flex-direction: row;
+  }
+}
+
+.roadmap-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FA5A16;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 16px rgba(250, 90, 22, 0.4);
+  transition: all 0.25s ease;
+}
+
+.roadmap-cta-btn:hover {
+  background: #E04808;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(250, 90, 22, 0.55);
+}
