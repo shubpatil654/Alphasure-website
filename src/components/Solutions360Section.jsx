@@ -7,12 +7,7 @@ import {
   Globe, 
   Scale, 
   Calculator, 
-  ShieldCheck,
-  CheckCircle2,
-  Sparkles,
-  Layers,
-  Award,
-  ChevronRight
+  ShieldCheck
 } from 'lucide-react';
 import './Solutions360Section.css';
 
@@ -20,15 +15,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'gst-customs',
     title: 'GST & Customs',
-    fullTitle: 'GST & Customs Advisory',
-    category: 'Taxation & Foreign Trade',
-    badge: '17 Core Offerings',
     icon: FileText,
     isGrouped: true,
     startDeg: -61,
     endDeg: -44,
     midDeg: -52.5,
-    summary: 'Comprehensive indirect tax advisory, departmental assessments, refunds and end-to-end import/export trade compliance.',
     groups: [
       {
         label: 'A) GST –',
@@ -62,15 +53,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'ifrs',
     title: 'IFRS',
-    fullTitle: 'Financial Reporting Standards',
-    category: 'Accounting & Conversions',
-    badge: '3 Conversion Pillars',
     icon: Globe,
     isGrouped: false,
     startDeg: -40,
     endDeg: -23,
     midDeg: -31.5,
-    summary: 'Global financial reporting compliance, multi-standard GAAP conversions, and IPO accounting readiness.',
     pointers: [
       'Ind AS / IFRS / US GAAP conversion',
       'IPO reporting (Main Board and SME)',
@@ -80,15 +67,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'm-and-a',
     title: 'M&A',
-    fullTitle: 'Mergers & Acquisitions',
-    category: 'Corporate Restructuring',
-    badge: '4 Strategic Pillars',
     icon: Briefcase,
     isGrouped: false,
     startDeg: -19,
     endDeg: -2,
     midDeg: -10.5,
-    summary: 'Strategic deal structuring, tax-optimized corporate reorganizations, regulatory clearances, and funding assistance.',
     pointers: [
       'Corporate Structuring',
       'Regulatory Advisory',
@@ -99,15 +82,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'corporate-legal',
     title: 'Corporate Legal',
-    fullTitle: 'Corporate Legal & Governance',
-    category: 'Commercial Contracts',
-    badge: '4 Legal Pillars',
     icon: Scale,
     isGrouped: false,
     startDeg: 2,
     endDeg: 19,
     midDeg: 10.5,
-    summary: 'Robust governance documentation, commercial contract drafting, startup legal hygiene, and employment law support.',
     pointers: [
       'Founders Agreements',
       'Start up Advisory',
@@ -118,15 +97,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'transfer-pricing',
     title: 'Transfer Pricing',
-    fullTitle: 'International Transfer Pricing',
-    category: 'Cross-Border TP',
-    badge: '4 TP Compliance Pillars',
     icon: ShieldCheck,
     isGrouped: false,
     startDeg: 23,
     endDeg: 40,
     midDeg: 31.5,
-    summary: 'Arm’s length margin benchmarking, transfer pricing documentation, intercompany agreements, and audit defence.',
     pointers: [
       'TP Benchmarking Study',
       'TP Assessment support',
@@ -137,15 +112,11 @@ export const SOLUTIONS_360_ITEMS = [
   {
     id: 'payroll',
     title: 'Payroll',
-    fullTitle: 'Human Resources & Payroll',
-    category: 'Employer of Record (EOR)',
-    badge: '4 Operations Pillars',
     icon: Calculator,
     isGrouped: false,
     startDeg: 44,
     endDeg: 61,
     midDeg: 52.5,
-    summary: 'Accurate monthly payroll operations, statutory compliance (PF, ESI, PT), leave administration, and EOR solutions.',
     pointers: [
       'Payroll Outsourcing',
       'Statutory Compliance',
@@ -169,28 +140,56 @@ export default function Solutions360Section({ onOpenModal }) {
   };
 
   // Semicircle Fan Geometry Constants
-  // Right semicircle centered on the left: cx=55, cy=320
+  // Center of semicircle: cx = 55, cy = 320
   const cx = 55;
   const cy = 320;
-  const rTrack = 122; // Concentric arc track
-  const rIn = 148;    // Petal inner radius
-  const rOut = 335;   // Petal outer radius
+  const rTrack = 120; // Concentric arc track
+  const rIn = 142;    // Petal inner radius
+  const rOut = 348;   // Petal outer radius
 
-  // Helper to compute annular wedge sector path
-  const getSectorPath = (startDeg, endDeg, rInner, rOuter) => {
-    const rad1 = (startDeg * Math.PI) / 180;
-    const rad2 = (endDeg * Math.PI) / 180;
+  // Helper to compute annular wedge sector with smooth rounded corners
+  const getRoundedSectorPath = (startDeg, endDeg, rInner, rOuter, cr = 8) => {
+    const toRad = Math.PI / 180;
+    const a1 = (startDeg * Math.PI) / 180;
+    const a2 = (endDeg * Math.PI) / 180;
+    const dAi = cr / rInner;
+    const dAo = cr / rOuter;
 
-    const p1x = cx + rInner * Math.cos(rad1);
-    const p1y = cy + rInner * Math.sin(rad1);
-    const p2x = cx + rInner * Math.cos(rad2);
-    const p2y = cy + rInner * Math.sin(rad2);
-    const p3x = cx + rOuter * Math.cos(rad2);
-    const p3y = cy + rOuter * Math.sin(rad2);
-    const p4x = cx + rOuter * Math.cos(rad1);
-    const p4y = cy + rOuter * Math.sin(rad1);
+    const p1x = cx + (rInner + cr) * Math.cos(a1);
+    const p1y = cy + (rInner + cr) * Math.sin(a1);
+    const p2x = cx + rInner * Math.cos(a1 + dAi);
+    const p2y = cy + rInner * Math.sin(a1 + dAi);
+    const p3x = cx + rInner * Math.cos(a2 - dAi);
+    const p3y = cy + rInner * Math.sin(a2 - dAi);
+    const p4x = cx + (rInner + cr) * Math.cos(a2);
+    const p4y = cy + (rInner + cr) * Math.sin(a2);
+    const p5x = cx + (rOuter - cr) * Math.cos(a2);
+    const p5y = cy + (rOuter - cr) * Math.sin(a2);
+    const p6x = cx + rOuter * Math.cos(a2 - dAo);
+    const p6y = cy + rOuter * Math.sin(a2 - dAo);
+    const p7x = cx + rOuter * Math.cos(a1 + dAo);
+    const p7y = cy + rOuter * Math.sin(a1 + dAo);
+    const p8x = cx + (rOuter - cr) * Math.cos(a1);
+    const p8y = cy + (rOuter - cr) * Math.sin(a1);
 
-    return `M ${p1x.toFixed(2)},${p1y.toFixed(2)} A ${rInner} ${rInner} 0 0,1 ${p2x.toFixed(2)},${p2y.toFixed(2)} L ${p3x.toFixed(2)},${p3y.toFixed(2)} A ${rOuter} ${rOuter} 0 0,0 ${p4x.toFixed(2)},${p4y.toFixed(2)} Z`;
+    const c1x = cx + rInner * Math.cos(a1);
+    const c1y = cy + rInner * Math.sin(a1);
+    const c2x = cx + rInner * Math.cos(a2);
+    const c2y = cy + rInner * Math.sin(a2);
+    const c3x = cx + rOuter * Math.cos(a2);
+    const c3y = cy + rOuter * Math.sin(a2);
+    const c4x = cx + rOuter * Math.cos(a1);
+    const c4y = cy + rOuter * Math.sin(a1);
+
+    return `M ${p2x.toFixed(2)},${p2y.toFixed(2)} ` +
+           `A ${rInner} ${rInner} 0 0,1 ${p3x.toFixed(2)},${p3y.toFixed(2)} ` +
+           `Q ${c2x.toFixed(2)},${c2y.toFixed(2)} ${p4x.toFixed(2)},${p4y.toFixed(2)} ` +
+           `L ${p5x.toFixed(2)},${p5y.toFixed(2)} ` +
+           `Q ${c3x.toFixed(2)},${c3y.toFixed(2)} ${p6x.toFixed(2)},${p6y.toFixed(2)} ` +
+           `A ${rOuter} ${rOuter} 0 0,0 ${p7x.toFixed(2)},${p7y.toFixed(2)} ` +
+           `Q ${c4x.toFixed(2)},${c4y.toFixed(2)} ${p8x.toFixed(2)},${p8y.toFixed(2)} ` +
+           `L ${p1x.toFixed(2)},${p1y.toFixed(2)} ` +
+           `Q ${c1x.toFixed(2)},${c1y.toFixed(2)} ${p2x.toFixed(2)},${p2y.toFixed(2)} Z`;
   };
 
   // Helper for polar to cartesian
@@ -220,12 +219,10 @@ export default function Solutions360Section({ onOpenModal }) {
 
         {/* ================= SECTION HEADER: "We Offer 360° Solutions" ================= */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 lg:mb-16">
-          {/* "We Offer" in font matching the rest of the website */}
           <h2 className="font-sans font-black text-[#0B192C] text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none">
             We Offer
           </h2>
 
-          {/* "360° Solutions" in 3D orange beveled block */}
           <div className="block-3d-orange px-8 sm:px-12 py-3.5 sm:py-4 mt-3 sm:mt-4">
             <span className="font-sans font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-[50px] tracking-tight whitespace-nowrap drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
               360° Solutions
@@ -247,60 +244,34 @@ export default function Solutions360Section({ onOpenModal }) {
                 {/* Eyebrow Pill */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/70 text-[#FA5A16] text-xs font-bold uppercase tracking-wider mb-5">
                   <span className="w-2 h-2 rounded-full bg-[#FA5A16] animate-pulse" />
-                  <span>360° Comprehensive Advisory</span>
+                  <span>Your Business</span>
                 </div>
 
-                {/* Main Prominent Headline: "Your Business" */}
-                <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#0B192C] tracking-tight leading-[1.12] mb-4">
-                  Built Around <br className="hidden sm:inline" />
-                  <span className="text-[#FA5A16]">Your Business.</span>
+                {/* Main Headline: Exact Authentic Alphasure Copy */}
+                <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#0B192C] tracking-tight leading-[1.22] mb-5">
+                  Your business shouldn't need a separate service provider for every new requirement.
                 </h3>
 
-                {/* Explanatory Copy */}
+                {/* Exact Sub-paragraph Copy */}
                 <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed mb-6">
-                  Your business shouldn't need a separate service provider for every new requirement. From tax assessments and global GAAP conversions to corporate restructuring and payroll compliance, explore how our dedicated specialists support every stage of your growth.
+                  Whether you are expanding internationally, preparing for an acquisition, facing a tax assessment or simply looking for a better way to manage your finances, Alphasure can help you find the right expertise.
                 </p>
 
-                {/* 3 Core Value Highlight Blocks */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-7">
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
-                      01 / Tax & Customs
-                    </span>
-                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
-                      GST, Customs, Litigation & Refunds
-                    </span>
-                  </div>
-
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
-                      02 / Global Standards
-                    </span>
-                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
-                      IFRS, Ind AS, US GAAP & TP
-                    </span>
-                  </div>
-
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-orange-200 transition-colors">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FA5A16] block mb-1">
-                      03 / Corporate Ops
-                    </span>
-                    <span className="text-sm font-bold text-[#0B192C] block leading-snug">
-                      M&A, Legal & Complete Payroll EOR
-                    </span>
-                  </div>
+                {/* Highlight Quote Box */}
+                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-orange-50/80 via-white to-amber-50/60 border border-orange-200/80 shadow-sm mb-7">
+                  <p className="text-[#0B192C] text-base sm:text-lg font-bold tracking-tight leading-snug">
+                    You focus on <span className="text-[#FA5A16] font-extrabold uppercase">GROWING</span> the business. We help bring the right people around it.
+                  </p>
                 </div>
 
                 {/* Interactive Guidance Prompt */}
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/90 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FA5A16] animate-ping" />
-                    <span className="text-xs sm:text-sm font-bold text-[#0B192C]">
-                      Click any service on the arc to explore its full pointers
-                    </span>
+                <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm font-semibold text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
+                    <span>Select any practice on the dial to explore its scope</span>
                   </div>
-                  <span className="text-xs font-black text-[#FA5A16] tracking-wider uppercase hidden sm:inline">
-                    6 Practices on the Dial →
+                  <span className="text-[#FA5A16] font-bold text-xs uppercase tracking-wide hidden sm:inline">
+                    6 Practices →
                   </span>
                 </div>
 
@@ -310,7 +281,7 @@ export default function Solutions360Section({ onOpenModal }) {
               <div className="service-details-card animate-fadeIn">
                 
                 {/* Top Navigation Bar: Back to "Your Business" */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
                   <button
                     type="button"
                     onClick={() => setActiveItemId(null)}
@@ -321,12 +292,14 @@ export default function Solutions360Section({ onOpenModal }) {
                   </button>
 
                   <span className="text-xs font-extrabold uppercase tracking-wider text-[#FA5A16] bg-orange-50 px-3 py-1 rounded-full border border-orange-200/60">
-                    {activeItem.badge}
+                    {activeItem.isGrouped 
+                      ? `${activeItem.groups.reduce((acc, g) => acc + g.pointers.length, 0)} Offerings`
+                      : `${activeItem.pointers.length} Offerings`}
                   </span>
                 </div>
 
                 {/* Header with Title & Icon */}
-                <div className="flex items-center gap-3.5 mb-5">
+                <div className="flex items-center gap-3.5 mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FA5A16] to-[#E04808] text-white flex items-center justify-center shadow-md shadow-orange-500/25 shrink-0">
                     {React.createElement(activeItem.icon, { className: "w-6 h-6" })}
                   </div>
@@ -334,19 +307,11 @@ export default function Solutions360Section({ onOpenModal }) {
                     <h3 className="text-2xl sm:text-3xl font-black text-[#0B192C] tracking-tight leading-tight">
                       {activeItem.title}
                     </h3>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-500">
-                      {activeItem.fullTitle} — {activeItem.category}
-                    </span>
                   </div>
                 </div>
 
-                {/* Summary Sentence */}
-                <p className="text-xs sm:text-sm text-slate-600 font-medium mb-4 leading-relaxed">
-                  {activeItem.summary}
-                </p>
-
-                {/* Exact Bullet Pointers Container */}
-                <div className="max-h-[380px] overflow-y-auto pr-1 space-y-3.5 custom-scrollbar mb-5">
+                {/* Exact Verbatim Bullet Pointers Container */}
+                <div className="max-h-[380px] overflow-y-auto pr-1 space-y-3.5 custom-scrollbar mb-6">
                   {activeItem.isGrouped ? (
                     /* Grouped Pointers (GST & Customs) */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
@@ -428,7 +393,7 @@ export default function Solutions360Section({ onOpenModal }) {
               {/* The SVG Semicircle Fan */}
               <svg 
                 className="w-full h-auto pinterest-fan-svg"
-                viewBox="0 0 440 640" 
+                viewBox="0 0 450 640" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -448,18 +413,18 @@ export default function Solutions360Section({ onOpenModal }) {
                   </linearGradient>
 
                   {/* Soft Drop Shadow for Inactive Petals */}
-                  <filter id="petalShadow" x="-15%" y="-15%" width="130%" height="130%">
+                  <filter id="petalShadow" x="-20%" y="-20%" width="140%" height="140%">
                     <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#0F172A" floodOpacity="0.08" />
                   </filter>
 
                   {/* Prominent Glow Shadow for Active Petal */}
-                  <filter id="activePetalShadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="4" dy="12" stdDeviation="14" floodColor="#FA5A16" floodOpacity="0.38" />
+                  <filter id="activePetalShadow" x="-25%" y="-25%" width="150%" height="150%">
+                    <feDropShadow dx="3" dy="10" stdDeviation="12" floodColor="#FA5A16" floodOpacity="0.35" />
                   </filter>
 
                   {/* Subtle Hover Shadow */}
-                  <filter id="hoverPetalShadow" x="-15%" y="-15%" width="130%" height="130%">
-                    <feDropShadow dx="3" dy="10" stdDeviation="10" floodColor="#FA5A16" floodOpacity="0.22" />
+                  <filter id="hoverPetalShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#FA5A16" floodOpacity="0.2" />
                   </filter>
 
                   {/* Central Disc Shadow */}
@@ -492,15 +457,15 @@ export default function Solutions360Section({ onOpenModal }) {
                   const dx = popDist * Math.cos(midRad);
                   const dy = popDist * Math.sin(midRad);
 
-                  // Sector path
-                  const sectorPath = getSectorPath(item.startDeg, item.endDeg, rIn, rOut);
+                  // Sector path with smooth rounded corners
+                  const sectorPath = getRoundedSectorPath(item.startDeg, item.endDeg, rIn, rOut, 8);
 
                   // Node dot on the concentric track
                   const nodePt = getPoint(item.midDeg, rTrack);
                   // Connector line from node dot to inner petal edge
-                  const petalInnerPt = getPoint(item.midDeg, rIn - 2);
+                  const petalInnerPt = getPoint(item.midDeg, rIn - 1);
 
-                  // Text center coordinate
+                  // Text center coordinate along the radius
                   const rText = (rIn + rOut) / 2;
                   const textPt = getPoint(item.midDeg, rText);
 
@@ -511,8 +476,8 @@ export default function Solutions360Section({ onOpenModal }) {
                       <line
                         x1={nodePt.x}
                         y1={nodePt.y}
-                        x2={petalInnerPt.x + (isActive ? dx * 0.5 : 0)}
-                        y2={petalInnerPt.y + (isActive ? dy * 0.5 : 0)}
+                        x2={petalInnerPt.x + dx}
+                        y2={petalInnerPt.y + dy}
                         stroke={isActive || isHovered ? '#FA5A16' : '#CBD5E1'}
                         strokeWidth={isActive ? '2.5' : '1.5'}
                         strokeDasharray={isActive ? 'none' : '3 3'}
@@ -571,48 +536,36 @@ export default function Solutions360Section({ onOpenModal }) {
                           className="transition-all duration-300"
                         />
 
-                        {/* Petal Text Label (Rotated slightly to align with fan radius) */}
+                        {/* Petal Text Label - perfectly centered and aligned with the wedge angle */}
                         <g 
-                          transform={`translate(${textPt.x.toFixed(2)}, ${textPt.y.toFixed(2)}) rotate(${(item.midDeg * 0.35).toFixed(2)})`}
+                          transform={`translate(${textPt.x.toFixed(2)}, ${textPt.y.toFixed(2)}) rotate(${item.midDeg.toFixed(2)})`}
                           className="select-none pointer-events-none"
                         >
-                          {/* Index Pill / Number */}
-                          <text
-                            x="-52"
-                            y="-3"
-                            fontSize="10"
-                            fontWeight="900"
-                            textAnchor="middle"
-                            fill={isActive ? 'rgba(255,255,255,0.75)' : '#FA5A16'}
-                            className="font-mono tracking-tight"
-                          >
-                            0{idx + 1}
-                          </text>
-
-                          {/* Primary Title */}
-                          <text
-                            x="8"
-                            y="-3"
-                            fontSize={item.title.length > 12 ? '13' : '14.5'}
-                            fontWeight="900"
-                            textAnchor="middle"
-                            fill={isActive ? '#FFFFFF' : '#0B192C'}
-                            className="font-sans tracking-tight"
-                          >
-                            {item.title}
-                          </text>
-
-                          {/* Sub-label */}
                           <text
                             x="0"
-                            y="14"
-                            fontSize="9"
-                            fontWeight="700"
+                            y="0"
                             textAnchor="middle"
-                            fill={isActive ? 'rgba(255,255,255,0.85)' : '#64748B'}
-                            className="font-sans tracking-normal uppercase"
+                            dominantBaseline="central"
+                            className="select-none pointer-events-none"
                           >
-                            {item.category.split('&')[0].trim()}
+                            <tspan
+                              fill={isActive ? 'rgba(255,255,255,0.85)' : '#FA5A16'}
+                              fontSize="11"
+                              fontWeight="900"
+                              fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+                              letterSpacing="-0.02em"
+                            >
+                              0{idx + 1}&nbsp;&nbsp;&nbsp;
+                            </tspan>
+                            <tspan
+                              fill={isActive ? '#FFFFFF' : '#0B192C'}
+                              fontSize={item.title.length > 12 ? '13' : '14'}
+                              fontWeight="900"
+                              fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+                              letterSpacing="-0.01em"
+                            >
+                              {item.title}
+                            </tspan>
                           </text>
                         </g>
 
@@ -628,7 +581,7 @@ export default function Solutions360Section({ onOpenModal }) {
                   <circle
                     cx={cx}
                     cy={cy}
-                    r="46"
+                    r="44"
                     fill="#FFFFFF"
                     stroke="#E2E8F0"
                     strokeWidth="2.5"
@@ -638,16 +591,16 @@ export default function Solutions360Section({ onOpenModal }) {
                   <circle
                     cx={cx}
                     cy={cy}
-                    r="18"
+                    r="16"
                     fill="#FA5A16"
                   />
                   {/* Specular Pip */}
                   <circle
                     cx={cx - 3}
                     cy={cy - 3}
-                    r="4"
+                    r="3.5"
                     fill="#FFFFFF"
-                    opacity="0.85"
+                    opacity="0.9"
                   />
                 </g>
 
