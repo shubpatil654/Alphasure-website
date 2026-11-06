@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -6,9 +6,7 @@ import {
   RotateCw, 
   Pause, 
   Play, 
-  Sparkles, 
-  ArrowRight,
-  ExternalLink
+  ArrowRight
 } from 'lucide-react';
 import { SOLUTIONS_360_ITEMS } from './Solutions360Section';
 import './RotatingSolutions360Section.css';
@@ -99,14 +97,6 @@ export default function RotatingSolutions360Section({ onOpenModal }) {
     });
   };
 
-  // Select a specific practice card to rotate to front and toggle flip
-  const handleSelectPractice = (index, itemId) => {
-    const targetAngle = -(index * 60);
-    setManualAngle(targetAngle);
-    setActivePracticeIndex(index);
-    setToggledCardId(itemId);
-  };
-
   // Resume auto-orbit
   const handleResumeAutoOrbit = () => {
     setManualAngle(null);
@@ -132,42 +122,11 @@ export default function RotatingSolutions360Section({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         
         {/* ================= SECTION HEADER ================= */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-6 sm:mb-10">
-          
-          {/* Subtle Top Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold text-slate-200 mb-4 backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-[#FA5A16]" />
-            <span className="tracking-wide uppercase">3D Interactive Orbit</span>
-          </div>
-
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           {/* Main Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
             We Offer <span className="text-[#FA5A16]">360° Rotating</span> Solutions
           </h2>
-
-          {/* Interactive Hint */}
-          <p className="text-slate-300 text-sm sm:text-base font-normal mt-3 max-w-xl leading-relaxed">
-            Cards orbit continuously in 3D space. <strong className="text-white font-semibold">Hover over any tile</strong> to freeze the carousel and flip the card to explore its core offerings.
-          </p>
-
-          {/* Practice Quick Selector Pills */}
-          <div className="practice-selector-bar">
-            {SOLUTIONS_360_ITEMS.map((item, idx) => {
-              const isCurrent = activePracticeIndex === idx;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => handleSelectPractice(idx, item.id)}
-                  className={`practice-pill-btn ${isCurrent ? 'active' : ''}`}
-                >
-                  <span className="text-xs font-mono">{idx + 1}.</span>
-                  <span>{item.title}</span>
-                </button>
-              );
-            })}
-          </div>
-
         </div>
 
         {/* ================= 3D PERSPECTIVE STAGE ================= */}
