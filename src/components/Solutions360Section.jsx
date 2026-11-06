@@ -144,8 +144,8 @@ export default function Solutions360Section({ onOpenModal }) {
   const cy = 250;
   const radius = 205;
 
-  // Degrees list for protractor dial
-  const degrees = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180];
+  // Degrees list for protractor dial (10° to 170°, 180 number removed)
+  const degrees = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170];
 
   // Helper for polar to cartesian coordinates
   const getCoordinates = (deg, r) => {
@@ -429,26 +429,12 @@ export default function Solutions360Section({ onOpenModal }) {
                   );
                 })}
 
-                {/* 7. Major Ticks & Angle Numbers (Every 10 degrees) */}
+                {/* 7. Major Ticks & Angle Numbers (Every 10 degrees, 10 to 170) */}
                 {degrees.map((deg) => {
                   const p1 = getCoordinates(deg, radius - 20);
                   const p2 = getCoordinates(deg, radius);
+                  const pLabel = getCoordinates(deg, radius - 33);
                   const isCurrentTarget = targetItemId !== null && Math.abs(deg - targetAngle) < 6;
-
-                  // Position label: for 180, place safely inside bottom arc so it never clashes with the vertical metallic bar
-                  let labelX, labelY;
-                  if (deg === 180) {
-                    labelX = cx + 22;
-                    labelY = cy + radius - 20;
-                  } else if (deg === 10) {
-                    labelX = cx + 24;
-                    const pLabel = getCoordinates(deg, radius - 33);
-                    labelY = pLabel.y + 4;
-                  } else {
-                    const pLabel = getCoordinates(deg, radius - 33);
-                    labelX = pLabel.x;
-                    labelY = pLabel.y + 4;
-                  }
 
                   return (
                     <g key={`major-${deg}`} className="cursor-pointer">
@@ -462,8 +448,8 @@ export default function Solutions360Section({ onOpenModal }) {
                         className="transition-colors duration-300"
                       />
                       <text
-                        x={labelX}
-                        y={labelY}
+                        x={pLabel.x}
+                        y={pLabel.y + 4}
                         textAnchor="middle"
                         fontSize={deg === 90 ? '11' : '9.5'}
                         fontWeight={isCurrentTarget ? '900' : '700'}
