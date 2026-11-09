@@ -98,98 +98,71 @@
 }
 
 /* -------------------------------------------------------------------------
-   STATIC PARTNER LOGOS GRID & CARDS
+   STATIC PARTNER LOGOS GRID & ITEMS (TRANSPARENT - NO CARD BACKGROUND)
    ------------------------------------------------------------------------- */
 .partners-static-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
-  max-width: 1280px;
+  gap: 2rem 2.5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (min-width: 640px) {
   .partners-static-grid {
-    gap: 1.5rem;
+    gap: 2.25rem 3.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .partners-static-grid {
-    gap: 1.75rem;
+    gap: 2.5rem 4.5rem;
   }
 }
 
-/* Partner Logo Card */
+/* Partner Logo Item - Transparent directly on the page */
 .partner-logo-card {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 175px;
-  height: 105px;
-  padding: 1rem 1.25rem;
-  border-radius: 1.25rem;
-  background: #FFFFFF;
-  border: 1.5px solid #E2E8F0;
-  box-shadow: 
-    0 2px 0 #F8FAFC inset,
-    0 4px 14px rgba(15, 23, 42, 0.05),
-    0 1px 3px rgba(0, 0, 0, 0.03);
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
 }
 
-@media (min-width: 640px) {
-  .partner-logo-card {
-    width: 200px;
-    height: 115px;
-    padding: 1.25rem 1.75rem;
-    border-radius: 1.35rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .partner-logo-card {
-    width: 220px;
-    height: 125px;
-    padding: 1.5rem 2rem;
-    border-radius: 1.5rem;
-  }
-}
-
 .partner-logo-card:hover {
-  transform: translateY(-5px) scale(1.04);
-  border-color: #FA5A16;
-  box-shadow: 
-    0 3px 0 #FFF7ED inset,
-    0 14px 28px rgba(250, 90, 22, 0.16),
-    0 6px 10px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px) scale(1.06);
 }
 
 .partner-logo-img {
-  max-height: 52px;
-  max-width: 88%;
+  max-height: 48px;
+  max-width: 160px;
   width: auto;
+  height: auto;
   object-fit: contain;
-  filter: contrast(1.02);
   transition: transform 0.3s ease;
 }
 
 @media (min-width: 640px) {
   .partner-logo-img {
-    max-height: 62px;
+    max-height: 56px;
+    max-width: 185px;
   }
 }
 
 @media (min-width: 1024px) {
   .partner-logo-img {
-    max-height: 68px;
+    max-height: 64px;
+    max-width: 210px;
   }
 }
 
 .partner-logo-card:hover .partner-logo-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }

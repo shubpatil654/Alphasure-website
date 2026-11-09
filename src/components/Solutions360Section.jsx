@@ -265,7 +265,7 @@ export default function Solutions360Section({ onOpenModal }) {
                 </div>
 
                 {/* Interactive Guidance Prompt */}
-                <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm font-semibold text-slate-600">
+                <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50/50 border border-orange-200/60 text-xs sm:text-sm font-semibold text-[#0B192C]/80">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
                     <span>Select any practice on the dial to explore its scope</span>
@@ -316,14 +316,14 @@ export default function Solutions360Section({ onOpenModal }) {
                     /* Grouped Pointers (GST & Customs) */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                       {activeItem.groups.map((grp, gIdx) => (
-                        <div key={gIdx} className="bg-slate-50/90 rounded-2xl p-4 border border-slate-200/80">
+                        <div key={gIdx} className="rounded-2xl p-4 bg-orange-50/30 border border-orange-100/80">
                           <div className="text-xs font-extrabold text-[#FA5A16] tracking-wide mb-2.5 flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
                             <span>{grp.label}</span>
                           </div>
                           <div className="space-y-1.5">
                             {grp.pointers.map((pt, pIdx) => (
-                              <div key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                              <div key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-[#0B192C] leading-snug">
                                 <span className="text-[#FA5A16] font-black text-sm shrink-0 leading-none mt-0.5">•</span>
                                 <span>{pt}</span>
                               </div>
@@ -333,12 +333,12 @@ export default function Solutions360Section({ onOpenModal }) {
                       ))}
                     </div>
                   ) : (
-                    /* Standard Pointers List (IFRS, M&A, Corporate Legal, TP, Payroll) */
-                    <div className="bg-slate-50/90 rounded-2xl p-5 border border-slate-200/80">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                    /* Standard Pointers List (IFRS, M&A, Corporate Legal, TP, Payroll) - Clean open layout with no blue container */
+                    <div className="py-2.5 px-1">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5">
                         {activeItem.pointers.map((pt, pIdx) => (
-                          <div key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
-                            <span className="text-[#FA5A16] font-black text-sm shrink-0 leading-none mt-0.5">•</span>
+                          <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-[#0B192C] leading-snug">
+                            <span className="text-[#FA5A16] font-black text-base shrink-0 leading-none mt-0.5">•</span>
                             <span>{pt}</span>
                           </div>
                         ))}
@@ -485,7 +485,11 @@ export default function Solutions360Section({ onOpenModal }) {
                       />
 
                       {/* Node Dot on Concentric Track */}
-                      <g className="cursor-pointer" onClick={() => handleToggleItem(item.id)}>
+                      <g 
+                        className="cursor-pointer outline-none focus:outline-none" 
+                        style={{ outline: 'none' }}
+                        onClick={() => handleToggleItem(item.id)}
+                      >
                         {isActive && (
                           <circle
                             cx={nodePt.x}
@@ -512,8 +516,10 @@ export default function Solutions360Section({ onOpenModal }) {
                         transform={popDist > 0 ? `translate(${dx.toFixed(2)}, ${dy.toFixed(2)})` : undefined}
                         style={{
                           transition: 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          outline: 'none'
                         }}
+                        className="outline-none focus:outline-none focus-visible:outline-none select-none"
                         onClick={() => handleToggleItem(item.id)}
                         onMouseEnter={() => setHoveredItemId(item.id)}
                         onMouseLeave={() => setHoveredItemId(null)}

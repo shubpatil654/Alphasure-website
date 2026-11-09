@@ -192,6 +192,22 @@
   transition: fill 0.25s ease;
 }
 
+/* Eliminate any browser focus outline or blue bounding box on interactive fan elements */
+.pinterest-fan-svg,
+.pinterest-fan-svg *,
+.fan-petal-group,
+.fan-petal-group *,
+.fan-petal-group:focus,
+.fan-petal-group *:focus,
+.fan-petal-group:focus-visible,
+.fan-petal-group *:focus-visible,
+.fan-petal-group:active,
+.fan-petal-group *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 /* Fade in animation for dynamic switching */
 @keyframes fadeIn {
   from {
