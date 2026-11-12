@@ -552,22 +552,24 @@ export default function Solutions360Section({ onOpenModal }) {
                   <circle
                     cx={cx}
                     cy={cy}
-                    r="44"
+                    r="48"
                     fill="#FFFFFF"
                     stroke="#E2E8F0"
                     strokeWidth="2.5"
                     filter="url(#hubShadow)"
                     className="transition-transform duration-300 group-hover:scale-105"
+                    style={{ transformOrigin: `${cx}px ${cy}px` }}
                   />
                   {/* Alphasure Brand Logo Symbol */}
                   <image
                     href="/images/alphasure-logo-v3.png"
-                    x={cx - 24}
-                    y={cy - 21}
-                    width="48"
-                    height="42"
+                    x={cx - 33}
+                    y={cy - 29}
+                    width="66"
+                    height="58"
                     preserveAspectRatio="xMidYMid meet"
                     className="transition-transform duration-300 group-hover:scale-110 pointer-events-none"
+                    style={{ transformOrigin: `${cx}px ${cy}px` }}
                   />
                 </g>
 
