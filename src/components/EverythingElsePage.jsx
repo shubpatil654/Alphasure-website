@@ -8,16 +8,19 @@ export default function EverythingElsePage({ onOpenModal }) {
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-end pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden select-none bg-[#0e1726]">
         
-        {/* Background Workshop Image with Receipts & Laptop */}
+        {/* Background Team Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="/images/everything-else-hero-bg.jpg"
-            alt="Your business shouldn't need a different service provider for every new requirement - Alphasure"
-            className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
+            src="/images/everything-else-hero-team.jpg"
+            alt="Alphasure - We bring the right specialists around your business"
+            className="w-full h-full object-cover object-[center_28%] filter brightness-[0.98] contrast-[1.02]"
           />
 
-          {/* Clean subtle directional gradient overlay to keep text crisp while keeping the visual bright and vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
+          {/* Top subtle gradient for Navbar legibility */}
+          <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-black/60 via-black/25 to-transparent pointer-events-none" />
+
+          {/* Bottom gradient overlay to keep highlight phrase razor sharp */}
+          <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-black/85 via-black/45 to-transparent pointer-events-none" />
         </div>
 
         {/* ================= BOTTOM HIGHLIGHT PHRASE ================= */}
