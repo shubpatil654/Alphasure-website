@@ -32,6 +32,18 @@ export const TRUSTED_PARTNERS = [
     name: "Optitax's",
     subtitle: 'Tax Planning & Compliance',
     logo: '/images/partners/optitax-logo.png'
+  },
+  {
+    id: 'tvishi',
+    name: 'Tvishi',
+    subtitle: 'Services as a Service',
+    logo: '/images/partners/tvishi-logo.png'
+  },
+  {
+    id: 'boldsight',
+    name: 'Boldsight',
+    subtitle: 'Strategic Business Advisory',
+    logo: '/images/partners/boldsight-logo.png'
   }
 ];
 
