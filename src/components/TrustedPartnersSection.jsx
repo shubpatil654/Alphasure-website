@@ -80,11 +80,6 @@ export default function TrustedPartnersSection() {
       
       {/* ================= SECTION HEADER ================= */}
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
-        
-        {/* Eyebrow Label */}
-        <span className="text-xs font-extrabold uppercase tracking-widest text-[#FA5A16] bg-[#FA5A16]/10 px-3.5 py-1.5 rounded-full border border-[#FA5A16]/20 inline-block mb-3">
-          OUR APPROACH
-        </span>
 
         {/* Requested Heading: "Why We Work with Partners" with animated underline */}
         <h2 className="alpha-h2 font-black text-[#0B192C] tracking-tight">
@@ -115,7 +110,7 @@ export default function TrustedPartnersSection() {
             We don’t believe that every service needs to be performed by Alphasure itself.
           </p>
           <p className="text-lg sm:text-xl font-bold text-[#0B192C] leading-snug">
-            We believe it needs to be done by the right people.
+            We believe it needs to be done by the <span className="text-[#FA5A16]">right people</span>.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto pt-1 font-normal">
             For services outside our core expertise, we work with carefully selected specialists rather than outsourcing work to multiple low-cost service providers.
@@ -124,13 +119,13 @@ export default function TrustedPartnersSection() {
 
       </div>
 
-      {/* ================= OUR CORE VALUES ================= */}
+      {/* ================= WHAT YOU GET WITH OUR TRUSTED PARTNERS ================= */}
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         
         {/* Core Values Subheading */}
         <div className="text-center mb-8">
           <h3 className="text-2xl sm:text-3xl font-black text-[#0B192C] tracking-tight">
-            Our Core Values
+            What You Get with Our Trusted Partners
           </h3>
         </div>
 
