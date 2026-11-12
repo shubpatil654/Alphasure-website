@@ -266,12 +266,6 @@ export default function Solutions360Section({ onOpenModal }) {
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <span>Back to <strong>"Your Business"</strong></span>
                   </button>
-
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#FA5A16] bg-orange-50 px-3 py-1 rounded-full border border-orange-200/60">
-                    {activeItem.isGrouped 
-                      ? `${activeItem.groups.reduce((acc, g) => acc + g.pointers.length, 0)} Offerings`
-                      : `${activeItem.pointers.length} Offerings`}
-                  </span>
                 </div>
 
                 {/* Header with Title & Icon */}
