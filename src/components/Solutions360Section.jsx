@@ -241,39 +241,15 @@ export default function Solutions360Section({ onOpenModal }) {
               /* ================= INITIAL PHASE: "YOUR BUSINESS" ================= */
               <div className="your-business-card animate-fadeIn">
                 
-                {/* Eyebrow Pill */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/70 text-[#FA5A16] text-xs font-bold uppercase tracking-wider mb-5">
-                  <span className="w-2 h-2 rounded-full bg-[#FA5A16] animate-pulse" />
-                  <span>Your Business</span>
-                </div>
-
                 {/* Main Headline: Exact Authentic Alphasure Copy */}
-                <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#0B192C] tracking-tight leading-[1.22] mb-5">
+                <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#0B192C] tracking-tight leading-[1.25] mb-5">
                   Your business shouldn't need a separate service provider for every new requirement.
                 </h3>
 
                 {/* Exact Sub-paragraph Copy */}
-                <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed mb-6">
+                <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
                   Whether you are expanding internationally, preparing for an acquisition, facing a tax assessment or simply looking for a better way to manage your finances, Alphasure can help you find the right expertise.
                 </p>
-
-                {/* Highlight Quote Box */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-orange-50/80 via-white to-amber-50/60 border border-orange-200/80 shadow-sm mb-7">
-                  <p className="text-[#0B192C] text-base sm:text-lg font-bold tracking-tight leading-snug">
-                    You focus on <span className="text-[#FA5A16] font-extrabold uppercase">GROWING</span> the business. We help bring the right people around it.
-                  </p>
-                </div>
-
-                {/* Interactive Guidance Prompt */}
-                <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50/50 border border-orange-200/60 text-xs sm:text-sm font-semibold text-[#0B192C]/80">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#FA5A16]" />
-                    <span>Select any practice on the dial to explore its scope</span>
-                  </div>
-                  <span className="text-[#FA5A16] font-bold text-xs uppercase tracking-wide hidden sm:inline">
-                    6 Practices →
-                  </span>
-                </div>
 
               </div>
             ) : (
