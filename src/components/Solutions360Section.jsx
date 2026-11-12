@@ -529,25 +529,13 @@ export default function Solutions360Section({ onOpenModal }) {
                             textAnchor="middle"
                             dominantBaseline="central"
                             className="select-none pointer-events-none"
+                            fill={isActive ? '#FFFFFF' : '#0B192C'}
+                            fontSize={item.title.length > 12 ? '13.5' : '14.5'}
+                            fontWeight="900"
+                            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+                            letterSpacing="-0.01em"
                           >
-                            <tspan
-                              fill={isActive ? 'rgba(255,255,255,0.85)' : '#FA5A16'}
-                              fontSize="11"
-                              fontWeight="900"
-                              fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-                              letterSpacing="-0.02em"
-                            >
-                              0{idx + 1}&nbsp;&nbsp;&nbsp;
-                            </tspan>
-                            <tspan
-                              fill={isActive ? '#FFFFFF' : '#0B192C'}
-                              fontSize={item.title.length > 12 ? '13' : '14'}
-                              fontWeight="900"
-                              fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-                              letterSpacing="-0.01em"
-                            >
-                              {item.title}
-                            </tspan>
+                            {item.title}
                           </text>
                         </g>
 
@@ -557,8 +545,15 @@ export default function Solutions360Section({ onOpenModal }) {
                   );
                 })}
 
-                {/* 4. Center Semi-Disc Hub on the Left */}
-                <g className="cursor-pointer" onClick={() => setActiveItemId(null)}>
+                {/* 4. Center Semi-Disc Hub on the Left with Alphasure Logo */}
+                <g 
+                  className="cursor-pointer group" 
+                  onClick={() => setActiveItemId(null)}
+                  style={{ outline: 'none' }}
+                  role="button"
+                  tabIndex={-1}
+                  title="Reset to Overview"
+                >
                   {/* Outer White Hub Disc */}
                   <circle
                     cx={cx}
@@ -568,21 +563,17 @@ export default function Solutions360Section({ onOpenModal }) {
                     stroke="#E2E8F0"
                     strokeWidth="2.5"
                     filter="url(#hubShadow)"
+                    className="transition-transform duration-300 group-hover:scale-105"
                   />
-                  {/* Inner Orange Hub Accent */}
-                  <circle
-                    cx={cx}
-                    cy={cy}
-                    r="16"
-                    fill="#FA5A16"
-                  />
-                  {/* Specular Pip */}
-                  <circle
-                    cx={cx - 3}
-                    cy={cy - 3}
-                    r="3.5"
-                    fill="#FFFFFF"
-                    opacity="0.9"
+                  {/* Alphasure Brand Logo Symbol */}
+                  <image
+                    href="/images/alphasure-logo-v3.png"
+                    x={cx - 24}
+                    y={cy - 21}
+                    width="48"
+                    height="42"
+                    preserveAspectRatio="xMidYMid meet"
+                    className="transition-transform duration-300 group-hover:scale-110 pointer-events-none"
                   />
                 </g>
 
