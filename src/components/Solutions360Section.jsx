@@ -256,7 +256,7 @@ export default function Solutions360Section({ onOpenModal }) {
               /* ================= ACTIVE PHASE: PRACTICE DETAILS CONTAINER ================= */
               <div className="service-details-card animate-fadeIn">
                 
-                {/* Top Navigation Bar: Back to "Your Business" */}
+                {/* Top Navigation Bar: Back Button */}
                 <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
                   <button
                     type="button"
@@ -264,7 +264,7 @@ export default function Solutions360Section({ onOpenModal }) {
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-500 hover:text-[#FA5A16] transition-colors cursor-pointer group"
                   >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    <span>Back to <strong>"Your Business"</strong></span>
+                    <span>Back</span>
                   </button>
                 </div>
 

@@ -93,10 +93,34 @@ export default function Footer({ onOpenModal, onNavigate }) {
                 <span>+1 (800) 555-ALPH</span>
               </div>
               <div className="flex items-start gap-3 text-slate-300">
-                <MapPin size={16} className="text-[#3B82F6] shrink-0 mt-1" />
+                <MapPin size={16} className="text-[#3B82F6] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  202/1A, Ranade Road, Opp. to JAIN Temple, Radhakrishna Marg, Radhakrishma building, Hindwadi, Belagavi, Karnataka, India – 590011
+                  202/1A, Ranade Road, Hindwadi, Belagavi, Karnataka, India - 590011
                 </span>
+              </div>
+            </div>
+
+            {/* Embedded Google Map */}
+            <div className="pt-1">
+              <div className="relative w-full h-44 sm:h-48 rounded-2xl overflow-hidden border border-slate-700/60 shadow-xl group bg-[#0e1726]">
+                <iframe
+                  title="Alphasure Office Location"
+                  src="https://maps.google.com/maps?q=202%2F1A%2C%20Ranade%20Road%2C%20Hindwadi%2C%20Belagavi%2C%20Karnataka%2C%20India%20-%20590011&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-full border-0 filter contrast-[1.05] opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=202%2F1A%2C+Ranade+Road%2C+Hindwadi%2C+Belagavi%2C+Karnataka%2C+India+-+590011"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2.5 right-2.5 px-3 py-1.5 rounded-lg bg-[#070D1B]/90 hover:bg-[#FA5A16] text-[11px] font-bold text-white border border-slate-700/80 shadow-lg transition-all duration-200 flex items-center gap-1.5 backdrop-blur-sm cursor-pointer"
+                  title="Open location in Google Maps"
+                >
+                  <MapPin size={12} className="text-[#FA5A16] group-hover:text-white transition-colors" />
+                  <span>Open in Maps</span>
+                </a>
               </div>
             </div>
 
