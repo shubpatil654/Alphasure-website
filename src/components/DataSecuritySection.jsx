@@ -114,11 +114,11 @@ export default function DataSecuritySection() {
 
           </div>
 
-          {/* ================= RIGHT COLUMN: 3D ISO 27001 Glass Shield Graphic ================= */}
+          {/* ================= RIGHT COLUMN: ISO/IEC 27001:2022 Shield Badge ================= */}
           <div className="data-security-right">
             <div className="shield-graphic-wrapper">
               <img
-                src="/images/iso-27001-shield.png"
+                src="/images/iso-27001-badge.png"
                 alt="Alphasure ISO/IEC 27001:2022 Certified Data Security Shield"
                 className="shield-graphic-img"
               />
