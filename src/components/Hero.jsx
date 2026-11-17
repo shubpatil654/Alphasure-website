@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import TrustBar from './TrustBar';
 
+const ROTATING_WORDS = ['Accounting', 'Incorporation', 'Compliance'];
+
 export default function Hero({ onOpenModal }) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+        setIsAnimating(false);
+      }, 320);
+    }, 2800);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12">
       
@@ -33,10 +49,20 @@ export default function Hero({ onOpenModal }) {
             Scale New Heights!
           </h1>
 
-          {/* Subtitle Text aligned to heading width */}
-          <p className="mt-4 sm:mt-6 alpha-large-body text-white font-medium tracking-tight text-shadow-hero max-w-3xl mx-auto">
-            Simplifying the complexities of running a business, from incorporation and accounting to <span className="whitespace-nowrap">compliance and beyond</span>
-          </p>
+          {/* Rotating Dynamic Subtitle: Accounting / Incorporation / Compliance Simplified */}
+          <div className="mt-4 sm:mt-6 flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-black tracking-tight text-shadow-hero select-none">
+            <span className="inline-block text-[#FA5A16] drop-shadow-[0_2px_14px_rgba(250,90,22,0.5)]">
+              <span
+                key={wordIndex}
+                className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
+              >
+                {ROTATING_WORDS[wordIndex]}
+              </span>
+            </span>
+            <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-bold">
+              Simplified
+            </span>
+          </div>
         </div>
 
         {/* Call to Action Buttons */}

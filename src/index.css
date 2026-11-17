@@ -524,6 +524,41 @@ p, li, blockquote,
   animation: drawUnderlineStrokeLoop 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
+/* ==========================================================================
+   HERO ROTATING WORD ANIMATION (ACCOUNTING / INCORPORATION / COMPLIANCE)
+   ========================================================================== */
+@keyframes rotateWordSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateWordSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+.animate-rotate-word-in {
+  display: inline-block;
+  animation: rotateWordSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-rotate-word-out {
+  display: inline-block;
+  animation: rotateWordSlideOut 0.32s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
 /* Caveat Handwriting Font */
 .font-caveat {
   font-family: 'Caveat', cursive;
