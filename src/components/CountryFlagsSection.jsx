@@ -16,10 +16,10 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white border-t border-b border-slate-100 overflow-hidden">
+    <section className="relative w-full py-8 sm:py-10 lg:py-12 bg-white border-t border-b border-slate-100 overflow-hidden">
       
       {/* Section Header */}
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
+      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-6 sm:mb-7 lg:mb-8 flex flex-col items-center">
         <h2 className="alpha-h2 font-bold text-[#1B2538] tracking-tight">
           Trusted by businesses{' '}
           <span className="relative inline-block text-[#FA5A16]">
@@ -43,7 +43,7 @@ export default function CountryFlagsSection() {
       </div>
 
       {/* Ticker Container with Gradient Fade Masks */}
-      <div className="relative w-full overflow-hidden py-4 sm:py-6 select-none">
+      <div className="relative w-full overflow-hidden py-1.5 sm:py-2.5 select-none">
         
         {/* Left Fade Mask */}
         <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 lg:w-52 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>

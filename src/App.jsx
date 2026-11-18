@@ -120,13 +120,13 @@ export default function App() {
         ) : (
           <>
             <Hero onOpenModal={() => setModalOpen(true)} />
-            <CountryFlagsSection />
             <ServicesSection />
             <PuzzleSection />
             <LeaderSection />
             <WhatSetsUsApartSection />
             <SoftwareNetworkSection />
             <GettingStartedSection onOpenModal={() => setModalOpen(true)} />
+            <CountryFlagsSection />
             <IndustriesCarouselSection onOpenModal={() => setModalOpen(true)} />
             <ReviewsSection />
             <FaqSection onOpenModal={() => setModalOpen(true)} />
