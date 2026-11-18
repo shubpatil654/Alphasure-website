@@ -131,10 +131,10 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
 
         {/* ================= SECTION HEADER ================= */}
         <div className="text-center mb-5 sm:mb-7">
-          <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight uppercase">
+          <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
             Business Made Lighter with{' '}
             <span className="relative inline-block text-[#FA5A16]">
-              Alphasure.
+              ALPHASURE
               {/* Signature Curved Underline */}
               <svg 
                 className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
