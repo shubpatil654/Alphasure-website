@@ -152,9 +152,6 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
               </svg>
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-medium max-w-xl mx-auto mt-3 sm:mt-4 leading-relaxed">
-            Hover over any pillar to view the services we provide.
-          </p>
         </div>
 
         {/* ================= 4-PILLAR HORIZONTAL EXPANDING ACCORDION ================= */}
