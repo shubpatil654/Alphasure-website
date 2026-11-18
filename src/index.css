@@ -571,7 +571,7 @@ p, li, blockquote,
    ========================================================================== */
 
 /* Standard content sections across the entire website (25px vertical padding) */
-section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]):not(#hero):not(.puzzle-section) {
+section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]):not(#hero):not(.puzzle-section):not(.what-sets-us-apart-section) {
   padding-top: 25px !important;
   padding-bottom: 25px !important;
 }
@@ -586,6 +586,19 @@ section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"])
   .puzzle-section {
     padding-top: 56px !important;
     padding-bottom: 56px !important;
+  }
+}
+
+/* What Sets Us Apart Section - comfortably enlarged vertical height */
+.what-sets-us-apart-section {
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+@media (min-width: 768px) {
+  .what-sets-us-apart-section {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
   }
 }
 
