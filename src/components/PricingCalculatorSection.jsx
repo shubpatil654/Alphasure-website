@@ -3,9 +3,9 @@ import { Check, ArrowRight, Sparkles, Calculator, RotateCcw, ChevronDown, MapPin
 
 export default function PricingCalculatorSection({ onOpenModal }) {
   // Dropdown States
+  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'annually'
   const [cityTier, setCityTier] = useState('tier1'); // 'tier1' | 'tier2'
   const [transactions, setTransactions] = useState('50'); // '50' | '100' | '200' | '500' | '1000' | 'more-than-1000'
-  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'annually'
 
   // Submission State - Table & Output are hidden at first
   const [hasCalculated, setHasCalculated] = useState(false);
@@ -30,6 +30,14 @@ export default function PricingCalculatorSection({ onOpenModal }) {
     'more-than-1000': { monthly: null, annual: null, monthlyDisplay: 'Ask for a quote', annualDisplay: 'Ask for a quote', isCustom: true },
   };
 
+  // Handle frequency change with automatic transaction option validation
+  const handleBillingCycleChange = (newCycle) => {
+    setBillingCycle(newCycle);
+    if (newCycle === 'annually' && !['500', '1000', 'more-than-1000'].includes(transactions)) {
+      setTransactions('500');
+    }
+  };
+
   const currentDataset = cityTier === 'tier1' ? tier1Data : tier2Data;
   const currentPlan = currentDataset[transactions] || currentDataset['50'];
   const isCustomPlan = currentPlan.isCustom;
@@ -43,8 +51,8 @@ export default function PricingCalculatorSection({ onOpenModal }) {
     : 'Tier 2 (Any other City across India)';
 
   const txnLabel = transactions === 'more-than-1000' 
-    ? '1000 or more transactions' 
-    : `Upto ${transactions} transactions`;
+    ? (billingCycle === 'annually' ? '1000 & more transactions' : '1000 or more transactions')
+    : (billingCycle === 'annually' ? `${transactions} transactions` : `Upto ${transactions} transactions`);
 
   const frequencyLabel = billingCycle === 'monthly' ? 'Monthly Billing' : 'Annual Billing';
 
@@ -107,7 +115,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
             Periodic accounting
           </h2>
           <p className="mt-3 sm:mt-4 alpha-large-body text-slate-300 font-normal max-w-3xl mx-auto">
-            Select your city tier, transaction volume, and billing frequency to calculate your personalized plan.
+            Select your billing frequency, city tier, and transaction volume to calculate your personalized plan.
           </p>
         </div>
 
@@ -117,10 +125,34 @@ export default function PricingCalculatorSection({ onOpenModal }) {
           <form onSubmit={handleShowPricing} className="space-y-6 sm:space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
               
-              {/* Dropdown 1: Choose City Type */}
+              {/* Dropdown 1: Choose Frequency */}
               <div className="flex flex-col space-y-3">
                 <label className="text-sm sm:text-base font-black text-white uppercase tracking-wider flex items-center gap-2 h-7">
                   <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FA5A16] text-white flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                  <span>Choose Frequency</span>
+                </label>
+                <div className="relative">
+                  <select
+                    value={billingCycle}
+                    onChange={(e) => handleBillingCycleChange(e.target.value)}
+                    className="w-full bg-[#0D1527] hover:bg-[#111C35] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 sm:py-4 pl-4 pr-10 rounded-2xl border-2 border-slate-700 hover:border-slate-500 focus:border-[#FA5A16] focus:ring-2 focus:ring-[#FA5A16]/20 outline-none transition-all cursor-pointer appearance-none shadow-xs"
+                  >
+                    <option value="monthly" className="bg-[#0D1527] text-white">Monthly</option>
+                    <option value="annually" className="bg-[#0D1527] text-white">Annually</option>
+                  </select>
+                  <ChevronDown className="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
+                <div className="min-h-[42px] sm:min-h-[46px] flex items-start">
+                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
+                    {billingCycle === 'annually' ? 'Includes comprehensive annual package' : 'Pay as you go monthly'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Dropdown 2: Choose City Type */}
+              <div className="flex flex-col space-y-3">
+                <label className="text-sm sm:text-base font-black text-white uppercase tracking-wider flex items-center gap-2 h-7">
+                  <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FA5A16] text-white flex items-center justify-center text-xs font-bold shrink-0">2</span>
                   <span>Choose City Type</span>
                 </label>
                 <div className="relative">
@@ -141,11 +173,11 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                 </div>
               </div>
 
-              {/* Dropdown 2: Number of Transactions */}
+              {/* Dropdown 3: No. of transactions per month/year */}
               <div className="flex flex-col space-y-3">
-                <label className="text-sm sm:text-base font-black text-white uppercase tracking-wider flex items-center gap-2 h-7">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FA5A16] text-white flex items-center justify-center text-xs font-bold shrink-0">2</span>
-                  <span>Number of Transactions</span>
+                <label className="text-sm sm:text-base font-black text-white tracking-wider flex items-center gap-2 h-7">
+                  <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FA5A16] text-white flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                  <span className="uppercase">No. of transactions per month/year</span>
                 </label>
                 <div className="relative">
                   <select
@@ -153,42 +185,28 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                     onChange={(e) => setTransactions(e.target.value)}
                     className="w-full bg-[#0D1527] hover:bg-[#111C35] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 sm:py-4 pl-4 pr-10 rounded-2xl border-2 border-slate-700 hover:border-slate-500 focus:border-[#FA5A16] focus:ring-2 focus:ring-[#FA5A16]/20 outline-none transition-all cursor-pointer appearance-none shadow-xs"
                   >
-                    <option value="50" className="bg-[#0D1527] text-white">Upto 50</option>
-                    <option value="100" className="bg-[#0D1527] text-white">Upto 100</option>
-                    <option value="200" className="bg-[#0D1527] text-white">Upto 200</option>
-                    <option value="500" className="bg-[#0D1527] text-white">Upto 500</option>
-                    <option value="1000" className="bg-[#0D1527] text-white">Upto 1000</option>
-                    <option value="more-than-1000" className="bg-[#0D1527] text-white">1000 or more</option>
+                    {billingCycle === 'annually' ? (
+                      <>
+                        <option value="500" className="bg-[#0D1527] text-white">500</option>
+                        <option value="1000" className="bg-[#0D1527] text-white">1000</option>
+                        <option value="more-than-1000" className="bg-[#0D1527] text-white">1000 & more</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="50" className="bg-[#0D1527] text-white">Upto 50</option>
+                        <option value="100" className="bg-[#0D1527] text-white">Upto 100</option>
+                        <option value="200" className="bg-[#0D1527] text-white">Upto 200</option>
+                        <option value="500" className="bg-[#0D1527] text-white">Upto 500</option>
+                        <option value="1000" className="bg-[#0D1527] text-white">Upto 1000</option>
+                        <option value="more-than-1000" className="bg-[#0D1527] text-white">1000 or more</option>
+                      </>
+                    )}
                   </select>
                   <ChevronDown className="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
                 <div className="min-h-[42px] sm:min-h-[46px] flex items-start">
                   <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
                     *Bank + Supplier + Customer invoices
-                  </p>
-                </div>
-              </div>
-
-              {/* Dropdown 3: Annually or Monthly */}
-              <div className="flex flex-col space-y-3">
-                <label className="text-sm sm:text-base font-black text-white uppercase tracking-wider flex items-center gap-2 h-7">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FA5A16] text-white flex items-center justify-center text-xs font-bold shrink-0">3</span>
-                  <span>Choose Frequency</span>
-                </label>
-                <div className="relative">
-                  <select
-                    value={billingCycle}
-                    onChange={(e) => setBillingCycle(e.target.value)}
-                    className="w-full bg-[#0D1527] hover:bg-[#111C35] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 sm:py-4 pl-4 pr-10 rounded-2xl border-2 border-slate-700 hover:border-slate-500 focus:border-[#FA5A16] focus:ring-2 focus:ring-[#FA5A16]/20 outline-none transition-all cursor-pointer appearance-none shadow-xs"
-                  >
-                    <option value="monthly" className="bg-[#0D1527] text-white">Monthly</option>
-                    <option value="annually" className="bg-[#0D1527] text-white">Annual (Best Value)</option>
-                  </select>
-                  <ChevronDown className="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-                <div className="min-h-[42px] sm:min-h-[46px] flex items-start">
-                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
-                    {billingCycle === 'annually' ? 'Includes comprehensive annual package' : 'Pay as you go monthly'}
                   </p>
                 </div>
               </div>
@@ -227,7 +245,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
             
             <div className="w-full bg-[#131E3A] rounded-[26px] sm:rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.5)] border-2 border-slate-700 overflow-hidden">
               
-              {/* Top Banner: Selected Filter Summary Pills */}
+              {/* Top Banner: Selected Filter Summary Pills (In new order: Frequency -> City -> Transactions) */}
               <div className="bg-[#0D1527] px-6 sm:px-8 py-4.5 border-b border-slate-700/80 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-full bg-[#FA5A16]/20 text-[#FA5A16] flex items-center justify-center">
@@ -243,8 +261,12 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                   </div>
                 </div>
 
-                {/* Filter Badges */}
+                {/* Filter Badges in new order */}
                 <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FA5A16]/15 border border-[#FA5A16]/40 text-xs sm:text-sm font-bold text-[#FA5A16] shadow-2xs">
+                    <CalendarCheck className="w-3.5 h-3.5 text-[#FA5A16]" />
+                    {frequencyLabel}
+                  </span>
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs sm:text-sm font-bold text-slate-200 shadow-2xs">
                     <MapPin className="w-3.5 h-3.5 text-[#FA5A16]" />
                     {cityTier === 'tier1' ? 'Tier 1' : 'Tier 2'}
@@ -252,10 +274,6 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs sm:text-sm font-bold text-slate-200 shadow-2xs">
                     <Layers className="w-3.5 h-3.5 text-[#FA5A16]" />
                     {txnLabel}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FA5A16]/15 border border-[#FA5A16]/40 text-xs sm:text-sm font-bold text-[#FA5A16] shadow-2xs">
-                    <CalendarCheck className="w-3.5 h-3.5 text-[#FA5A16]" />
-                    {frequencyLabel}
                   </span>
                 </div>
               </div>
