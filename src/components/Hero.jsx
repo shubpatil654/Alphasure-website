@@ -50,16 +50,18 @@ export default function Hero({ onOpenModal }) {
           </h1>
 
           {/* Rotating Dynamic Subtitle: Accounting / Incorporation / Compliance Simplified */}
-          <div className="mt-4 sm:mt-6 flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-black tracking-tight text-shadow-hero select-none">
-            <span className="inline-block text-[#FA5A16] drop-shadow-[0_2px_14px_rgba(250,90,22,0.5)]">
-              <span
-                key={wordIndex}
-                className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
-              >
-                {ROTATING_WORDS[wordIndex]}
+          <div className="mt-4 sm:mt-6 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-black tracking-tight text-shadow-hero select-none">
+            <div className="w-[145px] sm:w-[185px] md:w-[225px] lg:w-[255px] text-right shrink-0">
+              <span className="inline-block text-[#FA5A16] drop-shadow-[0_2px_14px_rgba(250,90,22,0.5)] whitespace-nowrap">
+                <span
+                  key={wordIndex}
+                  className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
+                >
+                  {ROTATING_WORDS[wordIndex]}
+                </span>
               </span>
-            </span>
-            <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-bold">
+            </div>
+            <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
               Simplified
             </span>
           </div>
