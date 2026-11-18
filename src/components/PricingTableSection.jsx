@@ -34,7 +34,7 @@ export default function PricingTableSection({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-14 sm:py-18 lg:py-20 select-none overflow-hidden"
+      className="relative w-full bg-transparent py-12 sm:py-16 select-none overflow-hidden"
       id="pricing-breakdown"
     >
       {/* Background Soft Accent Lines */}
@@ -48,51 +48,51 @@ export default function PricingTableSection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
         
         {/* ================= SECTION HEADING: "Incorporation & secretarial" ================= */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] alpha-eyebrow mb-3 sm:mb-4">
-            <Building2 className="w-4 h-4 text-[#A67C52]" />
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#A67C52]/10 border border-[#A67C52]/30 text-[#A67C52] text-xs font-semibold tracking-wider uppercase mb-3">
+            <Building2 className="w-3.5 h-3.5 text-[#A67C52]" />
             <span>COMPANY FORMATION & SECRETARIAL</span>
           </div>
-          <h2 className="alpha-h2 font-bold text-slate-950 tracking-tight">
+          <h2 className="alpha-h2 font-bold text-slate-900 tracking-tight">
             Incorporation & secretarial
           </h2>
-          <p className="mt-3 sm:mt-4 alpha-large-body text-slate-700 font-normal max-w-3xl mx-auto">
+          <p className="mt-2.5 sm:mt-3 text-slate-600 font-normal text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Clear, all-inclusive pricing breakdown from name reservation to full annual ROC compliance.
           </p>
         </div>
 
         {/* ================= PRICING TABLE CONTAINER ================= */}
-        <div className="w-full max-w-[1200px] bg-white rounded-[22px] sm:rounded-[26px] border border-[#E5D8C5] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden transition-all duration-300 p-2 sm:p-2.5">
+        <div className="w-full max-w-[1160px] bg-white rounded-2xl sm:rounded-3xl border border-[#E8DEC8] shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300">
           
           {/* Responsive Scroll Wrapper for Mobile/Tablet */}
           <div className="w-full overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[760px] md:min-w-full">
               <thead>
-                <tr className="bg-[#FAF7F2]/50">
+                <tr className="bg-[#FAF7F2] border-b border-[#EFE6DA]">
                   {/* Column 1: Structure Name Header */}
-                  <th className="py-3.5 sm:py-4 px-5 sm:px-6 w-[20%] font-semibold text-slate-500 text-xs sm:text-sm uppercase tracking-wider">
+                  <th className="py-4 px-5 sm:px-7 w-[22%] font-semibold text-slate-400 text-xs uppercase tracking-wider">
                     Structure
                   </th>
                   
                   {/* Column 2: Incorporation */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[20%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90">
+                  <th className="py-4 px-4 sm:px-6 w-[20%] text-center font-semibold text-slate-800 text-sm sm:text-[15px] tracking-tight border-l border-[#EFE6DA]/80">
                     Incorporation
                   </th>
 
                   {/* Column 3: Post-Incorporation compliance */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
-                    Post-Incorporation <br />
+                  <th className="py-4 px-4 sm:px-6 w-[21%] text-center font-semibold text-slate-800 text-sm sm:text-[15px] tracking-tight border-l border-[#EFE6DA]/80 leading-snug">
+                    Post-Incorporation <br className="hidden sm:inline" />
                     compliance
                   </th>
 
                   {/* Column 4: Annual Compliance Package */}
-                  <th className="py-3.5 sm:py-4 px-4 sm:px-6 w-[22%] text-center text-slate-950 font-sans text-base sm:text-lg md:text-[20px] font-black tracking-tight border-l border-[#EFE6DA]/90 leading-snug">
-                    Annual Compliance <br />
+                  <th className="py-4 px-4 sm:px-6 w-[21%] text-center font-semibold text-slate-800 text-sm sm:text-[15px] tracking-tight border-l border-[#EFE6DA]/80 leading-snug">
+                    Annual Compliance <br className="hidden sm:inline" />
                     Package
                   </th>
 
                   {/* Column 5: Total */}
-                  <th className="py-3.5 sm:py-4 px-5 sm:px-6 w-[16%] text-center text-[#8C6239] font-sans text-lg sm:text-xl md:text-[23px] font-black tracking-tight border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90">
+                  <th className="py-4 px-5 sm:px-6 w-[16%] text-center font-bold text-[#8C6239] text-sm sm:text-[15px] tracking-tight border-l border-[#EFE6DA]/80 bg-[#FAF4EB]/80">
                     Total
                   </th>
                 </tr>
@@ -112,37 +112,36 @@ export default function PricingTableSection({ onOpenModal }) {
                       onMouseEnter={() => setHoveredRow(index)}
                       onMouseLeave={() => setHoveredRow(null)}
                       className={`
-                        relative transition-all duration-200 cursor-pointer select-none
-                        border-t border-[#EFE6DA]/90 group
-                        ${isCurrent ? 'bg-[#FAF5ED] outline outline-1.5 outline-[#C9A87C] shadow-xs z-10' : 'hover:bg-[#FAF7F2]/70'}
+                        relative transition-colors duration-200 cursor-pointer select-none
+                        border-t border-[#EFE6DA] group
+                        ${isCurrent ? 'bg-[#FAF5ED]' : 'hover:bg-[#FAF7F2]/60'}
                       `}
-                      style={isCurrent ? { borderRadius: '14px' } : {}}
                     >
                       {/* Structure Name */}
-                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 font-sans text-lg sm:text-xl md:text-[22px] font-black text-slate-950 tracking-tight transition-colors duration-200 ${isCurrent ? 'rounded-l-xl text-[#8C6239]' : 'group-hover:text-[#8C6239]'}`}>
+                      <td className={`py-4 sm:py-5 px-5 sm:px-7 font-medium text-base sm:text-[17px] tracking-tight transition-colors duration-200 ${isCurrent ? 'text-[#8C6239] font-semibold' : 'text-slate-900 group-hover:text-[#8C6239]'}`}>
                         <div className="flex items-center gap-2.5">
-                          <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isCurrent ? 'bg-[#FA5A16] scale-100 opacity-100' : 'bg-transparent scale-50 opacity-0'}`} />
+                          <span className={`w-2 h-2 rounded-full transition-all duration-200 ${isCurrent ? 'bg-[#FA5A16] scale-100 opacity-100' : 'bg-transparent scale-50 opacity-0'}`} />
                           <span>{row.name}</span>
                         </div>
                       </td>
 
                       {/* Incorporation Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-4 sm:py-5 px-4 sm:px-6 text-center font-normal text-slate-700 text-sm sm:text-base md:text-[16px] tabular-nums border-l border-[#EFE6DA]/80">
                         {row.incorporation}
                       </td>
 
                       {/* Post-Incorporation Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-4 sm:py-5 px-4 sm:px-6 text-center font-normal text-slate-700 text-sm sm:text-base md:text-[16px] tabular-nums border-l border-[#EFE6DA]/80">
                         {row.postIncorporation}
                       </td>
 
                       {/* Annual Compliance Price */}
-                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-center font-sans text-base sm:text-lg md:text-[20px] text-slate-950 font-bold border-l border-[#EFE6DA]/90">
+                      <td className="py-4 sm:py-5 px-4 sm:px-6 text-center font-normal text-slate-700 text-sm sm:text-base md:text-[16px] tabular-nums border-l border-[#EFE6DA]/80">
                         {row.annualCompliance}
                       </td>
 
                       {/* Total Price */}
-                      <td className={`py-3.5 sm:py-4 px-5 sm:px-6 text-center font-sans text-lg sm:text-xl md:text-[24px] font-black text-[#8C6239] border-l border-[#EFE6DA]/90 bg-[#FAF4EB]/90 transition-transform duration-200 ${isCurrent ? 'rounded-r-xl scale-105' : ''}`}>
+                      <td className={`py-4 sm:py-5 px-5 sm:px-6 text-center font-semibold text-[#8C6239] text-base sm:text-lg md:text-[18px] tabular-nums border-l border-[#EFE6DA]/80 bg-[#FAF4EB]/80 transition-colors duration-200 ${isCurrent ? 'font-bold' : ''}`}>
                         {row.total}
                       </td>
                     </tr>
@@ -155,12 +154,12 @@ export default function PricingTableSection({ onOpenModal }) {
         </div>
 
         {/* Call to Action Button */}
-        <div className="mt-4 sm:mt-5 text-center">
+        <div className="mt-8 sm:mt-10 text-center">
           <button
             onClick={onOpenModal}
-            className="px-7 py-3 sm:px-8 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#FF8A00] via-[#FF7A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF6B00] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-lg hover:shadow-[#FF8A00]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="px-7 py-3 sm:px-9 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#FF8A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF7A00] text-white font-bold text-sm sm:text-base tracking-wide shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <span>Get Started with Your Package</span>
+            Get Started with Your Package
           </button>
         </div>
 
