@@ -30,29 +30,29 @@
 .services-accordion-container {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.85rem;
   width: 100%;
-  min-height: 490px;
+  min-height: 400px;
   align-items: stretch;
 }
 
 @media (min-width: 1024px) {
   .services-accordion-container {
-    gap: 1.25rem;
-    min-height: 520px;
+    gap: 1rem;
+    min-height: 420px;
   }
 }
 
 /* Individual Accordion Pillar Card */
 .services-accordion-card {
   position: relative;
-  border-radius: 1.75rem;
+  border-radius: 1.25rem;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.85rem 1.65rem;
+  padding: 1.25rem 1.25rem;
   transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.4s ease,
               border-color 0.4s ease,
@@ -67,14 +67,14 @@
   background-color: #0B192C;
   color: #FFFFFF;
   border: 1.5px solid rgba(255, 255, 255, 0.08);
-  min-width: 160px;
+  min-width: 150px;
 }
 
 .services-card-default:hover {
   background-color: #11223A;
   border-color: rgba(250, 90, 22, 0.5);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(11, 25, 44, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(11, 25, 44, 0.22);
 }
 
 /* Collapsed state: When another card is expanded */
@@ -83,9 +83,9 @@
   background-color: #0B192C;
   color: #FFFFFF;
   border: 1.5px solid rgba(255, 255, 255, 0.06);
-  min-width: 120px;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  min-width: 115px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .services-card-collapsed:hover {
@@ -96,17 +96,17 @@
 
 /* Expanded state: The currently hovered / active card */
 .services-card-expanded {
-  flex: 2.85;
+  flex: 2.7;
   border: 2px solid;
   box-shadow: 
-    0 24px 50px -10px rgba(11, 25, 44, 0.12),
-    0 8px 24px -4px rgba(0, 0, 0, 0.04);
+    0 20px 40px -10px rgba(11, 25, 44, 0.10),
+    0 6px 18px -4px rgba(0, 0, 0, 0.04);
 }
 
 /* Expanded Card Internal Content Animation */
 .services-expanded-content {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(6px);
   transition: opacity 0.35s ease 0.12s, transform 0.35s ease 0.12s;
   pointer-events: none;
 }
@@ -127,23 +127,23 @@
   .services-accordion-container {
     flex-direction: column;
     min-height: auto;
-    gap: 0.85rem;
+    gap: 0.75rem;
   }
 
   .services-accordion-card {
-    min-height: 84px;
-    padding: 1.35rem 1.25rem;
-    border-radius: 1.25rem;
+    min-height: 80px;
+    padding: 1.15rem 1.15rem;
+    border-radius: 1rem;
     flex: none !important;
     width: 100%;
   }
 
   .services-card-default,
   .services-card-collapsed {
-    min-height: 84px;
+    min-height: 80px;
   }
 
   .services-card-expanded {
-    min-height: 420px;
+    min-height: 380px;
   }
 }
