@@ -44,6 +44,12 @@ export const TRUSTED_PARTNERS = [
     name: 'Boldsight',
     subtitle: 'Strategic Business Advisory',
     logo: '/images/partners/boldsight-logo.png'
+  },
+  {
+    id: 'arcubus',
+    name: 'Arcubus',
+    subtitle: 'Transfer Pricing & Tax Advisory',
+    logo: '/images/partners/arcubus-logo.png'
   }
 ];
 
