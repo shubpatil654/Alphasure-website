@@ -8,7 +8,7 @@ import AboutGalleryCarousel from './AboutGalleryCarousel';
 export default function AboutPage({ onOpenModal }) {
   return (
     <div className="w-full min-h-screen bg-[#FAF7F2]">
-      {/* ================= HERO SECTION (With Pinterest Team Image) ================= */}
+      {/* ================= HERO SECTION (With Video Background) ================= */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden select-none bg-[#0e1726]">
         
         {/* Background Video Covering Entire Hero Section */}
@@ -18,20 +18,20 @@ export default function AboutPage({ onOpenModal }) {
             loop
             muted
             playsInline
-            poster="/images/about-hero-pinterest.jpg"
-            className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
+            poster="/images/alphasure-logo-reveal-poster.png"
+            className="w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.02]"
           >
-            <source src="/videos/about-hero-video.mp4" type="video/mp4" />
+            <source src="/videos/alphasure-logo-reveal.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
-              src="/images/about-hero-pinterest.jpg"
+              src="/images/alphasure-logo-reveal-poster.png"
               alt="We are accountants, who understand business - Alphasure Team"
-              className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
+              className="w-full h-full object-cover object-center"
             />
           </video>
 
-          {/* Clean subtle directional gradient overlay to keep text crisp while keeping the team visual bright and vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/30 pointer-events-none" />
+          {/* Clean subtle directional gradient overlay to keep text crisp on the left while revealing the animation */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/25 pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
