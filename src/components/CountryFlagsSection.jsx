@@ -61,10 +61,10 @@ export default function CountryFlagsSection() {
           {marqueeItems.map((country, index) => (
             <div
               key={`${country.code}-${index}`}
-              className="flex items-center gap-3 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#13233C]/85 hover:bg-[#1A2E4E] border border-slate-700/70 hover:border-[#FA5A16]/70 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/40 shrink-0 group cursor-pointer"
+              className="flex items-center gap-3 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-white/90 hover:border-[#FA5A16]/60 transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl shrink-0 group cursor-pointer"
             >
               {/* Compact Flag Icon */}
-              <div className="relative w-9 h-6 sm:w-11 sm:h-7.5 rounded-md overflow-hidden shadow-xs border border-white/20 shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-9 h-6 sm:w-11 sm:h-7.5 rounded-md overflow-hidden shadow-2xs border border-slate-200/90 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <img
                   src={country.flag}
                   alt={`${country.name} Flag`}
@@ -75,14 +75,14 @@ export default function CountryFlagsSection() {
               {/* Country Meta */}
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="text-white font-bold text-sm sm:text-[15px] tracking-wide group-hover:text-[#FA5A16] transition-colors leading-snug">
+                  <span className="text-[#0B192C] font-bold text-sm sm:text-[15px] tracking-wide group-hover:text-[#FA5A16] transition-colors leading-snug">
                     {country.name}
                   </span>
-                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-white/10 text-slate-300 border border-white/10 uppercase leading-none">
+                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200/90 uppercase leading-none">
                     {country.code}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium group-hover:text-slate-300 leading-snug">
+                <span className="text-[11px] text-slate-500 font-medium group-hover:text-slate-700 leading-snug">
                   {country.region}
                 </span>
               </div>
