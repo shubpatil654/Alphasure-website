@@ -105,11 +105,11 @@ const SERVICES_DATA = [
 ];
 
 export default function ServicesSection({ onOpenModal, onNavigate }) {
-  // activeId is null by default so all 4 pillars are equally visible at first glance
-  const [activeId, setActiveId] = useState(null);
+  // First container (incorporation) is open by default
+  const [activeId, setActiveId] = useState('incorporation');
 
   const handleCardClick = (serviceId) => {
-    setActiveId((prev) => (prev === serviceId ? null : serviceId));
+    setActiveId(serviceId);
   };
 
   const handleSubserviceClick = (e, pageId) => {
@@ -125,7 +125,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
     <section 
       className="services-accordion-wrapper border-t border-slate-100" 
       id="services"
-      onMouseLeave={() => setActiveId(null)}
+      onMouseLeave={() => setActiveId('incorporation')}
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -161,16 +161,12 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
         <div className="services-accordion-container">
           {SERVICES_DATA.map((service) => {
             const isExpanded = activeId === service.id;
-            const isAnyActive = activeId !== null;
             const IconComponent = service.icon;
 
             // Determine card styling state
-            let cardStateClass = 'services-card-default';
-            if (isExpanded) {
-              cardStateClass = `services-card-expanded ${service.bgClass} ${service.borderColor}`;
-            } else if (isAnyActive) {
-              cardStateClass = 'services-card-collapsed';
-            }
+            const cardStateClass = isExpanded 
+              ? `services-card-expanded ${service.bgClass} ${service.borderColor}`
+              : 'services-card-collapsed';
 
             return (
               <div
@@ -219,30 +215,39 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                         {service.heading}
                       </h3>
 
-                      {/* Services Checklist */}
+                      {/* Services Checklist: Single column line-by-line for pillars 1-3, grid for other-services */}
                       <div className="mb-4">
                         <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 block mb-3">
                           Services Included:
                         </span>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <div 
+                          className={
+                            service.id === 'other-services' 
+                              ? "grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5" 
+                              : "flex flex-col gap-2 sm:gap-2.5"
+                          }
+                        >
                           {service.subservices.map((sub, idx) => (
                             <button
                               key={idx}
                               type="button"
                               onClick={(e) => handleSubserviceClick(e, sub.id)}
-                              className="flex items-center gap-2.5 p-3 rounded-xl bg-white hover:bg-slate-50/80 border border-slate-200/90 shadow-2xs hover:shadow-xs text-left transition-all duration-200 group/item cursor-pointer"
-                              style={{
-                                '--hover-border': service.themeColor
-                              }}
+                              className="flex items-center justify-between w-full p-2.5 sm:p-3 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/90 shadow-2xs hover:shadow-xs text-left transition-all duration-200 group/item cursor-pointer"
                             >
-                              <CheckCircle2 
-                                size={17} 
-                                className="shrink-0 transition-transform group-hover/item:scale-110" 
-                                style={{ color: service.themeColor }}
+                              <div className="flex items-center gap-2.5">
+                                <CheckCircle2 
+                                  size={17} 
+                                  className="shrink-0 transition-transform group-hover/item:scale-110" 
+                                  style={{ color: service.themeColor }}
+                                />
+                                <span className="text-xs sm:text-[13px] font-bold text-slate-800 transition-colors leading-tight">
+                                  {sub.name}
+                                </span>
+                              </div>
+                              <ArrowRight 
+                                size={14} 
+                                className="opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all text-slate-400 shrink-0" 
                               />
-                              <span className="text-xs sm:text-[13px] font-bold text-slate-800 transition-colors leading-tight">
-                                {sub.name}
-                              </span>
                             </button>
                           ))}
                         </div>
