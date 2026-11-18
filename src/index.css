@@ -567,21 +567,21 @@ p, li, blockquote,
 
 /* ==========================================================================
    ALPHASURE UNIFIED SECTION PADDING & VERTICAL TEXT RHYTHM SYSTEM
-   Standardizes 15px vertical padding across the entire website to minimize gaps
+   Standardizes 25px vertical padding across the entire website to minimize gaps
    ========================================================================== */
 
-/* Standard content sections across the entire website (15px vertical padding) */
+/* Standard content sections across the entire website (25px vertical padding) */
 section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]):not(#hero) {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
 }
 
-/* Hero sections: Preserve top clearance for navbar, set bottom padding to 15px */
+/* Hero sections: Preserve top clearance for navbar, set bottom padding to 25px */
 section[class*="min-h-"],
 section[class*="min-h-[8"],
 section[class*="min-h-[9"],
 section[class*="min-h-screen"] {
-  padding-bottom: 15px !important;
+  padding-bottom: 25px !important;
 }
 
 /* Custom class-based sections across website */
@@ -596,8 +596,8 @@ section[class*="min-h-screen"] {
 .trusted-partners-section,
 .section-standard,
 .section-padding {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
 }
 
 /* Universal Section Header Block Spacing to Content Below */

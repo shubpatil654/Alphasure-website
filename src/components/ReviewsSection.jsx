@@ -87,7 +87,7 @@ export default function ReviewsSection() {
   const marqueeItems = [...reviewsList, ...reviewsList];
 
   return (
-    <section className="relative w-full py-[15px] bg-[#FAF7F2] border-t border-b border-[#E8E2D5] overflow-hidden select-none">
+    <section className="relative w-full py-[25px] bg-[#FAF7F2] border-t border-b border-[#E8E2D5] overflow-hidden select-none">
       
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>

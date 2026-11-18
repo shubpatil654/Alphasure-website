@@ -19,7 +19,7 @@ export default function Hero({ onOpenModal }) {
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-[15px]">
+    <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-[25px]">
       
       {/* Live Video Background with Boosted Brightness & Crisp Contrast */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">

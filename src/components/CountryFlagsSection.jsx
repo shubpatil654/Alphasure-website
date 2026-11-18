@@ -16,7 +16,7 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-[15px] bg-white border-t border-b border-slate-100 overflow-hidden">
+    <section className="relative w-full py-[25px] bg-white border-t border-b border-slate-100 overflow-hidden">
       
       {/* Section Header */}
       <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-4 sm:mb-5 flex flex-col items-center">

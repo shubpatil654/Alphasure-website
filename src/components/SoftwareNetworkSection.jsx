@@ -116,7 +116,7 @@ export default function SoftwareNetworkSection() {
   const radius = 290;
 
   return (
-    <section className="relative w-full py-[15px] bg-white overflow-hidden select-none">
+    <section className="relative w-full py-[25px] bg-white overflow-hidden select-none">
       
       {/* Background Decorative Light Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>

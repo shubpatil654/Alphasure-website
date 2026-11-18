@@ -118,7 +118,7 @@ export default function IndustriesCarouselSection() {
 
   return (
     <section 
-      className="relative w-full py-[15px] bg-gradient-to-b from-white via-[#FAF7F2]/50 to-[#FAF7F2] overflow-hidden select-none"
+      className="relative w-full py-[25px] bg-gradient-to-b from-white via-[#FAF7F2]/50 to-[#FAF7F2] overflow-hidden select-none"
       id="industries"
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

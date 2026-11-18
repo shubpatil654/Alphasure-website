@@ -528,7 +528,7 @@ export default function FaqSection({
   };
 
   return (
-    <section className="relative w-full py-[15px] overflow-hidden select-none">
+    <section className="relative w-full py-[25px] overflow-hidden select-none">
       
       {/* Modern Corporate Office Background Photo Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
