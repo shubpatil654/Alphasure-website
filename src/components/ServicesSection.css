@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SERVICES SECTION - HORIZONTAL EXPANDING ACCORDION (AIR ACCOUNTING STYLE)
+   SERVICES SECTION - 4 HORIZONTAL EXPANDING PILLARS (LOGO COLORS)
    ========================================================================== */
 
 .services-accordion-wrapper {
@@ -14,15 +14,15 @@
 
 @media (min-width: 640px) {
   .services-accordion-wrapper {
-    padding-top: 6rem;
-    padding-bottom: 7rem;
+    padding-top: 5.5rem;
+    padding-bottom: 6.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .services-accordion-wrapper {
-    padding-top: 6.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 6rem;
+    padding-bottom: 7rem;
   }
 }
 
@@ -30,29 +30,29 @@
 .services-accordion-container {
   display: flex;
   flex-direction: row;
-  gap: 0.85rem;
+  gap: 1rem;
   width: 100%;
-  min-height: 520px;
+  min-height: 490px;
   align-items: stretch;
 }
 
 @media (min-width: 1024px) {
   .services-accordion-container {
-    gap: 1rem;
-    min-height: 540px;
+    gap: 1.25rem;
+    min-height: 520px;
   }
 }
 
 /* Individual Accordion Pillar Card */
 .services-accordion-card {
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 1.75rem;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.75rem 1.5rem;
+  padding: 1.85rem 1.65rem;
   transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.4s ease,
               border-color 0.4s ease,
@@ -61,30 +61,31 @@
   user-select: none;
 }
 
-/* Default state: When no card is hovered, all 5 cards are equal */
+/* Default state: When no card is hovered, all 4 cards are equal (25% each) */
 .services-card-default {
   flex: 1;
   background-color: #0B192C;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  min-width: 120px;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  min-width: 160px;
 }
 
 .services-card-default:hover {
   background-color: #11223A;
-  border-color: rgba(250, 90, 22, 0.4);
-  transform: translateY(-3px);
+  border-color: rgba(250, 90, 22, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(11, 25, 44, 0.25);
 }
 
 /* Collapsed state: When another card is expanded */
 .services-card-collapsed {
-  flex: 0.8;
+  flex: 0.75;
   background-color: #0B192C;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  min-width: 100px;
-  padding-left: 1.15rem;
-  padding-right: 1.15rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  min-width: 120px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .services-card-collapsed:hover {
@@ -95,17 +96,17 @@
 
 /* Expanded state: The currently hovered / active card */
 .services-card-expanded {
-  flex: 3.4;
-  border: 1.5px solid rgba(15, 23, 42, 0.08);
+  flex: 2.85;
+  border: 2px solid;
   box-shadow: 
-    0 24px 50px -10px rgba(11, 25, 44, 0.14),
+    0 24px 50px -10px rgba(11, 25, 44, 0.12),
     0 8px 24px -4px rgba(0, 0, 0, 0.04);
 }
 
 /* Expanded Card Internal Content Animation */
 .services-expanded-content {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: opacity 0.35s ease 0.12s, transform 0.35s ease 0.12s;
   pointer-events: none;
 }
@@ -143,6 +144,6 @@
   }
 
   .services-card-expanded {
-    min-height: 380px;
+    min-height: 420px;
   }
 }

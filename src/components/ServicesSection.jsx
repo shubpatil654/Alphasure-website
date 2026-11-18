@@ -2,48 +2,36 @@ import React, { useState } from 'react';
 import { 
   Building2, 
   Calculator, 
-  Users, 
   ShieldCheck, 
-  Compass, 
+  Layers, 
   ArrowRight, 
   CheckCircle2,
   ChevronDown
 } from 'lucide-react';
 import './ServicesSection.css';
 
-// Signature Paper Airplane Icon from Reference Design
-const AirplaneIcon = ({ className = "w-5 h-5" }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="M22 2L11 13" />
-    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-  </svg>
-);
-
+// Pillar configurations with Alphasure logo colors (Orange #FA5A16 & Blue #0084F4)
 const SERVICES_DATA = [
   {
     id: 'incorporation',
     number: '01',
     heading: 'INCORPORATION',
     shortTitle: 'Incorporation',
-    tagline: 'Guidance that goes beyond registration. Seamless entity incorporation and regulatory setup to launch with total clarity.',
-    bgClass: 'bg-[#E6FAF8]',
-    borderColor: 'border-[#B2EFE9]',
-    accentColor: '#0D9488',
-    iconColor: 'text-[#0D9488]',
+    themeColor: '#FA5A16',
+    bgClass: 'bg-[#FFF8F5]',
+    borderColor: 'border-[#FA5A16]/30',
+    accentColor: '#FA5A16',
+    iconColor: 'text-[#FA5A16]',
+    badgeBg: 'bg-[#FA5A16]/10 text-[#FA5A16]',
+    btnClass: 'bg-[#FA5A16] hover:bg-[#EA4A06]',
+    topBarColor: 'bg-[#FA5A16]',
+    icon: Building2,
     targetPage: 'pvt-ltd',
     subservices: [
-      { name: 'Private Limited Company (Pvt Ltd)', id: 'pvt-ltd' },
-      { name: 'Limited Liability Partnership (LLP)', id: 'llp' },
-      { name: 'One Person Company (OPC)', id: 'opc' },
-      { name: 'Secretarial & Annual ROC Compliance', id: 'secretarial' },
+      { name: 'Private limited company', id: 'pvt-ltd' },
+      { name: 'Limited liability partnership', id: 'llp' },
+      { name: 'One person company', id: 'opc' },
+      { name: 'Secretarial compliance', id: 'secretarial' },
     ]
   },
   {
@@ -51,77 +39,73 @@ const SERVICES_DATA = [
     number: '02',
     heading: 'ACCOUNTING',
     shortTitle: 'Accounting',
-    tagline: 'Audit-ready, accurate bookkeeping and continuous financial tracking tailored to your day-to-day business operations.',
-    bgClass: 'bg-[#EBF3FE]',
-    borderColor: 'border-[#BFDBFE]',
-    accentColor: '#2563EB',
-    iconColor: 'text-[#2563EB]',
+    themeColor: '#0084F4',
+    bgClass: 'bg-[#F0F7FF]',
+    borderColor: 'border-[#0084F4]/30',
+    accentColor: '#0084F4',
+    iconColor: 'text-[#0084F4]',
+    badgeBg: 'bg-[#0084F4]/10 text-[#0084F4]',
+    btnClass: 'bg-[#0084F4] hover:bg-[#0070D6]',
+    topBarColor: 'bg-[#0084F4]',
+    icon: Calculator,
     targetPage: 'periodic-accounting',
     subservices: [
-      { name: 'Periodic Accounting & Bookkeeping', id: 'periodic-accounting' },
-      { name: 'Real-Time Continuous Accounting', id: 'real-time-accounting' },
-      { name: 'Bank Reconciliations & Ledger Audit', id: 'periodic-accounting' },
-      { name: 'Monthly MIS & Profit/Loss Statements', id: 'periodic-accounting' },
+      { name: 'Periodic accounting', id: 'periodic-accounting' },
+      { name: 'Real time accounting', id: 'real-time-accounting' },
+      { name: 'Controller services', id: 'controller-services' },
+      { name: 'CFO services', id: 'controller-services' },
     ]
   },
   {
-    id: 'payroll',
+    id: 'tax-compliance',
     number: '03',
-    heading: 'PAYROLL',
-    shortTitle: 'Payroll',
-    tagline: 'End-to-end monthly salary disbursement, automated payslips, and 100% compliant statutory withholdings for your team.',
-    bgClass: 'bg-[#F4EFFE]',
-    borderColor: 'border-[#DDD6FE]',
-    accentColor: '#7C3AED',
-    iconColor: 'text-[#7C3AED]',
-    targetPage: 'everything-else',
-    subservices: [
-      { name: 'Monthly Payroll Computation & Slips', id: 'everything-else' },
-      { name: 'PF, ESI & Professional Tax Filings', id: 'everything-else' },
-      { name: 'TDS on Salaries (Form 24Q Filing)', id: 'everything-else' },
-      { name: 'Full & Final Settlements (FnF)', id: 'everything-else' },
-    ]
-  },
-  {
-    id: 'compliance',
-    number: '04',
-    heading: 'COMPLIANCE',
-    shortTitle: 'Compliance',
-    tagline: 'Proactive tax filings, reconciliations, and regulatory oversight so your business never faces penalties or deadlines.',
-    bgClass: 'bg-[#EDF9F0]',
-    borderColor: 'border-[#BBF7D0]',
-    accentColor: '#059669',
-    iconColor: 'text-[#059669]',
+    heading: 'TAX COMPLIANCE',
+    shortTitle: 'Tax Compliance',
+    themeColor: '#FA5A16',
+    bgClass: 'bg-[#FFF8F5]',
+    borderColor: 'border-[#FA5A16]/30',
+    accentColor: '#FA5A16',
+    iconColor: 'text-[#FA5A16]',
+    badgeBg: 'bg-[#FA5A16]/10 text-[#FA5A16]',
+    btnClass: 'bg-[#FA5A16] hover:bg-[#EA4A06]',
+    topBarColor: 'bg-[#FA5A16]',
+    icon: ShieldCheck,
     targetPage: 'gst-tds-compliance',
     subservices: [
-      { name: 'GST Filings, Returns & 2B Reconciliation', id: 'gst-tds-compliance' },
-      { name: 'TDS Computations & Quarterly Filings', id: 'gst-tds-compliance' },
-      { name: 'Advance Tax & Corporate Income Tax', id: 'gst-tds-compliance' },
-      { name: 'Department Notices & Scrutiny Support', id: 'gst-tds-compliance' },
+      { name: 'GST registration', id: 'gst-tds-compliance' },
+      { name: 'GST filing', id: 'gst-tds-compliance' },
+      { name: 'TDS filing', id: 'gst-tds-compliance' },
+      { name: 'Income tax filing', id: 'gst-tds-compliance' },
     ]
   },
   {
-    id: 'advisory',
-    number: '05',
-    heading: 'ADVISORY',
-    shortTitle: 'Advisory',
-    tagline: 'Guidance that goes beyond the numbers. Practical, data-driven financial leadership to unlock sustainable business growth.',
-    bgClass: 'bg-[#FFF2EA]',
-    borderColor: 'border-[#FED7AA]',
-    accentColor: '#EA580C',
-    iconColor: 'text-[#EA580C]',
-    targetPage: 'controller-services',
+    id: 'other-services',
+    number: '04',
+    heading: 'OTHER SERVICES',
+    shortTitle: 'Other Services',
+    themeColor: '#0084F4',
+    bgClass: 'bg-[#F0F7FF]',
+    borderColor: 'border-[#0084F4]/30',
+    accentColor: '#0084F4',
+    iconColor: 'text-[#0084F4]',
+    badgeBg: 'bg-[#0084F4]/10 text-[#0084F4]',
+    btnClass: 'bg-[#0084F4] hover:bg-[#0070D6]',
+    topBarColor: 'bg-[#0084F4]',
+    icon: Layers,
+    targetPage: 'everything-else',
     subservices: [
-      { name: 'Fractional CFO & Controller Services', id: 'controller-services' },
-      { name: 'Transfer Pricing & Cross-Border Advisory', id: 'everything-else' },
-      { name: 'M&A Due Diligence & Valuation', id: 'everything-else' },
-      { name: 'IFRS and Ind AS Convergence', id: 'everything-else' },
+      { name: 'Payroll', id: 'everything-else' },
+      { name: 'Transfer pricing', id: 'everything-else' },
+      { name: 'M & A', id: 'everything-else' },
+      { name: 'International taxation', id: 'everything-else' },
+      { name: 'IFRS and Ind AS', id: 'everything-else' },
+      { name: 'Corporate legal', id: 'everything-else' },
     ]
   }
 ];
 
 export default function ServicesSection({ onOpenModal, onNavigate }) {
-  // activeId is null by default so all 5 service headings are visible at first glance
+  // activeId is null by default so all 4 pillars are equally visible at first glance
   const [activeId, setActiveId] = useState(null);
 
   const handleCardClick = (serviceId) => {
@@ -168,16 +152,17 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
               </svg>
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto mt-3 sm:mt-4 leading-relaxed">
-            Hover over any service pillar to explore how we support your company at every stage of growth.
+          <p className="text-slate-600 text-sm sm:text-base font-medium max-w-xl mx-auto mt-3 sm:mt-4 leading-relaxed">
+            Hover over any pillar to view the services we provide.
           </p>
         </div>
 
-        {/* ================= 5-COLUMN HORIZONTAL EXPANDING ACCORDION ================= */}
+        {/* ================= 4-PILLAR HORIZONTAL EXPANDING ACCORDION ================= */}
         <div className="services-accordion-container">
           {SERVICES_DATA.map((service) => {
             const isExpanded = activeId === service.id;
             const isAnyActive = activeId !== null;
+            const IconComponent = service.icon;
 
             // Determine card styling state
             let cardStateClass = 'services-card-default';
@@ -198,38 +183,46 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                 aria-expanded={isExpanded}
                 aria-label={`${service.heading} Services`}
               >
+                {/* Top branded accent bar */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-1.5 transition-opacity"
+                  style={{ backgroundColor: service.themeColor }}
+                />
+
                 {/* ---------------- EXPANDED VIEW ---------------- */}
                 {isExpanded ? (
                   <div className="services-expanded-content flex flex-col justify-between h-full w-full">
                     
-                    {/* Top Row: Icon + Number */}
+                    {/* Header info */}
                     <div>
-                      <div className="flex items-center justify-between mb-4 sm:mb-6">
+                      {/* Top Row: Icon + Number Badge */}
+                      <div className="flex items-center justify-between mb-4 sm:mb-6 pt-1">
                         <div 
-                          className="w-12 h-12 rounded-2xl bg-white/90 shadow-sm flex items-center justify-center border"
-                          style={{ borderColor: service.borderColor }}
+                          className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center border"
+                          style={{ borderColor: `${service.themeColor}40` }}
                         >
-                          <AirplaneIcon className={`w-5 h-5 ${service.iconColor}`} />
+                          <IconComponent className={`w-6 h-6 ${service.iconColor}`} />
                         </div>
-                        <span className="text-xs font-mono font-bold tracking-widest text-slate-400">
-                          {service.number} / 05
+                        <span 
+                          className="text-xs font-mono font-bold tracking-widest px-2.5 py-1 rounded-full"
+                          style={{ 
+                            backgroundColor: `${service.themeColor}15`,
+                            color: service.themeColor 
+                          }}
+                        >
+                          {service.number} / 04
                         </span>
                       </div>
 
-                      {/* Main Service Heading */}
-                      <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-black tracking-tight text-[#0B192C] uppercase mb-3">
+                      {/* Pillar Title */}
+                      <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#0B192C] uppercase mb-4">
                         {service.heading}
                       </h3>
 
-                      {/* Tagline / Description */}
-                      <p className="text-slate-700 text-sm sm:text-[15px] leading-relaxed mb-6 font-medium max-w-lg">
-                        {service.tagline}
-                      </p>
-
-                      {/* Services Revealed Checklist */}
-                      <div className="mb-6">
+                      {/* Services Checklist */}
+                      <div className="mb-4">
                         <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 block mb-3">
-                          What Comes Under {service.shortTitle}:
+                          Services Included:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {service.subservices.map((sub, idx) => (
@@ -237,13 +230,17 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                               key={idx}
                               type="button"
                               onClick={(e) => handleSubserviceClick(e, sub.id)}
-                              className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#FA5A16]/50 shadow-xs hover:shadow-sm text-left transition-all duration-200 group/item cursor-pointer"
+                              className="flex items-center gap-2.5 p-3 rounded-xl bg-white hover:bg-slate-50/80 border border-slate-200/90 shadow-2xs hover:shadow-xs text-left transition-all duration-200 group/item cursor-pointer"
+                              style={{
+                                '--hover-border': service.themeColor
+                              }}
                             >
                               <CheckCircle2 
-                                size={16} 
-                                className="shrink-0 text-[#FA5A16] group-hover/item:scale-110 transition-transform" 
+                                size={17} 
+                                className="shrink-0 transition-transform group-hover/item:scale-110" 
+                                style={{ color: service.themeColor }}
                               />
-                              <span className="text-xs sm:text-[13px] font-bold text-slate-800 group-hover/item:text-[#FA5A16] transition-colors leading-tight">
+                              <span className="text-xs sm:text-[13px] font-bold text-slate-800 transition-colors leading-tight">
                                 {sub.name}
                               </span>
                             </button>
@@ -253,11 +250,11 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     </div>
 
                     {/* Bottom CTA Action Button */}
-                    <div className="pt-2 flex items-center justify-between">
+                    <div className="pt-3 flex items-center justify-between border-t border-slate-200/60 mt-2">
                       <button
                         type="button"
                         onClick={(e) => handleSubserviceClick(e, service.targetPage)}
-                        className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white bg-[#0B192C] hover:bg-[#FA5A16] px-5 py-2.5 rounded-xl transition-colors shadow-md cursor-pointer group/btn"
+                        className={`inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white ${service.btnClass} px-5 py-2.5 rounded-xl transition-all shadow-md cursor-pointer group/btn`}
                       >
                         <span>Explore {service.shortTitle}</span>
                         <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -274,26 +271,35 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   <div className="services-collapsed-content flex flex-col justify-between h-full w-full">
                     
                     {/* Top: Serial Number */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold tracking-widest text-slate-400 group-hover:text-white transition-colors">
+                    <div className="flex items-center justify-between pt-1">
+                      <span className="text-xs font-mono font-bold tracking-widest text-slate-400">
                         {service.number}
                       </span>
                       {/* Mobile Expand Indicator */}
                       <ChevronDown size={16} className="text-slate-400 sm:hidden" />
                     </div>
 
-                    {/* Center / Bottom: Signature Airplane Icon + Heading */}
+                    {/* Center / Bottom: Branded Icon + Heading */}
                     <div className="pt-10 flex flex-col items-start gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white/90 group-hover:text-[#FA5A16] transition-colors">
-                        <AirplaneIcon className="w-4 h-4 text-white" />
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+                        style={{ backgroundColor: `${service.themeColor}20` }}
+                      >
+                        <IconComponent 
+                          className="w-5 h-5 transition-transform group-hover:scale-110" 
+                          style={{ color: service.themeColor }}
+                        />
                       </div>
 
-                      <h3 className="text-sm sm:text-base font-black tracking-wider text-white uppercase break-words leading-tight">
+                      <h3 className="text-base sm:text-lg font-black tracking-wider text-white uppercase break-words leading-tight">
                         {service.heading}
                       </h3>
 
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 opacity-80 group-hover:text-[#FA5A16] group-hover:opacity-100 transition-all flex items-center gap-1">
-                        Hover to reveal <ArrowRight size={11} />
+                      <span 
+                        className="text-[11px] uppercase font-bold tracking-wider opacity-85 transition-all flex items-center gap-1.5"
+                        style={{ color: service.themeColor }}
+                      >
+                        Hover to reveal <ArrowRight size={12} />
                       </span>
                     </div>
 
