@@ -45,17 +45,15 @@ export default function PuzzleSection() {
             </p>
           </div>
 
-          {/* RIGHT COLUMN: 3D Puzzle Solution Graphic */}
+          {/* RIGHT COLUMN: 3D Puzzle Solution Graphic (Transparent Background) */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative">
-            <div className="relative z-10 w-full flex justify-center lg:justify-end transition-transform duration-500 hover:scale-[1.015]">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(11,25,44,0.1)] border border-slate-100 max-w-[620px] lg:max-w-[660px] w-full bg-[#FDF0DF]">
-                <img
-                  src="/images/puzzle-alphasure-solution.png"
-                  alt="A complete accounting solution - Small businesses or growing businesses fit with Alphasure"
-                  className="w-full h-auto object-cover block"
-                  loading="eager"
-                />
-              </div>
+            <div className="relative z-10 w-full flex justify-center lg:justify-end transition-transform duration-500 hover:scale-[1.02]">
+              <img
+                src="/images/puzzle-alphasure-solution.png"
+                alt="A complete accounting solution - Small businesses or growing businesses fit with Alphasure"
+                className="w-full h-auto max-w-[580px] lg:max-w-[640px] xl:max-w-[680px] object-contain block filter drop-shadow-[0_16px_32px_rgba(11,25,44,0.1)]"
+                loading="eager"
+              />
             </div>
           </div>
 
