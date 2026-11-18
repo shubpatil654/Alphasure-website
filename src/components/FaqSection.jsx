@@ -528,7 +528,7 @@ export default function FaqSection({
   };
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 overflow-hidden select-none">
+    <section className="relative w-full py-[15px] overflow-hidden select-none">
       
       {/* Modern Corporate Office Background Photo Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -544,7 +544,7 @@ export default function FaqSection({
       <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14 max-w-2xl mx-auto">
+        <div className="text-center mb-5 sm:mb-6 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FA5A16] alpha-eyebrow mb-3 sm:mb-4 shadow-xs">
             <HelpCircle size={14} className="text-[#FA5A16]" />
             <span>Got Questions?</span>

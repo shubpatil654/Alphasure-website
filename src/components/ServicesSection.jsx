@@ -130,7 +130,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ================= SECTION HEADER ================= */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <div className="text-center mb-6 sm:mb-8">
           <h2 className="alpha-h2 font-black text-[#0B192C] tracking-tight uppercase">
             Business Made Lighter with{' '}
             <span className="relative inline-block text-[#FA5A16]">

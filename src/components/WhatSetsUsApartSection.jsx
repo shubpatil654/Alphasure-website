@@ -37,12 +37,12 @@ export default function WhatSetsUsApartSection() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full py-4 sm:py-5 lg:py-6 bg-white overflow-hidden select-none"
+      className="relative w-full py-[15px] bg-white overflow-hidden select-none"
     >
       <div className="w-full max-w-full mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
+        <div className="text-center mb-5 sm:mb-6 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             What Sets{' '}
             <span className="whitespace-nowrap">

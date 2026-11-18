@@ -6,23 +6,23 @@
   position: relative;
   width: 100%;
   background: #FFFFFF;
-  padding-top: 5rem;
-  padding-bottom: 6rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
   overflow: hidden;
   user-select: none;
 }
 
 @media (min-width: 640px) {
   .services-accordion-wrapper {
-    padding-top: 5.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
 @media (min-width: 1024px) {
   .services-accordion-wrapper {
-    padding-top: 6rem;
-    padding-bottom: 7rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 

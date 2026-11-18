@@ -118,13 +118,13 @@ export default function IndustriesCarouselSection() {
 
   return (
     <section 
-      className="relative w-full pt-14 sm:pt-18 lg:pt-20 pb-12 sm:pb-16 lg:pb-18 bg-gradient-to-b from-white via-[#FAF7F2]/50 to-[#FAF7F2] overflow-hidden select-none"
+      className="relative w-full py-[15px] bg-gradient-to-b from-white via-[#FAF7F2]/50 to-[#FAF7F2] overflow-hidden select-none"
       id="industries"
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ================= HEADING ONLY ================= */}
-        <div className="text-center w-full max-w-5xl mx-auto mb-8 sm:mb-12 flex flex-col items-center px-2">
+        <div className="text-center w-full max-w-5xl mx-auto mb-4 sm:mb-6 flex flex-col items-center px-2">
           <h2 className="font-bold text-[#0B192C] tracking-tight whitespace-nowrap text-[clamp(1rem,3.4vw,2.65rem)] leading-tight">
             <span className="relative inline-block text-[#FA5A16]">
               Industries

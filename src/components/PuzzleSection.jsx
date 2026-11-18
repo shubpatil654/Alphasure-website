@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PuzzleSection() {
   return (
-    <section className="relative w-full pt-16 sm:pt-20 lg:pt-24 pb-14 sm:pb-18 lg:pb-20 bg-white overflow-hidden select-none border-t border-slate-100">
+    <section className="relative w-full py-[15px] bg-white overflow-hidden select-none border-t border-slate-100">
       
       {/* SVG Abstract Side Lines Background Accents - Positioned on outer sides */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
