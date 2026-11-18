@@ -1,173 +1,157 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { 
+  Building2, 
+  Calculator, 
+  Users, 
+  ShieldCheck, 
+  Compass, 
+  ArrowRight, 
+  CheckCircle2,
+  ChevronDown
+} from 'lucide-react';
+import './ServicesSection.css';
 
-// 3D Realistic Gold Metallic Pushpin Component
-const GoldPushpin = () => (
-  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none filter drop-shadow-md">
-    <svg width="28" height="34" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Soft drop shadow cast onto paper */}
-      <ellipse cx="16" cy="34" rx="9" ry="3.5" fill="black" fillOpacity="0.32" />
-      {/* Pin needle shaft */}
-      <path d="M16 20L16 32" stroke="#694300" strokeWidth="2.5" strokeLinecap="round" opacity="0.75" />
-      {/* Lower Metallic Collar Rim */}
-      <ellipse cx="16" cy="23" rx="8.5" ry="4" fill="url(#goldRimGrad)" stroke="#A3700E" strokeWidth="0.8" />
-      {/* Tapered Collar */}
-      <path d="M8.5 17C8.5 17 10 22 16 22C22 22 23.5 17 23.5 17L21 12H11L8.5 17Z" fill="url(#goldBodyGrad)" />
-      {/* Main Metallic Knob Head */}
-      <circle cx="16" cy="11" r="8.5" fill="url(#goldHeadGrad)" stroke="#7A4D00" strokeWidth="0.6" />
-      {/* Specular Highlight Gloss */}
-      <circle cx="13" cy="8" r="2.8" fill="white" fillOpacity="0.75" />
-      <ellipse cx="13.5" cy="18.5" rx="3.5" ry="1.2" fill="white" fillOpacity="0.45" />
-      
-      <defs>
-        <radialGradient id="goldHeadGrad" cx="35%" cy="30%" r="70%">
-          <stop offset="0%" stopColor="#FFF4B8" />
-          <stop offset="35%" stopColor="#F7C033" />
-          <stop offset="75%" stopColor="#C4830A" />
-          <stop offset="100%" stopColor="#704500" />
-        </radialGradient>
-        <linearGradient id="goldBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFEAA5" />
-          <stop offset="50%" stopColor="#EAA51B" />
-          <stop offset="100%" stopColor="#875300" />
-        </linearGradient>
-        <linearGradient id="goldRimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#875300" />
-          <stop offset="30%" stopColor="#FFEAA5" />
-          <stop offset="70%" stopColor="#EAA51B" />
-          <stop offset="100%" stopColor="#5E3800" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-);
-
-// High precision line-art icons matching the image
-const RegisterBusinessIcon = ({ className = "text-[#FA5A16]" }) => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Document sheet */}
-    <rect x="10" y="8" width="24" height="32" rx="3" stroke="currentColor" strokeWidth="2.5" fill="none" />
-    {/* Form lines & avatar box */}
-    <rect x="14" y="13" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="2" fill="none" />
-    <line x1="24" y1="14" x2="30" y2="14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <line x1="24" y1="18" x2="30" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <line x1="14" y1="24" x2="28" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <line x1="14" y1="29" x2="24" y2="29" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <line x1="14" y1="34" x2="20" y2="34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    {/* Pen writing */}
-    <path d="M36 22L28 30L26 34L30 32L38 24L36 22Z" fill="currentColor" stroke="currentColor" strokeWidth="1" />
-    <path d="M34 20L38 24" stroke="currentColor" strokeWidth="2" />
+// Signature Paper Airplane Icon from Reference Design
+const AirplaneIcon = ({ className = "w-5 h-5" }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
   </svg>
 );
 
-const AccountingIcon = ({ className = "text-white" }) => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Open ledger book */}
-    <path d="M10 26C10 26 16 23 24 23C32 23 38 26 38 26V37C38 37 32 34 24 34C16 34 10 37 10 37V26Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
-    <line x1="24" y1="23" x2="24" y2="34" stroke="currentColor" strokeWidth="2.5" />
-    {/* Avatar badge on top */}
-    <circle cx="24" cy="14" r="7" stroke="currentColor" strokeWidth="2.5" fill="none" />
-    <circle cx="24" cy="12" r="2.5" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M19.5 18C20.5 16.5 22 15.5 24 15.5C26 15.5 27.5 16.5 28.5 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    {/* Pen writing */}
-    <path d="M35 15L29 25L32 27L38 17L35 15Z" fill="currentColor" />
-  </svg>
-);
+const SERVICES_DATA = [
+  {
+    id: 'incorporation',
+    number: '01',
+    heading: 'INCORPORATION',
+    shortTitle: 'Incorporation',
+    tagline: 'Guidance that goes beyond registration. Seamless entity incorporation and regulatory setup to launch with total clarity.',
+    bgClass: 'bg-[#E6FAF8]',
+    borderColor: 'border-[#B2EFE9]',
+    accentColor: '#0D9488',
+    iconColor: 'text-[#0D9488]',
+    targetPage: 'pvt-ltd',
+    subservices: [
+      { name: 'Private Limited Company (Pvt Ltd)', id: 'pvt-ltd' },
+      { name: 'Limited Liability Partnership (LLP)', id: 'llp' },
+      { name: 'One Person Company (OPC)', id: 'opc' },
+      { name: 'Secretarial & Annual ROC Compliance', id: 'secretarial' },
+    ]
+  },
+  {
+    id: 'accounting',
+    number: '02',
+    heading: 'ACCOUNTING',
+    shortTitle: 'Accounting',
+    tagline: 'Audit-ready, accurate bookkeeping and continuous financial tracking tailored to your day-to-day business operations.',
+    bgClass: 'bg-[#EBF3FE]',
+    borderColor: 'border-[#BFDBFE]',
+    accentColor: '#2563EB',
+    iconColor: 'text-[#2563EB]',
+    targetPage: 'periodic-accounting',
+    subservices: [
+      { name: 'Periodic Accounting & Bookkeeping', id: 'periodic-accounting' },
+      { name: 'Real-Time Continuous Accounting', id: 'real-time-accounting' },
+      { name: 'Bank Reconciliations & Ledger Audit', id: 'periodic-accounting' },
+      { name: 'Monthly MIS & Profit/Loss Statements', id: 'periodic-accounting' },
+    ]
+  },
+  {
+    id: 'payroll',
+    number: '03',
+    heading: 'PAYROLL',
+    shortTitle: 'Payroll',
+    tagline: 'End-to-end monthly salary disbursement, automated payslips, and 100% compliant statutory withholdings for your team.',
+    bgClass: 'bg-[#F4EFFE]',
+    borderColor: 'border-[#DDD6FE]',
+    accentColor: '#7C3AED',
+    iconColor: 'text-[#7C3AED]',
+    targetPage: 'everything-else',
+    subservices: [
+      { name: 'Monthly Payroll Computation & Slips', id: 'everything-else' },
+      { name: 'PF, ESI & Professional Tax Filings', id: 'everything-else' },
+      { name: 'TDS on Salaries (Form 24Q Filing)', id: 'everything-else' },
+      { name: 'Full & Final Settlements (FnF)', id: 'everything-else' },
+    ]
+  },
+  {
+    id: 'compliance',
+    number: '04',
+    heading: 'COMPLIANCE',
+    shortTitle: 'Compliance',
+    tagline: 'Proactive tax filings, reconciliations, and regulatory oversight so your business never faces penalties or deadlines.',
+    bgClass: 'bg-[#EDF9F0]',
+    borderColor: 'border-[#BBF7D0]',
+    accentColor: '#059669',
+    iconColor: 'text-[#059669]',
+    targetPage: 'gst-tds-compliance',
+    subservices: [
+      { name: 'GST Filings, Returns & 2B Reconciliation', id: 'gst-tds-compliance' },
+      { name: 'TDS Computations & Quarterly Filings', id: 'gst-tds-compliance' },
+      { name: 'Advance Tax & Corporate Income Tax', id: 'gst-tds-compliance' },
+      { name: 'Department Notices & Scrutiny Support', id: 'gst-tds-compliance' },
+    ]
+  },
+  {
+    id: 'advisory',
+    number: '05',
+    heading: 'ADVISORY',
+    shortTitle: 'Advisory',
+    tagline: 'Guidance that goes beyond the numbers. Practical, data-driven financial leadership to unlock sustainable business growth.',
+    bgClass: 'bg-[#FFF2EA]',
+    borderColor: 'border-[#FED7AA]',
+    accentColor: '#EA580C',
+    iconColor: 'text-[#EA580C]',
+    targetPage: 'controller-services',
+    subservices: [
+      { name: 'Fractional CFO & Controller Services', id: 'controller-services' },
+      { name: 'Transfer Pricing & Cross-Border Advisory', id: 'everything-else' },
+      { name: 'M&A Due Diligence & Valuation', id: 'everything-else' },
+      { name: 'IFRS and Ind AS Convergence', id: 'everything-else' },
+    ]
+  }
+];
 
-const ComplianceIcon = ({ className = "text-[#FA5A16]" }) => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Shield */}
-    <path d="M24 12C24 12 30 14 34 16V25C34 32 24 37 24 37C24 37 14 32 14 25V16C18 14 24 12 24 12Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
-    {/* Checkmark inside */}
-    <path d="M20 24L23 27L28 21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    {/* Circular arrows around */}
-    <path d="M11 20C11 15 15 10 21 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M18 6L22 9L18 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M37 28C37 33 33 38 27 39" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M30 42L26 39L30 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+export default function ServicesSection({ onOpenModal, onNavigate }) {
+  // activeId is null by default so all 5 service headings are visible at first glance
+  const [activeId, setActiveId] = useState(null);
 
-const LegalIcon = ({ className = "text-white" }) => (
-  <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    {/* Infinity loop symbol */}
-    <path d="M15 24C15 20.6863 17.6863 18 21 18C23.5 18 25.5 19.5 27 21.5L31.5 27.5C33 29.5 35 30 37 30C40.3137 30 43 27.3137 43 24C43 20.6863 40.3137 18 37 18C34.5 18 32.5 19.5 31 21.5L26.5 27.5C25 29.5 23 30 21 30C17.6863 30 15 27.3137 15 24Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
-  </svg>
-);
+  const handleCardClick = (serviceId) => {
+    setActiveId((prev) => (prev === serviceId ? null : serviceId));
+  };
 
-export default function ServicesSection() {
-  const services = [
-    {
-      id: 1,
-      title: 'Register Your\nBusiness',
-      bgColor: 'bg-[#FDFDFD]',
-      textColor: 'text-[#1E293B]',
-      borderStyle: 'border border-slate-200/90',
-      rotation: '-rotate-2 sm:-rotate-3',
-      swingClass: 'pin-swing-left',
-      Icon: RegisterBusinessIcon,
-      iconColor: 'text-[#FA5A16]',
-      textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
-    },
-    {
-      id: 2,
-      title: 'Accounting &\nReporting',
-      bgColor: 'bg-[#FA5A16]',
-      textColor: 'text-white',
-      borderStyle: 'border border-[#E04806]',
-      rotation: 'rotate-2 sm:rotate-3',
-      swingClass: 'pin-swing-right',
-      Icon: AccountingIcon,
-      iconColor: 'text-white',
-      textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
-    },
-    {
-      id: 3,
-      title: 'Compliance',
-      bgColor: 'bg-[#FDFDFD]',
-      textColor: 'text-[#1E293B]',
-      borderStyle: 'border border-slate-200/90',
-      rotation: '-rotate-1 sm:-rotate-2',
-      swingClass: 'pin-swing-left',
-      Icon: ComplianceIcon,
-      iconColor: 'text-[#FA5A16]',
-      textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
-    },
-    {
-      id: 4,
-      title: 'Other\nServices',
-      bgColor: 'bg-[#FA5A16]',
-      textColor: 'text-white',
-      borderStyle: 'border border-[#E04806]',
-      rotation: 'rotate-2 sm:rotate-3',
-      swingClass: 'pin-swing-right',
-      Icon: LegalIcon,
-      iconColor: 'text-white',
-      textSize: 'text-[18px] sm:text-[20px] lg:text-[21.5px] leading-snug font-extrabold',
-    },
-  ];
+  const handleSubserviceClick = (e, pageId) => {
+    e.stopPropagation();
+    if (onNavigate && pageId) {
+      onNavigate(pageId);
+    } else if (onOpenModal) {
+      onOpenModal();
+    }
+  };
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#0B132A] border-t border-b border-slate-800/80 overflow-hidden select-none">
-      
-      {/* Dark Grid Background Photo Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="/images/dark-grid-bg.png"
-          alt="Dark Grid Background"
-          className="w-full h-full object-cover opacity-90 filter brightness-105"
-        />
-        {/* Subtle Vignette Overlay for Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40"></div>
-      </div>
+    <section 
+      className="services-accordion-wrapper border-t border-slate-100" 
+      id="services"
+      onMouseLeave={() => setActiveId(null)}
+    >
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
-        
-        {/* Section Heading */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
-          <h2 className="alpha-h2 font-bold text-white tracking-tight text-shadow-hero whitespace-nowrap">
-            Our{' '}
-            <span className="relative inline-block font-bold text-[#FA5A16]">
-              Services
+        {/* ================= SECTION HEADER ================= */}
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+          <h2 className="alpha-h2 font-black text-[#0B192C] tracking-tight uppercase">
+            Business Made Lighter with{' '}
+            <span className="relative inline-block text-[#FA5A16]">
+              Alphasure.
+              {/* Signature Curved Underline */}
               <svg 
                 className="absolute left-0 -bottom-2 sm:-bottom-3.5 w-full h-3.5 sm:h-5 overflow-visible pointer-events-none" 
                 viewBox="0 0 200 20" 
@@ -184,39 +168,140 @@ export default function ServicesSection() {
               </svg>
             </span>
           </h2>
+          <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto mt-3 sm:mt-4 leading-relaxed">
+            Hover over any service pillar to explore how we support your company at every stage of growth.
+          </p>
         </div>
 
-        {/* 4 Pinned Paper Note Service Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-7 items-center justify-center max-w-7xl mx-auto pt-2 pb-6">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="relative group flex justify-center cursor-pointer select-none"
-            >
-              {/* Metallic 3D Pushpin anchored fixed at top center */}
-              <GoldPushpin />
+        {/* ================= 5-COLUMN HORIZONTAL EXPANDING ACCORDION ================= */}
+        <div className="services-accordion-container">
+          {SERVICES_DATA.map((service) => {
+            const isExpanded = activeId === service.id;
+            const isAnyActive = activeId !== null;
 
-              {/* Paper Note Card */}
+            // Determine card styling state
+            let cardStateClass = 'services-card-default';
+            if (isExpanded) {
+              cardStateClass = `services-card-expanded ${service.bgClass} ${service.borderColor}`;
+            } else if (isAnyActive) {
+              cardStateClass = 'services-card-collapsed';
+            }
+
+            return (
               <div
-                className={`w-full max-w-[245px] sm:max-w-[260px] lg:max-w-[275px] min-h-[255px] sm:min-h-[275px] lg:min-h-[290px] flex flex-col items-center justify-between p-4 sm:p-5 pt-6 sm:pt-7 rounded-xs ${service.bgColor} ${service.borderStyle} ${service.rotation} ${service.swingClass} origin-top shadow-[0_12px_24px_rgba(0,0,0,0.11)] group-hover:shadow-[0_22px_40px_rgba(0,0,0,0.22)] transition-shadow duration-300`}
+                key={service.id}
+                className={`services-accordion-card ${cardStateClass}`}
+                onMouseEnter={() => setActiveId(service.id)}
+                onClick={() => handleCardClick(service.id)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                aria-label={`${service.heading} Services`}
               >
-                {/* Service Icon */}
-                <div className="mt-1 mb-1.5 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 shrink-0">
-                  <service.Icon className={service.iconColor} />
-                </div>
+                {/* ---------------- EXPANDED VIEW ---------------- */}
+                {isExpanded ? (
+                  <div className="services-expanded-content flex flex-col justify-between h-full w-full">
+                    
+                    {/* Top Row: Icon + Number */}
+                    <div>
+                      <div className="flex items-center justify-between mb-4 sm:mb-6">
+                        <div 
+                          className="w-12 h-12 rounded-2xl bg-white/90 shadow-sm flex items-center justify-center border"
+                          style={{ borderColor: service.borderColor }}
+                        >
+                          <AirplaneIcon className={`w-5 h-5 ${service.iconColor}`} />
+                        </div>
+                        <span className="text-xs font-mono font-bold tracking-widest text-slate-400">
+                          {service.number} / 05
+                        </span>
+                      </div>
 
-                {/* Service Title */}
-                <div className="my-auto flex items-center justify-center text-center px-2 py-1">
-                  <h3 className={`font-extrabold tracking-tight ${service.textColor} ${service.textSize} whitespace-pre-line text-center`}>
-                    {service.title}
-                  </h3>
-                </div>
+                      {/* Main Service Heading */}
+                      <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-black tracking-tight text-[#0B192C] uppercase mb-3">
+                        {service.heading}
+                      </h3>
 
-                {/* Bottom Subtle Corner Curl Effect */}
-                <div className="absolute bottom-0 right-0 w-5 h-5 bg-gradient-to-tl from-black/10 to-transparent pointer-events-none rounded-tl-full"></div>
+                      {/* Tagline / Description */}
+                      <p className="text-slate-700 text-sm sm:text-[15px] leading-relaxed mb-6 font-medium max-w-lg">
+                        {service.tagline}
+                      </p>
+
+                      {/* Services Revealed Checklist */}
+                      <div className="mb-6">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 block mb-3">
+                          What Comes Under {service.shortTitle}:
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {service.subservices.map((sub, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={(e) => handleSubserviceClick(e, sub.id)}
+                              className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 hover:bg-white border border-slate-200/80 hover:border-[#FA5A16]/50 shadow-xs hover:shadow-sm text-left transition-all duration-200 group/item cursor-pointer"
+                            >
+                              <CheckCircle2 
+                                size={16} 
+                                className="shrink-0 text-[#FA5A16] group-hover/item:scale-110 transition-transform" 
+                              />
+                              <span className="text-xs sm:text-[13px] font-bold text-slate-800 group-hover/item:text-[#FA5A16] transition-colors leading-tight">
+                                {sub.name}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom CTA Action Button */}
+                    <div className="pt-2 flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={(e) => handleSubserviceClick(e, service.targetPage)}
+                        className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white bg-[#0B192C] hover:bg-[#FA5A16] px-5 py-2.5 rounded-xl transition-colors shadow-md cursor-pointer group/btn"
+                      >
+                        <span>Explore {service.shortTitle}</span>
+                        <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+
+                      <span className="text-xs text-slate-400 font-bold hidden sm:inline-block">
+                        Click any service to view details
+                      </span>
+                    </div>
+
+                  </div>
+                ) : (
+                  /* ---------------- COLLAPSED / INITIAL VIEW ---------------- */
+                  <div className="services-collapsed-content flex flex-col justify-between h-full w-full">
+                    
+                    {/* Top: Serial Number */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold tracking-widest text-slate-400 group-hover:text-white transition-colors">
+                        {service.number}
+                      </span>
+                      {/* Mobile Expand Indicator */}
+                      <ChevronDown size={16} className="text-slate-400 sm:hidden" />
+                    </div>
+
+                    {/* Center / Bottom: Signature Airplane Icon + Heading */}
+                    <div className="pt-10 flex flex-col items-start gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white/90 group-hover:text-[#FA5A16] transition-colors">
+                        <AirplaneIcon className="w-4 h-4 text-white" />
+                      </div>
+
+                      <h3 className="text-sm sm:text-base font-black tracking-wider text-white uppercase break-words leading-tight">
+                        {service.heading}
+                      </h3>
+
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 opacity-80 group-hover:text-[#FA5A16] group-hover:opacity-100 transition-all flex items-center gap-1">
+                        Hover to reveal <ArrowRight size={11} />
+                      </span>
+                    </div>
+
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

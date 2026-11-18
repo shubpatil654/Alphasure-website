@@ -120,7 +120,7 @@ export default function App() {
         ) : (
           <>
             <Hero onOpenModal={() => setModalOpen(true)} />
-            <ServicesSection />
+            <ServicesSection onOpenModal={() => setModalOpen(true)} onNavigate={handleNavigate} />
             <PuzzleSection />
             <LeaderSection />
             <WhatSetsUsApartSection />
