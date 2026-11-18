@@ -39,7 +39,7 @@ export default function WhatSetsUsApartSection() {
       ref={sectionRef} 
       className="what-sets-us-apart-section relative w-full bg-white overflow-hidden select-none"
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-6 sm:mb-8 flex flex-col items-center">
@@ -73,18 +73,18 @@ export default function WhatSetsUsApartSection() {
           
           {/* ================= LEFT COLUMN: Grid View of What Sets Us Apart ================= */}
           <div className="lg:col-span-7 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5">
               {items.map((text, idx) => (
                 <div 
                   key={idx}
                   style={{ transitionDelay: isVisible ? `${(idx + 1) * 120}ms` : '0ms' }}
-                  className={`flex items-center justify-center min-h-[76px] sm:min-h-[84px] md:min-h-[90px] px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
+                  className={`flex items-center justify-center min-h-[82px] sm:min-h-[90px] md:min-h-[98px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
                     isVisible 
                       ? 'opacity-100 translate-y-0 scale-100' 
                       : 'opacity-0 translate-y-4 scale-95'
                   }`}
                 >
-                  <span className="font-caveat font-bold text-2xl sm:text-[25px] lg:text-[27px] xl:text-[29px] text-[#1E2E4A] leading-[1.15] tracking-wide text-center">
+                  <span className="font-caveat font-bold text-2xl sm:text-[26px] lg:text-[28px] xl:text-[31px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
                     {text.includes('\n') ? (
                       text.split('\n').map((line, i) => (
                         <React.Fragment key={i}>
@@ -109,11 +109,11 @@ export default function WhatSetsUsApartSection() {
                 : 'opacity-0 translate-x-8'
             }`}
           >
-            <div className="w-full max-w-[480px] lg:max-w-[520px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg">
+            <div className="w-full max-w-[500px] lg:max-w-[540px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg">
               <img
                 src="/images/red-apple-standout.jpg"
                 alt="Standout Red Apple among black and white apples"
-                className="w-full h-auto max-h-[340px] sm:max-h-[360px] object-cover block"
+                className="w-full h-auto max-h-[360px] sm:max-h-[385px] object-cover block"
                 loading="eager"
               />
             </div>
