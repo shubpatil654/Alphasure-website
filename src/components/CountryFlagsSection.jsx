@@ -16,11 +16,16 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-[25px] bg-white border-t border-b border-slate-100 overflow-hidden">
+    <section className="relative w-full py-[25px] bg-[#0B192C] border-t border-b border-slate-800/80 overflow-hidden select-none">
       
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[180px] bg-gradient-to-r from-blue-600/15 via-[#FA5A16]/10 to-transparent blur-3xl opacity-70"></div>
+      </div>
+
       {/* Section Header */}
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-4 sm:mb-5 flex flex-col items-center">
-        <h2 className="alpha-h2 font-bold text-[#1B2538] tracking-tight">
+      <div className="max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center mb-4 sm:mb-5 flex flex-col items-center relative z-10">
+        <h2 className="alpha-h2 font-bold text-white tracking-tight">
           Trusted by businesses{' '}
           <span className="relative inline-block text-[#FA5A16]">
             worldwide
@@ -42,24 +47,24 @@ export default function CountryFlagsSection() {
         </h2>
       </div>
 
-      {/* Ticker Container with Gradient Fade Masks */}
-      <div className="relative w-full overflow-hidden py-1.5 sm:py-2.5 select-none">
+      {/* Ticker Container with Dark Gradient Fade Masks */}
+      <div className="relative w-full overflow-hidden py-1 sm:py-1.5 select-none relative z-10">
         
-        {/* Left Fade Mask */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 lg:w-52 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+        {/* Left Fade Mask (Dark) */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 lg:w-44 bg-gradient-to-r from-[#0B192C] via-[#0B192C]/90 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Right Fade Mask */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 lg:w-52 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+        {/* Right Fade Mask (Dark) */}
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 lg:w-44 bg-gradient-to-l from-[#0B192C] via-[#0B192C]/90 to-transparent z-10 pointer-events-none"></div>
 
         {/* Marquee Track (Sliding Left to Right) */}
-        <div className="animate-marquee-ltr flex items-center gap-6 sm:gap-8">
+        <div className="animate-marquee-ltr flex items-center gap-3.5 sm:gap-4">
           {marqueeItems.map((country, index) => (
             <div
               key={`${country.code}-${index}`}
-              className="flex items-center gap-5 sm:gap-6 px-6 sm:px-8 py-5 sm:py-6 rounded-3xl bg-slate-50/90 hover:bg-white border border-slate-200/90 hover:border-[#1D70F5]/50 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-200/90 shrink-0 group cursor-pointer"
+              className="flex items-center gap-3 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#13233C]/85 hover:bg-[#1A2E4E] border border-slate-700/70 hover:border-[#FA5A16]/70 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/40 shrink-0 group cursor-pointer"
             >
-              {/* Significantly Enlarged Flag Icon */}
-              <div className="relative w-16 h-11 sm:w-24 sm:h-16 rounded-xl overflow-hidden shadow-md border-2 border-slate-200/80 shrink-0 transition-transform duration-300 group-hover:scale-108">
+              {/* Compact Flag Icon */}
+              <div className="relative w-9 h-6 sm:w-11 sm:h-7.5 rounded-md overflow-hidden shadow-xs border border-white/20 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <img
                   src={country.flag}
                   alt={`${country.name} Flag`}
@@ -69,15 +74,15 @@ export default function CountryFlagsSection() {
 
               {/* Country Meta */}
               <div className="flex flex-col">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-slate-900 font-black text-lg sm:text-xl md:text-2xl tracking-wide group-hover:text-[#1D70F5] transition-colors">
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-bold text-sm sm:text-[15px] tracking-wide group-hover:text-[#FA5A16] transition-colors leading-snug">
                     {country.name}
                   </span>
-                  <span className="text-xs sm:text-sm font-mono font-extrabold px-2.5 py-0.5 rounded-md bg-slate-200/90 text-slate-800 uppercase">
+                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-white/10 text-slate-300 border border-white/10 uppercase leading-none">
                     {country.code}
                   </span>
                 </div>
-                <span className="text-xs sm:text-sm text-slate-500 font-bold mt-0.5">
+                <span className="text-[11px] text-slate-400 font-medium group-hover:text-slate-300 leading-snug">
                   {country.region}
                 </span>
               </div>
