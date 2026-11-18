@@ -19,19 +19,22 @@ export default function AboutPage({ onOpenModal }) {
             muted
             playsInline
             poster="/images/alphasure-logo-reveal-poster.png"
-            className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.04]"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02]"
           >
             <source src="/videos/alphasure-logo-reveal.mp4" type="video/mp4" />
             {/* Fallback image */}
             <img
               src="/images/alphasure-logo-reveal-poster.png"
               alt="We are accountants, who understand business - Alphasure Team"
-              className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.04]"
+              className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02]"
             />
           </video>
 
-          {/* Clean dark directional gradient overlay to deepen the video and ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/40 pointer-events-none" />
+          {/* Low opacity dark layer across entire background video */}
+          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+
+          {/* Directional gradient overlay to ensure text copy on the left is razor sharp and high contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

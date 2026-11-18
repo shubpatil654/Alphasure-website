@@ -34,8 +34,8 @@ export default function Hero({ onOpenModal }) {
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* Soft subtle overlay to keep video vivid, bright and punchy while ensuring text legibility */}
-        <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none"></div>
+        {/* Low opacity dark layer across entire background video to keep it vivid while ensuring text legibility */}
+        <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Central Hero Content */}
