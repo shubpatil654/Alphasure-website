@@ -6,9 +6,9 @@ export default function AlphasureLogo({ className = "h-10 sm:h-12 w-auto", textC
       <img
         src="/images/alphasure-logo-v3.png"
         alt="Alphasure Logo"
-        className={`${className} object-contain filter drop-shadow-md transition-transform duration-200 group-hover:scale-105`}
+        className={`${className} object-contain filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.22)] brightness-[1.12] contrast-[1.05] transition-transform duration-200 group-hover:scale-105`}
       />
-      <span className={`font-black text-2xl sm:text-3xl tracking-tight ${textClassName} group-hover:opacity-90 transition-opacity`}>
+      <span className={`font-black text-2xl sm:text-3xl tracking-tight ${textClassName} drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)] group-hover:opacity-90 transition-opacity`}>
         Alphasure
       </span>
     </div>
