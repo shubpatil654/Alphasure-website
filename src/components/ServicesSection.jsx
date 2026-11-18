@@ -191,23 +191,14 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     
                     {/* Header info */}
                     <div>
-                      {/* Top Row: Icon + Number Badge */}
-                      <div className="flex items-center justify-between mb-4 sm:mb-6 pt-1">
+                      {/* Top Row: Icon */}
+                      <div className="mb-4 sm:mb-6 pt-1">
                         <div 
                           className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center border"
                           style={{ borderColor: `${service.themeColor}40` }}
                         >
                           <IconComponent className={`w-6 h-6 ${service.iconColor}`} />
                         </div>
-                        <span 
-                          className="text-xs font-mono font-bold tracking-widest px-2.5 py-1 rounded-full"
-                          style={{ 
-                            backgroundColor: `${service.themeColor}15`,
-                            color: service.themeColor 
-                          }}
-                        >
-                          {service.number} / 04
-                        </span>
                       </div>
 
                       {/* Pillar Title */}
@@ -255,7 +246,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     </div>
 
                     {/* Bottom CTA Action Button */}
-                    <div className="pt-3 flex items-center justify-between border-t border-slate-200/60 mt-2">
+                    <div className="pt-3 flex items-center justify-start border-t border-slate-200/60 mt-2">
                       <button
                         type="button"
                         onClick={(e) => handleSubserviceClick(e, service.targetPage)}
@@ -264,10 +255,6 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                         <span>Explore {service.shortTitle}</span>
                         <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
                       </button>
-
-                      <span className="text-xs text-slate-400 font-bold hidden sm:inline-block">
-                        Click any service to view details
-                      </span>
                     </div>
 
                   </div>
