@@ -78,14 +78,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full relative bg-[#0e1726] text-white flex flex-col justify-between selection:bg-[#FA5A16] selection:text-white overflow-x-hidden">
-      {/* Top Navbar */}
-      <div className="absolute top-0 left-0 right-0 z-40">
-        <Navbar 
-          onOpenModal={() => setModalOpen(true)} 
-          activePage={activePage}
-          onNavigate={handleNavigate}
-        />
-      </div>
+      {/* Top Fixed Translucent Glass Navbar */}
+      <Navbar 
+        onOpenModal={() => setModalOpen(true)} 
+        activePage={activePage}
+        onNavigate={handleNavigate}
+      />
 
       {/* Main Content */}
       <main className="relative flex-1">

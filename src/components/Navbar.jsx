@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, PhoneCall, Building2, UserCheck, Users, ShieldCheck, 
   ArrowRight, Sparkles, CalendarClock, Activity, Sliders, FileSpreadsheet,
@@ -7,6 +7,7 @@ import {
 import AlphasureLogo from './AlphasureLogo';
 
 export default function Navbar({ onOpenModal, activePage = 'home', onNavigate }) {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileRegisterOpen, setMobileRegisterOpen] = useState(false);
   const [mobileAccountingOpen, setMobileAccountingOpen] = useState(false);
@@ -17,6 +18,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
   const [isAccountingOpen, setIsAccountingOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const registerTimeoutRef = useRef(null);
   const accountingTimeoutRef = useRef(null);
@@ -198,7 +209,13 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
   };
 
   return (
-    <header className="relative z-50 w-full pt-4 sm:pt-6 md:pt-7 px-3 sm:px-6 lg:px-8">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 ${
+        isScrolled
+          ? 'bg-[#0B192C]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)] py-2.5 sm:py-3'
+          : 'bg-[#0B192C]/40 backdrop-blur-md border-b border-white/5 py-3.5 sm:py-4 md:py-5'
+      }`}
+    >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
         
         {/* Alphasure Brand Logo */}
@@ -771,7 +788,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-white/20 shadow-2xl transition-all animate-fadeIn">
+        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-white/20 shadow-2xl transition-all animate-fadeIn max-h-[calc(100vh-90px)] overflow-y-auto">
           <nav className="flex flex-col gap-2.5">
             {/* HOME */}
             <a
