@@ -110,7 +110,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
           {/* Main Title with Left and Right Lines */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 w-full">
             <span className="w-12 sm:w-20 md:w-24 h-[1.5px] bg-[#C5A059]/70" />
-            <h2 className="alpha-h2 font-sans font-black text-[#0B192C] tracking-tight">
+            <h2 className="alpha-h2 font-sans font-bold text-[#0B192C] tracking-tight">
               Compliance
             </h2>
             <span className="w-12 sm:w-20 md:w-24 h-[1.5px] bg-[#C5A059]/70" />
@@ -143,19 +143,19 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                 <div className={`w-12 h-12 rounded-2xl ${card.iconBg} flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300`}>
                   {card.icon}
                 </div>
-                <span className="text-slate-300 font-bold text-lg sm:text-xl tracking-wider select-none font-sans">
+                <span className="text-slate-300 font-semibold text-base sm:text-lg tracking-wider select-none font-sans">
                   {card.number}
                 </span>
               </div>
 
               {/* Card Main Content */}
               <div className="flex-1 flex flex-col justify-start relative z-10 mb-4">
-                <h3 className="font-sans font-black text-xl sm:text-[22px] md:text-[23px] text-[#0B192C] leading-tight tracking-tight uppercase">
+                <h3 className="font-sans font-bold text-base sm:text-[17px] md:text-[18px] text-[#0B192C] leading-snug tracking-tight uppercase">
                   {card.title}
                 </h3>
                 
                 {card.subtitle && (
-                  <p className="text-xs sm:text-[13px] font-bold text-[#6D522E] mt-1.5 leading-snug">
+                  <p className="text-xs sm:text-[13px] font-medium text-[#7D5F38] mt-1 leading-snug">
                     {card.subtitle}
                   </p>
                 )}
@@ -167,7 +167,7 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                 <div className="w-9 h-[2px] bg-[#B89255] mb-2.5 rounded-full" />
 
                 {/* Price Display */}
-                <div className="font-sans font-black text-2xl sm:text-3xl md:text-[32px] text-[#8C6239] tracking-tight leading-none">
+                <div className="font-sans font-bold text-xl sm:text-2xl md:text-[24px] text-[#8C6239] tracking-tight leading-none tabular-nums">
                   {card.price}
                 </div>
               </div>
@@ -199,13 +199,13 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-black text-2xl sm:text-[26px] md:text-3xl text-[#0B192C] tracking-tight">
+                  <h3 className="font-sans font-bold text-xl sm:text-2xl md:text-[24px] text-[#0B192C] tracking-tight">
                     Income Tax return:
                   </h3>
                 </div>
               </div>
 
-              <span className="text-slate-300 font-bold text-lg sm:text-xl tracking-wider select-none font-sans">
+              <span className="text-slate-300 font-semibold text-base sm:text-lg tracking-wider select-none font-sans">
                 05
               </span>
             </div>
@@ -215,15 +215,15 @@ export default function CompliancePricingCardsSection({ onOpenModal }) {
               {itrList.map((item, idx) => (
                 <div 
                   key={idx}
-                  className="flex items-baseline gap-2 py-2.5 px-4 rounded-xl bg-[#FAF7F2] border border-[#E8DCCB]/90 hover:border-[#C5A059] transition-all"
+                  className="flex items-baseline gap-2 py-2.5 px-3.5 sm:px-4 rounded-xl bg-[#FAF7F2]/90 border border-[#E8DCCB]/80 hover:border-[#C5A059] hover:bg-white transition-all shadow-2xs"
                 >
-                  <span className="font-sans font-black text-base sm:text-lg text-[#0B192C] shrink-0">
+                  <span className="font-sans font-semibold text-sm sm:text-[15px] text-[#0B192C] shrink-0">
                     {item.form}-
                   </span>
-                  <span className="font-sans font-black text-base sm:text-lg text-[#8C6239] shrink-0">
+                  <span className="font-sans font-semibold text-sm sm:text-[15px] text-[#8C6239] tabular-nums shrink-0">
                     {item.price}
                   </span>
-                  <span className="text-xs sm:text-[13.5px] font-semibold text-slate-700 leading-snug">
+                  <span className="text-xs sm:text-[13px] font-normal text-slate-600 leading-snug">
                     {item.desc}
                   </span>
                 </div>

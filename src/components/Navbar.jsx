@@ -212,8 +212,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     <header 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 apple-glass-header ${
         isScrolled
-          ? 'bg-white/80 border-b border-slate-200/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),0_10px_30px_rgba(0,0,0,0.06)] py-2 sm:py-2.5'
-          : 'bg-white/65 border-b border-slate-200/50 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),0_4px_20px_rgba(0,0,0,0.04)] py-3 sm:py-3.5 md:py-4'
+          ? 'bg-[#0B192C]/75 border-b border-white/[0.12] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16),0_10px_36px_0_rgba(0,0,0,0.36)] py-2 sm:py-2.5'
+          : 'bg-[#0B192C]/45 border-b border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] py-3 sm:py-3.5 md:py-4'
       }`}
     >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
@@ -224,7 +224,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
           onClick={(e) => handleNavClick(e, 'home')}
           className="transition-transform duration-200 hover:scale-105 flex-shrink-0 cursor-pointer"
         >
-          <AlphasureLogo textClassName="text-[#0B192C]" />
+          <AlphasureLogo />
         </a>
 
         {/* Desktop Navigation Menu */}
@@ -234,10 +234,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
           <a
             href="#"
             onClick={(e) => handleNavClick(e, 'home')}
-            className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+            className={`text-white text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
               activePage === 'home'
-                ? 'border-b-2 border-[#FA5A16] text-[#FA5A16]'
-                : 'text-[#0B192C]/80 hover:text-[#FA5A16] hover:border-b-2 hover:border-[#FA5A16]/50'
+                ? 'border-b-2 border-white text-white'
+                : 'text-white/90 hover:text-white hover:border-b-2 hover:border-white/60'
             }`}
           >
             HOME
@@ -257,8 +257,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               }}
               className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isRegisterOpen || activePage === 'pvt-ltd' || activePage === 'opc' || activePage === 'llp' || activePage === 'secretarial'
-                  ? 'text-[#FA5A16] font-black border-b-2 border-[#FA5A16]' 
-                  : 'text-[#0B192C]/80 hover:text-[#FA5A16]'
+                  ? 'text-white font-black border-b-2 border-white' 
+                  : 'text-white/90 hover:text-white'
               }`}
             >
               REGISTER YOUR BUSINESS
@@ -399,8 +399,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               }}
               className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isAccountingOpen || activePage === 'periodic-accounting' || activePage === 'real-time-accounting' || activePage === 'controller-services' || activePage === 'gst-tds-compliance'
-                  ? 'text-[#FA5A16] font-black border-b-2 border-[#FA5A16]' 
-                  : 'text-[#0B192C]/80 hover:text-[#FA5A16]'
+                  ? 'text-white font-black border-b-2 border-white' 
+                  : 'text-white/90 hover:text-white'
               }`}
             >
               ACCOUNTING & COMPLIANCE
@@ -535,10 +535,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.page)}
-                className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+                className={`text-white text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'border-b-2 border-[#FA5A16] text-[#FA5A16]'
-                    : 'text-[#0B192C]/80 hover:text-[#FA5A16] hover:border-b-2 hover:border-[#FA5A16]/50'
+                    ? 'border-b-2 border-white text-white'
+                    : 'text-white/90 hover:text-white hover:border-b-2 hover:border-white/60'
                 }`}
               >
                 {link.name}
@@ -560,8 +560,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               }}
               className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isAboutOpen || activePage === 'about' || activePage === 'careers'
-                  ? 'text-[#FA5A16] font-black border-b-2 border-[#FA5A16]' 
-                  : 'text-[#0B192C]/80 hover:text-[#FA5A16]'
+                  ? 'text-white font-black border-b-2 border-white' 
+                  : 'text-white/90 hover:text-white'
               }`}
             >
               ABOUT
@@ -680,8 +680,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               }}
               className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isResourcesOpen || activePage === 'resources' || activePage === 'blogs' || activePage === 'testimonials' || activePage === 'faqs'
-                  ? 'text-[#FA5A16] font-black border-b-2 border-[#FA5A16]' 
-                  : 'text-[#0B192C]/80 hover:text-[#FA5A16]'
+                  ? 'text-white font-black border-b-2 border-white' 
+                  : 'text-white/90 hover:text-white'
               }`}
             >
               RESOURCES
@@ -778,7 +778,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[#0B192C] p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-slate-100/90 apple-glass-header border border-slate-200/80 hover:bg-slate-200 transition-colors shadow-xs"
+            className="text-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/10 apple-glass-header border border-white/20 hover:bg-white/20 transition-colors shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)]"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -788,7 +788,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-white/95 apple-glass-header border border-slate-200/90 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),0_20px_50px_rgba(0,0,0,0.12)] transition-all animate-fadeIn max-h-[calc(100vh-90px)] overflow-y-auto">
+        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-[#0B192C]/88 apple-glass-header border border-white/[0.15] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_20px_50px_rgba(0,0,0,0.5)] transition-all animate-fadeIn max-h-[calc(100vh-90px)] overflow-y-auto">
           <nav className="flex flex-col gap-2.5">
             {/* HOME */}
             <a
@@ -797,7 +797,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 setMobileMenuOpen(false);
                 handleNavClick(e, 'home');
               }}
-              className="text-xs sm:text-sm font-bold tracking-wider py-2 px-3 rounded-lg text-[#0B192C]/80 hover:text-[#FA5A16] hover:bg-orange-50/60"
+              className="text-xs sm:text-sm font-bold tracking-wider py-2 px-3 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
             >
               HOME
             </a>
@@ -806,16 +806,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileRegisterOpen(!mobileRegisterOpen)}
-                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-[#0B192C] hover:text-[#FA5A16] hover:bg-orange-50/60 cursor-pointer flex items-center justify-between"
+                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
                 <span>REGISTER YOUR BUSINESS</span>
-                <span className="text-[10px] text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] text-orange-400 bg-orange-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileRegisterOpen ? 'Close' : 'View Options'}
                 </span>
               </button>
 
               {mobileRegisterOpen && (
-                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-slate-50/90 rounded-xl my-1 border border-slate-200/80">
+                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-white/5 rounded-xl my-1 border border-white/10">
                   {registerSubmenu.map((item) => {
                     const IconComp = item.icon;
                     return (
@@ -825,14 +825,14 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setMobileMenuOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="text-left p-2.5 rounded-lg hover:bg-orange-50/80 flex items-start gap-3 cursor-pointer group"
+                        className="text-left p-2.5 rounded-lg hover:bg-white/10 flex items-start gap-3 cursor-pointer group"
                       >
                         <div className="text-[#FA5A16] shrink-0 mt-0.5">
                           <IconComp className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#0B192C] group-hover:text-[#FA5A16] transition-colors">{item.name}</div>
-                          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
+                          <div className="text-xs font-bold text-white group-hover:text-[#FA5A16] transition-colors">{item.name}</div>
+                          <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
                             <span>{item.subheading}</span>
                             <ArrowRight className="w-3 h-3 text-[#FA5A16]" />
                           </div>
@@ -848,16 +848,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileAccountingOpen(!mobileAccountingOpen)}
-                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-[#0B192C] hover:text-[#2563EB] hover:bg-blue-50/60 cursor-pointer flex items-center justify-between"
+                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
                 <span>ACCOUNTING & COMPLIANCE</span>
-                <span className="text-[10px] text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] text-blue-400 bg-blue-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileAccountingOpen ? 'Close' : 'View Options'}
                 </span>
               </button>
 
               {mobileAccountingOpen && (
-                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-slate-50/90 rounded-xl my-1 border border-slate-200/80">
+                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-white/5 rounded-xl my-1 border border-white/10">
                   {accountingSubmenu.map((item) => {
                     const IconComp = item.icon;
                     return (
@@ -867,14 +867,14 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setMobileMenuOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="text-left p-2.5 rounded-lg hover:bg-blue-50/80 flex items-start gap-3 cursor-pointer group"
+                        className="text-left p-2.5 rounded-lg hover:bg-white/10 flex items-start gap-3 cursor-pointer group"
                       >
                         <div className="text-[#2563EB] shrink-0 mt-0.5">
                           <IconComp className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#0B192C] group-hover:text-[#2563EB] transition-colors">{item.name}</div>
-                          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
+                          <div className="text-xs font-bold text-white group-hover:text-[#2563EB] transition-colors">{item.name}</div>
+                          <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
                             <span>{item.subheading}</span>
                             <ArrowRight className="w-3 h-3 text-[#2563EB]" />
                           </div>
@@ -899,8 +899,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                   }}
                   className={`text-xs sm:text-sm font-bold tracking-wider py-2 px-3 rounded-lg transition-colors cursor-pointer ${
                     isActive
-                      ? 'text-[#FA5A16] bg-orange-50 font-bold'
-                      : 'text-[#0B192C]/80 hover:text-[#FA5A16] hover:bg-orange-50/60'
+                      ? 'text-white bg-white/15'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.name}
@@ -912,16 +912,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-[#0B192C] hover:text-[#D97706] hover:bg-amber-50/60 cursor-pointer flex items-center justify-between"
+                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
                 <span>ABOUT</span>
-                <span className="text-[10px] text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileAboutOpen ? 'Close' : 'View Options'}
                 </span>
               </button>
 
               {mobileAboutOpen && (
-                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-slate-50/90 rounded-xl my-1 border border-slate-200/80">
+                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-white/5 rounded-xl my-1 border border-white/10">
                   {aboutSubmenu.map((item) => {
                     const IconComp = item.icon;
                     return (
@@ -931,14 +931,14 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setMobileMenuOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="text-left p-2.5 rounded-lg hover:bg-amber-50/80 flex items-start gap-3 cursor-pointer group"
+                        className="text-left p-2.5 rounded-lg hover:bg-white/10 flex items-start gap-3 cursor-pointer group"
                       >
                         <div className="text-[#D97706] shrink-0 mt-0.5">
                           <IconComp className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#0B192C] group-hover:text-[#D97706] transition-colors">{item.name}</div>
-                          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
+                          <div className="text-xs font-bold text-white group-hover:text-[#D97706] transition-colors">{item.name}</div>
+                          <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
                             <span>{item.subheading}</span>
                             <ArrowRight className="w-3 h-3 text-[#D97706]" />
                           </div>
@@ -954,16 +954,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-[#0B192C] hover:text-[#FA5A16] hover:bg-orange-50/60 cursor-pointer flex items-center justify-between"
+                className="text-left text-xs sm:text-sm font-bold tracking-wider py-2.5 px-3 rounded-lg text-white/95 hover:text-white hover:bg-white/10 cursor-pointer flex items-center justify-between"
               >
                 <span>RESOURCES</span>
-                <span className="text-[10px] text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded-full font-bold">
                   {mobileResourcesOpen ? 'Close' : 'View Subpages'}
                 </span>
               </button>
 
               {mobileResourcesOpen && (
-                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-slate-50/90 rounded-xl my-1 border border-slate-200/80">
+                <div className="pl-2 py-1.5 flex flex-col gap-1.5 bg-white/5 rounded-xl my-1 border border-white/10">
                   {resourcesSubmenu.map((item) => {
                     const IconComp = item.icon;
                     return (
@@ -973,14 +973,14 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                           setMobileMenuOpen(false);
                           if (onNavigate) onNavigate(item.id);
                         }}
-                        className="text-left p-2.5 rounded-lg hover:bg-orange-50/80 flex items-start gap-3 cursor-pointer group"
+                        className="text-left p-2.5 rounded-lg hover:bg-white/10 flex items-start gap-3 cursor-pointer group"
                       >
                         <div className="text-[#FA5A16] shrink-0 mt-0.5">
                           <IconComp className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#0B192C] group-hover:text-[#FA5A16] transition-colors">{item.name}</div>
-                          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
+                          <div className="text-xs font-bold text-white group-hover:text-[#FA5A16] transition-colors">{item.name}</div>
+                          <div className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
                             <span>{item.subheading}</span>
                             <ArrowRight className="w-3 h-3 text-[#FA5A16]" />
                           </div>
@@ -992,7 +992,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
               )}
             </div>
 
-            <div className="pt-2 border-t border-slate-200/80">
+            <div className="pt-2 border-t border-white/10">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
