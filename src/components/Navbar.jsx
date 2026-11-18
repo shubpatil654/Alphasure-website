@@ -210,10 +210,10 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 apple-glass-header ${
         isScrolled
-          ? 'bg-[#0B192C]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)] py-2.5 sm:py-3'
-          : 'bg-[#0B192C]/40 backdrop-blur-md border-b border-white/5 py-3.5 sm:py-4 md:py-5'
+          ? 'bg-[#0B192C]/75 border-b border-white/[0.12] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16),0_10px_36px_0_rgba(0,0,0,0.36)] py-2 sm:py-2.5'
+          : 'bg-[#0B192C]/45 border-b border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] py-3 sm:py-3.5 md:py-4'
       }`}
     >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
@@ -778,7 +778,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/15 backdrop-blur-md border border-white/20 hover:bg-white/25 transition-colors"
+            className="text-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/10 apple-glass-header border border-white/20 hover:bg-white/20 transition-colors shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)]"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -788,7 +788,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-white/20 shadow-2xl transition-all animate-fadeIn max-h-[calc(100vh-90px)] overflow-y-auto">
+        <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl bg-[#0B192C]/88 apple-glass-header border border-white/[0.15] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_20px_50px_rgba(0,0,0,0.5)] transition-all animate-fadeIn max-h-[calc(100vh-90px)] overflow-y-auto">
           <nav className="flex flex-col gap-2.5">
             {/* HOME */}
             <a

@@ -641,5 +641,14 @@ section[class*="min-h-screen"] {
   margin-top: 12px !important;
 }
 
+/* ==========================================================================
+   Apple-Style Glassmorphism for Header & Navigation
+   Mimics Apple's macOS / iOS / apple.com frosted liquid glass effect
+   ========================================================================== */
+.apple-glass-header {
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  backdrop-filter: blur(24px) saturate(190%);
+}
+
 
 
