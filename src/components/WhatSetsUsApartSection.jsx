@@ -39,10 +39,10 @@ export default function WhatSetsUsApartSection() {
       ref={sectionRef} 
       className="relative w-full py-[25px] bg-white overflow-hidden select-none"
     >
-      <div className="w-full max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+      <div className="max-w-[1080px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-5 sm:mb-6 flex flex-col items-center">
+        <div className="text-center mb-4 sm:mb-5 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             What Sets{' '}
             <span className="whitespace-nowrap">
@@ -68,19 +68,19 @@ export default function WhatSetsUsApartSection() {
           </h2>
         </div>
 
-        {/* 2-Column Split: Left Caveat Typography (Height Aligned with Right Image) | Right Red Apple Visual Photo */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch w-full">
+        {/* 2-Column Split: Compact Compressed Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full">
           
-          {/* ================= LEFT COLUMN: Caveat Handwriting Typography (Staggered Slow Center-Aligned Sentence Slide-In) ================= */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full py-1 sm:py-2 px-2 sm:px-4 text-center">
+          {/* ================= LEFT COLUMN: Caveat Handwriting Typography ================= */}
+          <div className="lg:col-span-5 flex flex-col justify-center items-center gap-2.5 sm:gap-3 py-1 px-2 text-center">
             {items.map((text, idx) => (
               <div 
                 key={idx}
-                style={{ transitionDelay: isVisible ? `${(idx + 1) * 220}ms` : '0ms' }}
-                className={`font-caveat font-bold text-3xl sm:text-4xl md:text-[40px] lg:text-[46px] text-[#1E2E4A] leading-[1.15] tracking-wide text-center transition-all duration-[1200ms] ease-out transform ${
+                style={{ transitionDelay: isVisible ? `${(idx + 1) * 160}ms` : '0ms' }}
+                className={`font-caveat font-bold text-xl sm:text-2xl lg:text-[24px] xl:text-[26px] text-[#1E2E4A] leading-[1.2] tracking-wide text-center transition-all duration-700 ease-out transform ${
                   isVisible 
                     ? 'opacity-100 translate-x-0' 
-                    : 'opacity-0 -translate-x-14'
+                    : 'opacity-0 -translate-x-8'
                 }`}
               >
                 {text.includes('\n') ? (
@@ -97,19 +97,20 @@ export default function WhatSetsUsApartSection() {
             ))}
           </div>
 
-          {/* ================= RIGHT COLUMN: Full-Width Enlarged Red Apple Image ================= */}
+          {/* ================= RIGHT COLUMN: Compact Red Apple Image ================= */}
           <div 
-            className={`lg:col-span-7 flex justify-center lg:justify-end w-full h-full transition-all duration-1000 ease-out delay-150 ${
+            className={`lg:col-span-7 flex justify-center lg:justify-end w-full transition-all duration-700 ease-out delay-100 ${
               isVisible 
                 ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 translate-x-12'
+                : 'opacity-0 translate-x-8'
             }`}
           >
-            <div className="w-full max-w-none rounded-2xl overflow-hidden border border-slate-200/80 shadow-2xl h-full flex items-center">
+            <div className="w-full max-w-[480px] lg:max-w-[500px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg">
               <img
                 src="/images/red-apple-standout.jpg"
                 alt="Standout Red Apple among black and white apples"
-                className="w-full h-full max-h-[640px] object-cover block"
+                className="w-full h-auto max-h-[320px] sm:max-h-[340px] object-cover block"
+                loading="eager"
               />
             </div>
           </div>
