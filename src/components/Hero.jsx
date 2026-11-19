@@ -21,7 +21,7 @@ export default function Hero({ onOpenModal }) {
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-[25px]">
       
-      {/* Live Video Background with Boosted Brightness & Crisp Contrast */}
+      {/* Live Video Background with Dark Cinematic Overlay */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
         <video
           autoPlay
@@ -29,13 +29,15 @@ export default function Hero({ onOpenModal }) {
           muted
           playsInline
           poster="/images/hero-mountain.jpg"
-          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top] filter brightness-[1.12] contrast-[1.03]"
+          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top] filter brightness-[0.95] contrast-[1.04]"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* Low opacity dark layer across entire background video to keep it vivid while ensuring text legibility */}
-        <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
+        {/* Dark overlay layer across entire background video */}
+        <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none"></div>
+        {/* Soft top and bottom gradient for seamless header & transition blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Central Hero Content */}
