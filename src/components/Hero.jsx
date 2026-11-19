@@ -46,7 +46,7 @@ export default function Hero({ onOpenModal }) {
         {/* Heading & Subtitle Wrapper for perfect width alignment */}
         <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto text-center px-2">
           {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-          <div className="mb-7 sm:mb-9 lg:mb-11 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black tracking-tight select-none">
+          <div className="-translate-y-12 sm:-translate-y-20 md:-translate-y-24 lg:-translate-y-[130px] mb-0 sm:mb-1 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black tracking-tight select-none">
             <div className="w-[165px] sm:w-[215px] md:w-[265px] lg:w-[305px] text-right shrink-0">
               <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
                 <span
