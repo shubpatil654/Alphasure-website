@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PuzzleSection() {
   return (
-    <section className="puzzle-section relative w-full bg-white overflow-hidden select-none border-t border-slate-100">
+    <section className="puzzle-section relative w-full bg-white overflow-hidden select-none border-t border-slate-100 py-12 sm:py-16 lg:py-20">
       
       {/* SVG Abstract Side Lines Background Accents - Positioned on outer sides */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
@@ -48,15 +48,28 @@ export default function PuzzleSection() {
             </p>
           </div>
 
-          {/* RIGHT COLUMN: 3D Puzzle Solution Graphic (Transparent Background) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
-            <div className="relative z-10 w-full flex justify-center lg:justify-end transition-transform duration-500 hover:scale-[1.02]">
-              <img
-                src="/images/puzzle-alphasure-solution.png"
-                alt="A complete accounting solution - Small businesses or growing businesses fit with Alphasure"
-                className="w-full h-auto max-w-[500px] lg:max-w-[540px] object-contain block filter drop-shadow-[0_16px_32px_rgba(11,25,44,0.1)]"
-                loading="eager"
-              />
+          {/* RIGHT COLUMN: 3D Puzzle Solution Graphic with "We Just Fit" Line */}
+          <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end relative">
+            <div className="w-full max-w-[520px] lg:max-w-[560px] xl:max-w-[600px] flex flex-col items-center">
+              
+              {/* Elegant "We Just Fit" Brand Line Centered Above Image */}
+              <div className="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-3 sm:mb-4">
+                <span className="h-[2px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#0B192C]/40 rounded-full"></span>
+                <span className="text-sm sm:text-base md:text-lg font-extrabold tracking-[0.16em] uppercase text-[#0B192C]">
+                  We Just <span className="text-[#FA5A16]">Fit</span>
+                </span>
+                <span className="h-[2px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#FA5A16]/50 rounded-full"></span>
+              </div>
+
+              {/* Scaled 3D Puzzle Graphic */}
+              <div className="relative z-10 w-full flex justify-center transition-transform duration-500 hover:scale-[1.04] scale-105 sm:scale-110 lg:scale-[1.12] origin-center">
+                <img
+                  src="/images/puzzle-alphasure-solution.png"
+                  alt="A complete accounting solution - Small businesses or growing businesses fit with Alphasure"
+                  className="w-full h-auto object-contain block filter drop-shadow-[0_16px_32px_rgba(11,25,44,0.12)]"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
 
