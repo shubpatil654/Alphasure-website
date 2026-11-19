@@ -265,18 +265,6 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                       </div>
                     </div>
 
-                    {/* Bottom CTA Action Button */}
-                    <div className="pt-2.5 flex items-center justify-start border-t border-slate-200/50 mt-1">
-                      <button
-                        type="button"
-                        onClick={(e) => handleSubserviceClick(e, service.targetPage)}
-                        className={`inline-flex items-center gap-2 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-white ${service.btnClass} px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-lg transition-all shadow-sm hover:shadow-md cursor-pointer group/btn`}
-                      >
-                        <span>Explore {service.shortTitle}</span>
-                        <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
-                      </button>
-                    </div>
-
                   </div>
                 ) : (
                   /* ---------------- COLLAPSED / CLOSED VIEW ---------------- */
