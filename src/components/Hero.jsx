@@ -29,15 +29,15 @@ export default function Hero({ onOpenModal }) {
           muted
           playsInline
           poster="/images/hero-mountain.jpg"
-          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top] filter brightness-[0.95] contrast-[1.04]"
+          className="w-full h-full object-cover object-[40%_center] sm:object-center md:object-[center_top] filter brightness-[1.0] contrast-[1.02]"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* Dark overlay layer across entire background video */}
-        <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none"></div>
-        {/* Soft top and bottom gradient for seamless header & transition blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-[1] pointer-events-none"></div>
+        {/* Subtle dark overlay layer to keep text legible while letting video shine */}
+        <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
+        {/* Soft top and bottom gradient for header & transition blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Central Hero Content */}
