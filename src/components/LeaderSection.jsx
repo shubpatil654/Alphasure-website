@@ -65,8 +65,8 @@ function LeaderCard({ leader }) {
             : 'translate-x-32 opacity-0'
         }`}
       >
-        {/* Unskewed Original Photo Frame */}
-        <div className="relative group w-full max-w-[290px] sm:max-w-[330px] aspect-[1/1.1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 transition-transform duration-500 hover:scale-[1.02]">
+        {/* Unskewed Original Photo Frame with Refined Soft Diffused Shadow */}
+        <div className="relative group w-full max-w-[290px] sm:max-w-[330px] aspect-[1/1.1] rounded-3xl overflow-hidden shadow-[0_10px_28px_rgba(11,25,44,0.12),0_4px_10px_rgba(11,25,44,0.06)] border-4 border-white bg-slate-900 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_14px_34px_rgba(11,25,44,0.16)]">
           <img
             src={leader.image}
             alt={`${leader.name} - ${leader.role}`}
@@ -146,7 +146,7 @@ export default function LeaderSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-[25px] bg-white overflow-hidden select-none">
+    <section className="relative w-full pt-6 sm:pt-10 pb-16 sm:pb-24 lg:pb-28 bg-white overflow-hidden select-none">
       
       {/* SVG Abstract Side Lines Continuation - Flows 100% seamlessly from PuzzleSection into LeaderSection and gently fades out */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
