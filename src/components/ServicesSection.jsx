@@ -17,6 +17,7 @@ const SERVICES_DATA = [
     number: '01',
     heading: 'INCORPORATION',
     shortTitle: 'Incorporation',
+    image: '/images/services/incorporation-plane.jpg',
     themeColor: '#FA5A16',
     bgClass: 'bg-[#FFF8F5]',
     borderColor: 'border-[#FA5A16]/30',
@@ -39,6 +40,7 @@ const SERVICES_DATA = [
     number: '02',
     heading: 'ACCOUNTING',
     shortTitle: 'Accounting',
+    image: '/images/services/accounting-hand.jpg',
     themeColor: '#0084F4',
     bgClass: 'bg-[#F0F7FF]',
     borderColor: 'border-[#0084F4]/30',
@@ -52,8 +54,7 @@ const SERVICES_DATA = [
     subservices: [
       { name: 'Periodic accounting', id: 'periodic-accounting' },
       { name: 'Real time accounting', id: 'real-time-accounting' },
-      { name: 'Controller services', id: 'controller-services' },
-      { name: 'CFO services', id: 'controller-services' },
+      { name: 'Controller and CFO services', id: 'controller-services' },
     ]
   },
   {
@@ -61,6 +62,7 @@ const SERVICES_DATA = [
     number: '03',
     heading: 'TAX COMPLIANCE',
     shortTitle: 'Tax Compliance',
+    image: '/images/services/compliance-hourglass.jpg',
     themeColor: '#FA5A16',
     bgClass: 'bg-[#FFF8F5]',
     borderColor: 'border-[#FA5A16]/30',
@@ -81,8 +83,9 @@ const SERVICES_DATA = [
   {
     id: 'other-services',
     number: '04',
-    heading: 'OTHER SERVICES',
-    shortTitle: 'Other Services',
+    heading: 'EVERYTHING ELSE',
+    shortTitle: 'Everything Else',
+    image: '/images/services/everything-else-knife.png',
     themeColor: '#0084F4',
     bgClass: 'bg-[#F0F7FF]',
     borderColor: 'border-[#0084F4]/30',
@@ -132,9 +135,9 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
         {/* ================= SECTION HEADER ================= */}
         <div className="text-center mb-5 sm:mb-7">
           <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
-            Business Made Lighter with{' '}
+            Our{' '}
             <span className="relative inline-block text-[#FA5A16]">
-              ALPHASURE
+              Services
               {/* Signature Curved Underline */}
               <svg 
                 className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
@@ -163,7 +166,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
             // Determine card styling state
             const cardStateClass = isExpanded 
               ? `services-card-expanded ${service.bgClass} ${service.borderColor}`
-              : 'services-card-collapsed';
+              : 'services-card-collapsed group';
 
             return (
               <div
@@ -178,13 +181,25 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
               >
                 {/* Top branded accent bar */}
                 <div 
-                  className="absolute top-0 left-0 right-0 h-1 transition-opacity"
+                  className="absolute top-0 left-0 right-0 h-1 transition-opacity z-20"
                   style={{ backgroundColor: service.themeColor }}
                 />
 
+                {/* Blurred Background Image for Expanded View */}
+                {isExpanded && (
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[1.25rem] z-0">
+                    <img 
+                      src={service.image} 
+                      alt="" 
+                      className="w-full h-full object-cover filter blur-md sm:blur-lg scale-105 opacity-35 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]" />
+                  </div>
+                )}
+
                 {/* ---------------- EXPANDED VIEW ---------------- */}
                 {isExpanded ? (
-                  <div className="services-expanded-content flex flex-col justify-between h-full w-full">
+                  <div className="services-expanded-content relative z-10 flex flex-col justify-between h-full w-full">
                     
                     {/* Header info */}
                     <div>
@@ -257,7 +272,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   </div>
                 ) : (
                   /* ---------------- COLLAPSED / INITIAL VIEW ---------------- */
-                  <div className="services-collapsed-content flex flex-col justify-between h-full w-full">
+                  <div className="services-collapsed-content relative z-10 flex flex-col justify-between h-full w-full">
                     
                     {/* Top: Serial Number */}
                     <div className="flex items-center justify-between pt-0.5">
@@ -268,19 +283,35 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                       <ChevronDown size={15} className="text-slate-400 sm:hidden" />
                     </div>
 
-                    {/* Center / Bottom: Branded Icon + Heading */}
-                    <div className="pt-6 flex flex-col items-start gap-2.5">
+                    {/* Center: Image Before Expanding (Enlarged and Framed) */}
+                    <div className="my-auto py-2.5 w-full flex items-center justify-center">
+                      <div className="w-full h-40 sm:h-44 lg:h-48 rounded-xl overflow-hidden bg-white/95 border border-white/20 shadow-md flex items-center justify-center relative group-hover:scale-[1.03] transition-all duration-300">
+                        <img 
+                          src={service.image} 
+                          alt={service.shortTitle} 
+                          className={`w-full h-full transition-transform duration-500 group-hover:scale-108 ${
+                            service.id === 'other-services' 
+                              ? 'object-contain p-2.5' 
+                              : 'object-cover'
+                          }`}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Bottom: Branded Icon + Heading */}
+                    <div className="pt-2 flex flex-col items-start gap-2">
                       <div 
-                        className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
+                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-colors"
                         style={{ backgroundColor: `${service.themeColor}20` }}
                       >
                         <IconComponent 
-                          className="w-4.5 h-4.5 transition-transform group-hover:scale-110" 
+                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 transition-transform group-hover:scale-110" 
                           style={{ color: service.themeColor }}
                         />
                       </div>
 
-                      <h3 className="text-sm sm:text-[15px] font-bold tracking-wide text-white uppercase break-words leading-snug">
+                      <h3 className="text-xs sm:text-sm md:text-[14px] font-bold tracking-wide text-white uppercase break-words leading-snug">
                         {service.heading}
                       </h3>
 
