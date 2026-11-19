@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const items = [
+const leftItems = [
   'No Hidden Cost',
-  'Dedicated Experts',
   'Clear Accountability',
+  'Technology with\nHuman Oversight'
+];
+
+const rightItems = [
+  'Dedicated Experts',
   'Proactive Communication',
-  'Technology with\nHuman Oversight',
   'Ethical Advice'
 ];
 
@@ -39,10 +42,10 @@ export default function WhatSetsUsApartSection() {
       ref={sectionRef} 
       className="what-sets-us-apart-section relative w-full bg-white overflow-hidden select-none"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-6 sm:mb-8 flex flex-col items-center">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12 flex flex-col items-center">
           <h2 className="alpha-h2 font-bold text-[#1B2A4A] tracking-tight">
             What Sets{' '}
             <span className="whitespace-nowrap">
@@ -68,55 +71,81 @@ export default function WhatSetsUsApartSection() {
           </h2>
         </div>
 
-        {/* 2-Column Split: Left Grid View | Right Red Apple Standout Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+        {/* 3-Column Symmetrical Layout: Left 3 Pointers | Center Red Apple Image | Right 3 Pointers */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-6 xl:gap-8 items-center w-full">
           
-          {/* ================= LEFT COLUMN: Grid View of What Sets Us Apart ================= */}
-          <div className="lg:col-span-7 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5">
-              {items.map((text, idx) => (
-                <div 
-                  key={idx}
-                  style={{ transitionDelay: isVisible ? `${(idx + 1) * 120}ms` : '0ms' }}
-                  className={`flex items-center justify-center min-h-[82px] sm:min-h-[90px] md:min-h-[98px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-4 scale-95'
-                  }`}
-                >
-                  <span className="font-caveat font-bold text-2xl sm:text-[26px] lg:text-[28px] xl:text-[31px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
-                    {text.includes('\n') ? (
-                      text.split('\n').map((line, i) => (
-                        <React.Fragment key={i}>
-                          {line}
-                          {i === 0 && <br />}
-                        </React.Fragment>
-                      ))
-                    ) : (
-                      text
-                    )}
-                  </span>
-                </div>
-              ))}
-            </div>
+          {/* ================= LEFT COLUMN: 3 Pointers ================= */}
+          <div className="lg:col-span-4 w-full flex flex-col justify-center space-y-3.5 sm:space-y-4.5 order-2 lg:order-1">
+            {leftItems.map((text, idx) => (
+              <div 
+                key={idx}
+                style={{ transitionDelay: isVisible ? `${(idx + 1) * 120}ms` : '0ms' }}
+                className={`flex items-center justify-center min-h-[82px] sm:min-h-[88px] lg:min-h-[94px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
+                  isVisible 
+                    ? 'opacity-100 translate-x-0 scale-100' 
+                    : 'opacity-0 -translate-x-6 scale-95'
+                }`}
+              >
+                <span className="font-caveat font-bold text-2xl sm:text-[25px] lg:text-[26px] xl:text-[28px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
+                  {text.includes('\n') ? (
+                    text.split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line}
+                        {i === 0 && <br />}
+                      </React.Fragment>
+                    ))
+                  ) : (
+                    text
+                  )}
+                </span>
+              </div>
+            ))}
           </div>
 
-          {/* ================= RIGHT COLUMN: Enlarged Red Apple Image ================= */}
+          {/* ================= CENTER COLUMN: Standout Red Apple Image ================= */}
           <div 
-            className={`lg:col-span-5 flex justify-center lg:justify-end w-full transition-all duration-700 ease-out delay-100 ${
+            className={`lg:col-span-4 flex justify-center w-full order-1 lg:order-2 transition-all duration-700 ease-out delay-150 ${
               isVisible 
-                ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 translate-x-8'
+                ? 'opacity-100 scale-100' 
+                : 'opacity-0 scale-95'
             }`}
           >
-            <div className="w-full max-w-[500px] lg:max-w-[540px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg">
+            <div className="w-full max-w-[440px] sm:max-w-[480px] lg:max-w-none rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg hover:shadow-xl transition-all duration-500 group">
               <img
                 src="/images/red-apple-standout.jpg"
                 alt="Standout Red Apple among black and white apples"
-                className="w-full h-auto max-h-[360px] sm:max-h-[385px] object-cover block"
+                className="w-full h-auto aspect-[1.5] object-cover block transition-transform duration-700 group-hover:scale-105"
                 loading="eager"
               />
             </div>
+          </div>
+
+          {/* ================= RIGHT COLUMN: 3 Pointers ================= */}
+          <div className="lg:col-span-4 w-full flex flex-col justify-center space-y-3.5 sm:space-y-4.5 order-3 lg:order-3">
+            {rightItems.map((text, idx) => (
+              <div 
+                key={idx}
+                style={{ transitionDelay: isVisible ? `${(idx + 4) * 120}ms` : '0ms' }}
+                className={`flex items-center justify-center min-h-[82px] sm:min-h-[88px] lg:min-h-[94px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
+                  isVisible 
+                    ? 'opacity-100 translate-x-0 scale-100' 
+                    : 'opacity-0 translate-x-6 scale-95'
+                }`}
+              >
+                <span className="font-caveat font-bold text-2xl sm:text-[25px] lg:text-[26px] xl:text-[28px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
+                  {text.includes('\n') ? (
+                    text.split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line}
+                        {i === 0 && <br />}
+                      </React.Fragment>
+                    ))
+                  ) : (
+                    text
+                  )}
+                </span>
+              </div>
+            ))}
           </div>
 
         </div>
