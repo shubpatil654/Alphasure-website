@@ -29,11 +29,6 @@ const industries = [
     image: '/images/industries/food-beverages.jpg',
   },
   {
-    id: 'it-services',
-    name: 'IT Services',
-    image: '/images/industries/it-services.jpg',
-  },
-  {
     id: 'manufacturing',
     name: 'Manufacturing',
     image: '/images/industries/manufacturing.jpg',
@@ -119,7 +114,7 @@ export default function IndustriesCarouselSection() {
 
   return (
     <section 
-      className="relative w-full py-8 sm:py-10 bg-[#FAF7F2] overflow-hidden select-none"
+      className="relative w-full pt-8 sm:pt-10 pb-14 sm:pb-18 lg:pb-24 bg-[#FAF7F2] overflow-hidden select-none"
       id="industries"
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
