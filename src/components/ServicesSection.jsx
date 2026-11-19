@@ -15,8 +15,8 @@ const SERVICES_DATA = [
   {
     id: 'incorporation',
     number: '01',
-    heading: 'INCORPORATION',
-    shortTitle: 'Incorporation',
+    heading: 'Register your Business',
+    shortTitle: 'Business Registration',
     image: '/images/services/incorporation-plane.jpg',
     themeColor: '#FA5A16',
     bgClass: 'bg-[#FFF8F5]',
@@ -38,7 +38,7 @@ const SERVICES_DATA = [
   {
     id: 'accounting',
     number: '02',
-    heading: 'ACCOUNTING',
+    heading: 'Accounting',
     shortTitle: 'Accounting',
     image: '/images/services/accounting-hand.jpg',
     themeColor: '#0084F4',
@@ -60,8 +60,8 @@ const SERVICES_DATA = [
   {
     id: 'tax-compliance',
     number: '03',
-    heading: 'TAX COMPLIANCE',
-    shortTitle: 'Tax Compliance',
+    heading: 'Compliance',
+    shortTitle: 'Compliance',
     image: '/images/services/compliance-hourglass.jpg',
     themeColor: '#FA5A16',
     bgClass: 'bg-[#FFF8F5]',
@@ -83,7 +83,7 @@ const SERVICES_DATA = [
   {
     id: 'other-services',
     number: '04',
-    heading: 'EVERYTHING ELSE',
+    heading: 'Everything else',
     shortTitle: 'Everything Else',
     image: '/images/services/everything-else-knife.png',
     themeColor: '#0084F4',
@@ -185,17 +185,25 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   style={{ backgroundColor: service.themeColor }}
                 />
 
-                {/* Blurred Background Image for Expanded View */}
-                {isExpanded && (
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[1.25rem] z-0">
-                    <img 
-                      src={service.image} 
-                      alt="" 
-                      className="w-full h-full object-cover filter blur-md sm:blur-lg scale-105 opacity-35 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]" />
-                  </div>
-                )}
+                {/* Full-Card Background Image: Crisp full-bleed when closed, Softly blurred when expanded */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[1.25rem] z-0">
+                  <img 
+                    src={service.image} 
+                    alt="" 
+                    className={`w-full h-full object-cover transition-all duration-700 ${
+                      isExpanded 
+                        ? 'filter blur-md sm:blur-lg scale-105 opacity-35' 
+                        : 'filter brightness-[0.80] contrast-[1.05] group-hover:scale-108 group-hover:brightness-[0.90]'
+                    }`}
+                  />
+                  <div 
+                    className={`absolute inset-0 transition-all duration-500 ${
+                      isExpanded 
+                        ? 'bg-white/70 backdrop-blur-[1px]' 
+                        : 'bg-gradient-to-t from-[#0B192C]/95 via-[#0B192C]/30 to-[#0B192C]/40'
+                    }`} 
+                  />
+                </div>
 
                 {/* ---------------- EXPANDED VIEW ---------------- */}
                 {isExpanded ? (
@@ -214,7 +222,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                       </div>
 
                       {/* Pillar Title */}
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0B192C] uppercase mb-2.5">
+                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0B192C] mb-2.5">
                         {service.heading}
                       </h3>
 
@@ -271,56 +279,35 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
 
                   </div>
                 ) : (
-                  /* ---------------- COLLAPSED / INITIAL VIEW ---------------- */
+                  /* ---------------- COLLAPSED / CLOSED VIEW ---------------- */
                   <div className="services-collapsed-content relative z-10 flex flex-col justify-between h-full w-full">
                     
-                    {/* Top: Serial Number */}
+                    {/* Top: Serial Number Badge */}
                     <div className="flex items-center justify-between pt-0.5">
-                      <span className="text-[11px] font-mono font-medium tracking-widest text-slate-400/90">
+                      <span className="text-xs font-mono font-bold tracking-widest text-white/90 drop-shadow-sm px-2 py-0.5 rounded-md bg-black/30 backdrop-blur-xs">
                         {service.number}
                       </span>
                       {/* Mobile Expand Indicator */}
-                      <ChevronDown size={15} className="text-slate-400 sm:hidden" />
-                    </div>
-
-                    {/* Center: Image Before Expanding (Enlarged and Framed) */}
-                    <div className="my-auto py-2.5 w-full flex items-center justify-center">
-                      <div className="w-full h-40 sm:h-44 lg:h-48 rounded-xl overflow-hidden bg-white/95 border border-white/20 shadow-md flex items-center justify-center relative group-hover:scale-[1.03] transition-all duration-300">
-                        <img 
-                          src={service.image} 
-                          alt={service.shortTitle} 
-                          className={`w-full h-full transition-transform duration-500 group-hover:scale-108 ${
-                            service.id === 'other-services' 
-                              ? 'object-contain p-2.5' 
-                              : 'object-cover'
-                          }`}
-                          loading="lazy"
-                        />
-                      </div>
+                      <ChevronDown size={15} className="text-white/80 sm:hidden" />
                     </div>
 
                     {/* Bottom: Branded Icon + Heading */}
-                    <div className="pt-2 flex flex-col items-start gap-2">
+                    <div className="pt-4 flex flex-col items-start gap-2.5">
                       <div 
-                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-colors"
-                        style={{ backgroundColor: `${service.themeColor}20` }}
+                        className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 shadow-md backdrop-blur-xs group-hover:scale-110"
+                        style={{ 
+                          backgroundColor: `${service.themeColor}35`, 
+                          border: `1px solid ${service.themeColor}70` 
+                        }}
                       >
                         <IconComponent 
-                          className="w-4 h-4 sm:w-4.5 sm:h-4.5 transition-transform group-hover:scale-110" 
-                          style={{ color: service.themeColor }}
+                          className="w-5 h-5 text-white" 
                         />
                       </div>
 
-                      <h3 className="text-xs sm:text-sm md:text-[14px] font-bold tracking-wide text-white uppercase break-words leading-snug">
+                      <h3 className="text-sm sm:text-base font-bold tracking-tight text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                         {service.heading}
                       </h3>
-
-                      <span 
-                        className="text-[10px] sm:text-[11px] uppercase font-semibold tracking-wider opacity-85 transition-all flex items-center gap-1"
-                        style={{ color: service.themeColor }}
-                      >
-                        Hover to reveal <ArrowRight size={11} />
-                      </span>
                     </div>
 
                   </div>
