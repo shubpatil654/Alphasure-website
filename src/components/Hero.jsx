@@ -63,7 +63,7 @@ export default function Hero({ onOpenModal }) {
                 </span>
               </span>
             </div>
-            <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
+            <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap [text-shadow:none] drop-shadow-none">
               Simplified
             </span>
           </div>
