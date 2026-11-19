@@ -48,7 +48,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
 
   const cityLabel = cityTier === 'tier1' 
     ? 'Tier 1 (Mumbai, Delhi NCR, Bengaluru, Chennai, Hyderabad, Kolkata, Pune)'
-    : 'Tier 2 (Any other City across India)';
+    : 'Tier 2 (Any other cities & towns across India)';
 
   const txnLabel = transactions === 'more-than-1000' 
     ? (billingCycle === 'annually' ? '1000 & more transactions' : '1000 or more transactions')
@@ -115,7 +115,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
             Periodic accounting
           </h2>
           <p className="mt-3 sm:mt-4 alpha-large-body text-slate-300 font-normal max-w-3xl mx-auto">
-            Select your billing frequency, city tier, and transaction volume to calculate your personalized plan.
+            Select your accounting frequency, where you are from and number of transactions.
           </p>
         </div>
 
@@ -144,7 +144,7 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                 </div>
                 <div className="min-h-[42px] sm:min-h-[46px] flex items-start">
                   <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
-                    {billingCycle === 'annually' ? 'Includes comprehensive annual package' : 'Pay as you go monthly'}
+                    {billingCycle === 'annually' ? 'Accounting once a year' : 'Accounting once a month'}
                   </p>
                 </div>
               </div>
@@ -161,14 +161,14 @@ export default function PricingCalculatorSection({ onOpenModal }) {
                     onChange={(e) => setCityTier(e.target.value)}
                     className="w-full bg-[#0D1527] hover:bg-[#111C35] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 sm:py-4 pl-4 pr-10 rounded-2xl border-2 border-slate-700 hover:border-slate-500 focus:border-[#FA5A16] focus:ring-2 focus:ring-[#FA5A16]/20 outline-none transition-all cursor-pointer appearance-none shadow-xs"
                   >
-                    <option value="tier1" className="bg-[#0D1527] text-white">Tier 1 (Top Metros)</option>
-                    <option value="tier2" className="bg-[#0D1527] text-white">Tier 2 (Any other City)</option>
+                    <option value="tier1" className="bg-[#0D1527] text-white">Tier 1</option>
+                    <option value="tier2" className="bg-[#0D1527] text-white">Tier 2</option>
                   </select>
                   <ChevronDown className="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
                 <div className="min-h-[42px] sm:min-h-[46px] flex items-start">
                   <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
-                    {cityTier === 'tier1' ? 'Mumbai, Delhi NCR, Bengaluru, Chennai, Hyderabad, Kolkata, Pune' : 'All other regional cities & towns across India'}
+                    {cityTier === 'tier1' ? 'Mumbai, Delhi NCR, Bengaluru, Chennai, Hyderabad, Kolkata, Pune' : 'Any other cities & towns across India'}
                   </p>
                 </div>
               </div>
