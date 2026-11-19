@@ -56,8 +56,8 @@ export default function CountryFlagsSection() {
         {/* Right Fade Mask */}
         <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 lg:w-48 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/90 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Marquee Track with Prominently Enlarged Pure Flags */}
-        <div className="animate-marquee-ltr flex items-center gap-5 sm:gap-6 md:gap-7 lg:gap-8">
+        {/* Marquee Track with Prominently Enlarged and Spaced Pure Flags */}
+        <div className="animate-marquee-ltr flex items-center gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
           {marqueeItems.map((country, index) => (
             <div
               key={`${country.code}-${index}`}
