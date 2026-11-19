@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './IndustriesCarouselSection.css';
 
 const industries = [
@@ -118,7 +119,7 @@ export default function IndustriesCarouselSection() {
 
   return (
     <section 
-      className="relative w-full py-[25px] bg-gradient-to-b from-white via-[#FAF7F2]/50 to-[#FAF7F2] overflow-hidden select-none"
+      className="relative w-full py-8 sm:py-10 bg-[#FAF7F2] overflow-hidden select-none"
       id="industries"
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -148,116 +149,121 @@ export default function IndustriesCarouselSection() {
           </h2>
         </div>
 
-        {/* ================= 3D COVER FLOW CAROUSEL STAGE ================= */}
-        <div 
-          className="industries-carousel-stage"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          {industries.map((item, index) => {
-            const offset = getOffset(index, activeIndex, total);
-            const isActive = offset === 0;
+        {/* ================= 3D COVER FLOW CAROUSEL STAGE WITH SIDE ARROWS ================= */}
+        <div className="relative w-full flex items-center justify-center">
+          
+          {/* Navigation Arrow Left */}
+          <button
+            onClick={prevSlide}
+            aria-label="Previous Industry"
+            className="absolute left-1 sm:left-3 lg:left-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 hover:bg-white text-[#0B192C] hover:text-[#FA5A16] shadow-md hover:shadow-xl border border-slate-200/90 hover:border-[#FA5A16]/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-xs group"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-x-0.5" />
+          </button>
 
-            // Compute 3D Cover Flow Transform based on offset
-            let style = {};
+          {/* Navigation Arrow Right */}
+          <button
+            onClick={nextSlide}
+            aria-label="Next Industry"
+            className="absolute right-1 sm:right-3 lg:right-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 hover:bg-white text-[#0B192C] hover:text-[#FA5A16] shadow-md hover:shadow-xl border border-slate-200/90 hover:border-[#FA5A16]/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-xs group"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </button>
 
-            if (offset === 0) {
-              // Active Center Card
-              style = {
-                transform: 'translateX(-50%) translateY(-50%) translateZ(0) scale(1.05)',
-                zIndex: 30,
-                opacity: 1,
-                filter: 'brightness(1)',
-              };
-            } else if (offset === -1) {
-              // Immediate Left Card
-              style = {
-                transform: 'translateX(calc(-50% - min(250px, 62vw))) translateY(-50%) scale(0.86)',
-                zIndex: 20,
-                opacity: 0.88,
-                filter: 'brightness(0.92)',
-              };
-            } else if (offset === 1) {
-              // Immediate Right Card
-              style = {
-                transform: 'translateX(calc(-50% + min(250px, 62vw))) translateY(-50%) scale(0.86)',
-                zIndex: 20,
-                opacity: 0.88,
-                filter: 'brightness(0.92)',
-              };
-            } else if (offset === -2) {
-              // Far Left Card
-              style = {
-                transform: 'translateX(calc(-50% - min(460px, 114vw))) translateY(-50%) scale(0.72)',
-                zIndex: 10,
-                opacity: 0.55,
-                filter: 'brightness(0.8)',
-              };
-            } else if (offset === 2) {
-              // Far Right Card
-              style = {
-                transform: 'translateX(calc(-50% + min(460px, 114vw))) translateY(-50%) scale(0.72)',
-                zIndex: 10,
-                opacity: 0.55,
-                filter: 'brightness(0.8)',
-              };
-            } else {
-              // Off-screen Cards
-              style = {
-                transform: `translateX(calc(-50% + ${offset > 0 ? 600 : -600}px)) translateY(-50%) scale(0.5)`,
-                zIndex: 0,
-                opacity: 0,
-                pointerEvents: 'none',
-              };
-            }
+          <div 
+            className="industries-carousel-stage"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {industries.map((item, index) => {
+              const offset = getOffset(index, activeIndex, total);
+              const isActive = offset === 0;
 
-            return (
-              <div
-                key={item.id}
-                className={`industries-card-item group ${isActive ? 'industries-card-active' : ''}`}
-                style={style}
-                onClick={() => {
-                  if (!isActive) {
-                    setActiveIndex(index);
-                  }
-                }}
-              >
-                {/* Full-bleed Industry Image */}
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="industries-card-img"
-                  loading={Math.abs(offset) <= 2 ? 'eager' : 'lazy'}
-                />
+              // Compute 3D Cover Flow Transform based on offset
+              let style = {};
 
-                {/* Subtle bottom gradient to keep the industry title readable */}
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+              if (offset === 0) {
+                // Active Center Card
+                style = {
+                  transform: 'translateX(-50%) translateY(-50%) translateZ(0) scale(1.05)',
+                  zIndex: 30,
+                  opacity: 1,
+                  filter: 'brightness(1)',
+                };
+              } else if (offset === -1) {
+                // Immediate Left Card
+                style = {
+                  transform: 'translateX(calc(-50% - min(250px, 62vw))) translateY(-50%) scale(0.86)',
+                  zIndex: 20,
+                  opacity: 0.88,
+                  filter: 'brightness(0.92)',
+                };
+              } else if (offset === 1) {
+                // Immediate Right Card
+                style = {
+                  transform: 'translateX(calc(-50% + min(250px, 62vw))) translateY(-50%) scale(0.86)',
+                  zIndex: 20,
+                  opacity: 0.88,
+                  filter: 'brightness(0.92)',
+                };
+              } else if (offset === -2) {
+                // Far Left Card
+                style = {
+                  transform: 'translateX(calc(-50% - min(460px, 114vw))) translateY(-50%) scale(0.72)',
+                  zIndex: 10,
+                  opacity: 0.55,
+                  filter: 'brightness(0.8)',
+                };
+              } else if (offset === 2) {
+                // Far Right Card
+                style = {
+                  transform: 'translateX(calc(-50% + min(460px, 114vw))) translateY(-50%) scale(0.72)',
+                  zIndex: 10,
+                  opacity: 0.55,
+                  filter: 'brightness(0.8)',
+                };
+              } else {
+                // Off-screen Cards
+                style = {
+                  transform: `translateX(calc(-50% + ${offset > 0 ? 600 : -600}px)) translateY(-50%) scale(0.5)`,
+                  zIndex: 0,
+                  opacity: 0,
+                  pointerEvents: 'none',
+                };
+              }
 
-                {/* Clean Industry Title */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-center z-10">
-                  <h3 className="text-white font-bold text-base sm:text-lg md:text-xl drop-shadow-md tracking-tight leading-snug">
-                    {item.name}
-                  </h3>
+              return (
+                <div
+                  key={item.id}
+                  className={`industries-card-item group ${isActive ? 'industries-card-active' : ''}`}
+                  style={style}
+                  onClick={() => {
+                    if (!isActive) {
+                      setActiveIndex(index);
+                    }
+                  }}
+                >
+                  {/* Full-bleed Industry Image */}
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="industries-card-img"
+                    loading={Math.abs(offset) <= 2 ? 'eager' : 'lazy'}
+                  />
+
+                  {/* Subtle bottom gradient to keep the industry title readable */}
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+
+                  {/* Clean Industry Title */}
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-center z-10">
+                    <h3 className="text-white font-bold text-base sm:text-lg md:text-xl drop-shadow-md tracking-tight leading-snug">
+                      {item.name}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Minimalist 13-Dot Navigation Indicator */}
-        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 py-1">
-          {industries.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIndex(i)}
-              aria-label={`Go to sector ${i + 1}`}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                i === activeIndex 
-                  ? 'w-7 h-2 bg-[#FA5A16]' 
-                  : 'w-2 h-2 bg-slate-300/80 hover:bg-slate-400'
-              }`}
-            />
-          ))}
+              );
+            })}
+          </div>
         </div>
 
       </div>
