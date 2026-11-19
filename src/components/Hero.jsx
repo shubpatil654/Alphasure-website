@@ -52,9 +52,9 @@ export default function Hero({ onOpenModal }) {
           </h1>
 
           {/* Rotating Dynamic Subtitle: Accounting / Incorporation / Compliance Simplified */}
-          <div className="mt-4 sm:mt-6 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-black tracking-tight text-shadow-hero select-none">
-            <div className="w-[145px] sm:w-[185px] md:w-[225px] lg:w-[255px] text-right shrink-0">
-              <span className="inline-block text-[#FA5A16] drop-shadow-[0_2px_14px_rgba(250,90,22,0.5)] whitespace-nowrap">
+          <div className="mt-4 sm:mt-6 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black tracking-tight select-none">
+            <div className="w-[165px] sm:w-[215px] md:w-[265px] lg:w-[305px] text-right shrink-0">
+              <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
                 <span
                   key={wordIndex}
                   className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
@@ -63,7 +63,7 @@ export default function Hero({ onOpenModal }) {
                 </span>
               </span>
             </div>
-            <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap [text-shadow:none] drop-shadow-none">
+            <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
               Simplified
             </span>
           </div>
