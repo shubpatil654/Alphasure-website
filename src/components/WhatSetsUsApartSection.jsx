@@ -74,19 +74,19 @@ export default function WhatSetsUsApartSection() {
         {/* 3-Column Symmetrical Layout: Left 3 Pointers | Center Red Apple Image | Right 3 Pointers */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-6 xl:gap-8 items-center w-full">
           
-          {/* ================= LEFT COLUMN: 3 Pointers ================= */}
-          <div className="lg:col-span-4 w-full flex flex-col justify-center space-y-3.5 sm:space-y-4.5 order-2 lg:order-1">
+          {/* ================= LEFT COLUMN: 3 Pointers (No Container, Just Text) ================= */}
+          <div className="lg:col-span-4 w-full flex flex-col justify-around min-h-[220px] lg:h-[300px] space-y-5 sm:space-y-6 lg:space-y-0 order-2 lg:order-1">
             {leftItems.map((text, idx) => (
               <div 
                 key={idx}
                 style={{ transitionDelay: isVisible ? `${(idx + 1) * 120}ms` : '0ms' }}
-                className={`flex items-center justify-center min-h-[82px] sm:min-h-[88px] lg:min-h-[94px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
+                className={`flex items-center justify-center text-center px-4 py-2 transition-all duration-500 transform ${
                   isVisible 
-                    ? 'opacity-100 translate-x-0 scale-100' 
-                    : 'opacity-0 -translate-x-6 scale-95'
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 -translate-x-6'
                 }`}
               >
-                <span className="font-caveat font-bold text-2xl sm:text-[25px] lg:text-[26px] xl:text-[28px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
+                <span className="font-caveat font-bold text-2xl sm:text-[27px] lg:text-[28px] xl:text-[32px] text-[#1E2E4A] hover:text-[#FA5A16] leading-[1.22] tracking-wide transition-colors duration-300">
                   {text.includes('\n') ? (
                     text.split('\n').map((line, i) => (
                       <React.Fragment key={i}>
@@ -120,19 +120,19 @@ export default function WhatSetsUsApartSection() {
             </div>
           </div>
 
-          {/* ================= RIGHT COLUMN: 3 Pointers ================= */}
-          <div className="lg:col-span-4 w-full flex flex-col justify-center space-y-3.5 sm:space-y-4.5 order-3 lg:order-3">
+          {/* ================= RIGHT COLUMN: 3 Pointers (No Container, Just Text) ================= */}
+          <div className="lg:col-span-4 w-full flex flex-col justify-around min-h-[220px] lg:h-[300px] space-y-5 sm:space-y-6 lg:space-y-0 order-3 lg:order-3">
             {rightItems.map((text, idx) => (
               <div 
                 key={idx}
                 style={{ transitionDelay: isVisible ? `${(idx + 4) * 120}ms` : '0ms' }}
-                className={`flex items-center justify-center min-h-[82px] sm:min-h-[88px] lg:min-h-[94px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-[#FAF7F2] hover:bg-white border border-[#E8E2D5] hover:border-[#FA5A16]/50 shadow-2xs hover:shadow-sm text-center transition-all duration-500 transform ${
+                className={`flex items-center justify-center text-center px-4 py-2 transition-all duration-500 transform ${
                   isVisible 
-                    ? 'opacity-100 translate-x-0 scale-100' 
-                    : 'opacity-0 translate-x-6 scale-95'
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 translate-x-6'
                 }`}
               >
-                <span className="font-caveat font-bold text-2xl sm:text-[25px] lg:text-[26px] xl:text-[28px] text-[#1E2E4A] leading-[1.18] tracking-wide text-center">
+                <span className="font-caveat font-bold text-2xl sm:text-[27px] lg:text-[28px] xl:text-[32px] text-[#1E2E4A] hover:text-[#FA5A16] leading-[1.22] tracking-wide transition-colors duration-300">
                   {text.includes('\n') ? (
                     text.split('\n').map((line, i) => (
                       <React.Fragment key={i}>
