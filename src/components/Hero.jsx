@@ -34,10 +34,10 @@ export default function Hero({ onOpenModal }) {
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* Subtle dark overlay layer to keep text legible while letting video shine */}
-        <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
-        {/* Soft top and bottom gradient for header & transition blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 z-[1] pointer-events-none"></div>
+        {/* Very subtle dark overlay layer to let natural video brightness shine through */}
+        <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none"></div>
+        {/* Minimal top and bottom gradient for seamless header & transition blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/20 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Central Hero Content */}
