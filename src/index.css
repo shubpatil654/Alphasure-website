@@ -646,8 +646,8 @@ section[class*="min-h-screen"] {
    Mimics Apple's macOS / iOS / apple.com frosted liquid glass effect
    ========================================================================== */
 .apple-glass-header {
-  -webkit-backdrop-filter: blur(24px) saturate(190%) brightness(125%);
-  backdrop-filter: blur(24px) saturate(190%) brightness(125%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  backdrop-filter: blur(24px) saturate(190%);
 }
 
 

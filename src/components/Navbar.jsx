@@ -212,8 +212,8 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
     <header 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 apple-glass-header ${
         isScrolled
-          ? 'bg-[#182e4d]/88 border-b border-white/[0.2] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.28),0_10px_36px_0_rgba(0,0,0,0.35)] py-2 sm:py-2.5'
-          : 'bg-[#1e385c]/70 border-b border-white/[0.18] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25),0_4px_24px_rgba(0,0,0,0.22)] py-3 sm:py-3.5 md:py-4'
+          ? 'bg-[#0B192C]/95 border-b border-white/[0.15] shadow-[0_12px_36px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.2)] py-2 sm:py-2.5'
+          : 'bg-[#0B192C]/80 border-b border-white/[0.1] shadow-[0_4px_24px_rgba(0,0,0,0.18),inset_0_1px_0_0_rgba(255,255,255,0.15)] py-3 sm:py-3.5 md:py-4'
       }`}
     >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
