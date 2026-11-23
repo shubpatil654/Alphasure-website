@@ -34,41 +34,43 @@ export default function GstTdsCompliancePage({ onOpenModal }) {
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
+          <div className="flex flex-col items-start text-left text-white space-y-6 max-w-4xl lg:max-w-5xl xl:max-w-6xl w-full">
             
-            {/* ================= LEFT COLUMN: Headline & CTA ================= */}
-            <div className="lg:col-span-9 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6">
-              
-              {/* Top Outline Pill / Rectangle Badge (Exact Match) */}
-              <div className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
-                <span className="text-base sm:text-xl md:text-2xl lg:text-[24px] font-bold text-white tracking-wide drop-shadow-md">
-                  GST and TDS compliance
+            {/* Top Outline Pill / Rectangle Badge (Exact Match) */}
+            <div className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
+              <span className="text-base sm:text-xl md:text-2xl lg:text-[24px] font-bold text-white tracking-wide drop-shadow-md">
+                GST and TDS compliance
+              </span>
+            </div>
+
+            {/* Main Headline Title */}
+            <div className="space-y-1 sm:space-y-2 w-full">
+              <h1 className="space-y-1 sm:space-y-1.5 w-full">
+                <span className="block text-2xl sm:text-3xl md:text-[36px] lg:text-[42px] xl:text-[46px] font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap leading-tight">
+                  Deadlines Don't Wait. Neither Do We.
                 </span>
-              </div>
-
-              {/* Main Headline Title */}
-              <div className="space-y-1 sm:space-y-2">
-                <h1 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-2xl max-w-4xl leading-[1.2]">
-                  Deadlines Don't Wait. Neither Do We. <br className="hidden sm:inline" />{' '}
-                  <span className="text-white/90">File on Time. <span className="whitespace-nowrap">Stay Compliant.</span> <span className="whitespace-nowrap">Avoid Penalties.</span></span>
-                </h1>
-              </div>
-
-              {/* Subtitle Paragraph (Exact Copy from Screenshot) */}
-              <p className="alpha-large-body text-slate-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
-                Whether you're registering for GST, filing monthly or quarterly GST returns, or managing TDS compliance, our experts ensure your statutory obligations are completed accurately <span className="whitespace-nowrap">and on time.</span>
-              </p>
-
-              {/* Orange Action Button: "See Pricing" */}
-              <div className="pt-2">
-                <button
-                  onClick={onOpenModal}
-                  className="alpha-btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 sm:px-9 rounded-xl bg-gradient-to-r from-[#FF8A00] via-[#FF7A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF6B00] text-white tracking-wide shadow-xl hover:shadow-[#FF8A00]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
+                <span 
+                  className="block text-2xl sm:text-3xl md:text-[34px] lg:text-[40px] xl:text-[44px] font-bold text-white/95 tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap leading-tight"
+                  style={{ textWrap: 'nowrap' }}
                 >
-                  <span>See Pricing</span>
-                </button>
-              </div>
+                  File on Time. Stay Compliant. Avoid Penalties.
+                </span>
+              </h1>
+            </div>
 
+            {/* Subtitle Paragraph (Exact Copy from Screenshot) */}
+            <p className="alpha-large-body text-slate-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
+              Whether you're registering for GST, filing monthly or quarterly GST returns, or managing TDS compliance, our experts ensure your statutory obligations are completed accurately <span className="whitespace-nowrap">and on time.</span>
+            </p>
+
+            {/* Orange Action Button: "See Pricing" */}
+            <div className="pt-2">
+              <button
+                onClick={onOpenModal}
+                className="alpha-btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 sm:px-9 rounded-xl bg-gradient-to-r from-[#FF8A00] via-[#FF7A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF6B00] text-white tracking-wide shadow-xl hover:shadow-[#FF8A00]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
+              >
+                <span>See Pricing</span>
+              </button>
             </div>
 
           </div>
