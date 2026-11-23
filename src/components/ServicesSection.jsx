@@ -214,20 +214,20 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     
                     {/* Header info */}
                     <div>
-                      {/* Top Row: Icon */}
-                      <div className="mb-3 sm:mb-4 pt-0.5">
+                      {/* Top Row: Icon + Heading beside it */}
+                      <div className="flex items-center gap-3 sm:gap-3.5 mb-3.5 sm:mb-4 pt-0.5">
                         <div 
-                          className="w-10 h-10 rounded-xl bg-white shadow-2xs flex items-center justify-center border"
+                          className="w-10 h-10 rounded-xl bg-white shadow-2xs flex items-center justify-center border shrink-0"
                           style={{ borderColor: `${service.themeColor}35` }}
                         >
                           <IconComponent className={`w-5 h-5 ${service.iconColor}`} />
                         </div>
-                      </div>
 
-                      {/* Pillar Title */}
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0B192C] mb-2.5">
-                        {service.heading}
-                      </h3>
+                        {/* Pillar Title */}
+                        <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0B192C] min-w-0">
+                          {service.heading}
+                        </h3>
+                      </div>
 
                       {/* Services Checklist: Single column line-by-line for pillars 1-3, grid for other-services */}
                       <div className="mb-3">
@@ -273,27 +273,26 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   /* ---------------- COLLAPSED / CLOSED VIEW ---------------- */
                   <div className="services-collapsed-content relative z-10 flex flex-col justify-between h-full w-full">
                     
-                    {/* Top: Branded Icon + Heading */}
-                    <div className="flex flex-col items-start gap-2.5 sm:gap-3 pt-0.5">
-                      <div className="flex items-center justify-between w-full">
-                        <div 
-                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-md backdrop-blur-md group-hover:scale-110"
-                          style={{ 
-                            backgroundColor: `${service.themeColor}40`, 
-                            border: `1.5px solid ${service.themeColor}90` 
-                          }}
-                        >
-                          <IconComponent 
-                            className="w-5 h-5 text-white" 
-                          />
-                        </div>
-                        {/* Mobile Expand Indicator */}
-                        <ChevronDown size={16} className="text-white/90 sm:hidden" />
+                    {/* Top: Branded Icon + Heading beside it */}
+                    <div className="flex items-center gap-2 sm:gap-2.5 pt-0.5 w-full">
+                      <div 
+                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 shadow-md backdrop-blur-md group-hover:scale-105"
+                        style={{ 
+                          backgroundColor: `${service.themeColor}40`, 
+                          border: `1.5px solid ${service.themeColor}90` 
+                        }}
+                      >
+                        <IconComponent 
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-white" 
+                        />
                       </div>
 
-                      <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                      <h3 className="text-xs sm:text-sm md:text-[15px] font-bold tracking-tight text-white leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] min-w-0 break-normal whitespace-normal">
                         {service.heading}
                       </h3>
+
+                      {/* Mobile Expand Indicator */}
+                      <ChevronDown size={16} className="text-white/90 sm:hidden ml-auto shrink-0" />
                     </div>
 
                     {/* Bottom area kept completely clear to let the bright image shine */}
