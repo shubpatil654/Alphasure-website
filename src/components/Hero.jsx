@@ -99,15 +99,18 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
             {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-            <div className="inline-flex items-center justify-center bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-4 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-5 shadow-inner">
-              <span 
-                className={`text-[#FA5A16] font-bold text-sm sm:text-base md:text-lg transition-all duration-300 inline-block text-right ${
-                  isAnimating ? 'opacity-0 -translate-y-1' : 'opacity-100 translate-y-0'
-                }`}
-              >
-                {ROTATING_WORDS[wordIndex]}
-              </span>
-              <span className="text-white font-bold text-sm sm:text-base md:text-lg ml-2 whitespace-nowrap">
+            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[38px] font-black tracking-tight select-none">
+              <div className="w-[145px] sm:w-[195px] md:w-[250px] lg:w-[290px] text-right shrink-0">
+                <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
+                  <span
+                    key={wordIndex}
+                    className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
+                  >
+                    {ROTATING_WORDS[wordIndex]}
+                  </span>
+                </span>
+              </div>
+              <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
                 Simplified
               </span>
             </div>
@@ -144,10 +147,6 @@ export default function Hero({ onOpenModal, onNavigate }) {
                 : 'opacity-0 translate-y-3 scale-[0.98] pointer-events-none absolute inset-x-0'
             }`}
           >
-            {/* Top Eyebrow Badge */}
-            <div className="mb-2 sm:mb-3 md:mb-4 inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FA5A16] font-bold text-xs sm:text-sm tracking-wide shadow-lg">
-              <span>Smart Accounting • Sensible Pricing</span>
-            </div>
 
             {/* Main Tagline: 2 Clean Sentence Lines */}
             <h1 className="text-2xl sm:text-3xl md:text-[42px] lg:text-[48px] xl:text-[54px] font-extrabold text-white text-shadow-hero tracking-tight leading-[1.18] max-w-5xl xl:max-w-6xl mx-auto">
