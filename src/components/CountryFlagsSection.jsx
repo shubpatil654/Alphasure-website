@@ -48,7 +48,7 @@ export default function CountryFlagsSection() {
       </div>
 
       {/* Ticker Container with Soft Gradient Fade Masks */}
-      <div className="relative w-full overflow-hidden py-2 sm:py-3 select-none relative z-10">
+      <div className="relative w-full overflow-hidden py-3 sm:py-4 select-none z-10">
         
         {/* Left Fade Mask */}
         <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 lg:w-48 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-transparent z-10 pointer-events-none"></div>
@@ -56,13 +56,13 @@ export default function CountryFlagsSection() {
         {/* Right Fade Mask */}
         <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 lg:w-48 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/90 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Marquee Track with Prominently Enlarged and Spaced Pure Flags */}
-        <div className="animate-marquee-ltr flex items-center gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
+        {/* Marquee Track with Sleek Compact Flags and Generous Spacing */}
+        <div className="animate-marquee-ltr flex items-center gap-12 sm:gap-16 md:gap-20 lg:gap-28 xl:gap-32">
           {marqueeItems.map((country, index) => (
             <div
               key={`${country.code}-${index}`}
               title={country.name}
-              className="relative w-20 h-[52px] sm:w-24 sm:h-[62px] md:w-32 md:h-20 lg:w-36 lg:h-[90px] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200/90 hover:border-[#FA5A16]/70 transition-all duration-300 transform hover:scale-105 shrink-0 cursor-pointer bg-white"
+              className="relative w-14 h-9 sm:w-16 sm:h-10 md:w-20 md:h-[50px] lg:w-[88px] lg:h-[55px] rounded-lg sm:rounded-xl overflow-hidden shadow-xs hover:shadow-lg border border-slate-200/80 hover:border-[#FA5A16]/70 transition-all duration-300 transform hover:scale-110 shrink-0 cursor-pointer bg-white"
             >
               <img
                 src={country.flag}
