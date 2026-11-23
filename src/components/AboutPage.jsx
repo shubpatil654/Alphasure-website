@@ -42,12 +42,12 @@ export default function AboutPage({ onOpenModal }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
             {/* ================= LEFT COLUMN: Headline & Exact Copy ================= */}
-            <div className="lg:col-span-8 xl:col-span-7 flex flex-col items-start text-left text-white space-y-6 sm:space-y-8">
+            <div className="lg:col-span-9 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6 sm:space-y-8">
               
               {/* Main Headline Title */}
               <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                We are accountants,<br />
-                who understand business
+                <span className="block">We are accountants,</span>
+                <span className="block whitespace-normal sm:whitespace-nowrap">who understand business</span>
               </h1>
 
               {/* Paragraph Content */}
