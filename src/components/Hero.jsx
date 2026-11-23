@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import TrustBar from './TrustBar';
 
 const ROTATING_WORDS = ['Accounting', 'Incorporation', 'Compliance'];
+const SLIDE_DURATION = 7000; // 7 seconds automated cycle
 
 export default function Hero({ onOpenModal, onNavigate }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [slideKey, setSlideKey] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const timerRef = useRef(null);
 
   // Rotating words timer for Slide 0
   useEffect(() => {
@@ -24,35 +23,23 @@ export default function Hero({ onOpenModal, onNavigate }) {
     return () => clearInterval(wordInterval);
   }, []);
 
-  // Auto-advance carousel timer (7.5s per slide, pauses on hover)
+  // 7-second automated carousel cycle
   useEffect(() => {
-    if (isPaused) return;
-
-    timerRef.current = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 7500);
+      setSlideKey((prev) => prev + 1);
+    }, SLIDE_DURATION);
 
-    return () => clearInterval(timerRef.current);
-  }, [isPaused, currentSlide]);
+    return () => clearTimeout(timer);
+  }, [currentSlide, slideKey]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+    setSlideKey((prev) => prev + 1);
   };
 
   return (
-    <section 
-      className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden pt-18 sm:pt-20 md:pt-24 pb-4 sm:pb-6 select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden pt-18 sm:pt-20 md:pt-24 pb-4 sm:pb-6 select-none">
       
       {/* ================= BACKGROUND 1: LIVE MOUNTAIN VIDEO ================= */}
       <div 
@@ -83,35 +70,19 @@ export default function Hero({ onOpenModal, onNavigate }) {
           currentSlide === 1 ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <img
-          src="/images/hero-chai-hd.jpg"
-          alt="Steaming cutting chai - All good things in life don’t have to be expensive"
-          className="w-full h-full object-cover object-[60%_center] sm:object-[center_35%] md:object-center filter brightness-[0.88] contrast-[1.06]"
-        />
+        <picture>
+          <source srcSet="/images/hero-chai-hd.webp" type="image/webp" />
+          <img
+            src="/images/hero-chai-hd.jpg"
+            alt="Steaming cutting chai - All good things in life don’t have to be expensive"
+            className="w-full h-full object-cover object-[60%_center] sm:object-[center_35%] md:object-center filter brightness-[0.88] contrast-[1.06]"
+          />
+        </picture>
         
         {/* Cinematic rich dark gradient overlay for optimal text contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/65 z-[1] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55 z-[1] pointer-events-none" />
       </div>
-
-      {/* ================= CAROUSEL PREV / NEXT CHEVRON BUTTONS ================= */}
-      <button
-        onClick={prevSlide}
-        type="button"
-        aria-label="Previous slide"
-        className="hidden md:flex absolute left-4 lg:left-7 top-1/2 -translate-y-1/2 z-30 !min-h-0 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/30 hover:bg-[#FA5A16] border border-white/20 text-white/80 hover:text-white backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl cursor-pointer group p-0"
-      >
-        <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        type="button"
-        aria-label="Next slide"
-        className="hidden md:flex absolute right-4 lg:right-7 top-1/2 -translate-y-1/2 z-30 !min-h-0 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/30 hover:bg-[#FA5A16] border border-white/20 text-white/80 hover:text-white backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl cursor-pointer group p-0"
-      >
-        <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
-      </button>
 
       {/* ================= CENTRAL HERO CONTENT ================= */}
       <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-2 flex flex-col items-center justify-center">
@@ -128,18 +99,15 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
             {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[38px] font-black tracking-tight select-none">
-              <div className="w-[145px] sm:w-[195px] md:w-[250px] lg:w-[290px] text-right shrink-0">
-                <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
-                  <span
-                    key={wordIndex}
-                    className={isAnimating ? 'animate-rotate-word-out' : 'animate-rotate-word-in'}
-                  >
-                    {ROTATING_WORDS[wordIndex]}
-                  </span>
-                </span>
-              </div>
-              <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
+            <div className="inline-flex items-center justify-center bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-4 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-5 shadow-inner">
+              <span 
+                className={`text-[#FA5A16] font-bold text-sm sm:text-base md:text-lg transition-all duration-300 inline-block text-right ${
+                  isAnimating ? 'opacity-0 -translate-y-1' : 'opacity-100 translate-y-0'
+                }`}
+              >
+                {ROTATING_WORDS[wordIndex]}
+              </span>
+              <span className="text-white font-bold text-sm sm:text-base md:text-lg ml-2 whitespace-nowrap">
                 Simplified
               </span>
             </div>
@@ -218,40 +186,48 @@ export default function Hero({ onOpenModal, onNavigate }) {
 
         </div>
 
-        {/* ================= CAROUSEL DOT / PILL INDICATORS ================= */}
-        <div className="flex items-center justify-center gap-2.5 mt-5 sm:mt-6 z-20">
-          <button
-            onClick={() => goToSlide(0)}
-            type="button"
-            aria-label="Slide 1: Scale New Heights"
-            style={{
-              width: currentSlide === 0 ? '36px' : '10px',
-              height: '8px',
-              minHeight: '8px',
-              maxHeight: '8px',
-            }}
-            className={`transition-all duration-500 rounded-full cursor-pointer p-0 border-0 !min-h-0 !h-2 ${
-              currentSlide === 0 
-                ? 'bg-[#FA5A16] shadow-md shadow-orange-500/40' 
-                : 'bg-white/40 hover:bg-white/80'
-            }`}
-          />
-          <button
-            onClick={() => goToSlide(1)}
-            type="button"
-            aria-label="Slide 2: Smart & Affordable Accounting"
-            style={{
-              width: currentSlide === 1 ? '36px' : '10px',
-              height: '8px',
-              minHeight: '8px',
-              maxHeight: '8px',
-            }}
-            className={`transition-all duration-500 rounded-full cursor-pointer p-0 border-0 !min-h-0 !h-2 ${
-              currentSlide === 1 
-                ? 'bg-[#FA5A16] shadow-md shadow-orange-500/40' 
-                : 'bg-white/40 hover:bg-white/80'
-            }`}
-          />
+        {/* ================= CAROUSEL 2 BULLETS WITH 7-SECOND TIME LOAD ================= */}
+        <div 
+          className="flex items-center justify-center gap-3.5 sm:gap-4 mt-5 sm:mt-6 z-20"
+          role="tablist"
+          aria-label="Carousel slide controls"
+        >
+          {[0, 1].map((index) => {
+            const isActive = currentSlide === index;
+            return (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Go to slide ${index + 1}: ${index === 0 ? 'Scale New Heights' : 'Affordable Accounting'}`}
+                style={{ minHeight: 'unset', maxHeight: '20px', height: 'auto' }}
+                className="group inline-flex items-center justify-center !min-h-0 border-0 bg-transparent p-1 -m-1 cursor-pointer focus:outline-none"
+              >
+                <div 
+                  style={{ minHeight: '6px', maxHeight: '8px' }}
+                  className="w-14 sm:w-16 h-1.5 sm:h-2 rounded-full bg-white/25 backdrop-blur-md overflow-hidden border border-white/15 group-hover:border-white/40 group-hover:bg-white/35 transition-all duration-300"
+                >
+                  <div
+                    key={`bullet-fill-${index}-${slideKey}`}
+                    className={`h-full rounded-full ${
+                      isActive 
+                        ? 'bg-[#FA5A16] shadow-[0_0_10px_rgba(250,90,22,0.8)]' 
+                        : 'w-0'
+                    }`}
+                    style={
+                      isActive
+                        ? {
+                            animation: 'heroProgressAnim 7000ms linear forwards',
+                          }
+                        : { width: '0%' }
+                    }
+                  />
+                </div>
+              </button>
+            );
+          })}
         </div>
 
         {/* Bottom Trust & Metrics Bar positioned directly below */}

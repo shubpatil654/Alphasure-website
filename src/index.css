@@ -639,5 +639,17 @@ section[class*="min-h-screen"] {
   backdrop-filter: blur(24px) saturate(190%);
 }
 
+/* ==========================================================================
+   Hero Carousel 7-Second Progress Indicator
+   ========================================================================== */
+@keyframes heroProgressAnim {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 
 
