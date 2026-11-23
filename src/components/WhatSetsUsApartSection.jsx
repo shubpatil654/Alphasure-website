@@ -71,16 +71,16 @@ export default function WhatSetsUsApartSection() {
           </h2>
         </div>
 
-        {/* 3-Column Symmetrical Layout: Left 3 Pointers | Center Red Apple Image | Right 3 Pointers */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-6 xl:gap-8 items-center w-full">
+        {/* 3-Column Symmetrical Layout: Left 3 Pointers | Center Enlarged Red Apple Image | Right 3 Pointers */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-6 xl:gap-10 items-center w-full">
           
           {/* ================= LEFT COLUMN: 3 Pointers (No Container, Just Text) ================= */}
-          <div className="lg:col-span-4 w-full flex flex-col justify-around min-h-[220px] lg:h-[300px] space-y-5 sm:space-y-6 lg:space-y-0 order-2 lg:order-1">
+          <div className="lg:col-span-3 w-full flex flex-col justify-around min-h-[220px] lg:h-[380px] space-y-5 sm:space-y-6 lg:space-y-0 order-2 lg:order-1">
             {leftItems.map((text, idx) => (
               <div 
                 key={idx}
                 style={{ transitionDelay: isVisible ? `${(idx + 1) * 120}ms` : '0ms' }}
-                className={`flex items-center justify-center text-center px-4 py-2 transition-all duration-500 transform ${
+                className={`flex items-center justify-center text-center px-2 sm:px-4 py-2 transition-all duration-500 transform ${
                   isVisible 
                     ? 'opacity-100 translate-x-0' 
                     : 'opacity-0 -translate-x-6'
@@ -102,15 +102,15 @@ export default function WhatSetsUsApartSection() {
             ))}
           </div>
 
-          {/* ================= CENTER COLUMN: Standout Red Apple Image ================= */}
+          {/* ================= CENTER COLUMN: Standout Red Apple Image (Enlarged) ================= */}
           <div 
-            className={`lg:col-span-4 flex justify-center w-full order-1 lg:order-2 transition-all duration-700 ease-out delay-150 ${
+            className={`lg:col-span-6 flex justify-center w-full order-1 lg:order-2 transition-all duration-700 ease-out delay-150 ${
               isVisible 
                 ? 'opacity-100 scale-100' 
                 : 'opacity-0 scale-95'
             }`}
           >
-            <div className="w-full max-w-[440px] sm:max-w-[480px] lg:max-w-none rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg hover:shadow-xl transition-all duration-500 group">
+            <div className="w-full max-w-[540px] sm:max-w-[600px] md:max-w-[640px] lg:max-w-none rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all duration-500 group">
               <img
                 src="/images/red-apple-standout.jpg"
                 alt="Standout Red Apple among black and white apples"
@@ -121,7 +121,7 @@ export default function WhatSetsUsApartSection() {
           </div>
 
           {/* ================= RIGHT COLUMN: 3 Pointers (No Container, Just Text) ================= */}
-          <div className="lg:col-span-4 w-full flex flex-col justify-around min-h-[220px] lg:h-[300px] space-y-5 sm:space-y-6 lg:space-y-0 order-3 lg:order-3">
+          <div className="lg:col-span-3 w-full flex flex-col justify-around min-h-[220px] lg:h-[380px] space-y-5 sm:space-y-6 lg:space-y-0 order-3 lg:order-3">
             {rightItems.map((text, idx) => (
               <div 
                 key={idx}
