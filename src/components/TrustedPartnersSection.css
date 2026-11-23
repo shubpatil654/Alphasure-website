@@ -98,37 +98,42 @@
 }
 
 /* -------------------------------------------------------------------------
-   STATIC PARTNER LOGOS GRID & ITEMS (TRANSPARENT - NO CARD BACKGROUND)
+   STATIC PARTNER LOGOS GRID & ITEMS (UNIFORM SIZE & BALANCED OPTICAL WEIGHT)
    ------------------------------------------------------------------------- */
 .partners-static-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem 2.5rem;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  max-width: 1100px;
   margin: 0 auto;
+  align-items: center;
+  justify-items: center;
 }
 
 @media (min-width: 640px) {
   .partners-static-grid {
-    gap: 2.25rem 3.5rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .partners-static-grid {
-    gap: 2.5rem 4.5rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem 2.25rem;
   }
 }
 
-/* Partner Logo Item - Transparent directly on the page */
+/* Partner Logo Item - Transparent directly on the page, uniform slot */
 .partner-logo-card {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.75rem;
+  width: 100%;
+  max-width: 210px;
+  height: 60px;
+  padding: 0 0.5rem;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -136,33 +141,77 @@
   cursor: pointer;
 }
 
-.partner-logo-card:hover {
-  transform: translateY(-4px) scale(1.06);
-}
-
-.partner-logo-img {
-  max-height: 48px;
-  max-width: 160px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
 @media (min-width: 640px) {
-  .partner-logo-img {
-    max-height: 56px;
-    max-width: 185px;
+  .partner-logo-card {
+    height: 70px;
   }
 }
 
-@media (min-width: 1024px) {
-  .partner-logo-img {
-    max-height: 64px;
-    max-width: 210px;
+.partner-logo-card:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.partner-logo-img {
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+/* Normalized optical display heights for exact same perceived visual size */
+.partner-logo-paysquare {
+  height: 44px;
+}
+.partner-logo-transedge {
+  height: 36px;
+}
+.partner-logo-stride-legal {
+  height: 40px;
+}
+.partner-logo-finpro {
+  height: 44px;
+}
+.partner-logo-optitax {
+  height: 46px;
+}
+.partner-logo-tvishi {
+  height: 38px;
+}
+.partner-logo-boldsight {
+  height: 34px;
+}
+.partner-logo-arcubus {
+  height: 33px;
+}
+
+@media (min-width: 640px) {
+  .partner-logo-paysquare {
+    height: 48px;
+  }
+  .partner-logo-transedge {
+    height: 40px;
+  }
+  .partner-logo-stride-legal {
+    height: 44px;
+  }
+  .partner-logo-finpro {
+    height: 48px;
+  }
+  .partner-logo-optitax {
+    height: 50px;
+  }
+  .partner-logo-tvishi {
+    height: 41px;
+  }
+  .partner-logo-boldsight {
+    height: 37px;
+  }
+  .partner-logo-arcubus {
+    height: 36px;
   }
 }
 
 .partner-logo-card:hover .partner-logo-img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }

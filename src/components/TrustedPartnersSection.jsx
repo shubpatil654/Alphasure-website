@@ -200,7 +200,7 @@ export default function TrustedPartnersSection() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} Logo`}
-                className="partner-logo-img"
+                className={`partner-logo-img partner-logo-${partner.id}`}
                 loading="lazy"
               />
             </div>
