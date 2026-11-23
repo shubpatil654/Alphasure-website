@@ -16,7 +16,8 @@ const GreenChatIcon = () => (
 export default function FaqPage({ onOpenModal }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [openItems, setOpenItems] = useState(['inc-1', 'acc-1']); // First item open for delightful initial state
+  const [openItems, setOpenItems] = useState([]); // All questions closed by default
+  const [hoveredId, setHoveredId] = useState(null); // Expand on hover
 
   // Categories derived from data
   const categories = [
@@ -210,11 +211,13 @@ export default function FaqPage({ onOpenModal }) {
             /* 2-Column Responsive Staggered Grid of Accordion Cards */
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
               {filteredFaqs.map((item) => {
-                const isOpen = openItems.includes(item.id);
+                const isOpen = openItems.includes(item.id) || hoveredId === item.id;
 
                 return (
                   <div
                     key={item.id}
+                    onMouseEnter={() => setHoveredId(item.id)}
+                    onMouseLeave={() => setHoveredId(null)}
                     onClick={() => toggleFaq(item.id)}
                     className={`group relative w-full bg-white/95 hover:bg-white rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer ${
                       isOpen
