@@ -63,14 +63,14 @@ export default function Hero({ onOpenModal }) {
           </div>
 
           {/* Main Headline */}
-          <h1 className="alpha-display font-extrabold text-white text-shadow-hero break-words">
+          <h1 className="alpha-display font-extrabold text-white text-shadow-hero break-words -translate-y-5 sm:-translate-y-8 md:-translate-y-10 lg:-translate-y-12">
             Helping Businesses<br />
             Scale New Heights!
           </h1>
         </div>
 
         {/* Call to Action Buttons */}
-        <div className="mt-7 sm:mt-9 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
+        <div className="mt-5 sm:mt-7 -translate-y-3 sm:-translate-y-5 lg:-translate-y-6 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
           
           {/* Primary Button: Explore Services */}
           <a
