@@ -26,7 +26,7 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
 
   return (
     <section 
-      className="relative w-full overflow-hidden select-none bg-white py-16 sm:py-20 lg:py-24"
+      className="relative w-full overflow-hidden select-none bg-white py-[25px]"
       id="services-quadrants"
     >
       {/* SVG Abstract Running Lines Background - Flows seamlessly into surrounding sections */}
@@ -51,7 +51,7 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
         
         {/* Section Heading Area */}
-        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-12 lg:mb-14 px-2">
+        <div className="text-center max-w-5xl mx-auto mb-4 sm:mb-5 lg:mb-6 px-2">
           <h2 className="alpha-h2 font-bold text-slate-900 tracking-tight">
             Everything you need{' '}
             <span className="whitespace-nowrap">
@@ -75,13 +75,13 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
               </span>
             </span>
           </h2>
-          <p className="alpha-large-body text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed mt-3 sm:mt-4">
+          <p className="alpha-large-body text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed mt-2.5 sm:mt-3">
             From initial registration to seamless compliance and post-incorporation filings, we have you covered at every milestone.
           </p>
         </div>
 
         {/* ================= 4-Quadrant Container with Minimalist Clean Aesthetic & Faded-End Crosshairs ================= */}
-        <div className="relative w-full max-w-[1180px] mx-auto min-h-[340px] sm:min-h-[400px] md:min-h-[460px] flex items-center justify-center px-2 sm:px-6">
+        <div className="relative w-full max-w-[1180px] mx-auto min-h-[260px] sm:min-h-[300px] md:min-h-[340px] flex items-center justify-center px-2 sm:px-6">
           
           {/* Central Crosshair Lines with Faded Ends */}
           {/* Horizontal Line: Fading out to transparent on left and right */}
@@ -108,13 +108,13 @@ export default function RegistrationServicesCarousel({ onOpenModal }) {
                 onClick={onOpenModal}
                 className={`
                   relative flex flex-col items-center justify-center text-center 
-                  px-4 sm:px-8 md:px-12 py-8 sm:py-10 md:py-14
+                  px-4 sm:px-8 md:px-12 py-3 sm:py-5 md:py-6
                   cursor-pointer group select-none transition-all duration-300
                   hover:bg-slate-50/70 rounded-2xl
-                  ${idx === 0 ? 'pb-8 sm:pb-12 md:pb-14 pr-4 sm:pr-8 md:pr-10' : ''}
-                  ${idx === 1 ? 'pb-8 sm:pb-12 md:pb-14 pl-4 sm:pl-8 md:pl-10' : ''}
-                  ${idx === 2 ? 'pt-8 sm:pt-12 md:pt-14 pr-4 sm:pr-8 md:pr-10' : ''}
-                  ${idx === 3 ? 'pt-8 sm:pt-12 md:pt-14 pl-4 sm:pl-8 md:pl-10' : ''}
+                  ${idx === 0 ? 'pt-1 sm:pt-2 pb-5 sm:pb-7 md:pb-8 pr-4 sm:pr-8 md:pr-10' : ''}
+                  ${idx === 1 ? 'pt-1 sm:pt-2 pb-5 sm:pb-7 md:pb-8 pl-4 sm:pl-8 md:pl-10' : ''}
+                  ${idx === 2 ? 'pt-5 sm:pt-7 md:pt-8 pb-1 sm:pb-2 pr-4 sm:pr-8 md:pr-10' : ''}
+                  ${idx === 3 ? 'pt-5 sm:pt-7 md:pt-8 pb-1 sm:pb-2 pl-4 sm:pl-8 md:pl-10' : ''}
                 `}
               >
                 {/* Content Container */}
