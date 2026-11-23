@@ -119,7 +119,7 @@ export default function App() {
           <FaqPage onOpenModal={() => setModalOpen(true)} />
         ) : (
           <>
-            <Hero onOpenModal={() => setModalOpen(true)} />
+            <Hero onOpenModal={() => setModalOpen(true)} onNavigate={handleNavigate} />
             <ServicesSection onOpenModal={() => setModalOpen(true)} onNavigate={handleNavigate} />
             <PuzzleSection />
             <LeaderSection />
