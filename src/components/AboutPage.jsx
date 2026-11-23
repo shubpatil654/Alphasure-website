@@ -19,13 +19,13 @@ export default function AboutPage({ onOpenModal }) {
             loop
             muted
             playsInline
-            poster="/images/alphasure-logo-reveal-poster.png"
+            poster="/images/alphasure-logo-reveal-poster.png?v=2"
             className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02]"
           >
-            <source src="/videos/alphasure-logo-reveal.mp4" type="video/mp4" />
+            <source src="/videos/alphasure-logo-reveal.mp4?v=2" type="video/mp4" />
             {/* Fallback image */}
             <img
-              src="/images/alphasure-logo-reveal-poster.png"
+              src="/images/alphasure-logo-reveal-poster.png?v=2"
               alt="We are accountants, who understand business - Alphasure Team"
               className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02]"
             />
