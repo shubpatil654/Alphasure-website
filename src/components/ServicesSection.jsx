@@ -62,7 +62,7 @@ const SERVICES_DATA = [
     number: '03',
     heading: 'Compliance',
     shortTitle: 'Compliance',
-    image: '/images/services/compliance-hourglass.jpg',
+    image: '/images/services/compliance-hourglass.png',
     themeColor: '#FA5A16',
     bgClass: 'bg-[#FFF8F5]',
     borderColor: 'border-[#FA5A16]/30',
