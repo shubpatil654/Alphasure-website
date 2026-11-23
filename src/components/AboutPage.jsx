@@ -3,6 +3,7 @@ import OurJourneySection from './OurJourneySection';
 import OurValues from './OurValues';
 import DataSecuritySection from './DataSecuritySection';
 import ManagementTeamSection from './ManagementTeamSection';
+import CoFoundersPillarsSection from './CoFoundersPillarsSection';
 import AboutGalleryCarousel from './AboutGalleryCarousel';
 
 export default function AboutPage({ onOpenModal }) {
@@ -91,6 +92,9 @@ export default function AboutPage({ onOpenModal }) {
 
         {/* ================= MANAGEMENT TEAM SECTION ================= */}
         <ManagementTeamSection />
+
+        {/* ================= CO-FOUNDERS PILLARS SECTION ================= */}
+        <CoFoundersPillarsSection />
 
         {/* ================= ABOUT US PHOTO GALLERY CAROUSEL ================= */}
         <AboutGalleryCarousel />
