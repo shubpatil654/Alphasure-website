@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
 
 const CO_FOUNDERS = [
   {
@@ -125,14 +124,6 @@ export default function CoFoundersPillarsSection() {
 
                   <div className="text-slate-300 font-medium text-xs sm:text-sm mt-1">
                     {founder.badge}
-                  </div>
-
-                  {/* Micro-interaction Hover Prompt */}
-                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-300 group-hover:text-[#FA5A16] transition-colors">
-                    <span className="font-medium tracking-wide">Hover to read bio</span>
-                    <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-[#FA5A16] transition-all duration-300">
-                      <ArrowUpRight size={14} />
-                    </div>
                   </div>
                 </div>
 
