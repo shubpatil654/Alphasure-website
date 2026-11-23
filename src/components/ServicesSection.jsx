@@ -108,11 +108,11 @@ const SERVICES_DATA = [
 ];
 
 export default function ServicesSection({ onOpenModal, onNavigate }) {
-  // First container (incorporation) is open by default
-  const [activeId, setActiveId] = useState('incorporation');
+  // All containers closed by default, open only on hover
+  const [activeId, setActiveId] = useState(null);
 
   const handleCardClick = (serviceId) => {
-    setActiveId(serviceId);
+    setActiveId(prev => prev === serviceId ? null : serviceId);
   };
 
   const handleSubserviceClick = (e, pageId) => {
@@ -128,7 +128,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
     <section 
       className="services-accordion-wrapper border-t border-slate-100" 
       id="services"
-      onMouseLeave={() => setActiveId('incorporation')}
+      onMouseLeave={() => setActiveId(null)}
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -158,7 +158,10 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
         </div>
 
         {/* ================= 4-PILLAR HORIZONTAL EXPANDING ACCORDION ================= */}
-        <div className="services-accordion-container">
+        <div 
+          className="services-accordion-container"
+          onMouseLeave={() => setActiveId(null)}
+        >
           {SERVICES_DATA.map((service) => {
             const isExpanded = activeId === service.id;
             const IconComponent = service.icon;
@@ -166,7 +169,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
             // Determine card styling state
             const cardStateClass = isExpanded 
               ? `services-card-expanded ${service.bgClass} ${service.borderColor}`
-              : 'services-card-collapsed group';
+              : (activeId === null ? 'services-card-default group' : 'services-card-collapsed group');
 
             return (
               <div
@@ -185,7 +188,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   style={{ backgroundColor: service.themeColor }}
                 />
 
-                {/* Full-Card Background Image: Crisp full-bleed when closed, Softly blurred when expanded */}
+                {/* Full-Card Background Image: Bright and crisp when closed, Softly blurred when expanded */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[1.25rem] z-0">
                   <img 
                     src={service.image} 
@@ -193,14 +196,14 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     className={`w-full h-full object-cover transition-all duration-700 ${
                       isExpanded 
                         ? 'filter blur-md sm:blur-lg scale-105 opacity-35' 
-                        : 'filter brightness-[0.80] contrast-[1.05] group-hover:scale-108 group-hover:brightness-[0.90]'
+                        : 'filter brightness-[1.05] contrast-[1.02] group-hover:scale-105'
                     }`}
                   />
                   <div 
                     className={`absolute inset-0 transition-all duration-500 ${
                       isExpanded 
                         ? 'bg-white/70 backdrop-blur-[1px]' 
-                        : 'bg-gradient-to-t from-[#0B192C]/95 via-[#0B192C]/30 to-[#0B192C]/40'
+                        : 'bg-gradient-to-b from-[#0B192C]/80 via-transparent to-black/25'
                     }`} 
                   />
                 </div>
@@ -270,33 +273,31 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                   /* ---------------- COLLAPSED / CLOSED VIEW ---------------- */
                   <div className="services-collapsed-content relative z-10 flex flex-col justify-between h-full w-full">
                     
-                    {/* Top: Serial Number Badge */}
-                    <div className="flex items-center justify-between pt-0.5">
-                      <span className="text-xs font-mono font-bold tracking-widest text-white/90 drop-shadow-sm px-2 py-0.5 rounded-md bg-black/30 backdrop-blur-xs">
-                        {service.number}
-                      </span>
-                      {/* Mobile Expand Indicator */}
-                      <ChevronDown size={15} className="text-white/80 sm:hidden" />
-                    </div>
-
-                    {/* Bottom: Branded Icon + Heading */}
-                    <div className="pt-4 flex flex-col items-start gap-2.5">
-                      <div 
-                        className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 shadow-md backdrop-blur-xs group-hover:scale-110"
-                        style={{ 
-                          backgroundColor: `${service.themeColor}35`, 
-                          border: `1px solid ${service.themeColor}70` 
-                        }}
-                      >
-                        <IconComponent 
-                          className="w-5 h-5 text-white" 
-                        />
+                    {/* Top: Branded Icon + Heading */}
+                    <div className="flex flex-col items-start gap-2.5 sm:gap-3 pt-0.5">
+                      <div className="flex items-center justify-between w-full">
+                        <div 
+                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-md backdrop-blur-md group-hover:scale-110"
+                          style={{ 
+                            backgroundColor: `${service.themeColor}40`, 
+                            border: `1.5px solid ${service.themeColor}90` 
+                          }}
+                        >
+                          <IconComponent 
+                            className="w-5 h-5 text-white" 
+                          />
+                        </div>
+                        {/* Mobile Expand Indicator */}
+                        <ChevronDown size={16} className="text-white/90 sm:hidden" />
                       </div>
 
-                      <h3 className="text-sm sm:text-base font-bold tracking-tight text-white leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                      <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                         {service.heading}
                       </h3>
                     </div>
+
+                    {/* Bottom area kept completely clear to let the bright image shine */}
+                    <div className="w-full"></div>
 
                   </div>
                 )}
