@@ -3,7 +3,7 @@ import React from 'react';
 export default function OurJourneySection({ onOpenModal }) {
   return (
     <section 
-      className="relative w-full bg-[#FAF7F2] py-12 sm:py-16 lg:py-20 select-none overflow-hidden"
+      className="relative w-full bg-[#FAF7F2] py-[25px] select-none overflow-hidden"
       id="our-journey"
     >
       {/* Background Soft Elegant Accent Lines */}
@@ -17,7 +17,7 @@ export default function OurJourneySection({ onOpenModal }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ================= SECTION HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center">
+        <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-4 lg:mb-5 flex flex-col items-center">
 
           
           <h2 className="alpha-h2 font-bold text-[#0B192C] tracking-tight">
@@ -41,7 +41,7 @@ export default function OurJourneySection({ onOpenModal }) {
             </span>
           </h2>
           
-          <p className="alpha-body text-slate-600 font-medium text-center mt-3.5 max-w-xl mx-auto">
+          <p className="alpha-body text-slate-600 font-medium text-center mt-2.5 max-w-xl mx-auto">
             One milestone at a time. One vision throughout.
           </p>
         </div>
@@ -53,10 +53,10 @@ export default function OurJourneySection({ onOpenModal }) {
           <div className="relative w-full overflow-hidden [mask-image:radial-gradient(ellipse_96%_92%_at_50%_50%,black_80%,transparent_100%)]">
             
             {/* Top Seamless Edge Vignette */}
-            <div className="absolute top-0 left-0 right-0 h-8 sm:h-12 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 right-0 h-3 sm:h-5 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none z-10" />
             
             {/* Bottom Seamless Edge Vignette */}
-            <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-14 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-3 sm:h-5 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-10" />
             
             {/* Left Seamless Edge Vignette */}
             <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none z-10" />
@@ -65,8 +65,8 @@ export default function OurJourneySection({ onOpenModal }) {
             <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent pointer-events-none z-10" />
 
             <img 
-              src="/images/our-journey-timeline-v5.png?v=6" 
-              srcSet="/images/our-journey-timeline-v5.png?v=6 1x, /images/our-journey-timeline-v5-2x.png?v=6 2x"
+              src="/images/our-journey-timeline-v5.png?v=7" 
+              srcSet="/images/our-journey-timeline-v5.png?v=7 1x, /images/our-journey-timeline-v5-2x.png?v=7 2x"
               alt="Alphasure Journey Roadmap - From 2015 Foundation to 2026 Alphasure Solutions"
               className="w-full h-auto object-contain select-none"
               loading="eager"
