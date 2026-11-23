@@ -33,43 +33,41 @@ export default function ControllerServicesPage({ onOpenModal }) {
         </div>
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
+          <div className="flex flex-col items-start text-left text-white space-y-6 max-w-4xl lg:max-w-5xl xl:max-w-6xl w-full">
             
-            {/* ================= LEFT COLUMN: Headline & CTA ================= */}
-            <div className="lg:col-span-9 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6">
-              
-              {/* Top Outline Pill / Rectangle Badge (Exact Match) */}
-              <div className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
-                <span className="text-base sm:text-xl md:text-2xl lg:text-[24px] font-bold text-white tracking-wide drop-shadow-md">
-                  Controller Services
-                </span>
-              </div>
+            {/* Top Outline Pill / Rectangle Badge (Exact Match) */}
+            <div className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
+              <span className="text-base sm:text-xl md:text-2xl lg:text-[24px] font-bold text-white tracking-wide drop-shadow-md">
+                Controller Services
+              </span>
+            </div>
 
-              {/* Main Headline Title */}
-              <div className="space-y-1 sm:space-y-2">
-                <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap">
-                  Already have an accounting team?
-                </h2>
-                <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap">
-                  We can help you get <span className="whitespace-nowrap">more from it.</span>
-                </h1>
-              </div>
+            {/* Main Headline Title */}
+            <div className="space-y-1 sm:space-y-2 w-full">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap leading-tight">
+                Already have an accounting team?
+              </h2>
+              <h1 
+                className="text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] xl:text-[56px] font-bold text-white tracking-tight drop-shadow-2xl whitespace-normal sm:whitespace-nowrap leading-tight"
+                style={{ textWrap: 'nowrap' }}
+              >
+                We can help you get more from it.
+              </h1>
+            </div>
 
-              {/* Subtitle Paragraph (Exact Copy from Screenshot) */}
-              <p className="alpha-large-body text-slate-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
-                Our Controller Services provide expert oversight to strengthen processes, improve reporting, and ensure your finance function <span className="whitespace-nowrap">operates efficiently.</span>
-              </p>
+            {/* Subtitle Paragraph (Exact Copy from Screenshot) */}
+            <p className="alpha-large-body text-slate-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
+              Our Controller Services provide expert oversight to strengthen processes, improve reporting, and ensure your finance function <span className="whitespace-nowrap">operates efficiently.</span>
+            </p>
 
-              {/* Orange Action Button: "See Pricing" */}
-              <div className="pt-2">
-                <button
-                  onClick={onOpenModal}
-                  className="alpha-btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 sm:px-9 rounded-xl bg-gradient-to-r from-[#FF8A00] via-[#FF7A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF6B00] text-white tracking-wide shadow-xl hover:shadow-[#FF8A00]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
-                >
-                  <span>See Pricing</span>
-                </button>
-              </div>
-
+            {/* Orange Action Button: "See Pricing" */}
+            <div className="pt-2">
+              <button
+                onClick={onOpenModal}
+                className="alpha-btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 sm:px-9 rounded-xl bg-gradient-to-r from-[#FF8A00] via-[#FF7A00] to-[#E66B00] hover:from-[#FF9500] hover:to-[#FF6B00] text-white tracking-wide shadow-xl hover:shadow-[#FF8A00]/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
+              >
+                <span>See Pricing</span>
+              </button>
             </div>
 
           </div>
