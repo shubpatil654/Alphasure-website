@@ -567,39 +567,13 @@ p, li, blockquote,
 
 /* ==========================================================================
    ALPHASURE UNIFIED SECTION PADDING & VERTICAL TEXT RHYTHM SYSTEM
-   Standardizes 25px vertical padding across the entire website to minimize gaps
+   Standardizes 25px vertical padding across the entire website inside containers
    ========================================================================== */
 
 /* Standard content sections across the entire website (25px vertical padding) */
-section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]):not(#hero):not(.puzzle-section):not(.what-sets-us-apart-section) {
+section:not([class*="min-h-"]):not([class*="min-h-[8"]):not([class*="min-h-[9"]):not([class*="min-h-screen"]):not(#hero) {
   padding-top: 25px !important;
   padding-bottom: 25px !important;
-}
-
-/* Puzzle / Accounting Solution Section - comfortably increased vertical height */
-.puzzle-section {
-  padding-top: 48px !important;
-  padding-bottom: 48px !important;
-}
-
-@media (min-width: 768px) {
-  .puzzle-section {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
-  }
-}
-
-/* What Sets Us Apart Section - comfortably enlarged vertical height */
-.what-sets-us-apart-section {
-  padding-top: 48px !important;
-  padding-bottom: 48px !important;
-}
-
-@media (min-width: 768px) {
-  .what-sets-us-apart-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
-  }
 }
 
 /* Hero sections: Preserve top clearance for navbar, set bottom padding to 25px */
@@ -610,8 +584,17 @@ section[class*="min-h-screen"] {
   padding-bottom: 25px !important;
 }
 
-/* Custom class-based sections across website */
+/* Custom class-based sections & containers across website */
 .services-accordion-wrapper,
+.puzzle-section,
+.leader-section,
+.what-sets-us-apart-section,
+.software-network-section,
+.getting-started-section,
+.country-flags-section,
+.industries-carousel-section,
+.reviews-section,
+.faq-section,
 .why-partners-section,
 .transparency-section,
 .our-values-section,
@@ -622,6 +605,12 @@ section[class*="min-h-screen"] {
 .trusted-partners-section,
 .section-standard,
 .section-padding {
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+}
+
+/* Container cards vertical padding standardized to 25px */
+.services-accordion-card {
   padding-top: 25px !important;
   padding-bottom: 25px !important;
 }

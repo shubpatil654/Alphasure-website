@@ -16,7 +16,7 @@ export default function CountryFlagsSection() {
   const marqueeItems = [...countries, ...countries, ...countries, ...countries];
 
   return (
-    <section className="relative w-full py-8 sm:py-10 bg-[#FAF7F2] border-t border-b border-[#ECE2D3] overflow-hidden select-none">
+    <section className="country-flags-section relative w-full py-[25px] bg-[#FAF7F2] border-t border-b border-[#ECE2D3] overflow-hidden select-none">
       
       {/* Subtle Light Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none z-0">

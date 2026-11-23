@@ -146,7 +146,7 @@ export default function LeaderSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-6 sm:pt-10 pb-16 sm:pb-24 lg:pb-28 bg-white overflow-hidden select-none">
+    <section className="leader-section relative w-full py-[25px] bg-white overflow-hidden select-none">
       
       {/* SVG Abstract Side Lines Continuation - Flows 100% seamlessly from PuzzleSection into LeaderSection and gently fades out */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">

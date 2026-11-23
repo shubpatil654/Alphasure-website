@@ -725,7 +725,7 @@ export default function PricingSection({ onOpenModal, structureType = 'pvt-ltd',
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-4 sm:pt-5 lg:pt-6 pb-16 sm:pb-20 lg:pb-24 bg-[#FCFBF9] overflow-hidden select-none"
+      className="section-padding relative w-full py-[25px] bg-[#FCFBF9] overflow-hidden select-none"
       id="package-pricing"
       style={{ fontFamily: "'Roboto', sans-serif" }}
     >
