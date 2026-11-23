@@ -62,7 +62,7 @@ export default function PeriodicIncludedSection({ onOpenModal }) {
 
   return (
     <section
-      className="relative w-full overflow-hidden select-none bg-white py-16 sm:py-20 lg:py-24"
+      className="relative w-full overflow-hidden select-none bg-white py-[25px]"
       id="periodic-whats-included"
     >
       {/* SVG Abstract Running Lines Background - Matching Pvt Ltd Section Flow */}
@@ -96,8 +96,8 @@ export default function PeriodicIncludedSection({ onOpenModal }) {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
         {/* Section Heading Area */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-14 px-2">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-slate-900 tracking-tight leading-tight mb-4 whitespace-nowrap">
+        <div className="text-center max-w-4xl mx-auto mb-4 sm:mb-5 lg:mb-6 px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-slate-900 tracking-tight leading-tight mb-2.5 sm:mb-3 whitespace-nowrap">
             What’s{' '}
             <span className="relative inline-block text-[#FA5A16]">
               included
@@ -117,13 +117,13 @@ export default function PeriodicIncludedSection({ onOpenModal }) {
               </svg>
             </span>
           </h2>
-          <p className="text-slate-700 font-semibold text-base sm:text-lg md:text-xl lg:text-[21px] max-w-2xl mx-auto leading-relaxed mt-4">
+          <p className="text-slate-700 font-semibold text-base sm:text-lg md:text-xl lg:text-[21px] max-w-2xl mx-auto leading-relaxed mt-2.5 sm:mt-3">
             Everything your enterprise needs to keep accounting robust, timely, and fully compliant.
           </p>
         </div>
 
         {/* ================= 8-Item 4x2 Grid Container with High Contrast & Faded-End Crosshairs ================= */}
-        <div className="relative w-full max-w-[1380px] mx-auto min-h-[380px] flex items-center justify-center px-2 sm:px-4">
+        <div className="relative w-full max-w-[1380px] mx-auto min-h-[260px] sm:min-h-[280px] md:min-h-[300px] flex items-center justify-center px-2 sm:px-4">
           {/* Desktop Dividers (Visible on md and larger screens) */}
           <div className="hidden md:block">
             {/* Horizontal Middle Line: Fading out to transparent on left and right */}
@@ -171,9 +171,10 @@ export default function PeriodicIncludedSection({ onOpenModal }) {
                 onClick={onOpenModal}
                 className={`
                   relative flex flex-col items-center justify-center text-center 
-                  px-4 sm:px-6 lg:px-7 py-6 sm:py-7 md:py-9
+                  px-4 sm:px-6 lg:px-7
+                  ${idx < 4 ? 'pt-2 sm:pt-3 md:pt-4 pb-5 sm:pb-6 md:pb-7' : 'pt-5 sm:pt-6 md:pt-7 pb-2 sm:pb-3 md:pb-4'}
                   cursor-pointer group select-none transition-all duration-300
-                  overflow-hidden min-h-[110px] sm:min-h-[130px] md:min-h-[145px]
+                  overflow-hidden min-h-[90px] sm:min-h-[110px] md:min-h-[120px]
                 `}
               >
                 {/* Background Contextual Image (Soft Watermark + Radial Gradient Mask) */}
