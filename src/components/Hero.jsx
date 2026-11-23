@@ -19,7 +19,7 @@ export default function Hero({ onOpenModal }) {
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-[25px]">
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden pt-18 sm:pt-20 md:pt-24 pb-4 sm:pb-6">
       
       {/* Live Video Background with Dark Cinematic Overlay */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
@@ -41,13 +41,13 @@ export default function Hero({ onOpenModal }) {
       </div>
 
       {/* Central Hero Content */}
-      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-3 sm:px-5 lg:px-6 text-center my-auto py-2">
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-2 flex flex-col items-center justify-center">
         
         {/* Heading & Subtitle Wrapper for perfect width alignment */}
         <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto text-center px-2">
           {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-          <div className="-translate-y-12 sm:-translate-y-20 md:-translate-y-24 lg:-translate-y-[130px] mb-0 sm:mb-1 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black tracking-tight select-none">
-            <div className="w-[165px] sm:w-[215px] md:w-[265px] lg:w-[305px] text-right shrink-0">
+          <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[38px] font-black tracking-tight select-none">
+            <div className="w-[145px] sm:w-[195px] md:w-[250px] lg:w-[290px] text-right shrink-0">
               <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
                 <span
                   key={wordIndex}
@@ -63,14 +63,14 @@ export default function Hero({ onOpenModal }) {
           </div>
 
           {/* Main Headline */}
-          <h1 className="alpha-display font-extrabold text-white text-shadow-hero break-words -translate-y-5 sm:-translate-y-8 md:-translate-y-10 lg:-translate-y-12">
+          <h1 className="alpha-display font-extrabold text-white text-shadow-hero break-words">
             Helping Businesses<br />
             Scale New Heights!
           </h1>
         </div>
 
         {/* Call to Action Buttons */}
-        <div className="mt-5 sm:mt-7 -translate-y-3 sm:-translate-y-5 lg:-translate-y-6 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
+        <div className="mt-5 sm:mt-6 md:mt-7 lg:mt-8 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
           
           {/* Primary Button: Explore Services */}
           <a
@@ -90,7 +90,7 @@ export default function Hero({ onOpenModal }) {
         </div>
 
         {/* Bottom Trust & Metrics Bar positioned directly below buttons */}
-        <div className="mt-8 sm:mt-10 lg:mt-12">
+        <div className="mt-6 sm:mt-8 md:mt-9 lg:mt-11 w-full max-w-5xl mx-auto">
           <TrustBar />
         </div>
 
