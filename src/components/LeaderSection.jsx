@@ -26,6 +26,17 @@ const leader2Data = {
   ]
 };
 
+const leader3Data = {
+  name: "Satish Prabhu",
+  role: "Co-Founder",
+  image: "/images/satish-prabhu-leader.jpg",
+  imagePosition: "left",
+  paragraphs: [
+    "We take pride in building lasting relationships with each of our clients as valued members of our financial family. We consider their success as our own.",
+    "We don’t just provide accounting and financial services, but we become their trusted advisors and allies in their growth journey."
+  ]
+};
+
 // Sub-component for each Leader row with scroll-triggered photo & staggered sentence slide-in
 function LeaderCard({ leader }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -151,17 +162,17 @@ export default function LeaderSection() {
       {/* SVG Abstract Side Lines Continuation - Flows 100% seamlessly from PuzzleSection into LeaderSection and gently fades out */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
         {/* Left Side Continuing Curved Lines Accent */}
-        <svg className="absolute left-0 top-0 w-80 sm:w-96 h-3/4" viewBox="0 0 400 600" fill="none" preserveAspectRatio="none">
-          <path d="M 240 0 C 260 200, 180 400, 80 600" stroke="#E2D8C8" strokeWidth="2" strokeDasharray="6 6" />
-          <path d="M 200 0 C 220 200, 150 400, 50 600" stroke="#ECE2D3" strokeWidth="1.5" />
+        <svg className="absolute left-0 top-0 w-80 sm:w-96 h-full" viewBox="0 0 400 900" fill="none" preserveAspectRatio="none">
+          <path d="M 240 0 C 260 300, 180 600, 80 900" stroke="#E2D8C8" strokeWidth="2" strokeDasharray="6 6" />
+          <path d="M 200 0 C 220 300, 150 600, 50 900" stroke="#ECE2D3" strokeWidth="1.5" />
           <circle cx="-20" cy="-100" r="280" stroke="#E2D8C8" strokeWidth="1.5" fill="none" />
           <circle cx="-20" cy="-100" r="200" stroke="#ECE2D3" strokeWidth="1.2" strokeDasharray="6 6" fill="none" />
         </svg>
 
         {/* Right Side Continuing Curved Lines Accent */}
-        <svg className="absolute right-0 top-0 w-80 sm:w-96 h-3/4" viewBox="0 0 400 600" fill="none" preserveAspectRatio="none">
-          <path d="M 160 0 C 140 200, 220 400, 320 600" stroke="#E2D8C8" strokeWidth="2" strokeDasharray="6 6" />
-          <path d="M 200 0 C 180 200, 250 400, 350 600" stroke="#ECE2D3" strokeWidth="1.5" />
+        <svg className="absolute right-0 top-0 w-80 sm:w-96 h-full" viewBox="0 0 400 900" fill="none" preserveAspectRatio="none">
+          <path d="M 160 0 C 140 300, 220 600, 320 900" stroke="#E2D8C8" strokeWidth="2" strokeDasharray="6 6" />
+          <path d="M 200 0 C 180 300, 250 600, 350 900" stroke="#ECE2D3" strokeWidth="1.5" />
           <circle cx="420" cy="-100" r="280" stroke="#E2D8C8" strokeWidth="1.5" fill="none" />
           <circle cx="420" cy="-100" r="200" stroke="#ECE2D3" strokeWidth="1.2" strokeDasharray="6 6" fill="none" />
         </svg>
@@ -196,10 +207,11 @@ export default function LeaderSection() {
           </h2>
         </div>
 
-        {/* Both Leaders Stacked vertically with alternating image positions */}
+        {/* Leaders Stacked vertically with alternating image positions */}
         <div className="space-y-16 sm:space-y-24 max-w-[1400px] w-full mx-auto">
           <LeaderCard leader={leader1Data} />
           <LeaderCard leader={leader2Data} />
+          <LeaderCard leader={leader3Data} />
         </div>
 
       </div>
