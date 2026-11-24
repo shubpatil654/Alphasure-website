@@ -64,31 +64,34 @@ export default function Hero({ onOpenModal, onNavigate }) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 z-[1] pointer-events-none" />
       </div>
 
-      {/* ================= BACKGROUND 2: CINEMATIC CUTTING CHAI IMAGE ================= */}
+      {/* ================= BACKGROUND 2: CINEMATIC STEAMING CHAI VIDEO ================= */}
       <div 
         className={`absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0 transition-opacity duration-1000 ease-in-out ${
           currentSlide === 1 ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <picture>
-          <source srcSet="/images/hero-chai-hd.webp" type="image/webp" />
-          <img
-            src="/images/hero-chai-hd.jpg"
-            alt="Steaming cutting chai - All good things in life don’t have to be expensive"
-            className="w-full h-full object-cover object-[60%_center] sm:object-[center_35%] md:object-center filter brightness-[0.88] contrast-[1.06]"
-          />
-        </picture>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/hero-chai-video-poster.jpg"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.04]"
+        >
+          <source src="/videos/hero-carousel-slide2.mp4" type="video/mp4" />
+        </video>
         
-        {/* Cinematic rich dark gradient overlay for optimal text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/65 z-[1] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55 z-[1] pointer-events-none" />
+        {/* Subtle dark overlay layer and contrast gradients */}
+        <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60 z-[1] pointer-events-none" />
       </div>
 
       {/* ================= CENTRAL HERO CONTENT ================= */}
       <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-2 flex flex-col items-center justify-center">
         
         {/* Dynamic Slide Container with Smooth Crossfade */}
-        <div className="relative w-full min-h-[290px] sm:min-h-[310px] md:min-h-[340px] flex items-center justify-center">
+        <div className="relative w-full min-h-[320px] sm:min-h-[350px] md:min-h-[380px] flex items-center justify-center">
           
           {/* ---------------- SLIDE 0: SCALING NEW HEIGHTS (VIDEO SLIDE) ---------------- */}
           <div 
@@ -148,12 +151,20 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
 
-            {/* Main Tagline: 2 Clean Sentence Lines */}
-            <h1 className="text-2xl sm:text-3xl md:text-[42px] lg:text-[48px] xl:text-[54px] font-extrabold text-white text-shadow-hero tracking-tight leading-[1.18] max-w-5xl xl:max-w-6xl mx-auto">
-              <span className="block whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
-                All good things in life don’t have to be expensive.
+            {/* Main Tagline: Hierarchical Spacing and Sizing */}
+            <h1 className="tracking-tight max-w-5xl xl:max-w-6xl mx-auto flex flex-col items-center justify-center">
+              {/* Line 1: Bigger Bold */}
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] font-black text-white text-shadow-hero leading-[1.1] [text-wrap:balance]">
+                All good things in life
               </span>
-              <span className="block text-[#FA5A16] mt-1.5 sm:mt-2.5 whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+              
+              {/* Line 2: Bit smaller font size below it */}
+              <span className="block text-lg sm:text-xl md:text-2xl lg:text-[30px] xl:text-[34px] font-semibold text-slate-100/95 text-shadow-hero leading-[1.25] mt-1 sm:mt-1.5 [text-wrap:balance]">
+                don’t have to be expensive.
+              </span>
+
+              {/* Line 3: Spaced out next line in brand orange */}
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.18] mt-3.5 sm:mt-4 md:mt-5 [text-wrap:balance]">
                 Your accounting doesn’t need to be either
               </span>
             </h1>
