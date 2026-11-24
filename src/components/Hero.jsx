@@ -151,20 +151,15 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
 
-            {/* Main Tagline: Hierarchical Spacing and Sizing */}
+            {/* Main Tagline: 2 Clean Sentence Lines */}
             <h1 className="tracking-tight max-w-5xl xl:max-w-6xl mx-auto flex flex-col items-center justify-center">
-              {/* Line 1: Bigger Bold */}
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] font-black text-white text-shadow-hero leading-[1.1] [text-wrap:balance]">
-                All good things in life
-              </span>
-              
-              {/* Line 2: Bit smaller font size below it */}
-              <span className="block text-lg sm:text-xl md:text-2xl lg:text-[30px] xl:text-[34px] font-semibold text-slate-100/95 text-shadow-hero leading-[1.25] mt-1 sm:mt-1.5 [text-wrap:balance]">
-                don’t have to be expensive.
+              {/* Line 1: Single Line, Big & Bold */}
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[52px] font-black text-white text-shadow-hero leading-[1.18] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+                All good things in life don’t have to be expensive.
               </span>
 
-              {/* Line 3: Spaced out next line in brand orange */}
-              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.18] mt-3.5 sm:mt-4 md:mt-5 [text-wrap:balance]">
+              {/* Line 2: Orange Accent Second Line with Spacing */}
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[44px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.2] mt-2.5 sm:mt-3.5 md:mt-4 whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
                 Your accounting doesn’t need to be either
               </span>
             </h1>
