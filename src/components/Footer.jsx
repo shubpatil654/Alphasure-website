@@ -78,10 +78,15 @@ export default function Footer({ onOpenModal, onNavigate }) {
           
           {/* Column 1: Brand Info & Bio (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-6">
-            <a href="#" className="inline-block transition-transform hover:scale-105">
-              <AlphasureLogo className="h-10 sm:h-12 w-auto" />
-            </a>
-            
+            <div>
+              <a href="#" className="inline-block transition-transform hover:scale-105">
+                <AlphasureLogo className="h-10 sm:h-12 w-auto" />
+              </a>
+              <div className="mt-3.5 space-y-1 text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
+                <p>Alphasure Accountants Pvt Ltd</p>
+                <p>Alphasure Solutions Pvt Ltd</p>
+              </div>
+            </div>
 
             <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-300">
               <div className="flex items-center gap-3 text-slate-300">
