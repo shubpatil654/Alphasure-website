@@ -30,11 +30,11 @@ const CO_FOUNDERS = [
     name: 'Satish Prabhu',
     role: 'Co-Founder',
     image: '/images/satish-prabhu-leader.jpg',
-    badge: 'Client Advisory & Growth',
+    badge: 'US & Global Advisory',
     paragraphs: [
-      "We take pride in building lasting relationships with each of our clients as valued members of our financial family. We consider their success as our own.",
-      "We don’t just provide accounting and financial services, but we become their trusted advisors and allies in their growth journey.",
-      "Bringing seasoned executive leadership, relationship-driven governance and strategic dedication to Alphasure's expanding client community."
+      "Satish Prabhu, a US citizen, is a CPA (US) and a Chartered Accountant (India) and has an experience of more than 35 years in accounting, auditing, and financial advisory.",
+      "After having practiced in Mumbai, India for 20 years, he moved to the US in 2005 and worked as senior manager for 3 years with one of the 7 big audit firms in the US.",
+      "After gaining enough experience in US accounting, he set up his practice in the year 2008. Since then, he has been providing accounting and advisory services to numerous multinational companies."
     ]
   }
 ];
