@@ -63,9 +63,9 @@ export default function CoFoundersPillarsSection() {
           </div>
 
           <h2 className="alpha-h2 font-bold text-white tracking-tight flex items-center gap-2.5 sm:gap-3.5">
-            <span>Meet Our</span>
+            <span>Management</span>
             <span className="relative inline-block text-[#FA5A16]">
-              Co-Founders
+              Team
               <svg 
                 className="absolute left-0 -bottom-1.5 sm:-bottom-2.5 w-full h-3 sm:h-4 overflow-visible pointer-events-none" 
                 viewBox="0 0 100 16" 
@@ -82,10 +82,6 @@ export default function CoFoundersPillarsSection() {
               </svg>
             </span>
           </h2>
-
-          <p className="mt-3 text-slate-400 text-xs sm:text-sm md:text-base max-w-xl">
-            Hover over each pillar to explore their background, expertise, and leadership journey.
-          </p>
         </div>
 
         {/* ================= 3 PILLAR SIZE CONTAINERS GRID ================= */}
