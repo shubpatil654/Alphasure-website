@@ -48,7 +48,7 @@ export default function CoFoundersPillarsSection() {
 
   return (
     <section 
-      id="co-founders-pillars"
+      id="management-team"
       className="relative w-full bg-[#07090e] text-white py-[25px] select-none overflow-hidden border-b border-zinc-800/60"
     >
       {/* Background Subtle Warm Orange Ambient Backlight */}
