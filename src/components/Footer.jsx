@@ -51,7 +51,7 @@ export default function Footer({ onOpenModal, onNavigate }) {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ================= Top CTA Callout Banner ================= */}
-        <div className="mb-16 p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-r from-[#111C35] via-[#1B2A4A] to-[#111C35] border border-slate-700/60 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mb-12 sm:mb-16 p-5 sm:p-10 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#111C35] via-[#1B2A4A] to-[#111C35] border border-slate-700/60 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#FA5A16]/10 rounded-full blur-2xl pointer-events-none"></div>
           
           <div className="text-center md:text-left z-10 max-w-2xl lg:max-w-3xl">

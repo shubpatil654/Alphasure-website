@@ -210,13 +210,13 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-3 sm:px-6 lg:px-8 apple-glass-header ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out px-2.5 sm:px-6 lg:px-8 apple-glass-header ${
         isScrolled
           ? 'bg-[#0B192C]/95 border-b border-white/[0.15] shadow-[0_12px_36px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.2)] py-2 sm:py-2.5'
-          : 'bg-[#0B192C]/80 border-b border-white/[0.1] shadow-[0_4px_24px_rgba(0,0,0,0.18),inset_0_1px_0_0_rgba(255,255,255,0.15)] py-3 sm:py-3.5 md:py-4'
+          : 'bg-[#0B192C]/80 border-b border-white/[0.1] shadow-[0_4px_24px_rgba(0,0,0,0.18),inset_0_1px_0_0_rgba(255,255,255,0.15)] py-2.5 sm:py-3.5 md:py-4'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
+      <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2 sm:gap-3">
         
         {/* Alphasure Brand Logo */}
         <a 
@@ -769,16 +769,16 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
         </div>
 
         {/* Mobile & Tablet Actions */}
-        <div className="flex lg:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 flex-shrink-0">
           <button
             onClick={onOpenModal}
-            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-[10px] sm:text-xs uppercase font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl shadow-md shadow-orange-500/25 active:scale-95 transition-all cursor-pointer"
+            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-[10px] sm:text-xs uppercase font-extrabold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl shadow-md shadow-orange-500/25 active:scale-95 transition-all whitespace-nowrap cursor-pointer flex-shrink-0"
           >
             TALK TO TEAM
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/10 apple-glass-header border border-white/20 hover:bg-white/20 transition-colors shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)]"
+            className="text-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/10 apple-glass-header border border-white/20 hover:bg-white/20 transition-colors shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] flex-shrink-0 cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}

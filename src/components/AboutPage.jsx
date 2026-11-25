@@ -40,17 +40,17 @@ export default function AboutPage({ onOpenModal }) {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-between items-center">
           
           {/* ================= TOP: Headline in a Single Line, Center-Aligned ================= */}
-          <div className="w-full text-center pt-2 sm:pt-3">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-extrabold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
+          <div className="w-full text-center pt-2 sm:pt-3 px-2">
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-extrabold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
               We are accountants, who understand Business.
             </h1>
           </div>
 
           {/* Middle Spacer to keep video center completely visible across any screen aspect ratio */}
-          <div className="flex-1 min-h-[60px] sm:min-h-[80px] md:min-h-[100px] w-full" />
+          <div className="flex-1 min-h-[50px] sm:min-h-[80px] md:min-h-[100px] w-full" />
 
           {/* ================= BOTTOM: Paragraphs, Center-Aligned ================= */}
-          <div className="w-full max-w-3xl lg:max-w-4xl text-center pb-2 sm:pb-4">
+          <div className="w-full max-w-3xl lg:max-w-4xl text-center pb-2 sm:pb-4 px-2 sm:px-4">
             <div className="space-y-3 sm:space-y-4 text-slate-100 text-xs sm:text-sm md:text-base font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] [text-wrap:balance]">
               <p>
                 We know that entrepreneurs have enough to worry about—winning customers, delivering for them, managing people, improving processes and growing the business. Accounting and compliance shouldn't become another burden. That's where Alphasure comes in.

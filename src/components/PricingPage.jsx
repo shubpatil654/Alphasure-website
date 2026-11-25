@@ -41,7 +41,7 @@ export default function PricingPage({ onOpenModal }) {
               
               {/* Main Headline Title - Single Line */}
               <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                What You See Is <span className="whitespace-nowrap">What You Pay</span>
+                What You See Is <span className="whitespace-normal sm:whitespace-nowrap">What You Pay</span>
               </h1>
 
               {/* Subtitle Paragraph */}

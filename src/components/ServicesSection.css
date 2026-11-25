@@ -132,18 +132,24 @@
 
   .services-accordion-card {
     min-height: 80px;
-    padding: 25px 1.15rem;
+    padding: 20px 1.15rem;
     border-radius: 1rem;
     flex: none !important;
-    width: 100%;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
   }
 
   .services-card-default,
   .services-card-collapsed {
     min-height: 80px;
+    min-width: 0 !important;
+    max-width: 100% !important;
   }
 
   .services-card-expanded {
     min-height: 380px;
+    min-width: 0 !important;
+    max-width: 100% !important;
   }
 }

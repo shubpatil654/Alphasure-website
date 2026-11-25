@@ -122,8 +122,8 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
             {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-lg sm:text-xl md:text-2xl lg:text-[30px] xl:text-[34px] font-black tracking-tight select-none">
-              <div className="w-[140px] sm:w-[170px] md:w-[210px] lg:w-[250px] xl:w-[280px] text-right shrink-0">
+            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-sm xs:text-base sm:text-xl md:text-2xl lg:text-[30px] xl:text-[34px] font-black tracking-tight select-none">
+              <div className="w-[110px] xs:w-[130px] sm:w-[170px] md:w-[210px] lg:w-[250px] xl:w-[280px] text-right shrink-0">
                 <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
                   <span
                     key={wordIndex}
@@ -133,7 +133,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
                   </span>
                 </span>
               </div>
-              <span className="text-white font-bold pl-2.5 sm:pl-3 text-left shrink-0 whitespace-nowrap">
+              <span className="text-white font-bold pl-2 sm:pl-3 text-left shrink-0 whitespace-nowrap">
                 Simplified
               </span>
             </div>
@@ -174,12 +174,12 @@ export default function Hero({ onOpenModal, onNavigate }) {
             {/* Main Tagline: 2 Clean Sentence Lines */}
             <h1 className="tracking-tight max-w-5xl xl:max-w-6xl mx-auto flex flex-col items-center justify-center">
               {/* Line 1: Single Line, Big & Bold */}
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-black text-white text-shadow-hero leading-[1.2] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
+              <span className="block text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-black text-white text-shadow-hero leading-[1.2] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
                 All good things in life don’t have to be expensive.
               </span>
 
               {/* Line 2: Orange Accent Second Line with Spacing */}
-              <span className="block text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.2] mt-2 sm:mt-2.5 md:mt-3 whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
+              <span className="block text-base xs:text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.2] mt-2 sm:mt-2.5 md:mt-3 whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
                 Your accounting doesn’t need to be either
               </span>
             </h1>

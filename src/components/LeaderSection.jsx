@@ -62,7 +62,7 @@ function LeaderCard({ leader }) {
   const isLeftImage = leader.imagePosition === 'left';
 
   return (
-    <div ref={cardRef} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+    <div ref={cardRef} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center overflow-hidden">
       
       {/* Photo Column - Slides from Left (for Leader 1) or Right (for Leader 2) */}
       <div
@@ -70,10 +70,10 @@ function LeaderCard({ leader }) {
           isLeftImage ? 'lg:justify-start lg:order-1' : 'lg:justify-end lg:order-2'
         } transition-all duration-1000 ease-out transform ${
           isVisible
-            ? 'translate-x-0 opacity-100'
+            ? 'translate-x-0 translate-y-0 opacity-100'
             : isLeftImage
-            ? '-translate-x-32 opacity-0'
-            : 'translate-x-32 opacity-0'
+            ? 'lg:-translate-x-32 translate-y-6 opacity-0'
+            : 'lg:translate-x-32 translate-y-6 opacity-0'
         }`}
       >
         {/* Unskewed Original Photo Frame with Refined Soft Diffused Shadow */}
@@ -97,10 +97,10 @@ function LeaderCard({ leader }) {
         <div 
           className={`mb-4 sm:mb-5 transition-all duration-700 ease-out transform ${
             isVisible 
-              ? 'translate-x-0 opacity-100' 
+              ? 'translate-x-0 translate-y-0 opacity-100' 
               : isLeftImage
-              ? 'translate-x-12 opacity-0'
-              : '-translate-x-12 opacity-0'
+              ? 'lg:translate-x-12 translate-y-4 opacity-0'
+              : 'lg:-translate-x-12 translate-y-4 opacity-0'
           }`}
         >
           <h3 className="alpha-h3 font-semibold text-[#FA5A16] tracking-tight mb-1">
@@ -111,7 +111,7 @@ function LeaderCard({ leader }) {
           </div>
         </div>
 
-        {/* Staggered Slower Slide-In Paragraph Sentences (From Left for Leader 2, From Right for Leader 1) */}
+        {/* Staggered Slower Slide-In Paragraph Sentences */}
         <div className="space-y-3 sm:space-y-3.5 text-slate-700">
           {leader.paragraphs.map((para, idx) => (
             <p
@@ -119,10 +119,10 @@ function LeaderCard({ leader }) {
               style={{ transitionDelay: isVisible ? `${(idx + 1) * 350}ms` : '0ms' }}
               className={`text-slate-700 text-xs sm:text-sm md:text-base leading-relaxed font-medium transition-all duration-[1200ms] ease-out transform ${
                 isVisible
-                  ? 'translate-x-0 opacity-100'
+                  ? 'translate-x-0 translate-y-0 opacity-100'
                   : isLeftImage
-                  ? 'translate-x-14 opacity-0'
-                  : '-translate-x-14 opacity-0'
+                  ? 'lg:translate-x-14 translate-y-3 opacity-0'
+                  : 'lg:-translate-x-14 translate-y-3 opacity-0'
               }`}
             >
               {para}

@@ -64,9 +64,14 @@ export default function PricingTableSection({ onOpenModal }) {
         {/* ================= PRICING TABLE CONTAINER ================= */}
         <div className="w-full max-w-[1160px] bg-white rounded-2xl sm:rounded-3xl border border-[#E8DEC8] shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300">
           
+          {/* Mobile Scroll Cue */}
+          <div className="sm:hidden px-3.5 py-2 bg-[#FAF7F2] border-b border-[#EFE6DA] text-[11px] text-[#A67C52] font-semibold text-center">
+            Swipe sideways to view all packages & pricing →
+          </div>
+
           {/* Responsive Scroll Wrapper for Mobile/Tablet */}
           <div className="w-full overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[760px] md:min-w-full">
+            <table className="w-full text-left border-collapse min-w-[620px] md:min-w-full">
               <thead>
                 <tr className="bg-[#FAF7F2] border-b border-[#EFE6DA]">
                   {/* Column 1: Structure Name Header */}

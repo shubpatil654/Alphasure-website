@@ -66,21 +66,21 @@ export default function SecretarialCompliancePage({ onOpenModal }) {
             <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6">
               
               {/* Top Outline Pill / Rectangle Badge */}
-              <div className="inline-flex items-center px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
-                <span className="text-base sm:text-xl md:text-2xl lg:text-[25px] font-bold text-white tracking-wide drop-shadow-md">
-                  Secretarial Compliance- Stay in Your Lane. Stay Compliant.
+              <div className="inline-flex items-center px-4 sm:px-8 md:px-9 py-2.5 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl border border-white/60 sm:border-2 sm:border-white/70 bg-black/40 backdrop-blur-md shadow-2xl max-w-full">
+                <span className="text-xs xs:text-sm sm:text-xl md:text-2xl lg:text-[25px] font-bold text-white tracking-wide drop-shadow-md text-center">
+                  Secretarial Compliance - Stay in Your Lane. Stay Compliant.
                 </span>
               </div>
 
-              {/* Main Headline Title (Single Line Guarantee) */}
+              {/* Main Headline Title */}
               <div className="space-y-1.5 sm:space-y-2">
                 {/* Line 1 */}
-                <h1 className="text-[clamp(1.35rem,4.2vw,3.625rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.1] !whitespace-nowrap [text-wrap:nowrap!important]">
+                <h1 className="text-[clamp(1.25rem,4.2vw,3.625rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.1] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
                   You Focus on the Journey.
                 </h1>
 
                 {/* Line 2 */}
-                <h2 className="text-[clamp(1.15rem,3.4vw,2.75rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.18] !whitespace-nowrap [text-wrap:nowrap!important]">
+                <h2 className="text-[clamp(1.1rem,3.4vw,2.75rem)] font-bold text-white tracking-tight drop-shadow-2xl leading-[1.18] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
                   We Keep You on the Right Path.
                 </h2>
               </div>

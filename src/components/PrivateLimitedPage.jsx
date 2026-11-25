@@ -67,16 +67,16 @@ export default function PrivateLimitedPage({ onOpenModal }) {
             {/* ================= LEFT COLUMN: Headline & CTA ================= */}
             <div className="lg:col-span-7 flex flex-col items-start text-left text-white space-y-6">
               
-              {/* Top Outline Pill / Rectangle Badge (Enlarged prominent size) */}
-              <div className="inline-flex items-center px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-2xl border-2 border-white/70 bg-black/40 backdrop-blur-md shadow-2xl">
-                <span className="text-base sm:text-xl md:text-2xl lg:text-[25px] font-bold text-white tracking-wide drop-shadow-md">
+              {/* Top Outline Pill / Rectangle Badge */}
+              <div className="inline-flex items-center px-4 sm:px-8 md:px-9 py-2.5 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl border border-white/60 sm:border-2 sm:border-white/70 bg-black/40 backdrop-blur-md shadow-2xl max-w-full">
+                <span className="text-xs xs:text-sm sm:text-xl md:text-2xl lg:text-[25px] font-bold text-white tracking-wide drop-shadow-md text-center">
                   Private Limited Company - The Gold Standard
                 </span>
               </div>
 
               {/* Main Headline Title */}
               <div className="space-y-1 sm:space-y-2">
-                <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-xl whitespace-nowrap">
+                <h2 className="alpha-h2 font-bold text-white tracking-tight drop-shadow-xl whitespace-normal sm:whitespace-nowrap">
                   Dream Big. We’ll Help
                 </h2>
                 <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">

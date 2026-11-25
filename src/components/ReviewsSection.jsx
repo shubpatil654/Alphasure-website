@@ -153,7 +153,7 @@ export default function ReviewsSection() {
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="group relative min-w-[320px] sm:min-w-[400px] max-w-[420px] bg-white border border-[#E8E2D5] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#062C1E]/40 hover:shadow-[0_20px_45px_rgba(6,44,30,0.1)] hover:-translate-y-2 cursor-pointer shrink-0"
+              className="group relative min-w-[270px] xs:min-w-[310px] sm:min-w-[400px] max-w-[420px] bg-white border border-[#E8E2D5] rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#062C1E]/40 hover:shadow-[0_20px_45px_rgba(6,44,30,0.1)] hover:-translate-y-2 cursor-pointer shrink-0"
             >
               {/* Quote Mark Watermark */}
               <Quote className="absolute top-6 right-6 text-slate-200 opacity-60 group-hover:text-emerald-800/20 transition-colors" size={48} />
