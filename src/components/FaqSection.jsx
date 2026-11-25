@@ -446,23 +446,34 @@ export default function FaqSection({
   faqs = faqList, 
   subtitle = "Everything you need to know about partnering with Alphasure." 
 }) {
-  // Start with all cards minimized by default so user clicks to reveal
+  // All cards minimized by default, reveal on mouse hover or click
   const [openItems, setOpenItems] = useState([]);
+  const [hoveredId, setHoveredId] = useState(null);
 
   const toggleFaq = (id) => {
-    setOpenItems(prev => 
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-    );
+    setOpenItems(prev => {
+      const isPinned = prev.includes(id);
+      if (isPinned) {
+        setHoveredId(null);
+        return prev.filter(item => item !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
   };
 
   const renderFaqCard = (item) => {
-    const isOpen = openItems.includes(item.id);
+    const isOpen = openItems.includes(item.id) || hoveredId === item.id;
 
     return (
       <div
         key={item.id}
+        onMouseEnter={() => setHoveredId(item.id)}
+        onMouseLeave={() => setHoveredId(null)}
         onClick={() => toggleFaq(item.id)}
-        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer transform-gpu ${item.tiltClass || ''} hover:rotate-0 hover:scale-[1.02] hover:-translate-y-1 hover:z-30 ${
+        className={`group relative w-full bg-white/90 hover:bg-white backdrop-blur-md rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer transform-gpu ${
+          isOpen ? 'sm:rotate-0 sm:translate-x-0 sm:translate-y-0' : (item.tiltClass || '')
+        } hover:rotate-0 hover:scale-[1.02] hover:-translate-y-1 hover:z-30 ${
           isOpen 
             ? 'border-[#FA5A16]/50 shadow-[0_16px_36px_rgba(250,90,22,0.12)] bg-white' 
             : 'border-slate-200/90 shadow-md hover:shadow-lg hover:border-slate-300'

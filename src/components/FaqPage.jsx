@@ -69,9 +69,15 @@ export default function FaqPage({ onOpenModal }) {
 
   // Accordion toggle
   const toggleFaq = (id) => {
-    setOpenItems((prev) => 
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    setOpenItems((prev) => {
+      const isPinned = prev.includes(id);
+      if (isPinned) {
+        setHoveredId(null);
+        return prev.filter((item) => item !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
   };
 
   // Expand / Collapse all
@@ -79,6 +85,7 @@ export default function FaqPage({ onOpenModal }) {
   const toggleAll = () => {
     if (allFilteredOpen) {
       setOpenItems([]);
+      setHoveredId(null);
     } else {
       setOpenItems(filteredFaqs.map(item => item.id));
     }
@@ -219,10 +226,10 @@ export default function FaqPage({ onOpenModal }) {
                     onMouseEnter={() => setHoveredId(item.id)}
                     onMouseLeave={() => setHoveredId(null)}
                     onClick={() => toggleFaq(item.id)}
-                    className={`group relative w-full bg-white/95 hover:bg-white rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer ${
+                    className={`group relative w-full bg-white/95 hover:bg-white rounded-2xl p-4 sm:p-5 border transition-all duration-300 ease-out cursor-pointer hover:shadow-lg hover:-translate-y-0.5 ${
                       isOpen
                         ? 'border-[#FA5A16]/50 shadow-[0_12px_32px_rgba(250,90,22,0.10)] bg-white'
-                        : 'border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300'
+                        : 'border-slate-200/90 shadow-sm hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-start gap-3 sm:gap-3.5">
