@@ -203,7 +203,7 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                     className={`absolute inset-0 transition-all duration-500 ${
                       isExpanded 
                         ? 'bg-white/70 backdrop-blur-[1px]' 
-                        : 'bg-gradient-to-b from-[#0B192C]/80 via-transparent to-black/25'
+                        : 'bg-gradient-to-b from-[#0B192C]/80 via-transparent to-black/60'
                     }`} 
                   />
                 </div>
@@ -295,8 +295,16 @@ export default function ServicesSection({ onOpenModal, onNavigate }) {
                       <ChevronDown size={16} className="text-white/90 sm:hidden ml-auto shrink-0" />
                     </div>
 
-                    {/* Bottom area kept completely clear to let the bright image shine */}
-                    <div className="w-full"></div>
+                    {/* Bottom: Hover to Reveal hint badge */}
+                    <div className="w-full flex items-center justify-center">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white/95 text-[11px] sm:text-xs font-semibold tracking-wide shadow-lg group-hover:border-white/50 group-hover:bg-black/75 transition-all duration-300">
+                        <span 
+                          className="w-1.5 h-1.5 rounded-full animate-pulse"
+                          style={{ backgroundColor: service.themeColor }}
+                        />
+                        <span>Hover to reveal</span>
+                      </div>
+                    </div>
 
                   </div>
                 )}
