@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TrustBar from './TrustBar';
 
 const ROTATING_WORDS = ['Accounting', 'Incorporation', 'Compliance'];
@@ -9,6 +9,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
   const [slideKey, setSlideKey] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const slide2VideoRef = useRef(null);
 
   // Rotating words timer for Slide 0
   useEffect(() => {
@@ -37,6 +38,21 @@ export default function Hero({ onOpenModal, onNavigate }) {
     setCurrentSlide(index);
     setSlideKey((prev) => prev + 1);
   };
+
+  // Slow down and synchronize Slide 2 video with the 7-second carousel break
+  useEffect(() => {
+    const video = slide2VideoRef.current;
+    if (!video) return;
+
+    if (currentSlide === 1) {
+      video.playbackRate = 0.8; // slowed down playback so the 8s clip spans the 7s break cleanly without looping twice
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [currentSlide]);
 
   return (
     <section className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden pt-18 sm:pt-20 md:pt-24 pb-4 sm:pb-6 select-none">
@@ -71,11 +87,15 @@ export default function Hero({ onOpenModal, onNavigate }) {
         }`}
       >
         <video
+          ref={slide2VideoRef}
           autoPlay
           loop
           muted
           playsInline
           poster="/images/hero-chai-video-poster.jpg"
+          onLoadedMetadata={(e) => {
+            e.currentTarget.playbackRate = 0.8;
+          }}
           className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.03]"
         >
           <source src="/videos/hero-carousel-slide2.mp4" type="video/mp4" />
