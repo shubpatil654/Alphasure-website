@@ -5,7 +5,7 @@ const COMPARISON_ROWS = [
     id: 'who-owns-it',
     label: 'Who Owns It?',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -20,7 +20,7 @@ const COMPARISON_ROWS = [
     id: 'liability',
     label: 'Liability',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <path d="M9 12l2 2 4-4" />
       </svg>
@@ -33,7 +33,7 @@ const COMPARISON_ROWS = [
     id: 'ease-of-setup',
     label: 'Ease of Setup',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="3" />
         <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
       </svg>
@@ -46,7 +46,7 @@ const COMPARISON_ROWS = [
     id: 'funding-potential',
     label: 'Funding Potential',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 20V10" />
         <path d="M12 20V4" />
         <path d="M6 20v-6" />
@@ -61,7 +61,7 @@ const COMPARISON_ROWS = [
     id: 'ideal-for',
     label: 'Ideal For',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="6" />
         <circle cx="12" cy="12" r="2" />
@@ -75,7 +75,7 @@ const COMPARISON_ROWS = [
     id: 'continuity',
     label: 'Continuity',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z" />
       </svg>
     ),
@@ -94,7 +94,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
   return (
     <section 
-      className="relative w-full pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 bg-white overflow-hidden select-none"
+      className="relative w-full pt-10 sm:pt-16 lg:pt-20 pb-4 sm:pb-5 lg:pb-6 bg-white overflow-hidden select-none"
       id="structure-comparison"
     >
       {/* Background Soft Curved Lines for Site Continuity */}
@@ -105,10 +105,10 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
         </svg>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading Area */}
-        <div className="text-center max-w-[1200px] mx-auto mb-10 sm:mb-12 lg:mb-14">
+        <div className="text-center max-w-[1200px] mx-auto mb-6 sm:mb-12 lg:mb-14">
           {/* Eyebrow */}
           <div 
             style={{
@@ -117,17 +117,17 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
               color: '#64748B',
               letterSpacing: '2.5px',
               textTransform: 'uppercase',
-              marginBottom: '14px',
+              marginBottom: '10px',
             }}
           >
             BUSINESS STRUCTURES COMPARED
           </div>
 
-          {/* Main Title - Single Line with Curved Underline in Blue (matching Leaders section) */}
+          {/* Main Title */}
           <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-black text-[#0F172A] tracking-tight leading-tight whitespace-normal lg:whitespace-nowrap"
+            className="text-xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-black text-[#0F172A] tracking-tight leading-tight whitespace-normal lg:whitespace-nowrap"
             style={{
-              margin: '0 0 16px 0',
+              margin: '0 0 12px 0',
             }}
           >
             Find the Right Structure for{' '}
@@ -153,11 +153,11 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
           {/* Subtitle */}
           <p 
             style={{
-              fontSize: 'clamp(16px, 1.8vw, 19px)',
+              fontSize: 'clamp(14px, 1.8vw, 19px)',
               color: '#64748B',
               fontWeight: 500,
               margin: 0,
-              lineHeight: 1.5,
+              lineHeight: 1.45,
             }}
           >
             Compare key features of different business structures and choose what fits your goals.
@@ -166,87 +166,45 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
         {/* Comparison Matrix Table Card Container */}
         <div 
-          style={{
-            width: '100%',
-            backgroundColor: '#FFFFFF',
-            borderRadius: '24px',
-            boxShadow: '0 25px 55px -15px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(226, 232, 240, 0.9)',
-            overflow: 'hidden',
-          }}
+          className="w-full bg-white rounded-xl sm:rounded-3xl shadow-[0_15px_40px_-15px_rgba(15,23,42,0.1),0_0_0_1px_rgba(226,232,240,0.9)] overflow-hidden"
         >
-          <div style={{ overflowX: 'auto', width: '100%' }}>
-            <table 
-              style={{
-                width: '100%',
-                minWidth: '920px',
-                borderCollapse: 'collapse',
-                textAlign: 'left',
-              }}
-            >
+          <div className="w-full overflow-hidden">
+            <table className="w-full table-fixed border-collapse text-left">
               <thead>
                 <tr>
                   {/* Column 1: Feature */}
                   <th 
-                    style={{
-                      width: '24%',
-                      padding: '32px 26px',
-                      backgroundColor: '#F1F5F9',
-                      borderBottom: '1px solid #E2E8F0',
-                      borderRight: '1px solid #E2E8F0',
-                      verticalAlign: 'middle',
-                    }}
+                    className="w-[23%] sm:w-[24%] p-1 sm:p-5 md:py-8 md:px-6 bg-[#F1F5F9] border-b border-r border-[#E2E8F0] align-middle"
                   >
-                    <span style={{ fontSize: '22px', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.01em' }}>
+                    <span className="text-[10px] sm:text-base md:text-xl lg:text-[22px] font-black text-[#0F172A] tracking-tight block">
                       Feature
                     </span>
                   </th>
 
                   {/* Column 2: One Person Company (OPC) */}
                   <th 
-                    style={{
-                      width: isOpc ? '28%' : '24%',
-                      padding: isOpc ? '24px 22px 30px 22px' : '30px 22px',
-                      backgroundColor: isOpc ? '#FFF2E2' : '#FFF7ED',
-                      borderTop: isOpc ? '4px solid #D97706' : 'none',
-                      borderLeft: isOpc ? '2.5px solid #F59E0B' : 'none',
-                      borderRight: isOpc ? '2.5px solid #F59E0B' : '1px solid #E2E8F0',
-                      borderBottom: isOpc ? '2px solid #FCD34D' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                      position: 'relative',
-                    }}
+                    className={`p-1 py-2 sm:p-4 md:py-6 md:px-5 text-center align-middle relative transition-colors ${
+                      isOpc 
+                        ? 'w-[27%] sm:w-[28%] bg-[#FFF2E2] border-t-2 sm:border-t-4 border-t-[#D97706] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F59E0B] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F59E0B] border-b-2 border-b-[#FCD34D]' 
+                        : 'w-[24.5%] sm:w-[24%] bg-[#FFF7ED] border-b border-r border-[#E2E8F0]'
+                    }`}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isOpc ? '8px' : '10px' }}>
+                    <div className={`flex flex-col items-center ${isOpc ? 'gap-0.5 sm:gap-2' : 'gap-0.5 sm:gap-2.5'}`}>
                       {isOpc && (
-                        <div 
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            backgroundColor: '#D97706',
-                            color: '#FFFFFF',
-                            padding: '4.5px 14px',
-                            borderRadius: '9999px',
-                            fontSize: '12px',
-                            fontWeight: 800,
-                            letterSpacing: '0.8px',
-                            textTransform: 'uppercase',
-                            boxShadow: '0 3px 10px rgba(217, 119, 6, 0.35)',
-                          }}
-                        >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
+                        <div className="inline-flex items-center gap-0.5 sm:gap-1 bg-[#D97706] text-white px-1 sm:px-3 py-0.5 rounded-full text-[6px] sm:text-xs font-extrabold tracking-tight uppercase shadow-sm">
+                          <svg className="w-1.5 h-1.5 sm:w-3 sm:h-3 shrink-0" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg>
-                          <span>Most Popular for Solos</span>
+                          <span className="truncate">Solos</span>
                         </div>
                       )}
 
                       {/* User Icon */}
-                      <svg width={isOpc ? "34" : "32"} height={isOpc ? "34" : "32"} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                         <circle cx="12" cy="7" r="4" />
                       </svg>
-                      <span style={{ fontSize: isOpc ? '21.5px' : '19.5px', fontWeight: isOpc ? 900 : 800, color: '#0F172A', lineHeight: 1.25 }}>
+                      <span className={`text-[9px] sm:text-base md:text-lg lg:text-[21.5px] text-[#0F172A] leading-tight block ${isOpc ? 'font-black' : 'font-extrabold'}`}>
                         One Person<br />Company (OPC)
                       </span>
                     </div>
@@ -254,52 +212,30 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                   {/* Column 3: Limited Liability Partnership (LLP) */}
                   <th 
-                    style={{
-                      width: isLlp ? '28%' : '24%',
-                      padding: isLlp ? '24px 22px 30px 22px' : '30px 22px',
-                      backgroundColor: '#EEF2FF', // Soft periwinkle/indigo
-                      borderTop: isLlp ? '4px solid #4F46E5' : 'none',
-                      borderLeft: isLlp ? '2.5px solid #6366F1' : 'none',
-                      borderRight: isLlp ? '2.5px solid #6366F1' : '1px solid #E2E8F0',
-                      borderBottom: isLlp ? '2px solid #A5B4FC' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                      position: 'relative',
-                    }}
+                    className={`p-1 py-2 sm:p-4 md:py-6 md:px-5 text-center align-middle relative transition-colors ${
+                      isLlp 
+                        ? 'w-[27%] sm:w-[28%] bg-[#EEF2FF] border-t-2 sm:border-t-4 border-t-[#4F46E5] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#6366F1] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#6366F1] border-b-2 border-b-[#A5B4FC]' 
+                        : 'w-[24.5%] sm:w-[24%] bg-[#EEF2FF] border-b border-r border-[#E2E8F0]'
+                    }`}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isLlp ? '8px' : '10px' }}>
+                    <div className={`flex flex-col items-center ${isLlp ? 'gap-0.5 sm:gap-2' : 'gap-0.5 sm:gap-2.5'}`}>
                       {isLlp && (
-                        <div 
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            backgroundColor: '#4F46E5',
-                            color: '#FFFFFF',
-                            padding: '4.5px 14px',
-                            borderRadius: '9999px',
-                            fontSize: '12px',
-                            fontWeight: 800,
-                            letterSpacing: '0.8px',
-                            textTransform: 'uppercase',
-                            boxShadow: '0 3px 10px rgba(79, 70, 229, 0.35)',
-                          }}
-                        >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
+                        <div className="inline-flex items-center gap-0.5 sm:gap-1 bg-[#4F46E5] text-white px-1 sm:px-3 py-0.5 rounded-full text-[6px] sm:text-xs font-extrabold tracking-tight uppercase shadow-sm">
+                          <svg className="w-1.5 h-1.5 sm:w-3 sm:h-3 shrink-0" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg>
-                          <span>Most Popular for Partners</span>
+                          <span className="truncate">Partners</span>
                         </div>
                       )}
 
                       {/* Group Icon */}
-                      <svg width={isLlp ? "34" : "32"} height={isLlp ? "34" : "32"} viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                         <circle cx="9" cy="7" r="4" />
                         <path d="M23 21v-2a4 4 0 00-3-3.87" />
                         <path d="M16 3.13a4 4 0 010 7.75" />
                       </svg>
-                      <span style={{ fontSize: isLlp ? '21.5px' : '19.5px', fontWeight: isLlp ? 900 : 800, color: '#4338CA', lineHeight: 1.25 }}>
+                      <span className={`text-[9px] sm:text-base md:text-lg lg:text-[21.5px] text-[#4338CA] leading-tight block ${isLlp ? 'font-black' : 'font-extrabold'}`}>
                         Limited Liability<br />Partnership (LLP)
                       </span>
                     </div>
@@ -307,46 +243,24 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                   {/* Column 4: Private Ltd. Company */}
                   <th 
-                    style={{
-                      width: isPvtLtd ? '28%' : '24%',
-                      padding: isPvtLtd ? '24px 22px 30px 22px' : '30px 22px',
-                      backgroundColor: '#FCE7F3', // Rose tint
-                      borderTop: isPvtLtd ? '4px solid #BE185D' : 'none',
-                      borderLeft: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                      borderRight: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                      borderBottom: isPvtLtd ? '2px solid #FDA4AF' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                      position: 'relative',
-                    }}
+                    className={`p-1 py-2 sm:p-4 md:py-6 md:px-5 text-center align-middle relative transition-colors ${
+                      isPvtLtd 
+                        ? 'w-[28%] sm:w-[28%] bg-[#FCE7F3] border-t-2 sm:border-t-4 border-t-[#BE185D] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F43F5E] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F43F5E] border-b-2 border-b-[#FDA4AF]' 
+                        : 'w-[25%] sm:w-[24%] bg-[#FCE7F3] border-b border-[#E2E8F0]'
+                    }`}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isPvtLtd ? '8px' : '10px' }}>
+                    <div className={`flex flex-col items-center ${isPvtLtd ? 'gap-0.5 sm:gap-2' : 'gap-0.5 sm:gap-2.5'}`}>
                       {isPvtLtd && (
-                        <div 
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            backgroundColor: '#BE185D',
-                            color: '#FFFFFF',
-                            padding: '4.5px 14px',
-                            borderRadius: '9999px',
-                            fontSize: '12px',
-                            fontWeight: 800,
-                            letterSpacing: '0.8px',
-                            textTransform: 'uppercase',
-                            boxShadow: '0 3px 10px rgba(190, 24, 93, 0.35)',
-                          }}
-                        >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
+                        <div className="inline-flex items-center gap-0.5 sm:gap-1 bg-[#BE185D] text-white px-1 sm:px-3 py-0.5 rounded-full text-[6px] sm:text-xs font-extrabold tracking-tight uppercase shadow-sm">
+                          <svg className="w-1.5 h-1.5 sm:w-3 sm:h-3 shrink-0" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg>
-                          <span>Most Popular</span>
+                          <span className="truncate">★ MOST POPULAR</span>
                         </div>
                       )}
 
                       {/* Building Icon */}
-                      <svg width={isPvtLtd ? "34" : "32"} height={isPvtLtd ? "34" : "32"} viewBox="0 0 24 24" fill="none" stroke="#BE185D" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="#BE185D" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18Z" />
                         <path d="M6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2" />
                         <path d="M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2" />
@@ -355,7 +269,7 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
                         <path d="M10 14h4" />
                         <path d="M10 18h4" />
                       </svg>
-                      <span style={{ fontSize: isPvtLtd ? '21.5px' : '19.5px', fontWeight: isPvtLtd ? 900 : 800, color: '#0F172A', lineHeight: 1.25 }}>
+                      <span className={`text-[9px] sm:text-base md:text-lg lg:text-[21.5px] text-[#0F172A] leading-tight block ${isPvtLtd ? 'font-black' : 'font-extrabold'}`}>
                         Private Ltd.<br />Company
                       </span>
                     </div>
@@ -372,25 +286,17 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
                       key={row.id}
                       onMouseEnter={() => setHoveredRow(row.id)}
                       onMouseLeave={() => setHoveredRow(null)}
-                      style={{
-                        backgroundColor: isHovered ? '#F8FAFC' : (idx % 2 === 0 ? '#FFFFFF' : '#FAFCFF'),
-                        transition: 'background-color 150ms ease',
-                      }}
+                      className={`transition-colors ${
+                        isHovered ? 'bg-[#F8FAFC]' : (idx % 2 === 0 ? 'bg-white' : 'bg-[#FAFCFF]')
+                      }`}
                     >
                       {/* Feature Label + Icon */}
-                      <td 
-                        style={{
-                          padding: '26px 26px',
-                          borderBottom: '1px solid #F1F5F9',
-                          borderRight: '1px solid #F1F5F9',
-                          verticalAlign: 'middle',
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                          <div style={{ color: '#0F172A', display: 'flex', alignItems: 'center' }}>
+                      <td className="p-1 py-2 sm:py-4 sm:px-4 md:py-6 md:px-6 border-b border-r border-[#F1F5F9] align-middle">
+                        <div className="flex items-center gap-1 sm:gap-3.5">
+                          <div className="text-[#0F172A] flex items-center shrink-0">
                             {row.icon}
                           </div>
-                          <span style={{ fontSize: '18.5px', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>
+                          <span className="text-[8.5px] sm:text-sm md:text-base lg:text-[18.5px] font-extrabold text-[#0F172A] tracking-tight leading-tight">
                             {row.label}
                           </span>
                         </div>
@@ -398,37 +304,14 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                       {/* OPC Data */}
                       <td 
-                        style={{
-                          padding: '26px 22px',
-                          borderBottom: isOpc ? '1px solid #FDE68A' : '1px solid #F1F5F9',
-                          borderRight: isOpc ? '2.5px solid #F59E0B' : '1px solid #F1F5F9',
-                          borderLeft: isOpc ? '2.5px solid #F59E0B' : 'none',
-                          backgroundColor: isOpc 
-                            ? (isHovered ? '#FEF3C7' : (idx % 2 === 0 ? '#FFFBEB' : '#FFFDF7'))
-                            : undefined,
-                          textAlign: 'center',
-                          verticalAlign: 'middle',
-                          fontSize: isOpc ? '19px' : '18px',
-                          color: '#0F172A',
-                          fontWeight: isOpc ? 800 : 600,
-                          whiteSpace: 'pre-line',
-                          lineHeight: 1.45,
-                          transition: 'background-color 150ms ease',
-                        }}
+                        className={`p-1 py-2 sm:py-4 sm:px-3 md:py-6 md:px-5 text-center align-middle whitespace-pre-line leading-[1.25] sm:leading-normal transition-colors ${
+                          isOpc
+                            ? `border-b ${isHovered ? 'bg-[#FEF3C7]' : (idx % 2 === 0 ? 'bg-[#FFFBEB]' : 'bg-[#FFFDF7]')} border-b-[#FDE68A] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F59E0B] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F59E0B] text-[#0F172A] font-extrabold text-[8.5px] sm:text-sm md:text-base lg:text-[19px]`
+                            : `border-b border-r border-[#F1F5F9] text-[#0F172A] font-semibold text-[8px] sm:text-xs md:text-sm lg:text-[18px]`
+                        }`}
                       >
                         {isOpc && (row.id === 'who-owns-it' || row.id === 'ideal-for') ? (
-                          <span 
-                            style={{ 
-                              display: 'inline-block', 
-                              backgroundColor: '#D97706', 
-                              color: '#FFFFFF', 
-                              padding: '6px 18px', 
-                              borderRadius: '8px', 
-                              fontWeight: 900, 
-                              fontSize: '18px',
-                              boxShadow: '0 2px 8px rgba(217, 119, 6, 0.25)',
-                            }}
-                          >
+                          <span className="inline-block bg-[#D97706] text-white px-1 sm:px-4 py-0.5 sm:py-1.5 rounded sm:rounded-lg font-black text-[7.5px] sm:text-xs md:text-sm lg:text-[18px] shadow-sm">
                             {row.opc}
                           </span>
                         ) : (
@@ -438,37 +321,14 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                       {/* LLP Data */}
                       <td 
-                        style={{
-                          padding: '26px 22px',
-                          borderBottom: isLlp ? '1px solid #C7D2FE' : '1px solid #F1F5F9',
-                          borderRight: isLlp ? '2.5px solid #6366F1' : '1px solid #F1F5F9',
-                          borderLeft: isLlp ? '2.5px solid #6366F1' : 'none',
-                          backgroundColor: isLlp 
-                            ? (isHovered ? '#E0E7FF' : (idx % 2 === 0 ? '#EEF2FF' : '#F5F7FF'))
-                            : undefined,
-                          textAlign: 'center',
-                          verticalAlign: 'middle',
-                          fontSize: isLlp ? '19px' : '18px',
-                          color: '#0F172A',
-                          fontWeight: isLlp ? 800 : 600,
-                          whiteSpace: 'pre-line',
-                          lineHeight: 1.45,
-                          transition: 'background-color 150ms ease',
-                        }}
+                        className={`p-1 py-2 sm:py-4 sm:px-3 md:py-6 md:px-5 text-center align-middle whitespace-pre-line leading-[1.25] sm:leading-normal transition-colors ${
+                          isLlp
+                            ? `border-b ${isHovered ? 'bg-[#E0E7FF]' : (idx % 2 === 0 ? 'bg-[#EEF2FF]' : 'bg-[#F5F7FF]')} border-b-[#C7D2FE] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#6366F1] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#6366F1] text-[#0F172A] font-extrabold text-[8.5px] sm:text-sm md:text-base lg:text-[19px]`
+                            : `border-b border-r border-[#F1F5F9] text-[#0F172A] font-semibold text-[8px] sm:text-xs md:text-sm lg:text-[18px]`
+                        }`}
                       >
                         {isLlp && (row.id === 'who-owns-it' || row.id === 'ideal-for') ? (
-                          <span 
-                            style={{ 
-                              display: 'inline-block', 
-                              backgroundColor: '#4F46E5', 
-                              color: '#FFFFFF', 
-                              padding: '6px 18px', 
-                              borderRadius: '8px', 
-                              fontWeight: 900, 
-                              fontSize: '18px',
-                              boxShadow: '0 2px 8px rgba(79, 70, 229, 0.25)',
-                            }}
-                          >
+                          <span className="inline-block bg-[#4F46E5] text-white px-1 sm:px-4 py-0.5 sm:py-1.5 rounded sm:rounded-lg font-black text-[7.5px] sm:text-xs md:text-sm lg:text-[18px] shadow-sm">
                             {row.llp}
                           </span>
                         ) : (
@@ -478,37 +338,14 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                       {/* Private Ltd Data */}
                       <td 
-                        style={{
-                          padding: '26px 22px',
-                          backgroundColor: isPvtLtd 
-                            ? (isHovered ? '#FCE7F3' : (idx % 2 === 0 ? '#FFF5F9' : '#FDF0F6'))
-                            : undefined,
-                          borderLeft: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                          borderRight: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                          borderBottom: isPvtLtd ? '1px solid #FCE7F3' : '1px solid #F1F5F9',
-                          textAlign: 'center',
-                          verticalAlign: 'middle',
-                          fontSize: isPvtLtd ? '19px' : '18px',
-                          color: '#0F172A',
-                          fontWeight: isPvtLtd ? 800 : 600,
-                          whiteSpace: 'pre-line',
-                          lineHeight: 1.45,
-                          transition: 'background-color 150ms ease',
-                        }}
+                        className={`p-1 py-2 sm:py-4 sm:px-3 md:py-6 md:px-5 text-center align-middle whitespace-pre-line leading-[1.25] sm:leading-normal transition-colors ${
+                          isPvtLtd
+                            ? `border-b ${isHovered ? 'bg-[#FCE7F3]' : (idx % 2 === 0 ? 'bg-[#FFF5F9]' : 'bg-[#FDF0F6]')} border-b-[#FCE7F3] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F43F5E] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F43F5E] text-[#0F172A] font-extrabold text-[8.5px] sm:text-sm md:text-base lg:text-[19px]`
+                            : `border-b border-[#F1F5F9] text-[#0F172A] font-semibold text-[8px] sm:text-xs md:text-sm lg:text-[18px]`
+                        }`}
                       >
                         {isPvtLtd && row.pvtLtdHighlight ? (
-                          <span 
-                            style={{ 
-                              display: 'inline-block', 
-                              backgroundColor: '#BE185D', 
-                              color: '#FFFFFF', 
-                              padding: '6px 18px', 
-                              borderRadius: '8px', 
-                              fontWeight: 900, 
-                              fontSize: '18px',
-                              boxShadow: '0 2px 8px rgba(190, 24, 93, 0.25)',
-                            }}
-                          >
+                          <span className="inline-block bg-[#BE185D] text-white px-1 sm:px-4 py-0.5 sm:py-1.5 rounded sm:rounded-lg font-black text-[7.5px] sm:text-xs md:text-sm lg:text-[18px] shadow-sm">
                             {row.pvtLtd}
                           </span>
                         ) : (
@@ -520,22 +357,14 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
                 })}
 
                 {/* Highlighted Bottom Row: "Our Take" */}
-                <tr style={{ borderTop: '2px solid #E2E8F0' }}>
+                <tr className="border-t-2 border-[#E2E8F0]">
                   {/* Our Take Header with Star */}
-                  <td 
-                    style={{
-                      padding: '28px 26px',
-                      backgroundColor: '#FFFBEB', // Light warm gold/yellow
-                      borderRight: '1px solid #E2E8F0',
-                      verticalAlign: 'middle',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                      {/* Golden Star Icon */}
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" strokeWidth="1">
+                  <td className="p-1 py-2 sm:py-5 sm:px-4 md:py-7 md:px-6 bg-[#FFFBEB] border-r border-[#E2E8F0] align-middle">
+                    <div className="flex items-center gap-1 sm:gap-3.5">
+                      <svg className="w-3.5 h-3.5 sm:w-6 sm:h-6 shrink-0" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" strokeWidth="1">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                       </svg>
-                      <span style={{ fontSize: '19.5px', fontWeight: 900, color: '#0F172A' }}>
+                      <span className="text-[9px] sm:text-sm md:text-base lg:text-[19.5px] font-black text-[#0F172A] tracking-tight leading-tight block">
                         Our Take
                       </span>
                     </div>
@@ -543,51 +372,39 @@ export default function StructureComparisonSection({ highlightedStructure = 'pvt
 
                   {/* OPC Take */}
                   <td 
-                    style={{
-                      padding: '28px 22px',
-                      backgroundColor: isOpc ? '#FFF2E2' : '#FFF7ED', // Warm peach / highlighted amber
-                      borderLeft: isOpc ? '2.5px solid #F59E0B' : 'none',
-                      borderRight: isOpc ? '2.5px solid #F59E0B' : '1px solid #E2E8F0',
-                      borderBottom: isOpc ? '4px solid #D97706' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                    }}
+                    className={`p-1 py-2 sm:py-5 sm:px-3 md:py-7 md:px-5 text-center align-middle ${
+                      isOpc 
+                        ? 'bg-[#FFF2E2] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F59E0B] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F59E0B] border-b-2 sm:border-b-4 border-b-[#D97706]' 
+                        : 'bg-[#FFF7ED] border-r border-[#E2E8F0] border-b border-[#E2E8F0]'
+                    }`}
                   >
-                    <span style={{ fontSize: isOpc ? '19.5px' : '18.5px', fontWeight: isOpc ? 900 : 800, color: isOpc ? '#B45309' : '#C2410C', lineHeight: 1.35, display: 'block' }}>
+                    <span className={`text-[8px] sm:text-xs md:text-sm lg:text-[19.5px] leading-tight block ${isOpc ? 'font-black text-[#B45309]' : 'font-extrabold text-[#C2410C]'}`}>
                       Ideal for<br />solo entrepreneurs
                     </span>
                   </td>
 
                   {/* LLP Take */}
                   <td 
-                    style={{
-                      padding: '28px 22px',
-                      backgroundColor: isLlp ? '#E0E7FF' : '#EEF2FF', // Periwinkle / indigo highlight
-                      borderLeft: isLlp ? '2.5px solid #6366F1' : 'none',
-                      borderRight: isLlp ? '2.5px solid #6366F1' : '1px solid #E2E8F0',
-                      borderBottom: isLlp ? '4px solid #4F46E5' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                    }}
+                    className={`p-1 py-2 sm:py-5 sm:px-3 md:py-7 md:px-5 text-center align-middle ${
+                      isLlp 
+                        ? 'bg-[#E0E7FF] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#6366F1] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#6366F1] border-b-2 sm:border-b-4 border-b-[#4F46E5]' 
+                        : 'bg-[#EEF2FF] border-r border-[#E2E8F0] border-b border-[#E2E8F0]'
+                    }`}
                   >
-                    <span style={{ fontSize: isLlp ? '19.5px' : '18.5px', fontWeight: isLlp ? 900 : 800, color: isLlp ? '#3730A3' : '#4338CA', lineHeight: 1.35, display: 'block' }}>
+                    <span className={`text-[8px] sm:text-xs md:text-sm lg:text-[19.5px] leading-tight block ${isLlp ? 'font-black text-[#3730A3]' : 'font-extrabold text-[#4338CA]'}`}>
                       Perfect for<br />professionals
                     </span>
                   </td>
 
                   {/* Private Ltd Take */}
                   <td 
-                    style={{
-                      padding: '28px 22px',
-                      backgroundColor: isPvtLtd ? '#FCE7F3' : '#FFF5F9', // Rose
-                      borderLeft: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                      borderRight: isPvtLtd ? '2.5px solid #F43F5E' : 'none',
-                      borderBottom: isPvtLtd ? '4px solid #BE185D' : '1px solid #E2E8F0',
-                      textAlign: 'center',
-                      verticalAlign: 'middle',
-                    }}
+                    className={`p-1 py-2 sm:py-5 sm:px-3 md:py-7 md:px-5 text-center align-middle ${
+                      isPvtLtd 
+                        ? 'bg-[#FCE7F3] border-l-[1.5px] sm:border-l-[2.5px] border-l-[#F43F5E] border-r-[1.5px] sm:border-r-[2.5px] border-r-[#F43F5E] border-b-2 sm:border-b-4 border-b-[#BE185D]' 
+                        : 'bg-[#FFF5F9] border-b border-[#E2E8F0]'
+                    }`}
                   >
-                    <span style={{ fontSize: isPvtLtd ? '19.5px' : '18.5px', fontWeight: isPvtLtd ? 900 : 800, color: isPvtLtd ? '#9D174D' : '#BE185D', lineHeight: 1.35, display: 'block' }}>
+                    <span className={`text-[8px] sm:text-xs md:text-sm lg:text-[19.5px] leading-tight block ${isPvtLtd ? 'font-black text-[#9D174D]' : 'font-extrabold text-[#BE185D]'}`}>
                       Best for<br />growth & investment
                     </span>
                   </td>
