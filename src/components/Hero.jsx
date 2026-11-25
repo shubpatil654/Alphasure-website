@@ -55,7 +55,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
   }, [currentSlide]);
 
   return (
-    <section className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden pt-18 sm:pt-20 md:pt-24 pb-4 sm:pb-6 select-none">
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-between items-center overflow-hidden pt-20 sm:pt-22 md:pt-24 pb-4 sm:pb-6 select-none">
       
       {/* ================= BACKGROUND 1: LIVE MOUNTAIN VIDEO ================= */}
       <div 
@@ -108,10 +108,10 @@ export default function Hero({ onOpenModal, onNavigate }) {
       </div>
 
       {/* ================= CENTRAL HERO CONTENT ================= */}
-      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-2 flex flex-col items-center justify-center">
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 text-center flex-1 flex flex-col items-center justify-center py-2">
         
         {/* Dynamic Slide Container with Smooth Crossfade */}
-        <div className="relative w-full min-h-[320px] sm:min-h-[350px] md:min-h-[380px] flex items-center justify-center">
+        <div className="relative w-full min-h-[300px] sm:min-h-[330px] md:min-h-[360px] flex items-center justify-center">
           
           {/* ---------------- SLIDE 0: SCALING NEW HEIGHTS (VIDEO SLIDE) ---------------- */}
           <div 
@@ -122,8 +122,8 @@ export default function Hero({ onOpenModal, onNavigate }) {
             }`}
           >
             {/* Rotating Dynamic Headline: Accounting / Incorporation / Compliance Simplified */}
-            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-[34px] xl:text-[38px] font-black tracking-tight select-none">
-              <div className="w-[145px] sm:w-[195px] md:w-[250px] lg:w-[290px] text-right shrink-0">
+            <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-5 flex items-center justify-center text-lg sm:text-xl md:text-2xl lg:text-[30px] xl:text-[34px] font-black tracking-tight select-none">
+              <div className="w-[140px] sm:w-[170px] md:w-[210px] lg:w-[250px] xl:w-[280px] text-right shrink-0">
                 <span className="inline-block text-[#FA5A16] font-black whitespace-nowrap">
                   <span
                     key={wordIndex}
@@ -133,7 +133,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
                   </span>
                 </span>
               </div>
-              <span className="text-white font-bold pl-2.5 sm:pl-3.5 text-left shrink-0 whitespace-nowrap">
+              <span className="text-white font-bold pl-2.5 sm:pl-3 text-left shrink-0 whitespace-nowrap">
                 Simplified
               </span>
             </div>
@@ -145,7 +145,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
             </h1>
 
             {/* Call to Action Buttons */}
-            <div className="mt-5 sm:mt-6 md:mt-7 lg:mt-8 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
+            <div className="mt-5 sm:mt-6 md:mt-7 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
               <a
                 href="#services"
                 className="alpha-btn inline-flex items-center justify-center w-full sm:w-auto bg-[#FA5A16] hover:bg-[#e04806] text-white px-7 sm:px-9 py-3 rounded-xl shadow-btn-orange transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-shadow-subtle text-center min-h-[48px]"
@@ -174,18 +174,18 @@ export default function Hero({ onOpenModal, onNavigate }) {
             {/* Main Tagline: 2 Clean Sentence Lines */}
             <h1 className="tracking-tight max-w-5xl xl:max-w-6xl mx-auto flex flex-col items-center justify-center">
               {/* Line 1: Single Line, Big & Bold */}
-              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[52px] font-black text-white text-shadow-hero leading-[1.18] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-black text-white text-shadow-hero leading-[1.2] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
                 All good things in life don’t have to be expensive.
               </span>
 
               {/* Line 2: Orange Accent Second Line with Spacing */}
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[44px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.2] mt-2.5 sm:mt-3.5 md:mt-4 whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+              <span className="block text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-extrabold text-[#FA5A16] text-shadow-hero leading-[1.2] mt-2 sm:mt-2.5 md:mt-3 whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
                 Your accounting doesn’t need to be either
               </span>
             </h1>
 
             {/* Call to Action Buttons */}
-            <div className="mt-5 sm:mt-6 md:mt-7 lg:mt-8 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
+            <div className="mt-5 sm:mt-6 md:mt-7 flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full max-w-xs sm:max-w-none mx-auto">
               <button
                 onClick={() => {
                   if (onNavigate) {
@@ -213,7 +213,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
 
         {/* ================= CAROUSEL 2 BULLETS WITH 7-SECOND TIME LOAD ================= */}
         <div 
-          className="flex items-center justify-center gap-3.5 sm:gap-4 mt-5 sm:mt-6 z-20"
+          className="flex items-center justify-center gap-3.5 sm:gap-4 mt-4 sm:mt-5 z-20"
           role="tablist"
           aria-label="Carousel slide controls"
         >
@@ -256,7 +256,7 @@ export default function Hero({ onOpenModal, onNavigate }) {
         </div>
 
         {/* Bottom Trust & Metrics Bar positioned directly below */}
-        <div className="mt-5 sm:mt-7 md:mt-8 lg:mt-9 w-full max-w-5xl mx-auto">
+        <div className="mt-4 sm:mt-6 md:mt-7 w-full max-w-5xl mx-auto">
           <TrustBar />
         </div>
 

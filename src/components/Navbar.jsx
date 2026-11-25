@@ -228,13 +228,13 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
         </a>
 
         {/* Desktop Navigation Menu */}
-        <nav className="hidden lg:flex items-center gap-2.5 xl:gap-5 flex-wrap justify-center">
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3.5 flex-nowrap justify-center">
           
           {/* HOME */}
           <a
             href="#"
             onClick={(e) => handleNavClick(e, 'home')}
-            className={`text-white text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+            className={`text-white text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
               activePage === 'home'
                 ? 'border-b-2 border-white text-white'
                 : 'text-white/90 hover:text-white hover:border-b-2 hover:border-white/60'
@@ -255,7 +255,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 setIsAboutOpen(false);
                 setIsRegisterOpen(!isRegisterOpen);
               }}
-              className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+              className={`text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isRegisterOpen || activePage === 'pvt-ltd' || activePage === 'opc' || activePage === 'llp' || activePage === 'secretarial'
                   ? 'text-white font-black border-b-2 border-white' 
                   : 'text-white/90 hover:text-white'
@@ -397,7 +397,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 setIsAboutOpen(false);
                 setIsAccountingOpen(!isAccountingOpen);
               }}
-              className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+              className={`text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isAccountingOpen || activePage === 'periodic-accounting' || activePage === 'real-time-accounting' || activePage === 'controller-services' || activePage === 'gst-tds-compliance'
                   ? 'text-white font-black border-b-2 border-white' 
                   : 'text-white/90 hover:text-white'
@@ -535,7 +535,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.page)}
-                className={`text-white text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+                className={`text-white text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'border-b-2 border-white text-white'
                     : 'text-white/90 hover:text-white hover:border-b-2 hover:border-white/60'
@@ -558,7 +558,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 setIsAccountingOpen(false);
                 setIsAboutOpen(!isAboutOpen);
               }}
-              className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+              className={`text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isAboutOpen || activePage === 'about' || activePage === 'careers'
                   ? 'text-white font-black border-b-2 border-white' 
                   : 'text-white/90 hover:text-white'
@@ -678,7 +678,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
                 setIsAboutOpen(false);
                 setIsResourcesOpen(!isResourcesOpen);
               }}
-              className={`text-[11px] xl:text-[12.5px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
+              className={`text-[10px] xl:text-[12px] font-bold tracking-wider transition-all duration-150 py-1 whitespace-nowrap cursor-pointer ${
                 isResourcesOpen || activePage === 'resources' || activePage === 'blogs' || activePage === 'testimonials' || activePage === 'faqs'
                   ? 'text-white font-black border-b-2 border-white' 
                   : 'text-white/90 hover:text-white'
@@ -762,7 +762,7 @@ export default function Navbar({ onOpenModal, activePage = 'home', onNavigate })
         <div className="hidden lg:block flex-shrink-0">
           <button
             onClick={onOpenModal}
-            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-xs uppercase font-extrabold tracking-wider px-4 py-2.5 xl:px-6 xl:py-3 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap cursor-pointer"
+            className="bg-[#FA5A16] hover:bg-[#EA4B07] text-white text-[11px] xl:text-xs uppercase font-extrabold tracking-wider px-3.5 py-2.5 xl:px-6 xl:py-3 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap cursor-pointer"
           >
             TALK TO OUR TEAM
           </button>

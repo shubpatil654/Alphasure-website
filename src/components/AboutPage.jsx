@@ -9,7 +9,7 @@ export default function AboutPage({ onOpenModal }) {
   return (
     <div className="w-full min-h-screen bg-[#FAF7F2]">
       {/* ================= HERO SECTION (With Video Background) ================= */}
-      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col justify-between items-center pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden select-none bg-[#0e1726]">
+      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col justify-between items-center pt-24 pb-8 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-14 overflow-hidden select-none bg-[#0e1726]">
         
         {/* Background Video Covering Entire Hero Section */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -40,14 +40,14 @@ export default function AboutPage({ onOpenModal }) {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-between items-center">
           
           {/* ================= TOP: Headline in a Single Line, Center-Aligned ================= */}
-          <div className="w-full text-center pt-2 sm:pt-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+          <div className="w-full text-center pt-2 sm:pt-3">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] font-extrabold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] whitespace-normal lg:whitespace-nowrap [text-wrap:balance] lg:[text-wrap:nowrap]">
               We are accountants, who understand Business.
             </h1>
           </div>
 
-          {/* Middle Spacer to keep video center completely visible */}
-          <div className="min-h-[140px] sm:min-h-[180px] md:min-h-[220px] w-full" />
+          {/* Middle Spacer to keep video center completely visible across any screen aspect ratio */}
+          <div className="flex-1 min-h-[60px] sm:min-h-[80px] md:min-h-[100px] w-full" />
 
           {/* ================= BOTTOM: Paragraphs, Center-Aligned ================= */}
           <div className="w-full max-w-3xl lg:max-w-4xl text-center pb-2 sm:pb-4">

@@ -30,10 +30,10 @@ export default function PuzzleSection() {
           
           {/* LEFT COLUMN: Section Heading & Content */}
           <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center text-center lg:text-left">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[29px] xl:text-[35px] font-extrabold text-[#FA5A16] tracking-tight leading-[1.2] lg:whitespace-nowrap">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[27px] xl:text-[34px] font-extrabold text-[#FA5A16] tracking-tight leading-[1.2] [text-wrap:balance] xl:whitespace-nowrap">
               A complete accounting solution
             </h3>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[25px] xl:text-[29px] font-black text-[#0B192C] tracking-tight leading-[1.2] mt-2.5 sm:mt-3 lg:whitespace-nowrap">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[23px] xl:text-[28px] font-black text-[#0B192C] tracking-tight leading-[1.2] mt-2.5 sm:mt-3 [text-wrap:balance] xl:whitespace-nowrap">
               Easy. AI-Powered. Expert-Led.
             </h2>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-[18px] text-slate-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
