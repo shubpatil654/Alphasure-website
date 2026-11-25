@@ -91,7 +91,9 @@ export default function Footer({ onOpenModal, onNavigate }) {
             <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-300">
               <div className="flex items-center gap-3 text-slate-300">
                 <Mail size={16} className="text-[#FA5A16] shrink-0" />
-                <span>contact@alphasure.com</span>
+                <a href="mailto:contact@alphasure360.com" className="hover:text-white transition-colors">
+                  contact@alphasure360.com
+                </a>
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <Phone size={16} className="text-[#00C853] shrink-0" />
