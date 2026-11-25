@@ -76,15 +76,15 @@ export default function Hero({ onOpenModal, onNavigate }) {
           muted
           playsInline
           poster="/images/hero-chai-video-poster.jpg"
-          className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
+          className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.03]"
         >
           <source src="/videos/hero-carousel-slide2.mp4" type="video/mp4" />
         </video>
         
-        {/* Soft, luminous overlay layers for enhanced brightness and text clarity */}
-        <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 z-[1] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 z-[1] pointer-events-none" />
+        {/* Balanced dark overlay layers for optimal contrast and warmth */}
+        <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/45 z-[1] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 z-[1] pointer-events-none" />
       </div>
 
       {/* ================= CENTRAL HERO CONTENT ================= */}
