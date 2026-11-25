@@ -9,7 +9,7 @@ export default function AboutPage({ onOpenModal }) {
   return (
     <div className="w-full min-h-screen bg-[#FAF7F2]">
       {/* ================= HERO SECTION (With Video Background) ================= */}
-      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden select-none bg-[#0e1726]">
+      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col justify-between items-center pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden select-none bg-[#0e1726]">
         
         {/* Background Video Covering Entire Hero Section */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -33,35 +33,34 @@ export default function AboutPage({ onOpenModal }) {
           {/* Low opacity dark layer across entire background video */}
           <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
-          {/* Directional gradient overlay to ensure text copy on the left is razor sharp and high contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent pointer-events-none" />
+          {/* Top and bottom dark gradient overlays for high contrast on headline and paragraphs */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/85 pointer-events-none" />
         </div>
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-            
-            {/* ================= LEFT COLUMN: Headline & Exact Copy ================= */}
-            <div className="lg:col-span-9 xl:col-span-8 flex flex-col items-start text-left text-white space-y-6 sm:space-y-8">
-              
-              {/* Main Headline Title */}
-              <h1 className="alpha-h1 font-bold text-white tracking-tight drop-shadow-2xl">
-                <span className="block">We are accountants,</span>
-                <span className="block whitespace-normal sm:whitespace-nowrap">who understand business</span>
-              </h1>
-
-              {/* Paragraph Content */}
-              <div className="space-y-4 max-w-2xl text-slate-100 alpha-body drop-shadow-md">
-                <p>
-                  We know that entrepreneurs have enough to worry about—winning customers, delivering for them, managing people, improving processes and growing the business. Accounting and compliance shouldn't become another burden. That's where Alphasure comes in.
-                </p>
-                <p>
-                  Whether you're starting out, growing rapidly, or building a more structured finance function, we provide the support you need so that you can focus on what matters most—growing your business.
-                </p>
-              </div>
-
-            </div>
-
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-between items-center">
+          
+          {/* ================= TOP: Headline in a Single Line, Center-Aligned ================= */}
+          <div className="w-full text-center pt-2 sm:pt-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] whitespace-normal sm:whitespace-nowrap [text-wrap:balance] sm:[text-wrap:nowrap]">
+              We are accountants, who understand Business.
+            </h1>
           </div>
+
+          {/* Middle Spacer to keep video center completely visible */}
+          <div className="min-h-[140px] sm:min-h-[180px] md:min-h-[220px] w-full" />
+
+          {/* ================= BOTTOM: Paragraphs, Center-Aligned ================= */}
+          <div className="w-full max-w-3xl lg:max-w-4xl text-center pb-2 sm:pb-4">
+            <div className="space-y-3 sm:space-y-4 text-slate-100 text-xs sm:text-sm md:text-base font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] [text-wrap:balance]">
+              <p>
+                We know that entrepreneurs have enough to worry about—winning customers, delivering for them, managing people, improving processes and growing the business. Accounting and compliance shouldn't become another burden. That's where Alphasure comes in.
+              </p>
+              <p>
+                Whether you're starting out, growing rapidly, or building a more structured finance function, we provide the support you need so that you can focus on what matters most—growing your business.
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </section>
